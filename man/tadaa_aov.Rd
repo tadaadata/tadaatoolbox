@@ -14,7 +14,7 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 
 \item{show_effect_size}{If \code{TRUE} (default), effect size is appended as a column.}
 
-\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method}}
+\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
 }
 \value{
 A \code{data.frame} that's also a \code{dust} object, or depending on \code{print}.

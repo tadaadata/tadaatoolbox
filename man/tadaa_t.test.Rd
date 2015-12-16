@@ -18,8 +18,7 @@ tadaa_t.test(data, response, group, direction = "two.sided", na.rm = TRUE,
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
-\item{print}{Print method, default is \code{console}, can also bei \code{knitr} for
-\code{pixidust}'s markdown print method.}
+\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
 }
 \value{
 A \code{data.frame}, optionally markdown'd

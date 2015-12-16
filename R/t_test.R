@@ -5,8 +5,7 @@
 #' @param group The group variable, usually a \code{factor}.
 #' @param direction Test direction, like \code{alternative} in \link{t.test}.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#' @param print Print method, default is \code{console}, can also bei \code{knitr} for
-#' \code{pixidust}'s markdown print method.
+#' @inheritParams tadaa_aov
 #'
 #' @return A \code{data.frame}, optionally markdown'd
 #' @import pixiedust
@@ -14,7 +13,8 @@
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_t.test(df, "x", "y")
-tadaa_t.test <- function(data, response, group, direction = "two.sided", na.rm = TRUE, print = "console") {
+tadaa_t.test <- function(data, response, group, direction = "two.sided", na.rm = TRUE,
+                         print = "console") {
   # Check the type of the group
   if (is.factor(data[[group]])) {
     groups <- levels(data[[group]])
@@ -48,10 +48,9 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided", na.rm =
   output <- pixiedust::sprinkle(output, col = c(1:4, 6:10), round = 3)
   output <- pixiedust::sprinkle(output, col = 5, fn = quote(pixiedust::pvalString(value)))
 
-  # Return
-  if (print == "console") {
-    return(output)
-  } else if (print == "knitr") {
-    return(pixiedust::sprinkle_print_method(output, "markdown"))
+  if (!(print %in% c("console", "hmtl", "markdown"))) {
+    stop("Print method must be 'console', 'html' or, 'markdown'")
   }
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+
 }
