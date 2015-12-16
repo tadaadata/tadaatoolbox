@@ -14,7 +14,7 @@ tadaa_t.test(data, response, group, direction = "two.sided", na.rm = TRUE,
 
 \item{group}{The group variable, usually a \code{factor}.}
 
-\item{direction}{Test direction, as in \link{t.test.}}
+\item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 

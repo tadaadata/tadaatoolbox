@@ -3,7 +3,7 @@
 #' @param data A \code{data.frame}.
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
-#' @param direction Test direction, as in \link{t.test.}
+#' @param direction Test direction, like \code{alternative} in \link{t.test}.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @param print Print method, default is \code{console}, can also bei \code{knitr} for
 #' \code{pixidust}'s markdown print method.
@@ -42,7 +42,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided", na.rm =
 
   # Additions
   test$d     <- effect_size_t(data = data, response = response, group = group)
-  test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d, direction = direction)$power
+  test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d, alternative = direction)$power
 
   output <- pixiedust::dust(test)
   output <- pixiedust::sprinkle(output, col = c(1:4, 6:10), round = 3)
