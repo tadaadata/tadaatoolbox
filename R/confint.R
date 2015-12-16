@@ -17,7 +17,7 @@ confint_t <- function(data, alpha = 0.05, na.rm = TRUE){
   alpha    <- alpha/2
   sd       <- sd(data, na.rm = na.rm)
   w_krit   <- qt(1 - (alpha), df = (length(data) - 1))
-  ret      <- w_krit * sd/sqrt(length(data))
+  width    <- w_krit * sd/sqrt(length(data))
 
-  return(ret)
+  return(width)
 }

@@ -10,6 +10,7 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = qmtut::ngo)
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "console"){
+
   model <- broom::tidy(aov(formula = formula, data = data))
 
   if (show_effect_size) {
