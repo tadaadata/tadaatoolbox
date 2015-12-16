@@ -6,6 +6,6 @@
 \alias{tadaatoolbox-package}
 \title{tadaatoolbox.}
 \description{
-tadaatoolbox.
+Some functions that make every day analysis a little more convenient.
 }
 
