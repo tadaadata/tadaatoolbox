@@ -7,7 +7,6 @@
 #'
 #' @return \code{numeric} of length 1.
 #' @export
-#'
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "y")

@@ -6,7 +6,6 @@
 #'
 #' @return \code{numeric} of length one (size of CI in one direction)
 #' @export
-#'
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' confint_t(df$x)

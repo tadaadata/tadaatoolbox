@@ -9,8 +9,8 @@
 #' \code{pixidust}'s markdown print method.
 #'
 #' @return A \code{data.frame}, optionally markdown'd
+#' @import pixiedust
 #' @export
-#'
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_t.test(df, "x", "y")
