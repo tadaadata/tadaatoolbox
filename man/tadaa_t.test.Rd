@@ -4,8 +4,8 @@
 \alias{tadaa_t.test}
 \title{Tadaa, t-Test!}
 \usage{
-tadaa_t.test(data, response, group, direction = "two.sided", na.rm = TRUE,
-  print = "console")
+tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
+  na.rm = TRUE, print = "console")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -15,6 +15,8 @@ tadaa_t.test(data, response, group, direction = "two.sided", na.rm = TRUE,
 \item{group}{The group variable, usually a \code{factor}.}
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
+
+\item{paired}{If \code{TRUE}, a paired t.test is performed with approproate power calculation.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
