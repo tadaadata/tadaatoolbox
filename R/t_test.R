@@ -14,12 +14,16 @@
 #' @export
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
-#' tadaa_t.test(df, "x", "y")
+#' tadaa_t.test(df, x, y)
 #'
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
-#' tadaa_t.test(df, "x", "y", paired = TRUE)
+#' tadaa_t.test(df, x, y, paired = TRUE)
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, na.rm = TRUE, print = "console") {
+
+  response <- deparse(substitute(response))
+  group    <- deparse(substitute(group))
+
   # Check the type of the group
   if (is.factor(data[[group]])) {
     groups <- levels(data[[group]])

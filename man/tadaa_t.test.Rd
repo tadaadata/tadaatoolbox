@@ -30,9 +30,9 @@ Tadaa, t-Test!
 }
 \examples{
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
-tadaa_t.test(df, "x", "y")
+tadaa_t.test(df, x, y)
 
 df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
-tadaa_t.test(df, "x", "y", paired = TRUE)
+tadaa_t.test(df, x, y, paired = TRUE)
 }
 
