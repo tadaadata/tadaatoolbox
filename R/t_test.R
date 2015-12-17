@@ -9,6 +9,7 @@
 #'
 #' @return A \code{data.frame}, optionally markdown'd
 #' @import pixiedust
+#' @importFrom car leveneTest
 #' @export
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
@@ -36,8 +37,12 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided", na.rm =
   n1   <- length(x)
   n2   <- length(y)
 
+  # levene
+  levene    <- broom::tidy(car::leveneTest(data[[response]], data[[group]], center = "mean"))
+  var.equal <-  ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
+
   # t.test
-  test <- broom::tidy(t.test(x = x, y = y, direction = direction))
+  test <- broom::tidy(t.test(x = x, y = y, direction = direction, var.equal = var.equal))
   names(test) <- c("Differenz", groups[1], groups[2], "t", "p", "df", "conf_low", "conf_high")
 
   # Additions
