@@ -15,6 +15,9 @@
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_t.test(df, "x", "y")
+#'
+#' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
+#' tadaa_t.test(df, "x", "y", paired = TRUE)
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, na.rm = TRUE, print = "console") {
   # Check the type of the group
@@ -45,7 +48,6 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   # t.test
   test <- broom::tidy(t.test(x = x, y = y, direction = direction,
                              paired = paired, var.equal = var.equal))
-  names(test) <- c("Differenz", groups[1], groups[2], "t", "p", "df", "conf_low", "conf_high")
 
   # Additions
   test$d     <- effect_size_t(data = data, response = response, group = group)
@@ -56,8 +58,19 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   }
 
   output <- pixiedust::dust(test)
-  output <- pixiedust::sprinkle(output, col = c(1:4, 6:10), round = 3)
-  output <- pixiedust::sprinkle(output, col = 5, fn = quote(pixiedust::pvalString(value)))
+  output <- pixiedust::sprinkle_colnames(output,
+                                         statistic = "t", p.value = "p", parameter = "df",
+                                         conf.low = "conf_low", conf.high = "conf_high")
+
+  if ("estimate" %in% output$body$col_name) {
+    output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
+  }
+  if ("estimate1" %in% output$body$col_name) {
+    output <- pixiedust::sprinkle_colnames(output, estimate1 = groups[[1]], estimate2 = groups[[2]])
+  }
+
+  output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pixiedust::pvalString(value)))
+  output <- pixiedust::sprinkle(output, round = 3)
 
   if (!(print %in% c("console", "hmtl", "markdown"))) {
     stop("Print method must be 'console', 'html' or, 'markdown'")
