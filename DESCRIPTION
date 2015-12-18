@@ -16,6 +16,7 @@ Imports:
     dplyr,
     pwr,
     pixiedust,
+    qmtut,
     car
 RoxygenNote: 5.0.1
 URL: https://github.com/tadaadata/tadaatoolbox
