@@ -17,7 +17,7 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 \item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
 }
 \value{
-A \code{data.frame} that's also a \code{dust} object, or depending on \code{print}.
+A \code{dust} object, depending on \code{print}.
 }
 \description{
 Tadaa, anova!

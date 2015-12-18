@@ -3,6 +3,8 @@
 export(confint_t)
 export(effect_size_t)
 export(tadaa_aov)
+export(tadaa_nom)
 export(tadaa_t.test)
 import(pixiedust)
+import(qmtut)
 importFrom(car,leveneTest)

@@ -5,7 +5,7 @@
 #' @param show_effect_size If \code{TRUE} (default), effect size is appended as a column.
 #' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
 #'
-#' @return A \code{data.frame} that's also a \code{dust} object, or depending on \code{print}.
+#' @return A \code{dust} object, depending on \code{print}.
 #' @export
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = qmtut::ngo)
