@@ -16,10 +16,12 @@ tadaa_int(data, response, group1, group2)
 \item{group2}{Second grouping variable}
 }
 \value{
-A list with two ggplot2 objects
+Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
+Printed: The two ggplot2 objects.
 }
 \description{
-Interaction plots
+Easily generate interaction plots of two nominal grouping
+variables and a numeric response variable.
 }
 \examples{
 tadaa_int(qmtut::ngo, stunzahl, jahrgang, geschl)
