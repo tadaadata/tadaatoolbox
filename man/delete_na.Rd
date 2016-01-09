@@ -18,10 +18,10 @@ A filtered version of the input \code{data.frame}.
 Delete cases with set amount of missing values
 }
 \note{
-Adapted from \url{http://stackoverflow.com/a/30461945/409362}
+Adapted from \url{http://stackoverflow.com/a/30461945/409362}.
 }
 \examples{
-\donttrun{
+\dontrun{
 df <- delete_na(df)
 }
 }
