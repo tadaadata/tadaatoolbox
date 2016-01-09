@@ -2,11 +2,10 @@ Package: tadaatoolbox
 Type: Package
 Date: 2015-12-16
 Title: Convenience tools for data analysis and presentation
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: person('Lukas', 'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre'))
            person('Tobias', 'Anton', email = 'unsichtbarer@quantenbrot.de', role = c('aut', 'cre'))
-Description: Some functions that make every day analysis a little more
-    convenient.
+Description: Some functions that make every day analysis a little more convenient.
 License: MIT + file LICENSE
 LazyData: TRUE
 Suggests:
@@ -18,7 +17,8 @@ Imports:
     pixiedust,
     qmtut,
     car,
-    ggplot2
+    ggplot2,
+    lazyeval
 RoxygenNote: 5.0.1
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues

@@ -2,6 +2,7 @@
 #'
 #' @param x Dependent variable. Alternatively a \code{table}.
 #' @param y Independent variable
+#' @param round Ho many digits should be rounded. Default is 2.
 #' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
 
 #' @return A \code{dust} object, depending on \code{print}.

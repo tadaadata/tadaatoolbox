@@ -10,6 +10,7 @@
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
 #' Printed: The two ggplot2 objects.
 #' @export
+#' @import ggplot2
 #' @examples
 #' tadaa_int(qmtut::ngo, stunzahl, jahrgang, geschl)
 tadaa_int <- function(data, response, group1, group2){
