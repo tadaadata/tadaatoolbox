@@ -1,0 +1,10 @@
+language: r
+
+sudo: required
+
+r_binary_packages:
+ - ggplot2
+ - dplyr
+
+ r_github_packages:
+ - jemus42/qmtut
