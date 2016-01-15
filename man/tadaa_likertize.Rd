@@ -15,7 +15,7 @@ tadaa_likertize(x, classes = 3, method = "quantiles")
 \code{means} for mean and standard deviation.}
 }
 \value{
-A \code{factor} with \code{classes} levels. And descriptive labels.
+An ordered \code{factor} with \code{classes} levels. And descriptive labels.
 }
 \description{
 Easily cluster numeric vectors in likert-like classes
