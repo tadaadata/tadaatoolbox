@@ -9,6 +9,7 @@
 #' @export
 #' @examples
 #' tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "quantiles")
+#' tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
 tadaa_likertize <- function(x, classes = 3, method = "quantiles"){
 
   if (classes == 3) {
@@ -18,7 +19,9 @@ tadaa_likertize <- function(x, classes = 3, method = "quantiles"){
                         quantiles[[1]], ":", quantiles[[3]], " = 2; ",
                         quantiles[[3]], ":hi = 3")
     } else if (method == "meansd") {
-      stop("not yet implemented")
+      recodes <- paste0("lo:", mean(x) - sd(x), " = 1; ",
+                        mean(x) -  sd(x), ":", mean(x) + sd(x), " = 2; ",
+                        mean(x) + sd(x), ":hi = 3")
     }
       xx <- car::recode(x, recodes = recodes)
       xx <- factor(xx, labels = c("niedrig", "mittel", "hoch"))
