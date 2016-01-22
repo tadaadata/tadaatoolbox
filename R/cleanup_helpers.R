@@ -16,3 +16,40 @@ delete_na <- function(df, n = ncol(df) - 1) {
 
   return(df[logindex, ])
 }
+
+#' Convert all labels to factor variables
+#'
+#' @param df A \code{data.frame}
+#'
+#' @return An identical \code{data.frame} with labelled data converted to factors
+#' @export
+#' @importFrom sjmisc is_labelled
+#' @importFrom haven as_factor
+#' @examples
+#' \dontrun{
+#' data %<>% labels_to_factor
+#' }
+labels_to_factor <- function(df) {
+  for (column in names(df)) {
+    if (sjmisc::is_labelled(df[[column]])) {
+      df[[column]] <- haven::as_factor(df[[column]])
+    }
+  }
+  return(df)
+}
+
+#' Re-label a vector after subsetting
+#'
+#' @param x A vector with now unused labels
+#' @return Identical vector with appropriate labels
+#' @export
+#' @importFrom sjmisc set_labels
+#' @importFrom sjmisc get_labels
+#' @examples
+#' \dontrun{
+#' x <- drop_labels(x)
+#' }
+drop_labels <- function(x) {
+  sjmisc::set_labels(x, labels = sjmisc::get_labels(x)[unique(x)])
+}
+
