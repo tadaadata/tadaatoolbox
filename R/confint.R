@@ -42,7 +42,7 @@ mean_ci_t <- function(data, alpha = 0.05, na.rm = TRUE){
 
   m     <- mean(data, na.rm = na.rm)
   upper <- m + confint_t(data = data, alpha = alpha, na.rm = na.rm)
-  lower <- m + confint_t(data = data, alpha = alpha, na.rm = na.rm)
+  lower <- m - confint_t(data = data, alpha = alpha, na.rm = na.rm)
   ret   <- data.frame(y = m, ymin = lower, ymax = upper)
 
   return(ret)
