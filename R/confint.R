@@ -24,7 +24,7 @@ confint_t <- function(data, alpha = 0.05, na.rm = TRUE){
 
 #' Get mean and ci for data
 #'
-#' Suitable for use within ggplot's \link[ggplot]{stat_summary}.
+#' Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
 #'
 #' @param data A \code{data.frame}
 #' @param alpha Alpha, default is \code{0.05}
