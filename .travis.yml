@@ -9,5 +9,9 @@ r_binary_packages:
 r_github_packages:
  - jemus42/qmtut
 
+ env:
+ global:
+   - CRAN: http://cran.rstudio.com
+
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
