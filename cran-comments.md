@@ -7,7 +7,10 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+### Notes
+
+- *found 1 marked UTF-8 string*
+    - The included data contains a `factor` with labels, one of which contains an Umlaut (`Männlich`), which is entered as an escaped unicode sequence (`\u00e4`)
 
 ## Reverse dependencies
 
