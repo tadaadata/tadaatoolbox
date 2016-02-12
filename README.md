@@ -99,3 +99,11 @@ ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
 ```
 
 ![](examples/README-confint-1.png)<!-- -->
+
+### Interaction plots
+
+``` r
+tadaa_int(data = qmtut::ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
+```
+
+![](examples/README-interaction_plots-1.png)<!-- -->![](examples/README-interaction_plots-2.png)<!-- -->

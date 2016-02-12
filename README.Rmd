@@ -67,3 +67,9 @@ ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
   stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
 ```
 
+### Interaction plots
+
+```{r interaction_plots}
+tadaa_int(data = qmtut::ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
+```
+
