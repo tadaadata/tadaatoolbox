@@ -6,12 +6,9 @@ r_binary_packages:
  - ggplot2
  - dplyr
 
-r_github_packages:
- - jemus42/qmtut
-
- env:
+env:
  global:
-   - CRAN: http://cran.rstudio.com
+   - CRAN: https://cran.rstudio.com
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
