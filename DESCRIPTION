@@ -1,7 +1,7 @@
 Package: tadaatoolbox
 Type: Package
 Date: 2016-02-12
-Title: Convenience tools for data analysis and presentation
+Title: Convenience Tools For Data Analysis And Presentation
 Version: 0.7.1
 Authors@R: c(person('Lukas', 'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre')),
            person('Tobias', 'Anton', email = 'unsichtbarer@quantenbrot.de', role = c('aut')))
@@ -14,6 +14,7 @@ Depends:
 Suggests:
     testthat
 Imports:
+    stats,
     broom,
     dplyr,
     pwr,
