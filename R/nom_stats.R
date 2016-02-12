@@ -6,6 +6,7 @@
 #' @param correct Apply correction, passed to \code{chisq.test}.
 #' @return A \code{numeric} value
 #' @export
+#' @import stats
 #' @examples
 #' nom_chisqu(ngo$abschalt, ngo$geschl)
 nom_chisqu <- function(x, y = NULL, correct = FALSE){

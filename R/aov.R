@@ -4,9 +4,9 @@
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect size is appended as a column.
 #' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
-#'
 #' @return A \code{dust} object, depending on \code{print}.
 #' @export
+#' @import stats
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "console"){

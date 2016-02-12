@@ -7,9 +7,9 @@
 #' @param paired If \code{TRUE}, a paired t.test is performed with approproate power calculation.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @inheritParams tadaa_aov
-#'
 #' @return A \code{data.frame}, optionally markdown'd
 #' @import pixiedust
+#' @import stats
 #' @importFrom car leveneTest
 #' @export
 #' @examples

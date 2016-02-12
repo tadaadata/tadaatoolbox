@@ -4,9 +4,9 @@
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#'
 #' @return \code{numeric} of length 1.
 #' @export
+#' @import stats
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "y")
