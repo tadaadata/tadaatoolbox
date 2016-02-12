@@ -3,6 +3,12 @@
 * ubuntu 12.04 (on travis-ci), R 3.2.3
 * win-builder (devel and release)
 
+## Fixes from previous submission
+
+- File LICENSE has been modified to meet criteria
+- Title in DESCRIPTION as been expanded
+- Description in DESCRIPTION has been expanded
+
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
@@ -14,5 +20,5 @@
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+There are no reverse dependencies.
 
