@@ -10,13 +10,15 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "examples/README-"
 )
 ```
 
 # tadaatoolbox   
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/qmtut)](http://cran.r-project.org/package=qmtut)
+[![Project Status: Wip - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
 
 This is a mere toolbox of common convenience function meant to ease workflows.
 
@@ -29,3 +31,39 @@ if (!("devtools" %in% installed.packages())){
 
 devtools::install_github("tadaadata/tadaatoolbox")
 ```
+
+# Examples
+
+## Tidy test output
+
+### t-Tests
+
+```{r t-test}
+library(tadaatoolbox)
+library(loldata)
+
+tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
+```
+
+### ANOVA
+
+```{r anova}
+library(tadaatoolbox)
+library(loldata)
+
+tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
+```
+
+## Helpers for plots
+
+### CI based on t-distribution: `mean_ci_t` and `confint_t`
+
+```{r confint}
+library(ggplot2)
+library(tadaatoolbox)
+library(loldata)
+
+ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
+  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
+```
+
