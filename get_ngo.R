@@ -2,7 +2,7 @@
 ngo <- ryouready::d.ngo
 
 ## sjPlot value labels
-ngo$geschl   <- sjmisc::set_labels(ngo$geschl,   c(enc2utf8("Männlich"), "Weiblich"))
+ngo$geschl   <- sjmisc::set_labels(ngo$geschl,   c("M\u00e4nnlich", "Weiblich"))
 ngo$abschalt <- sjmisc::set_labels(ngo$abschalt, c("Ja", "Nein"))
 ngo$jahrgang <- sjmisc::set_labels(ngo$jahrgang, c("11", "12", "13"))
 ngo$hausauf  <- sjmisc::set_labels(ngo$hausauf,  c("gar nicht", "weniger als halbe Stunde",
@@ -11,7 +11,7 @@ ngo$hausauf  <- sjmisc::set_labels(ngo$hausauf,  c("gar nicht", "weniger als hal
                                            "mehr als 4 Stunden"))
 
 ## factors
-ngo$geschl   <- factor(ngo$geschl,   labels = c(enc2utf8("Männlich"), "Weiblich"))
+ngo$geschl   <- factor(ngo$geschl,   labels = c("M\u00e4nnlich", "Weiblich"))
 ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
 ngo$hausauf  <- car::recode(ngo$hausauf,  "0 = NA")
 ngo$abschalt <- car::recode(ngo$abschalt, "0 = NA")

@@ -2,7 +2,7 @@ Package: tadaatoolbox
 Type: Package
 Date: 2016-02-12
 Title: Convenience Tools For Data Analysis And Presentation
-Version: 0.7.1
+Version: 0.7.2
 Authors@R: c(person('Lukas', 'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre')),
            person('Tobias', 'Anton', email = 'unsichtbarer@quantenbrot.de', role = c('aut')))
 Description: Some functions that make every day analysis a little more convenient.
