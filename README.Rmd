@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 # tadaatoolbox   
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/qmtut)](http://cran.r-project.org/package=qmtut)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![Project Status: Wip - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
 
 This is a mere toolbox of common convenience function meant to ease workflows.
@@ -33,6 +33,22 @@ devtools::install_github("tadaadata/tadaatoolbox")
 ```
 
 # Examples
+
+## Statistical functions
+
+* `modus`: A simple function to extract the mode of a frequency table
+* `nom_chisqu`: Simple wrapper for `chisq.test` that produces a single value.
+* `nom_phi`: Simple wrapper for `vcd::assocstats` to extract phi.
+* `nom_v`: Simple wrapper for `vcd::assocstats` to extract Cramer's V.
+* `nom_c`: Simple wrapper for `vcd::assocstats` to extract the contingency coefficient c.
+* `nom_lambda`: Simple wrapper for `ryouready::nom.lambda` to extract appropriate lambda.
+* `ord_gamma`: Simple wrapper for `ryouready::ord.gamma`.
+* `ord_somers_d`: Simple wrapper for `ryouready::ord.somers.d`.
+
+## Misc. helpers
+
+* `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
+* `interval_labels`: To produce labels for clusters created by `cut`.
 
 ## Tidy test output
 

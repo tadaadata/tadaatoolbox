@@ -24,6 +24,6 @@ Easily generate interaction plots of two nominal grouping
 variables and a numeric response variable.
 }
 \examples{
-tadaa_int(qmtut::ngo, stunzahl, jahrgang, geschl)
+tadaa_int(ngo, stunzahl, jahrgang, geschl)
 }
 

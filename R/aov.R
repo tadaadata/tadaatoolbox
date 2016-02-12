@@ -8,7 +8,7 @@
 #' @return A \code{dust} object, depending on \code{print}.
 #' @export
 #' @examples
-#' tadaa_aov(stunzahl ~ jahrgang, data = qmtut::ngo)
+#' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "console"){
 
   model <- broom::tidy(aov(formula = formula, data = data))

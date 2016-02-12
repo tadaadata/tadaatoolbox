@@ -23,6 +23,6 @@ A \code{dust} object, depending on \code{print}.
 Tadaa, anova!
 }
 \examples{
-tadaa_aov(stunzahl ~ jahrgang, data = qmtut::ngo)
+tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 }
 

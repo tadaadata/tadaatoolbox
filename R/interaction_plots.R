@@ -12,7 +12,7 @@
 #' @export
 #' @import ggplot2
 #' @examples
-#' tadaa_int(qmtut::ngo, stunzahl, jahrgang, geschl)
+#' tadaa_int(ngo, stunzahl, jahrgang, geschl)
 tadaa_int <- function(data, response, group1, group2){
 
   sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))

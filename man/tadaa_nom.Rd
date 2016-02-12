@@ -22,6 +22,6 @@ A \code{dust} object, depending on \code{print}.
 Get all the nominal stats
 }
 \examples{
-tadaa_nom(qmtut::ngo$abschalt, qmtut::ngo$geschl)
+tadaa_nom(ngo$abschalt, ngo$geschl)
 }
 
