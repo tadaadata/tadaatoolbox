@@ -1,13 +1,17 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 tadaatoolbox
 ============
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Wip - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
 
-This is a mere toolbox of common convenience function meant to ease workflows.
+This is **TadaaToolbox** version `0.8.0` ([semver](http://semver.org/)).
+It's a toolbox of common convenience function meant to ease workflows.
 
 Installation
 ============
+
+Install the current development version from GitHub:
 
     if (!("devtools" %in% installed.packages())){
       install.packages("devtools")
@@ -121,7 +125,7 @@ ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
 ### Interaction plots
 
 ``` r
-tadaa_int(data = qmtut::ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
+tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
 ```
 
 ![](examples/README-interaction_plots-1.png)<!-- -->![](examples/README-interaction_plots-2.png)<!-- -->

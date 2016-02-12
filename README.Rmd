@@ -1,7 +1,6 @@
 ---
 output:
-  md_document:
-    variant: markdown_github
+  github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -12,6 +11,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "examples/README-"
 )
+
+description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
 ```
 
 # tadaatoolbox   
@@ -20,9 +21,12 @@ knitr::opts_chunk$set(
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![Project Status: Wip - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
 
-This is a mere toolbox of common convenience function meant to ease workflows.
+This is **TadaaToolbox** version ``r description$Version`` ([semver](http://semver.org/)).  
+It's a toolbox of common convenience function meant to ease workflows.
 
 # Installation
+
+Install the current development version from GitHub:
 
 ```
 if (!("devtools" %in% installed.packages())){
@@ -86,6 +90,6 @@ ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
 ### Interaction plots
 
 ```{r interaction_plots}
-tadaa_int(data = qmtut::ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
+tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
 ```
 
