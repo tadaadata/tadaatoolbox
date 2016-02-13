@@ -7,7 +7,7 @@
 #'
 #' @return \code{numeric} of length 1.
 #' @export
-#'
+#' @importFrom ryouready ord.gamma
 #' @examples
 #' df <- data.frame(rating = round(runif(50, 1, 5)),
 #'                  group  = sample(c("A", "B", "C"), 50, TRUE))
