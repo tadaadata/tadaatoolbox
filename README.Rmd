@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   fig.path = "examples/README-"
 )
 
+library(tadaatoolbox)
+
 description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
 ```
 
@@ -22,7 +24,7 @@ description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
 [![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This is **TadaaToolbox** version ``r description$Version`` ([semver](http://semver.org/)).  
+This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)).  
 It's a toolbox of common convenience functions meant to ease workflows.
 
 # Installation
@@ -66,7 +68,6 @@ install.packages("tadaatoolbox")
 ### t-Tests
 
 ```{r t-test}
-library(tadaatoolbox)
 library(loldata)
 
 tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
@@ -75,7 +76,6 @@ tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
 ### ANOVA
 
 ```{r anova}
-library(tadaatoolbox)
 library(loldata)
 
 tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
@@ -87,7 +87,6 @@ tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
 
 ```{r confint}
 library(ggplot2)
-library(tadaatoolbox)
 library(loldata)
 
 ggplot(data = penis, aes(x = Region, y = length_flaccid)) +

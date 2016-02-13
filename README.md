@@ -5,7 +5,7 @@ tadaatoolbox
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This is **TadaaToolbox** version `0.8.1` ([semver](http://semver.org/)).
+This is **tadaatoolbox** version `0.8.1` ([semver](http://semver.org/)).
 It's a toolbox of common convenience functions meant to ease workflows.
 
 Installation
@@ -50,7 +50,6 @@ Tidy test output
 ### t-Tests
 
 ``` r
-library(tadaatoolbox)
 library(loldata)
 
 tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
@@ -99,7 +98,6 @@ tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
 ### ANOVA
 
 ``` r
-library(tadaatoolbox)
 library(loldata)
 
 tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
@@ -117,7 +115,6 @@ Helpers for plots
 
 ``` r
 library(ggplot2)
-library(tadaatoolbox)
 library(loldata)
 
 ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
