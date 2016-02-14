@@ -28,4 +28,6 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "co
     stop("Print method must be 'console', 'html' or, 'markdown'")
   }
   pixiedust::sprinkle_print_method(output, print_method = print)
+
+  invisible(model)
 }
