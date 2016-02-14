@@ -6,8 +6,10 @@ r_binary_packages:
  - ggplot2
  - dplyr
  - car
- - sjmisc
- - ryouready
+
+r_github_packages:
+  - sjPlot/sjmisc
+  - markheckmann/ryouready
 
 env:
  global:
