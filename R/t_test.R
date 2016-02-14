@@ -79,8 +79,8 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   if (!(print %in% c("console", "hmtl", "markdown"))) {
     stop("Print method must be 'console', 'html' or, 'markdown'")
   }
-  pixiedust::sprinkle_print_method(output, print_method = print)
 
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
   invisible(test)
 
 }
