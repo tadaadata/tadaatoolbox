@@ -6,3 +6,4 @@ travis.yml
 examples/*
 get_ngo.R
 ^cran-comments\.md$
+dependencies.R
