@@ -3,8 +3,8 @@ Type: Package
 Date: 2016-02-14
 Title: Helpers for Data Analysis and Presentation Focused on Undergrad Psychology
 Version: 0.8.1
-Authors@R: c(person('Lukas', 'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre')),
-           person('Tobias', 'Anton', email = 'unsichtbarer@quantenbrot.de', role = c('aut')))
+Authors@R: c(person('Lukas',  'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre')),
+             person('Tobias', 'Anton', email = 'unsichtbarer@quantenbrot.de', role = c('aut')))
 Description: Contains functions for the easy display of statistical tests as well as
     some convenience functions for recoding or data cleanup. It is meant to ease existing workflows
     with packages like 'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the functions
@@ -14,15 +14,14 @@ License: MIT + file LICENSE
 LazyData: TRUE
 Encoding: UTF-8
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.2.1)
 Suggests:
     testthat,
     knitr,
-    rmarkdown,
-    quantreg
+    rmarkdown
 Imports:
     stats,
-    broom,
+    broom (>= 0.4.0),
     dplyr,
     pwr,
     pixiedust (>= 0.6.0),
