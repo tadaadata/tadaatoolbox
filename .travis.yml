@@ -5,6 +5,9 @@ sudo: required
 r_binary_packages:
  - ggplot2
  - dplyr
+ - car
+ - sjmisc
+ - ryouready
 
 env:
  global:
