@@ -47,6 +47,8 @@ install.packages("tadaatoolbox")
 
 # Examples
 
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")`
+
 ## Statistical functions
 
 * `modus`: A simple function to extract the mode of a frequency table
@@ -58,6 +60,11 @@ install.packages("tadaatoolbox")
 * `ord_gamma`: Simple wrapper for `ryouready::ord.gamma`.
 * `ord_somers_d`: Simple wrapper for `ryouready::ord.somers.d`.
 
+### Summaries
+
+* `tadaa_nom`: All the nominal stats in one table.
+* `tadaa_ord`: All the ordinal stats in one table (**NYI**).
+
 ## Misc. helpers
 
 * `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
@@ -65,37 +72,16 @@ install.packages("tadaatoolbox")
 
 ## Tidy test output
 
-### t-Tests
-
-```{r t-test}
-library(loldata)
-
-tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
-```
-
-### ANOVA
-
-```{r anova}
-library(loldata)
-
-tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
-```
+* `tadaa_aov`: For `aov` with included partial eta^2.
+* `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
 
 ## Helpers for plots
 
-### CI based on t-distribution: `mean_ci_t` and `confint_t`
+### CI based on t-distribution
 
-```{r confint}
-library(ggplot2)
-library(loldata)
-
-ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
-  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
-```
+* `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
+    * `confint_t`: For the underlying function to get the CI width. Returns a single value.
 
 ### Interaction plots
 
-```{r interaction_plots}
-tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
-```
-
+* `tadaa_int`: Simple interaction plot template.

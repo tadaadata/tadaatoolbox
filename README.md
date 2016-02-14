@@ -26,6 +26,8 @@ Or install the most recent stable version from CRAN:
 Examples
 ========
 
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")`
+
 Statistical functions
 ---------------------
 
@@ -38,6 +40,11 @@ Statistical functions
 -   `ord_gamma`: Simple wrapper for `ryouready::ord.gamma`.
 -   `ord_somers_d`: Simple wrapper for `ryouready::ord.somers.d`.
 
+### Summaries
+
+-   `tadaa_nom`: All the nominal stats in one table.
+-   `tadaa_ord`: All the ordinal stats in one table (**NYI**).
+
 Misc. helpers
 -------------
 
@@ -47,86 +54,17 @@ Misc. helpers
 Tidy test output
 ----------------
 
-### t-Tests
-
-``` r
-library(loldata)
-
-tadaa_t.test(penis, length_flaccid, Method, print = "markdown")
-```
-
-<table style="width:114%;">
-<colgroup>
-<col width="13%" />
-<col width="20%" />
-<col width="11%" />
-<col width="12%" />
-<col width="6%" />
-<col width="13%" />
-<col width="15%" />
-<col width="9%" />
-<col width="9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="right">Measured</th>
-<th align="right">Self reported</th>
-<th align="right">t</th>
-<th align="right">p</th>
-<th align="right">df</th>
-<th align="right">conf_low</th>
-<th align="right">conf_high</th>
-<th align="right">d</th>
-<th align="right">power</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">9.264</td>
-<td align="right">9.988</td>
-<td align="right">-4.099</td>
-<td align="right">&lt; 0.001</td>
-<td align="right">144</td>
-<td align="right">-1.074</td>
-<td align="right">-0.375</td>
-<td align="right">0.704</td>
-<td align="right">0.981</td>
-</tr>
-</tbody>
-</table>
-
-### ANOVA
-
-``` r
-library(loldata)
-
-tadaa_aov(length_flaccid ~ Region, data = penis, print = "markdown")
-```
-
-| term      |   df|   sumsq|  meansq|       F|     p.value|  part.eta.sq|
-|:----------|----:|-------:|-------:|-------:|-----------:|------------:|
-| Region    |   11|  81.817|   7.438|  11.529|  &lt; 0.001|        0.486|
-| Residuals |  134|  86.453|   0.645|      NA|          NA|          0.5|
+-   `tadaa_aov`: For `aov` with included partial eta^2.
+-   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
 
 Helpers for plots
 -----------------
 
-### CI based on t-distribution: `mean_ci_t` and `confint_t`
+### CI based on t-distribution
 
-``` r
-library(ggplot2)
-library(loldata)
-
-ggplot(data = penis, aes(x = Region, y = length_flaccid)) +
-  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
-```
-
-![](examples/README-confint-1.png)<!-- -->
+-   `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
+    -   `confint_t`: For the underlying function to get the CI width. Returns a single value.
 
 ### Interaction plots
 
-``` r
-tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
-```
-
-![](examples/README-interaction_plots-1.png)<!-- -->![](examples/README-interaction_plots-2.png)<!-- -->
+-   `tadaa_int`: Simple interaction plot template.
