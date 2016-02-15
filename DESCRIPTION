@@ -24,11 +24,11 @@ Imports:
     broom (>= 0.4.0),
     dplyr,
     pwr,
-    pixiedust (>= 0.6.0),
+    pixiedust,
     car,
     ggplot2,
     lazyeval,
-    sjmisc (>= 1.4.0),
+    sjmisc,
     haven,
     ryouready,
     vcd
