@@ -25,7 +25,7 @@ graph <- create_graph(nodes_df = create_nodes(nodes_total),
                                               to = to_pkgs,
                                               rel = "to_get",
                                               "penwidth = 2"),
-                      graph_attrs = c("layout = twopi",
+                      graph_attrs = c("layout = circo",
                                       "overlap = false",
                                       "outputorder = edgesfirst")
                       )
