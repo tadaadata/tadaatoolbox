@@ -128,6 +128,5 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console"){
                                       lmbd_x = "Lambda (x dependent)",
                                       lmbd_y = "Lambda (y dependent)",
                                       lmbd_s = "Lambda (symmetric)")
-  pixiedust::sprinkle_print_method(retprint, print)
-  invisible(ret)
+  return(pixiedust::sprinkle_print_method(retprint, print))
 }

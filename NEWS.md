@@ -6,6 +6,7 @@
     - Specifiy minimal versions for `pixiedust`, `sjmisc`, and `broom`, just to be safe
 * Add vignette
     - Overhauling `README` to be less redundant compared to the usage vignette
+* Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
 
 # tadaatoolbox 0.8.0 (on CRAN)
 
