@@ -5,8 +5,7 @@ tadaatoolbox
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This is **tadaatoolbox** version `0.8.1` ([semver](http://semver.org/)).
-It's a toolbox of common convenience functions meant to ease workflows.
+This is **tadaatoolbox** version `0.8.1` ([semver](http://semver.org/)).<br /> It's a toolbox of common convenience functions meant to ease workflows.
 
 Installation
 ============

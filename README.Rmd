@@ -24,7 +24,7 @@ description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
 [![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)).  
+This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)).<br />
 It's a toolbox of common convenience functions meant to ease workflows.
 
 # Installation
