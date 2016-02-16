@@ -21,7 +21,7 @@ Suggests:
     rmarkdown
 Imports:
     stats,
-    broom (>= 0.4.0),
+    broom,
     dplyr,
     pwr,
     pixiedust,
