@@ -1,5 +1,7 @@
 # tadaatoolbox 0.9.0 (on GitHub)
 
+* Add `tadaa_ord` as ordinal equivalent of `tadaa_nom`.
+    - Make table output smaller in width by abbreviating column names
 * Add `family` tag to `tadaa_` functions so their documentation is linked
 * Add `brewer_palette` option to `tadaa_int`
 * Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected

@@ -126,8 +126,8 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console"){
 
   retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret), chisq = "Chi^2",
                                       cv = "Cramer's V",
-                                      lmbd_x = "Lambda (x dependent)",
-                                      lmbd_y = "Lambda (y dependent)",
-                                      lmbd_s = "Lambda (symmetric)")
+                                      lmbd_x = "Lambda (x dep.)",
+                                      lmbd_y = "Lambda (y dep.)",
+                                      lmbd_s = "Lambda (sym.)")
   return(pixiedust::sprinkle_print_method(retprint, print))
 }
