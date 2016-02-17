@@ -106,6 +106,7 @@ nom_lambda <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
 #' @return A \code{dust} object, depending on \code{print}.
 #' @export
 #' @import pixiedust
+#' @family Tadaa-functions
 #' @examples
 #' tadaa_nom(ngo$abschalt, ngo$geschl)
 tadaa_nom <- function(x, y = NULL, round = 2, print = "console"){

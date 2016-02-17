@@ -24,4 +24,8 @@ Get all the nominal stats
 \examples{
 tadaa_nom(ngo$abschalt, ngo$geschl)
 }
+\seealso{
+Other Tadaa.functions: \code{\link{tadaa_aov}},
+  \code{\link{tadaa_int}}, \code{\link{tadaa_t.test}}
+}
 

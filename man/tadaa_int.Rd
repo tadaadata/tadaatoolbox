@@ -26,4 +26,8 @@ variables and a numeric response variable.
 \examples{
 tadaa_int(ngo, stunzahl, jahrgang, geschl)
 }
+\seealso{
+Other Tadaa.functions: \code{\link{tadaa_aov}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_t.test}}
+}
 

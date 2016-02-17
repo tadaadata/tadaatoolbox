@@ -11,6 +11,7 @@
 #' @import pixiedust
 #' @import stats
 #' @importFrom car leveneTest
+#' @family Tadaa-functions
 #' @export
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))

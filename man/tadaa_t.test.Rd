@@ -35,4 +35,8 @@ tadaa_t.test(df, x, y)
 df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 tadaa_t.test(df, x, y, paired = TRUE)
 }
+\seealso{
+Other Tadaa.functions: \code{\link{tadaa_aov}},
+  \code{\link{tadaa_int}}, \code{\link{tadaa_nom}}
+}
 

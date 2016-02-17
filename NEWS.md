@@ -7,6 +7,7 @@
 * Add vignette
     - Overhauling `README` to be less redundant compared to the usage vignette
 * Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
+* Add `family` tag to `tadaa_` functions so their documentation is linked
 
 # tadaatoolbox 0.8.0 (on CRAN)
 

@@ -25,4 +25,8 @@ Tadaa, anova!
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 }
+\seealso{
+Other Tadaa.functions: \code{\link{tadaa_int}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_t.test}}
+}
 

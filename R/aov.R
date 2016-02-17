@@ -6,6 +6,7 @@
 #' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
 #' @return A \code{dust} object, depending on \code{print}.
 #' @export
+#' @family Tadaa-functions
 #' @import stats
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
