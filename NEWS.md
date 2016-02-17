@@ -3,6 +3,7 @@
 * Add `family` tag to `tadaa_` functions so their documentation is linked
 * Add `brewer_palette` option to `tadaa_int`
 * Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
+* Dependencies declared in `DESCRIPTION` are still experimental because of uncertainty regarding failing travis builds. I don't know what's going on there.
 
 # tadaatoolbox 0.8.1
 
