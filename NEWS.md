@@ -1,14 +1,17 @@
 # tadaatoolbox 0.9.0 (on GitHub)
 
+* Add `family` tag to `tadaa_` functions so their documentation is linked
+* Add `brewer_palette` option to `tadaa_int`
+* Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
+
+# tadaatoolbox 0.8.1
+
 * Fix typo in `DESCRIPTION`, misspelling `pixiedust`. Sorry!
 * Bump dependencies
     - `pixiedust` depends on R (>= 3.2.1), so we might as well depend on that version, too
     - Specifiy minimal versions for `pixiedust`, `sjmisc`, and `broom`, just to be safe
 * Add vignette
     - Overhauling `README` to be less redundant compared to the usage vignette
-* Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
-* Add `family` tag to `tadaa_` functions so their documentation is linked
-* Add `brewer_palette` option to `tadaa_int`
 
 # tadaatoolbox 0.8.0 (on CRAN)
 
