@@ -1,4 +1,4 @@
-# tadaatoolbox 0.8.1 (on GitHub)
+# tadaatoolbox 0.9.0 (on GitHub)
 
 * Fix typo in `DESCRIPTION`, misspelling `pixiedust`. Sorry!
 * Bump dependencies
