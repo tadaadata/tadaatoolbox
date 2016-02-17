@@ -29,8 +29,16 @@ Contribution
 
 Please do! I have no idea where I'm going with this. Feel free to [open issues](https://github.com/tadaadata/tadaatoolbox/issues).
 
-Examples
-========
+Contributers
+------------
+
+| Contributer  | Role      |
+|:-------------|:----------|
+| Lukas Burk   | aut & cre |
+| Tobias Anton | aut       |
+
+Functionality
+=============
 
 See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")`
 
