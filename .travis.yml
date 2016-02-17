@@ -8,6 +8,7 @@ r_binary_packages:
  - ggplot2
  - dplyr
  - car
+ - devtools
 
 r_github_packages:
  - sjPlot/sjmisc
