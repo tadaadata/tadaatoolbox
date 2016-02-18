@@ -1,5 +1,7 @@
 language: r
-sudo: required
+sudo: false
+cache: packages
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
@@ -8,10 +10,6 @@ r_binary_packages:
  - ggplot2
  - dplyr
  - car
- - devtools
-
-r_github_packages:
- - sjPlot/sjmisc
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
