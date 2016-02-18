@@ -94,7 +94,7 @@ tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
 
 # Data
 
-The infamous *ngo* dataset is included for teaching purposes as well. It differs from [ryouready]()'s provided version with regards to classes and labels. The code below was used to generate the provided version of the dataset:
+The infamous *ngo* dataset is included for teaching purposes as well. It differs from [ryouready](https://github.com/markheckmann/ryouready)'s provided version with regards to classes and labels. The code below was used to generate the provided version of the dataset:
 
 (Note that `\u00e4` is a unicode encoded Umlaut for compatibility reasons)
 
