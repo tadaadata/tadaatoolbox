@@ -57,7 +57,7 @@ Statistical functions
 ### Summaries
 
 -   `tadaa_nom`: All the nominal stats in one table.
--   `tadaa_ord`: All the ordinal stats in one table (**NYI**).
+-   `tadaa_ord`: All the ordinal stats in one table.
 
 Misc. helpers
 -------------

@@ -60,7 +60,7 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 ## Summaries
 
 * `tadaa_nom`: All the nominal stats in one table.
-* `tadaa_ord`: All the ordinal stats in one table (**NYI**).
+* `tadaa_ord`: All the ordinal stats in one table.
 
 # General Helper Functions
 
