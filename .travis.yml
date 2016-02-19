@@ -6,10 +6,5 @@ env:
  global:
    - CRAN: http://cran.rstudio.com
 
-r_binary_packages:
- - ggplot2
- - dplyr
- - car
-
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
