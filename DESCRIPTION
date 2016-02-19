@@ -1,6 +1,6 @@
 Package: tadaatoolbox
 Type: Package
-Date: 2016-02-17
+Date: 2016-02-20
 Title: Helpers for Data Analysis and Presentation Focused on Undergrad Psychology
 Version: 0.10.0.9000
 Authors@R: c(person('Lukas',  'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre')),
@@ -31,7 +31,8 @@ Imports:
     sjmisc,
     haven,
     ryouready,
-    vcd
+    vcd,
+    cowplot
 RoxygenNote: 5.0.1
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues

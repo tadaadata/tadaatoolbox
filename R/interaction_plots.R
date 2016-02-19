@@ -6,16 +6,20 @@
 #' @param response Response variable
 #' @param group1 First grouping variable
 #' @param group2 Second grouping variable
+#' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.
 #' @param brewer_palette The name of the \link[RColorBrewer]{RColorBrewer} palette to use, defaults to \code{Set1}
-#'
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
-#' Printed: The two ggplot2 objects.
+#' Printed: The one or two ggplot2 objects, depending on \code{grid}.
 #' @export
 #' @family Tadaa-functions
 #' @import ggplot2
+#' @importFrom cowplot plot_grid
 #' @examples
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
-tadaa_int <- function(data, response, group1, group2, brewer_palette = "Set1"){
+#'
+#' # As grid
+#' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
+tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palette = "Set1"){
 
   sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))
 
@@ -37,8 +41,12 @@ tadaa_int <- function(data, response, group1, group2, brewer_palette = "Set1"){
           labs(title = paste("Interaction of ", substitute(group2), "and",
                              substitute(group1)), y = "Mean")
 
-  print(p1)
-  print(p2)
+  if (!grid){
+    print(p1)
+    print(p2)
+  } else {
+    print(cowplot::plot_grid(p1, p2, align = "h", labels = c("A", "B")))
+  }
 
   invisible(list(p1 = p1, p2 = p2))
 }

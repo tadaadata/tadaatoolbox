@@ -1,25 +1,29 @@
-# tadaatoolbox 0.10.0.9000 (devel/GitHub)
+# tadaatoolbox
 
-## Minor changes
-* New function `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
+## v0.10.0.9000 (devel/GitHub)
 
-## Patch changes
+### Minor changes
+* New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
+* New option in `tadaa_int`: Set `grid = TRUE` for the two interaction plots to be printen in a grid via
+[cowplot::plot_grid](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+
+### Patch changes
 * Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.
 * Add additional option `as_character` to `modus` because guessing about return value classes is no joke.
 
-# tadaatoolbox 0.9.0 (on CRAN)
+## v0.9.0 (on CRAN)
 
-## Minor changes
+### Minor changes
 * Add `tadaa_ord` as ordinal equivalent of `tadaa_nom`.
 * Make table output of both of the former functions smaller in width by abbreviating column names
 * Add `brewer_palette` option to `tadaa_int`
 * Dependencies declared in `DESCRIPTION` are still experimental because of uncertainty regarding failing travis builds. I don't know what's going on there.
 
-## Patch changes
+### Patch changes
 * Add `family` tag to `tadaa_` functions so their documentation is linked
 * Fix return values of `tadaa_aov`, `_t.test` and `_nom` which did not work as I expected
 
-# tadaatoolbox 0.8.1
+## v0.8.1
 
 * Fix typo in `DESCRIPTION`, misspelling `pixiedust`. Sorry!
 * Bump dependencies
@@ -28,7 +32,7 @@
 * Add vignette
     - Overhauling `README` to be less redundant compared to the usage vignette
 
-# tadaatoolbox 0.8.0
+## v0.8.0
 
 * Added a `NEWS.md` file to track changes to the package.
 * Working on CRAN compatibility
