@@ -1,4 +1,7 @@
-# tadaatoolbox 0.9.1.9000 (devel/GitHub)
+# tadaatoolbox 0.10.0.9000 (devel/GitHub)
+
+## Minor changes
+* New function `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
 
 ## Patch changes
 * Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.

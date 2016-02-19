@@ -53,3 +53,40 @@ drop_labels <- function(x) {
   sjmisc::set_labels(x, labels = sjmisc::get_labels(x)[unique(x)])
 }
 
+#' Easy p-value formatting
+#'
+#' @param pv A p-value in numeric form.
+#'
+#' @return A formatted \code{character} representation of the input value.
+#' @export
+#' @note Simplified version of \link[pixiedust]{pvalString} which considers \code{< 0.05}.
+#' @examples
+#' pv <- c(.9, .2, .049, .009, .000003)
+#' pval_string(pv)
+pval_string <- function(pv) {
+
+  if (any(pv < 0, na.rm = TRUE) | any(pv > 1, na.rm = TRUE)) {
+    notProb <- which(pv < 0 | pv > 1)
+    stop(paste0("Element(s) ", paste(notProb, collapse = ", "),
+                " are not valid probabilities"))
+  }
+
+  pvals <- sapply(pv, function(p){
+    ps <- if (p > 0.99) {
+      "> 0.99"
+    } else if (p > 0.1) {
+      format(round(p, 2), digits = 2)
+    } else if (p > 0.05) {
+      format(round(p, 3), digits = 3)
+    } else if (p > 0.01) {
+      "< 0.05"
+    } else if (p > 0.001) {
+      "< 0.01"
+    } else {
+      "< 0.001"
+    }
+    return(ps)
+  })
+
+  return(pvals)
+}
