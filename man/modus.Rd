@@ -4,10 +4,13 @@
 \alias{modus}
 \title{Modus}
 \usage{
-modus(x, reduce = TRUE, na.rm = FALSE)
+modus(x, as_character = TRUE, reduce = TRUE, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A \code{vector} with numeric data.}
+
+\item{as_character}{Always return a character. \code{TRUE} by default, or \link[dplyr]{summarize}
+will be very unpleased.}
 
 \item{reduce}{Since \code{mode} can be of length > 1, this option pastes the result into a
 single character value}

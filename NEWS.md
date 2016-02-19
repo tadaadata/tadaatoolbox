@@ -5,6 +5,7 @@
 
 ## Patch changes
 * Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.
+* Add additional option `as_character` to `modus` because guessing about return value classes is no joke.
 
 # tadaatoolbox 0.9.0 (on CRAN)
 
