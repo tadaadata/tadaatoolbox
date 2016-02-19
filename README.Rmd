@@ -30,6 +30,8 @@ It contains helpers for data analysis and presentation focused on undergrad psyc
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br />
 To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).
 
+As a sideproject, I attempted to visualize the package depencencies [in this document](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/dev/dependencies/dependencies.html). It's not optimal yet, but at least it's a glimpse of the first two layers of dependencies.
+
 # Installation
 
 Install the current development version from GitHub (recommended):
@@ -70,7 +72,8 @@ knitr::kable(data.frame(Contributer = names, Role = roles))
 
 # Functionality
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")`
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current 
+version in this repository [via GitHubs HTML preview](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/vignettes/overview.html).
 
 ## Statistical functions
 

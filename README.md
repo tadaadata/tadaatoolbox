@@ -9,6 +9,8 @@ This is **tadaatoolbox** version `0.9.0` ([semver](http://semver.org/)).<br /> I
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br /> To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).
 
+As a sideproject, I attempted to visualize the package depencencies [in this document](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/dev/dependencies/dependencies.html). It's not optimal yet, but at least it's a glimpse of the first two layers of dependencies.
+
 Installation
 ============
 
@@ -40,7 +42,7 @@ Contributers
 Functionality
 =============
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")`
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current version in this repository [via GitHubs HTML preview](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/vignettes/overview.html).
 
 Statistical functions
 ---------------------
