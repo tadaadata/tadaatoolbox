@@ -1,7 +1,20 @@
-#### Dependency tree ###
+---
+title: "Package Dependencies"
+author: "@jemus42"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    fig_height: 6
+    fig_width: 9
+---
 
+## DiagrammeR circo graph of dependencies
+
+```{r, echo=F}
 library(tools)
 library(DiagrammeR)
+library(networkD3)
+library(magrittr)
 
 dep1 <- package_dependencies("tadaatoolbox", db = available.packages(), recursive = F)
 dep2 <- lapply(dep1[[1]], package_dependencies, db = available.packages())
@@ -30,6 +43,13 @@ graph <- create_graph(nodes_df = create_nodes(nodes_total),
                                       "outputorder = edgesfirst")
                       )
 render_graph(graph = graph)
+```
 
+## networkD3 simplenetwork
 
+```{r, echo=F}
+as.data.frame(cbind(from_pkgs, to_pkgs)) %>%
+  simpleNetwork(Data = ., Source = "from_pkgs", Target = "to_pkgs",
+                linkDistance = 100, zoom = TRUE)
 
+```
