@@ -4,15 +4,19 @@
 \alias{modus}
 \title{Modus}
 \usage{
-modus(x, na.rm = FALSE)
+modus(x, reduce = TRUE, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A \code{vector} with numeric data.}
 
+\item{reduce}{Since \code{mode} can be of length > 1, this option pastes the result into a
+single character value}
+
 \item{na.rm}{If \code{TRUE}, missing values (\code{NA}) will be ignored.}
 }
 \value{
-A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending on input.
+A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending
+on input.
 }
 \description{
 Calculate the mode of a numeric vector. German name kept to avoid confusion.

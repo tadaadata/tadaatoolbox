@@ -1,4 +1,7 @@
-# tadaatoolbox 0.9.0.9000 (devel/GitHub)
+# tadaatoolbox 0.9.1.9000 (devel/GitHub)
+
+## Patch changes
+* Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.
 
 # tadaatoolbox 0.9.0 (on CRAN)
 
