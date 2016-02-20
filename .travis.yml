@@ -4,5 +4,10 @@ sudo: required
 repos:
   CRAN: https://cloud.r-project.org
 
+r_packages:
+  - car
+  - sjmisc
+  - ryouready
+
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
