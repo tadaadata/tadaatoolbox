@@ -3,7 +3,7 @@ sudo: required
 
 env:
  global:
-   - CRAN: http://cran.rstudio.com
+   - CRAN=http://cran.rstudio.com
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
