@@ -11,7 +11,7 @@
 #' @family Tadaa-functions
 #' @import ggplot2
 #' @examples
-#' tadaa_heatmap(ngo, stunzahl, jahrgang)
+#' tadaa_heatmap(data = ngo, heat = stunzahl, x = hausauf, group = jahrgang)
 tadaa_heatmap <- function(data = NULL, heat, x, group) {
   !missing(heat)  || stop("heat not specified")
   !missing(x)     || stop("x not specified")
