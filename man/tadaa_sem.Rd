@@ -4,12 +4,12 @@
 \alias{tadaa_sem}
 \title{Standard Error of the Mean}
 \usage{
-tadaa_sem(x, conf.level = 0.05)
+tadaa_sem(x, conf.level = 0.95)
 }
 \arguments{
-\item{x}{a numeric vector or R object which is coercable to one}
+\item{x}{a numeric vector or R object which is coercible to one}
 
-\item{conf.level}{the confidence level (alpha) of the CI}
+\item{conf.level}{the confidence level (alpha) of the Interval}
 }
 \value{
 a \code{data.frame} with the mean, SEM and it's Confidence Interval
