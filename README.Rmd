@@ -90,6 +90,7 @@ version in this repository [via GitHubs HTML preview](http://htmlpreview.github.
 
 * `tadaa_nom`: All the nominal stats in one table.
 * `tadaa_ord`: All the ordinal stats in one table.
+* `tadaa_sem`: Standard error and CI, you guessed it, in one table.
 
 ## Misc. helpers
 
@@ -111,3 +112,7 @@ version in this repository [via GitHubs HTML preview](http://htmlpreview.github.
 ### Interaction plots
 
 * `tadaa_int`: Simple interaction plot template.
+
+### Heatmap
+
+* `tadaa_heatmap`: Simple heatmap template.
