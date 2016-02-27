@@ -11,7 +11,8 @@
 #' @family Tadaa-functions
 #' @import ggplot2
 #' @examples
-#' tadaa_heatmap(data = ngo, heat = stunzahl, x = hausauf, group = jahrgang)
+#' hec <- as.data.frame(data(HairEyeColor))
+#' tadaa_heatmap(hec, Freq, Eye, Hair)
 tadaa_heatmap <- function(data = NULL, heat, x, group) {
   !missing(heat)  || stop("heat not specified")
   !missing(x)     || stop("x not specified")
@@ -24,7 +25,7 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
            labs(title = paste("Heatmap for", substitute(heat),
                               "by", substitute(x), "and", substitute(group))) +
            # need to find a way to detect the breaks (e.g. length of x) without breaking the function:
-           scale_x_continuous() +
+           # scale_x_continuous() +
            # color plattes getting added later on:
            # scale_fill_brewer(palette = ...) +
            coord_equal() +

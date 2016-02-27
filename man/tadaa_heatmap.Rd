@@ -24,7 +24,8 @@ A ggplot2 object
 Easily generate heatmaps of a continuous variables grouped by two categorical variables.
 }
 \examples{
-tadaa_heatmap(ngo, stunzahl, jahrgang)
+hec <- as.data.frame(data(HairEyeColor))
+tadaa_heatmap(hec, Freq, Eye, Hair)
 }
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
