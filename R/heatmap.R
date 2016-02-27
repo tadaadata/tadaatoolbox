@@ -1,18 +1,16 @@
 #' Heatmaps
 #'
-#' Easily generate heatmaps of a continuous variables grouped by two categorical variables.
+#' Easily generate heatmaps of a continuous variable grouped by two categorical variables.
 #' @param data A \code{data.frame}
 #' @param heat The continuous variable displayed by the heat-tiles
 #' @param x The variable on the x-axis
 #' @param group The grouping variable (y-axis)
-#' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.
 #' @return A ggplot2 object
 #' @export
 #' @family Tadaa-functions
 #' @import ggplot2
 #' @examples
-#' hec <- as.data.frame(data(HairEyeColor))
-#' tadaa_heatmap(hec, Freq, Eye, Hair)
+#' tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
 tadaa_heatmap <- function(data = NULL, heat, x, group) {
   !missing(heat)  || stop("heat not specified")
   !missing(x)     || stop("x not specified")

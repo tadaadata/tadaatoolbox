@@ -14,18 +14,15 @@ tadaa_heatmap(data = NULL, heat, x, group)
 \item{x}{The variable on the x-axis}
 
 \item{group}{The grouping variable (y-axis)}
-
-\item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.}
 }
 \value{
 A ggplot2 object
 }
 \description{
-Easily generate heatmaps of a continuous variables grouped by two categorical variables.
+Easily generate heatmaps of a continuous variable grouped by two categorical variables.
 }
 \examples{
-hec <- as.data.frame(data(HairEyeColor))
-tadaa_heatmap(hec, Freq, Eye, Hair)
+tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
 }
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
