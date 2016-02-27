@@ -12,8 +12,14 @@
 #' @import ggplot2
 #' @examples
 #' tadaa_heatmap(ngo, stunzahl, jahrgang)
-tadaa_heatmap <- function(data, heat, x, group) {
-  map <- ggplot(data = data, aes_string(x = substitute(x), y = substitute(group), fill = substitute(heat))) +
+tadaa_heatmap <- function(data = NULL, heat, x, group) {
+  !missing(heat)  || stop("heat not specified")
+  !missing(x)     || stop("x not specified")
+  !missing(group) || stop("group not specified")
+
+  map <- ggplot(data = data, aes_string(x = substitute(x),
+                                        y = substitute(group),
+                                        fill = substitute(heat))) +
            geom_tile(color = "white", size = 0.1) +
            labs(title = paste("Heatmap for", substitute(heat),
                               "by", substitute(x), "and", substitute(group))) +
@@ -24,5 +30,6 @@ tadaa_heatmap <- function(data, heat, x, group) {
            coord_equal() +
            theme(legend.position = "bottom")
 
-  return(map)
+  print(map)
+  invisible(map)
 }

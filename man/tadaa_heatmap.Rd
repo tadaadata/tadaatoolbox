@@ -4,7 +4,7 @@
 \alias{tadaa_heatmap}
 \title{Heatmaps}
 \usage{
-tadaa_heatmap(data, heat, x, group)
+tadaa_heatmap(data = NULL, heat, x, group)
 }
 \arguments{
 \item{data}{A \code{data.frame}}
@@ -18,7 +18,7 @@ tadaa_heatmap(data, heat, x, group)
 \item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.}
 }
 \value{
-Printed: The ggplot2 object
+A ggplot2 object
 }
 \description{
 Easily generate heatmaps of a continuous variables grouped by two categorical variables.
