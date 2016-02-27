@@ -3,6 +3,7 @@
 ## v0.10.0.9000 (devel/GitHub)
 
 ### Minor changes
+* New function: `tadaa_sem` shows the standard error of the mean and it's confidence interval
 * New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
 * New option in `tadaa_int`: Set `grid = TRUE` for the two interaction plots to be printen in a grid via
 [cowplot::plot_grid](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
