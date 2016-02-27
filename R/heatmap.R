@@ -6,7 +6,7 @@
 #' @param x The variable on the x-axis
 #' @param group The grouping variable (y-axis)
 #' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.
-#' @return Printed: The ggplot2 object
+#' @return A ggplot2 object
 #' @export
 #' @family Tadaa-functions
 #' @import ggplot2
@@ -24,5 +24,5 @@ tadaa_heatmap <- function(data, heat, x, group) {
            coord_equal() +
            theme(legend.position = "bottom")
 
-  print(map)
+  return(map)
 }
