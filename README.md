@@ -34,10 +34,11 @@ Please do! I have no idea where I'm going with this. Feel free to [open issues](
 Contributers
 ------------
 
-| Contributer  | Role      |
-|:-------------|:----------|
-| Lukas Burk   | aut & cre |
-| Tobias Anton | aut       |
+| Contributer    | Role      |
+|:---------------|:----------|
+| Lukas Burk     | aut & cre |
+| Tobias Anton   | aut       |
+| Daniel Lüdecke | ctb       |
 
 Functionality
 =============
@@ -60,6 +61,7 @@ Statistical functions
 
 -   `tadaa_nom`: All the nominal stats in one table.
 -   `tadaa_ord`: All the ordinal stats in one table.
+-   `tadaa_sem`: Standard error and CI, you guessed it, in one table.
 
 Misc. helpers
 -------------
@@ -84,3 +86,7 @@ Helpers for plots
 ### Interaction plots
 
 -   `tadaa_int`: Simple interaction plot template.
+
+### Heatmap
+
+-   `tadaa_heatmap`: Simple heatmap template.
