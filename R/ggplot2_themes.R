@@ -57,9 +57,9 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
 #' @examples
 #' ggplot2::qplot(1:10, 1:10, geom = "point") + theme_latex()
 
-theme_latex <- function(){
-  result <- theme_grey(base_size = base_size, base_family = base_family) %+replace%
-  theme(text = element_text(family = "CMU Sans Serif"))
-
-  return(result)
-}
+# theme_latex <- function(){
+#   result <- theme_grey(base_size = base_size, base_family = base_family) %+replace%
+#   theme(text = element_text(family = "CMU Sans Serif"))
+#
+#   return(result)
+# }
