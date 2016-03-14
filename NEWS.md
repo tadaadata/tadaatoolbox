@@ -8,6 +8,7 @@
 * New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
 * New option in `tadaa_int`: Set `grid = TRUE` for the two interaction plots to be printen in a grid via
 [cowplot::plot_grid](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+* Added a ggplot2 theme for the [rmdformats::readthedown](https://github.com/juba/rmdformats/) Rmd template.
 
 ### Patch changes
 * Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.
