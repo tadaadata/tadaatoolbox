@@ -8,15 +8,15 @@ theme_readthedown(base_size = 12, base_family = "", bg = "#fcfcfc",
   axis_emph = "xy")
 }
 \arguments{
-\item{base_size}{Base text size.}
+\item{base_size}{Base text size, defaults to \code{12}.}
 
 \item{base_family}{Base text family. Use \code{"Roboto Slab"} to match the \code{readthedown}
-headers.}
+headers, or \code{"Lato"} for the toc style.}
 
 \item{bg}{Background color, defaults to \code{\link[rmdformats]{readthedown}}'s background,
 \code{#fcfcfc}}
 
-\item{axis_emph}{Which axis to emphasize visually (black color).}
+\item{axis_emph}{Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy"}.}
 }
 \value{
 A ggplot2 theme
