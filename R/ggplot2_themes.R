@@ -13,17 +13,22 @@
 #' @export
 #'
 #' @examples
-#' ggplot2::qplot(1:10, 1:10, geom = "point") + theme_readthedown()
+#' library(ggplot2)
+#' p <- qplot(1:10, 1:10, geom = "point")
+#'
+#' p + theme_readthedown()
+#' p + theme_readthedown(base_family = "Lato")
+#' p + theme_readthedown(base_family = "Roboto Slab", axis_emph = "x")
 #'
 theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", axis_emph = "xy") {
-  template_background <- element_rect(fill = bg, color = bg)
+  template_background <- ggplot2::element_rect(fill = bg, color = bg)
 
-  result <- theme_grey(base_size = base_size, base_family = base_family) %+replace%
+  result <- ggplot2::theme_grey(base_size = base_size, base_family = base_family) %+replace%
     theme(panel.background  = template_background,
           plot.background   = template_background,
           legend.background = template_background,
           legend.key        = template_background,
-          strip.background  = element_blank())
+          strip.background  = ggplot2::element_blank())
 
   if (axis_emph == "x") {
     result <- result +

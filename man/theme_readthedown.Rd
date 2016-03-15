@@ -11,7 +11,7 @@ theme_readthedown(base_size = 12, base_family = "", bg = "#fcfcfc",
 \item{base_size}{Base text size, defaults to \code{12}.}
 
 \item{base_family}{Base text family. Use \code{"Roboto Slab"} to match the \code{readthedown}
-headers, or \code{"Lato"} for the toc style.}
+headers, or \code{"Lato"} for the body style.}
 
 \item{bg}{Background color, defaults to \code{\link[rmdformats]{readthedown}}'s background,
 \code{#fcfcfc}}
@@ -26,7 +26,12 @@ A ggplot theme to fit \code{\link[rmdformats]{readthedown}} in terms of backgrou
 dark grid lines.
 }
 \examples{
-ggplot2::qplot(1:10, 1:10, geom = "point") + theme_readthedown()
+library(ggplot2)
+p <- qplot(1:10, 1:10, geom = "point")
+
+p + theme_readthedown()
+p + theme_readthedown(base_family = "Lato")
+p + theme_readthedown(base_family = "Roboto Slab", axis_emph = "x")
 
 }
 
