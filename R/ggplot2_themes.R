@@ -4,7 +4,7 @@
 #' dark grid lines.
 #' @param base_size Base text size, defaults to \code{12}.
 #' @param base_family Base text family. Use \code{"Roboto Slab"} to match the \code{readthedown}
-#' headers, or \code{"Lato"} for the toc style.
+#' headers, or \code{"Lato"} for the body style.
 #' @param bg Background color, defaults to \code{\link[rmdformats]{readthedown}}'s background,
 #' \code{#fcfcfc}
 #' @param axis_emph Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy"}.
@@ -25,7 +25,7 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
           legend.key        = template_background,
           strip.background  = element_blank())
 
-  if (axis_emph == "x"){
+  if (axis_emph == "x") {
     result <- result +
       theme(panel.grid.major.x = element_line(size = .1, color = "black"),
             panel.grid.minor.x = element_line(size = .1, color = "black", linetype = "dotted"))
@@ -33,13 +33,13 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
     result <- result +
       theme(panel.grid.major.y = element_line(size = .1, color = "black"),
             panel.grid.minor.y = element_line(size = .1, color = "black", linetype = "dotted"))
-  } else if (axis_emph == "xy"){
+  } else if (axis_emph == "xy") {
     result <- result +
       theme(panel.grid.major.x = element_line(size = .1, color = "black"),
             panel.grid.minor.x = element_line(size = .1, color = "black", linetype = "dotted"),
             panel.grid.major.y = element_line(size = .1, color = "black"),
             panel.grid.minor.y = element_line(size = .1, color = "black", linetype = "dotted"))
-  } else if (axis_emph == ""){
+  } else if (axis_emph == "") {
   } else {
     warning(paste("Unknow option to axis_emph", axis_emph, "\nDoing nothing"))
   }
