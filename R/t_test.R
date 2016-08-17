@@ -48,7 +48,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
   # levene
   levene    <- broom::tidy(car::leveneTest(data[[response]], data[[group]], center = "mean"))
-  var.equal <-  ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
+  var.equal <- ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
 
   # t.test
   test <- broom::tidy(t.test(x = x, y = y, direction = direction,

@@ -28,6 +28,5 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
            coord_equal() +
            theme(legend.position = "bottom")
 
-  print(map)
-  invisible(map)
+  return(map)
 }
