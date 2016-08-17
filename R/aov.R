@@ -25,7 +25,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "co
   output <- pixiedust::sprinkle(output, col = 3:4, round = 2)
   output <- pixiedust::sprinkle(output, round = 3)
 
-  if (!(print %in% c("console", "hmtl", "markdown"))) {
+  if (!(print %in% c("console", "html", "markdown"))) {
     stop("Print method must be 'console', 'html' or, 'markdown'")
   }
 
