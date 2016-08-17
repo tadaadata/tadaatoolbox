@@ -6,15 +6,15 @@
 * New function: `tadaa_heatmap` generates a heatmap. Mhhh, heatmaps.
 * New function: `tadaa_sem` shows the standard error of the mean and it's confidence interval
 * New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
+* Added a ggplot2 theme for the [rmdformats::readthedown](https://github.com/juba/rmdformats/) Rmd template.
+
+### Patch changes
 * New options in `tadaa_int`: 
     - Set `grid = TRUE` for the two interaction plots to be printen in a grid via
 [cowplot::plot_grid](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).  
     - Choose the plot labels via the `labels` argument.
 * `tadaa_int` plot output now also is a little tidier and optimized for smaller widths.
 * `tadaa_aov` now also shows [Cohen's f](https://en.wikipedia.org/wiki/Effect_size#Cohen.27s_.C6.922) for easier power calculations based on f (`pwr`, G*power)
-* Added a ggplot2 theme for the [rmdformats::readthedown](https://github.com/juba/rmdformats/) Rmd template.
-
-### Patch changes
 * Add option `reduce` to `modus`, so multiple results will be concatenated to a character by default.
 * Add additional option `as_character` to `modus` because guessing about return value classes is no joke.
 * Fix issues with `generate_recodes` and `interval_labels` (#1).

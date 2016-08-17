@@ -89,7 +89,7 @@ ggplot(data = ngo, aes(x = jahrgang, y = stunzahl)) +
 ```{r tadaa_int}
 library(ggplot2)
 
-tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl)
+tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl, grid = T, brewer_palette = "Set1")
 ```
 
 # Data
