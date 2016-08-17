@@ -17,7 +17,7 @@ library(ggplot2)
 ggplot(data = ngo, aes(x = jahrgang, y = stunzahl)) +
   stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
 
-## ----tadaa_int-----------------------------------------------------------
+## ----tadaa_int, fig.width=6----------------------------------------------
 library(ggplot2)
 
 tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl, grid = T, brewer_palette = "Set1")
