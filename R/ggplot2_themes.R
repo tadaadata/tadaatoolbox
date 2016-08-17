@@ -13,13 +13,14 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(ggplot2)
 #' p <- qplot(1:10, 1:10, geom = "point")
 #'
 #' p + theme_readthedown()
 #' p + theme_readthedown(base_family = "Lato")
 #' p + theme_readthedown(base_family = "Roboto Slab", axis_emph = "x")
-#'
+#' }
 theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", axis_emph = "xy") {
   template_background <- ggplot2::element_rect(fill = bg, color = bg)
 
@@ -50,21 +51,3 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
   }
   return(result)
 }
-
-#' ggplot2 theme using the Computer Modern font
-#'
-#' @param base_size Base text size.
-#' @param base_family Base text family.
-#' @import ggplot2
-#' @return A ggplot2 theme
-#'
-#'
-#' @examples
-#' ggplot2::qplot(1:10, 1:10, geom = "point") + theme_latex()
-
-# theme_latex <- function(){
-#   result <- theme_grey(base_size = base_size, base_family = base_family) %+replace%
-#   theme(text = element_text(family = "CMU Sans Serif"))
-#
-#   return(result)
-# }
