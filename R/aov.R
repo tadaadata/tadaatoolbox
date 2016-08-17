@@ -16,9 +16,10 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "co
   model <- broom::tidy(aov(formula = formula, data = data))
 
   if (show_effect_size) {
-    resid <- dplyr::last(model$sumsq)
+    resid             <- model$sumsq[nrow(model)]
     model$part.eta.sq <- model$sumsq / (resid + model$sumsq)
-    model$cohens.f <- sqrt(model$part.eta.sq / (1 - model$part.eta.sq))
+    model$part.eta.sq[nrow(model)] <- NA
+    model$cohens.f    <- sqrt(model$part.eta.sq / (1 - model$part.eta.sq))
   }
 
   output <- pixiedust::dust(model)
