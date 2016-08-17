@@ -8,6 +8,7 @@
 #' @param group2 Second grouping variable
 #' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.
 #' @param brewer_palette The name of the \link[RColorBrewer]{RColorBrewer} palette to use, defaults to \code{Set1}
+#' @param labels Labels used for the plots when printed in a grid (\code{grid = TRUE}), defaults to \code{c("A", "B")}
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
 #' Printed: The one or two ggplot2 objects, depending on \code{grid}.
 #' @export
@@ -19,7 +20,7 @@
 #'
 #' # As grid
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
-tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palette = "Set1"){
+tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palette = "Set1", labels = c("A", "B")){
 
   sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))
 
@@ -47,7 +48,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palet
     print(p1)
     print(p2)
   } else {
-    print(cowplot::plot_grid(p1, p2, align = "h", labels = c("A", "B")))
+    print(cowplot::plot_grid(p1, p2, align = "h", labels = labels))
   }
 
   invisible(list(p1 = p1, p2 = p2))

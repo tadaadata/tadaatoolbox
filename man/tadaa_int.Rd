@@ -5,7 +5,7 @@
 \title{Interaction plots}
 \usage{
 tadaa_int(data, response, group1, group2, grid = FALSE,
-  brewer_palette = "Set1")
+  brewer_palette = "Set1", labels = c("A", "B"))
 }
 \arguments{
 \item{data}{A \code{data.frame}}
@@ -19,6 +19,8 @@ tadaa_int(data, response, group1, group2, grid = FALSE,
 \item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.}
 
 \item{brewer_palette}{The name of the \link[RColorBrewer]{RColorBrewer} palette to use, defaults to \code{Set1}}
+
+\item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}), defaults to \code{c("A", "B")}}
 }
 \value{
 Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
