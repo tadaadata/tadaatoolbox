@@ -31,15 +31,17 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palet
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group2))) +
           scale_colour_brewer(palette = brewer_palette) +
-          labs(title = paste("Interaction of ", substitute(group1), "and",
-                             substitute(group2)), y = "Mean")
+          labs(title = paste0("Interaction of\n", substitute(group1), " & ",
+                             substitute(group2)), y = paste0("Mean ", substitute(response))) +
+          theme(legend.position = "top")
 
   p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw", colour = substitute(group1))) +
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group1))) +
           scale_colour_brewer(palette = brewer_palette) +
-          labs(title = paste("Interaction of ", substitute(group2), "and",
-                             substitute(group1)), y = "Mean")
+          labs(title = paste0("Interaction of\n", substitute(group2), " & ",
+                             substitute(group1)), y = paste0("Mean ", substitute(response))) +
+          theme(legend.position = "top")
 
   if (!grid){
     print(p1)
