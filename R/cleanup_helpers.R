@@ -72,6 +72,7 @@ pval_string <- function(pv) {
   }
 
   pvals <- sapply(pv, function(p){
+    if (is.na(p)) {return(NA)}
     ps <- if (p > 0.99) {
       "> 0.99"
     } else if (p > 0.1) {

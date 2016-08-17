@@ -12,7 +12,7 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 
 \item{data}{Data for model.}
 
-\item{show_effect_size}{If \code{TRUE} (default), effect size is appended as a column.}
+\item{show_effect_size}{If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.}
 
 \item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
 }
@@ -24,6 +24,7 @@ Tadaa, anova!
 }
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 }
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_heatmap}},
