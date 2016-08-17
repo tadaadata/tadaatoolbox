@@ -8,6 +8,7 @@
 * New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
 * New option in `tadaa_int`: Set `grid = TRUE` for the two interaction plots to be printen in a grid via
 [cowplot::plot_grid](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+* `tadaa_int` plot output now also is a little tidier.
 * `tadaa_aov` now also shows [Cohen's f](https://en.wikipedia.org/wiki/Effect_size#Cohen.27s_.C6.922) for easier power calculations based on f (`pwr`, G*power)
 * Added a ggplot2 theme for the [rmdformats::readthedown](https://github.com/juba/rmdformats/) Rmd template.
 
