@@ -5,7 +5,7 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -15,6 +15,9 @@ knitr::opts_chunk$set(
 library(tadaatoolbox)
 
 description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
+
+system(command = "cp vignettes/overview.html docs/index.html")
+
 ```
 
 # tadaatoolbox   
@@ -73,7 +76,7 @@ knitr::kable(data.frame(Contributer = names, Role = roles))
 # Functionality
 
 See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current 
-version in this repository [via GitHubs HTML preview](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/inst/doc/overview.html).
+version in this repository [on GitHub pages](http://tadaadata.github.io/tadaatoolbox/).
 
 ## Statistical functions
 

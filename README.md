@@ -43,7 +43,7 @@ Contributers
 Functionality
 =============
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current version in this repository [via GitHubs HTML preview](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/inst/doc/overview.html).
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current version in this repository [on GitHub pages](http://tadaadata.github.io/tadaatoolbox/).
 
 Statistical functions
 ---------------------
