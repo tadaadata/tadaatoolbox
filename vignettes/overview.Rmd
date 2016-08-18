@@ -49,6 +49,7 @@ Supported methods:
     - `ad`: Anderson-Darling
     - `shapiro`: Shapiro-Wilk
     - `pearson`: Pearson's chi-square test
+    - `ks`: Kolmogorov-Smirnov
     
 ```{r normtest}
 library(dplyr)

@@ -2,7 +2,8 @@
 #'
 #' @param data A \code{data.frame}.
 #' @param method The type of test to perform. Either \code{ad} for Anderson Darling,
-#' \code{shapiro} for Shapiro-Wilk or \code{pearson} for Pearson's chi-square test.
+#' \code{shapiro} for Shapiro-Wilk, \code{pearson} for Pearson's chi-square test or
+#' \code{ks} for Kolmogorov-Smirnov (not recommended).
 #' @param ... Further arguments passed to test functions where applicable,
 #' see \link[nortest]{pearson.test} and \link[stats]{ks.test}.
 #' @inheritParams tadaa_aov
