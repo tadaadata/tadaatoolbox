@@ -19,8 +19,7 @@ Depends:
 Suggests:
     testthat,
     knitr,
-    rmarkdown,
-    ggplot2
+    rmarkdown
 Imports:
     stats,
     broom,
