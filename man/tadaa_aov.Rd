@@ -4,8 +4,7 @@
 \alias{tadaa_aov}
 \title{Tadaa, anova!}
 \usage{
-tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
-  print = "console")
+tadaa_aov(formula, data = NULL, show_effect_size = TRUE, print = "df")
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
@@ -14,10 +13,11 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 
 \item{show_effect_size}{If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.}
 
-\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
+\item{print}{Print method, per default a regular \code{data.frame}.
+Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
-A \code{dust} object, depending on \code{print}.
+A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
 Tadaa, anova!
@@ -29,6 +29,7 @@ tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_heatmap}},
   \code{\link{tadaa_int}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_ord}}, \code{\link{tadaa_t.test}}
+  \code{\link{tadaa_normtest}}, \code{\link{tadaa_ord}},
+  \code{\link{tadaa_t.test}}
 }
 

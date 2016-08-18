@@ -20,10 +20,11 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
-\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
+\item{print}{Print method, per default a regular \code{data.frame}.
+Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
-A \code{data.frame}, optionally markdown'd
+A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
 Tadaa, t-Test!
@@ -38,6 +39,7 @@ tadaa_t.test(df, x, y, paired = TRUE)
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_ord}}
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_ord}}
 }
 

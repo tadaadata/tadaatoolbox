@@ -3,15 +3,16 @@
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.
-#' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
-#' @return A \code{dust} object, depending on \code{print}.
+#' @param print Print method, per default a regular \code{data.frame}.
+#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @export
 #' @family Tadaa-functions
 #' @import stats
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "console"){
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "df"){
 
   model <- broom::tidy(aov(formula = formula, data = data))
 
