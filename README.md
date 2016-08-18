@@ -3,7 +3,7 @@
 tadaatoolbox
 ============
 
-[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Github All Releases](https://img.shields.io/github/downloads/tadaadata/tadaatoolbox/total.svg?maxAge=2592000)]() [![](https://img.shields.io/github/issues-closed-raw/badges/shields.svg?maxAge=2592000)]()
+[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 This is **tadaatoolbox** version `0.10.0` ([semver](http://semver.org/)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
 
@@ -96,3 +96,23 @@ Helpers for plots
 ### Heatmap
 
 -   `tadaa_heatmap`: Simple heatmap template.
+
+Dependencies
+============
+
+I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
+
+-   **stats**
+-   **broom**
+-   **dplyr**
+-   **pwr**
+-   **pixiedust**
+-   **car**
+-   **ggplot2**
+-   **lazyeval**
+-   **sjmisc**
+-   **haven**
+-   **ryouready**
+-   **vcd**
+-   **cowplot**
+-   **nortest**
