@@ -11,6 +11,19 @@ tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
 ## ----anova---------------------------------------------------------------
 tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
 
+## ----normtest------------------------------------------------------------
+library(dplyr)
+
+ngo %>% select(deutsch, englisch, mathe) %>%
+  tadaa_normtest(method = "shapiro", print = "markdown")
+
+cols <- ngo %>% select(deutsch, englisch, mathe)
+
+bind_rows(tadaa_normtest(cols, method = "ad", print = "df"),
+          tadaa_normtest(cols, method = "shapiro", print = "df"),
+          tadaa_normtest(cols, method = "pearson", print = "df")) %>%
+  knitr::kable()
+
 ## ----confint-------------------------------------------------------------
 library(ggplot2)
 

@@ -43,6 +43,27 @@ tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
 tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
 ```
 
+## Tests for normality: `tadaa_normtest`
+
+Supported methods:
+    - `ad`: Anderson-Darling
+    - `shapiro`: Shapiro-Wilk
+    - `pearson`: Pearson's chi-square test
+    
+```{r normtest}
+library(dplyr)
+
+ngo %>% select(deutsch, englisch, mathe) %>%
+  tadaa_normtest(method = "shapiro", print = "markdown")
+
+cols <- ngo %>% select(deutsch, englisch, mathe)
+
+bind_rows(tadaa_normtest(cols, method = "ad", print = "df"),
+          tadaa_normtest(cols, method = "shapiro", print = "df"),
+          tadaa_normtest(cols, method = "pearson", print = "df")) %>%
+  knitr::kable()
+```
+
 # Statistics Wrappers
 
 These are pretty self-explanatory. The goal is to provide simple functions for commonly used statistics that look and behave the same, and also only return a single numerical value to play nice with `dplyr::summarize`.

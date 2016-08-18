@@ -77,6 +77,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#high-level-functions">High Level Functions</a><ul>
 <li><a href="#t-tests-tadaa_t.test">t-Tests: <code>tadaa_t.test</code></a></li>
 <li><a href="#anova-tadaa_aov">ANOVA: <code>tadaa_aov</code></a></li>
+<li><a href="#tests-for-normality-tadaa_normtest">Tests for normality: <code>tadaa_normtest</code></a></li>
 </ul></li>
 <li><a href="#statistics-wrappers">Statistics Wrappers</a><ul>
 <li><a href="#summaries">Summaries</a></li>
@@ -102,6 +103,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <li><strong>tadaa_int</strong></li>
 <li><strong>tadaa_likertize</strong></li>
 <li><strong>tadaa_nom</strong></li>
+<li><strong>tadaa_normtest</strong></li>
 <li><strong>tadaa_ord</strong></li>
 <li><strong>tadaa_sem</strong></li>
 <li><strong>tadaa_t.test</strong></li>
@@ -187,6 +189,118 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </table>
 <p><br></p>
 <p><br></p>
+</div>
+<div id="tests-for-normality-tadaa_normtest" class="section level2">
+<h2>Tests for normality: <code>tadaa_normtest</code></h2>
+<p>Supported methods: - <code>ad</code>: Anderson-Darling - <code>shapiro</code>: Shapiro-Wilk - <code>pearson</code>: Pearson’s chi-square test</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+ngo %&gt;%<span class="st"> </span><span class="kw">select</span>(deutsch, englisch, mathe) %&gt;%
+<span class="st">  </span><span class="kw">tadaa_normtest</span>(<span class="dt">method =</span> <span class="st">&quot;shapiro&quot;</span>, <span class="dt">print =</span> <span class="st">&quot;markdown&quot;</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="left">method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">deutsch</td>
+<td align="right">0.979</td>
+<td align="right">&lt; 0.01</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+<tr class="even">
+<td align="left">englisch</td>
+<td align="right">0.975</td>
+<td align="right">&lt; 0.001</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+<tr class="odd">
+<td align="left">mathe</td>
+<td align="right">0.975</td>
+<td align="right">&lt; 0.001</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cols &lt;-<span class="st"> </span>ngo %&gt;%<span class="st"> </span><span class="kw">select</span>(deutsch, englisch, mathe)
+
+<span class="kw">bind_rows</span>(<span class="kw">tadaa_normtest</span>(cols, <span class="dt">method =</span> <span class="st">&quot;ad&quot;</span>, <span class="dt">print =</span> <span class="st">&quot;df&quot;</span>),
+          <span class="kw">tadaa_normtest</span>(cols, <span class="dt">method =</span> <span class="st">&quot;shapiro&quot;</span>, <span class="dt">print =</span> <span class="st">&quot;df&quot;</span>),
+          <span class="kw">tadaa_normtest</span>(cols, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">print =</span> <span class="st">&quot;df&quot;</span>)) %&gt;%
+<span class="st">  </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="left">method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">deutsch</td>
+<td align="right">2.4027906</td>
+<td align="right">0.0000043</td>
+<td align="left">Anderson-Darling normality test</td>
+</tr>
+<tr class="even">
+<td align="left">englisch</td>
+<td align="right">2.6913276</td>
+<td align="right">0.0000008</td>
+<td align="left">Anderson-Darling normality test</td>
+</tr>
+<tr class="odd">
+<td align="left">mathe</td>
+<td align="right">2.9093308</td>
+<td align="right">0.0000002</td>
+<td align="left">Anderson-Darling normality test</td>
+</tr>
+<tr class="even">
+<td align="left">deutsch</td>
+<td align="right">0.9792137</td>
+<td align="right">0.0010092</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+<tr class="odd">
+<td align="left">englisch</td>
+<td align="right">0.9752944</td>
+<td align="right">0.0002421</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+<tr class="even">
+<td align="left">mathe</td>
+<td align="right">0.9746956</td>
+<td align="right">0.0001962</td>
+<td align="left">Shapiro-Wilk normality test</td>
+</tr>
+<tr class="odd">
+<td align="left">deutsch</td>
+<td align="right">423.5120000</td>
+<td align="right">0.0000000</td>
+<td align="left">Pearson chi-square normality test</td>
+</tr>
+<tr class="even">
+<td align="left">englisch</td>
+<td align="right">449.5040000</td>
+<td align="right">0.0000000</td>
+<td align="left">Pearson chi-square normality test</td>
+</tr>
+<tr class="odd">
+<td align="left">mathe</td>
+<td align="right">477.4720000</td>
+<td align="right">0.0000000</td>
+<td align="left">Pearson chi-square normality test</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="statistics-wrappers" class="section level1">
