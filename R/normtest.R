@@ -3,6 +3,8 @@
 #' @param data A \code{data.frame}.
 #' @param method The type of test to perform. Either \code{ad} for Anderson Darling,
 #' \code{shapiro} for Shapiro-Wilk or \code{pearson} for Pearson's chi-square test.
+#' @param ... Further arguments passed to test functions where applicable,
+#' see \link[nortest]{pearson.test} and \link[stats]{ks.test}.
 #' @inheritParams tadaa_aov
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @import pixiedust
@@ -25,26 +27,36 @@
 #' select(englisch, deutsch, mathe) %>%
 #' tadaa_normtest(method = "pearson", print = "console")
 #' }
-tadaa_normtest <- function(data, method = "ad", print = "df"){
-  vars <- names(data)
+tadaa_normtest <- function(data, method = "ad", print = "df", ...){
+
+  if (print == "df" & length(method) > 1 & length(method) <= 3) {
+    res <- bind_rows(lapply(method, function(x) {
+                     tadaa_normtest(cols, method = x)
+                     }))
+    return(res)
+  }
+
+  vars    <- names(data)
   results <- lapply(data, function(x){
 
-    res <- if (method == "as") {
+    res <- if (method == "ad") {
       res <- ad.test(x)
     } else if (method == "shapiro") {
       res <- shapiro.test(x)
     } else if (method == "pearson") {
-      res <- pearson.test(x)
+      res <- pearson.test(x, ...)
+    } else if (method == "ks") {
+      res <- ks.test(x, y = pnorm, mean = mean(x), sd = sd(x), ...)
     } else {
-      stop("Method must be one of: 'as', 'shapiro', 'pearson'")
+      stop("Method must be one of: 'ad', 'shapiro', 'pearson', 'ks'")
     }
 
     res <- tidy(res)
     return(res)
   })
-  results <- dplyr::bind_rows(results)
-  results$variable <- vars
-  results <- results[c(4,1,2,3)]
+  results          <- dplyr::bind_rows(results)
+  results$variable <- as.character(vars)
+  results          <- results[c(4,1,2,3)]
 
   if (print == "df") {
     return(results)

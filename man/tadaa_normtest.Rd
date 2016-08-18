@@ -4,7 +4,7 @@
 \alias{tadaa_normtest}
 \title{Tadaa, test for normality!}
 \usage{
-tadaa_normtest(data, method = "ad", print = "df")
+tadaa_normtest(data, method = "ad", print = "df", ...)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -14,6 +14,9 @@ tadaa_normtest(data, method = "ad", print = "df")
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+
+\item{...}{Further arguments passed to test functions where applicable,
+see \link[nortest]{pearson.test} and \link[stats]{ks.test}.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
