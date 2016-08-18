@@ -46,7 +46,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
     } else if (method == "pearson") {
       res <- pearson.test(x, ...)
     } else if (method == "ks") {
-      res <- ks.test(x, y = pnorm, mean = mean(x), sd = sd(x), ...)
+      res <- ks.test(x, y = pnorm, mean = mean(x), sd = sd(x))
     } else {
       stop("Method must be one of: 'ad', 'shapiro', 'pearson', 'ks'")
     }
@@ -56,7 +56,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
   })
   results          <- dplyr::bind_rows(results)
   results$variable <- as.character(vars)
-  results          <- results[c(4,1,2,3)]
+  results          <- results[c(ncol(results), 2:(ncol(results) - 1))]
 
   if (print == "df") {
     return(results)
