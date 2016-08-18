@@ -23,14 +23,19 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "df
     model$cohens.f    <- sqrt(model$part.eta.sq / (1 - model$part.eta.sq))
   }
 
-  output <- pixiedust::dust(model)
-  output <- pixiedust::sprinkle_colnames(output, statistic = "F")
-  output <- pixiedust::sprinkle(output, col = 6, fn = quote(pval_string(value)))
-  output <- pixiedust::sprinkle(output, col = 3:4, round = 2)
-  output <- pixiedust::sprinkle(output, round = 3)
+  if (print == "df") {
+    return(model)
+  } else {
+    output <- pixiedust::dust(model)
+    output <- pixiedust::sprinkle_colnames(output, statistic = "F")
+    output <- pixiedust::sprinkle(output, col = 6, fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = 3:4, round = 2)
+    output <- pixiedust::sprinkle(output, round = 3)
 
-  if (!(print %in% c("console", "html", "markdown"))) {
-    stop("Print method must be 'console', 'html' or, 'markdown'")
+  }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
   }
 
   return(pixiedust::sprinkle_print_method(output, print_method = print))
