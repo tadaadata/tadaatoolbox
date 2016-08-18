@@ -51,19 +51,19 @@ Supported methods:
     - `pearson`: Pearson's chi-square test
     - `ks`: Kolmogorov-Smirnov
     
-```{r normtest}
+```{r normtest, eval=FALSE}
 library(dplyr)
+print("test")
+cols <- ngo[c("deutsch", "englisch", "mathe")]
 
-ngo %>% select(deutsch, englisch, mathe) %>%
-  tadaa_normtest(method = "shapiro", print = "markdown")
-
-cols <- ngo %>% select(deutsch, englisch, mathe)
-
-bind_rows(tadaa_normtest(cols, method = "ad", print = "df"),
-          tadaa_normtest(cols, method = "shapiro", print = "df"),
-          tadaa_normtest(cols, method = "pearson", print = "df")) %>%
-  knitr::kable()
+tadaa_normtest(data = cols, method = "shapiro", print = "markdown")
 ```
+
+|variable | statistic|   p.value|method                      |
+|:--------|---------:|---------:|:---------------------------|
+|deutsch  | 0.9792137| 0.0010092|Shapiro-Wilk normality test |
+|englisch | 0.9752944| 0.0002421|Shapiro-Wilk normality test |
+|mathe    | 0.9746956| 0.0001962|Shapiro-Wilk normality test |
 
 # Statistics Wrappers
 

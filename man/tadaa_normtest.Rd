@@ -10,7 +10,8 @@ tadaa_normtest(data, method = "ad", print = "df", ...)
 \item{data}{A \code{data.frame}.}
 
 \item{method}{The type of test to perform. Either \code{ad} for Anderson Darling,
-\code{shapiro} for Shapiro-Wilk or \code{pearson} for Pearson's chi-square test.}
+\code{shapiro} for Shapiro-Wilk, \code{pearson} for Pearson's chi-square test or
+\code{ks} for Kolmogorov-Smirnov (not recommended).}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}

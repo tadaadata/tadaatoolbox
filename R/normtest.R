@@ -57,7 +57,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
   })
   results          <- dplyr::bind_rows(results)
   results$variable <- as.character(vars)
-  results          <- results[c(ncol(results), 2:(ncol(results) - 1))]
+  results          <- results[c(ncol(results), 1:(ncol(results) - 1))]
 
   if (print == "df") {
     return(results)
