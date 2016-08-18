@@ -27,6 +27,7 @@ tadaa_ord(ngo$abschalt, ngo$geschl)
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_t.test}}
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_t.test}}
 }
 
