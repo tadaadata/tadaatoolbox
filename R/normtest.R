@@ -32,7 +32,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 
   if (print == "df" & length(method) > 1 & length(method) <= 3) {
     res <- bind_rows(lapply(method, function(x) {
-                     tadaa_normtest(cols, method = x)
+                     tadaa_normtest(x, method = x)
                      }))
     return(res)
   }
