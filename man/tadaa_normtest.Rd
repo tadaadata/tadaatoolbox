@@ -4,7 +4,7 @@
 \alias{tadaa_normtest}
 \title{Tadaa, test for normality!}
 \usage{
-tadaa_normtest(data, method = "as", print = "df")
+tadaa_normtest(data, method = "ad", print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -32,7 +32,6 @@ ngo \%>\%
 select(englisch, deutsch, mathe) \%>\%
 tadaa_normtest(method = "pearson", print = "console")
 }
-
 }
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
