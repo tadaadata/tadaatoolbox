@@ -61,6 +61,7 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 
 * `tadaa_nom`: All the nominal stats in one table.
 * `tadaa_ord`: All the ordinal stats in one table.
+* `tadaa_sem`: Standard error and CI, you guessed it, in one table.
 
 # General Helper Functions
 
@@ -69,6 +70,10 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 * `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
 * `interval_labels`: To produce labels for clusters created by `cut`.
 * `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
+* `delet_na`: Customizable way to drop `NA` observations from a dataset.
+* `labels_to_factor`: If you mix and match `sjPlot`, `haven` and `ggplot2`, you might need to translate `labels` to `factors`, which is precisely what this functions does. Drop in `data.frame` with `label`, receive `data.frame` with `factors`.
+* `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
+* `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
 ## Plotting helpers
 
@@ -106,9 +111,9 @@ ngo$geschl   <- sjmisc::set_labels(ngo$geschl,   c("M\u00e4nnlich", "Weiblich"))
 ngo$abschalt <- sjmisc::set_labels(ngo$abschalt, c("Ja", "Nein"))
 ngo$jahrgang <- sjmisc::set_labels(ngo$jahrgang, c("11", "12", "13"))
 ngo$hausauf  <- sjmisc::set_labels(ngo$hausauf,  c("gar nicht", "weniger als halbe Stunde",
-                                           "halbe Stunde bis Stunde", "1 bis 2 Stunden",
-                                           "2 bis 3 Stunden", "3 bis 4 Stunden",
-                                           "mehr als 4 Stunden"))
+                                                   "halbe Stunde bis Stunde", "1 bis 2 Stunden",
+                                                   "2 bis 3 Stunden", "3 bis 4 Stunden",
+                                                   "mehr als 4 Stunden"))
 
 ## factors
 ngo$geschl   <- factor(ngo$geschl,   labels = c("M\u00e4nnlich", "Weiblich"))
