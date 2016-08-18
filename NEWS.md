@@ -3,10 +3,12 @@
 ## v0.10.0.9000 (devel/GitHub)
 
 ### Minor changes
+* New function: `tadaa_normtest` lets you do tests for normality (3 methods) over multiple variables.
 * New function: `tadaa_heatmap` generates a heatmap. Mhhh, heatmaps.
 * New function: `tadaa_sem` shows the standard error of the mean and it's confidence interval
 * New function: `pval_string` as a modification of `pixiedust::pvalString` that includes `p < .05`.
 * Added a ggplot2 theme for the [rmdformats::readthedown](https://github.com/juba/rmdformats/) Rmd template.
+* `tadaa_aov`, `tadaa_t.test` and the new `tadaa_normtest` now return a `data.frame` by default, allowing further shenanigans
 
 ### Patch changes
 * New options in `tadaa_int`: 

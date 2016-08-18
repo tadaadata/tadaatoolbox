@@ -79,6 +79,7 @@ Tidy test output
 
 -   `tadaa_aov`: For `aov` with included partial eta^2.
 -   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
+-   `tadaa_normtest` lets you do tests for normality (3 methods) over multiple variables.
 
 Helpers for plots
 -----------------
