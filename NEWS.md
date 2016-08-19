@@ -1,6 +1,6 @@
 # tadaatoolbox
 
-## v0.10.0.9000 (devel/GitHub)
+## v0.10.0 (on CRAN)
 
 ### Minor changes
 * New function: `tadaa_normtest` lets you do tests for normality (4 methods) over multiple variables.
@@ -21,7 +21,7 @@
 * Add additional option `as_character` to `modus` because guessing about return value classes is no joke.
 * Fix issues with `generate_recodes` and `interval_labels` (#1).
 
-## v0.9.0 (on CRAN)
+## v0.9.0
 
 ### Minor changes
 * Add `tadaa_ord` as ordinal equivalent of `tadaa_nom`.
