@@ -11,6 +11,13 @@
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "y")
 effect_size_t <- function(data, response, group, na.rm = TRUE){
+
+  # # Handle NSE
+  # if (!is.character(substitute(response)) & !is.character(substitute(group))) {
+  #   response <- deparse(substitute(response))
+  #   group    <- deparse(substitute(group))
+  # }
+
   # Check the type of the group
   if (is.factor(data[[group]])) {
     groups <- levels(data[[group]])

@@ -5,7 +5,7 @@
 \title{Tadaa, t-Test!}
 \usage{
 tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  na.rm = TRUE, print = "console")
+  na.rm = TRUE, print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}

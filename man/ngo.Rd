@@ -15,7 +15,7 @@ ngo
 Sample data for teaching purposes used by Kähler (2008)
 }
 \note{
-\code{\link[ryouready]{d.ngo}} is the source of this data, but with some recoding done.
+\code{ryouready::d.ngo} is the source of this data, but with some recoding done.
 }
 \references{
 Kähler, W.-M. (2008). \emph{Statistische Datenanalyse: Verfahren verstehen
