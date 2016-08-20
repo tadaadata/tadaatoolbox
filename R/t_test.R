@@ -20,7 +20,7 @@
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_t.test(df, x, y, paired = TRUE)
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
-                         paired = FALSE, na.rm = TRUE, print = "console") {
+                         paired = FALSE, na.rm = TRUE, print = "df") {
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -55,7 +55,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                              paired = paired, var.equal = var.equal))
 
   # Additions
-  test$d     <- effect_size_t(data = data, response = response, group = group, na.rm = na.rm)
+  test$d       <- effect_size_t(data = data, response = response, group = group, na.rm = na.rm)
   if (paired) {
     test$power <- pwr::pwr.t.test(n = n1, d = test$d, alternative = direction, type = "paired")$power
   } else {
