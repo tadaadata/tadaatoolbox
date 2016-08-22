@@ -1,0 +1,134 @@
+---
+title: "Function Overview"
+author: "Lukas Burk"
+date: "`r format(Sys.time(), '%F', tz = 'UTC', usetz = T)`"
+output: 
+  rmarkdown::html_vignette:
+    toc: yes
+vignette: >
+  %\VignetteIndexEntry{Function Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(tadaatoolbox)
+knitr::opts_chunk$set(message = F, warning = F)
+```
+
+This toolbox has been compiled to make the intro to R and statistics with R a little easier.  
+Besides that, it also contains some neat helper functions for tasks or problems one might run in frequently in our field.
+
+# High Level Functions
+
+There are several high level functions aimed at quick output generation:
+
+```{r highlevel_intro, results='asis', echo=F}
+cat(paste0("- **", apropos("tadaa_"), "**", collapse = "\n"))
+```
+
+The point of these function is to combine routine steps into one function, so let's showcase them.
+
+## t-Tests: `tadaa_t.test`
+
+On of the first implemented functions, `tadaa_t.test`, automagically checks for homogenity of variance via `car::leveneTest`, and if the resulting p-value is below .1, homogenity of variance is assumed in the following call to `stats::t.test`. Afterwards the effect size $d$ is is calculated with pooled/weighted variances to ensure accuracy, and the power of the test is calculated via the `pwr` package (also keeping in mind whether the test is `paired` or not). It then formats the output according to `broom::tidy`, sprinkles it with `pixiedust` and prints either to console, markdown or whatever printing method is passed via the `print` argument to `pixiedust::sprinkle_print_method`.
+
+```{r t-test}
+tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
+```
+
+## ANOVA: `tadaa_aov`
+
+```{r anova}
+tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
+```
+
+# Statistics Wrappers
+
+These are pretty self-explanatory. The goal is to provide simple functions for commonly used statistics that look and behave the same, and also only return a single numerical value to play nice with `dplyr::summarize`.
+
+* `modus`: A simple function to extract the mode of a frequency table.
+    - This is **not** guaranteed to only return a single value!
+* `nom_chisqu`: Simple wrapper for `chisq.test` that produces a single value.
+* `nom_phi`: Simple wrapper for `vcd::assocstats` to extract phi.
+* `nom_v`: Simple wrapper for `vcd::assocstats` to extract Cramer's V.
+* `nom_c`: Simple wrapper for `vcd::assocstats` to extract the contingency coefficient c.
+* `nom_lambda`: Simple wrapper for `ryouready::nom.lambda` to extract appropriate lambda.
+* `ord_gamma`: Simple wrapper for `ryouready::ord.gamma`.
+* `ord_somers_d`: Simple wrapper for `ryouready::ord.somers.d`.
+
+## Summaries
+
+* `tadaa_nom`: All the nominal stats in one table.
+* `tadaa_ord`: All the ordinal stats in one table.
+* `tadaa_sem`: Standard error and CI, you guessed it, in one table.
+
+# General Helper Functions
+
+## Intervals and recoding
+
+* `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
+* `interval_labels`: To produce labels for clusters created by `cut`.
+* `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
+* `delet_na`: Customizable way to drop `NA` observations from a dataset.
+* `labels_to_factor`: If you mix and match `sjPlot`, `haven` and `ggplot2`, you might need to translate `labels` to `factors`, which is precisely what this functions does. Drop in `data.frame` with `label`, receive `data.frame` with `factors`.
+* `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
+* `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
+
+## Plotting helpers
+
+* `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
+    * `confint_t`: For the underlying function to get the CI width. Returns a single value.
+
+```{r confint}
+library(ggplot2)
+
+ggplot(data = ngo, aes(x = jahrgang, y = stunzahl)) +
+  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
+```
+
+### Prebuilt plotting functions
+
+* `tadaa_int`: Simple interaction plot template.
+
+```{r tadaa_int, fig.width=6}
+library(ggplot2)
+
+tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl, grid = T, brewer_palette = "Set1")
+```
+
+# Data
+
+The infamous *ngo* dataset is included for teaching purposes as well. It differs from [ryouready](https://github.com/markheckmann/ryouready)'s provided version with regards to classes and labels. The code below was used to generate the provided version of the dataset:
+
+(Note that `\u00e4` is a unicode encoded Umlaut for compatibility reasons)
+
+```{r data_ngo, eval=FALSE}
+ngo <- ryouready::d.ngo
+
+## sjPlot value labels
+ngo$geschl   <- sjmisc::set_labels(ngo$geschl,   c("M\u00e4nnlich", "Weiblich"))
+ngo$abschalt <- sjmisc::set_labels(ngo$abschalt, c("Ja", "Nein"))
+ngo$jahrgang <- sjmisc::set_labels(ngo$jahrgang, c("11", "12", "13"))
+ngo$hausauf  <- sjmisc::set_labels(ngo$hausauf,  c("gar nicht", "weniger als halbe Stunde",
+                                                   "halbe Stunde bis Stunde", "1 bis 2 Stunden",
+                                                   "2 bis 3 Stunden", "3 bis 4 Stunden",
+                                                   "mehr als 4 Stunden"))
+
+## factors
+ngo$geschl   <- factor(ngo$geschl,   labels = c("M\u00e4nnlich", "Weiblich"))
+ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
+ngo$hausauf  <- car::recode(ngo$hausauf,  "0 = NA")
+ngo$abschalt <- car::recode(ngo$abschalt, "0 = NA")
+ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
+
+## Variable labels
+ngo$geschl   <- sjmisc::set_label(ngo$geschl, "Geschlecht")
+ngo$abschalt <- sjmisc::set_label(ngo$abschalt, "Abschalten")
+ngo$jahrgang <- sjmisc::set_label(ngo$jahrgang, "Jahrgang")
+ngo$hausauf  <- sjmisc::set_label(ngo$hausauf, "Hausaufgaben")
+
+## Saving
+ngo <- dplyr::tbl_df(ngo)
+```
+
