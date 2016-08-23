@@ -235,9 +235,11 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
 
   # If x is a numeric vector, just use that
   # Otherwise it's a column of 'data', so we'll need that
-  if (!is.numeric(x)) {
+  if (!is.null(data)) {
     x <- deparse(substitute(x))
     x <- data[[x]]
+  } else if (!is.numeric(x)) {
+    stop("Argument 'x' must be numeric or a bare column name of 'data'")
   }
 
   if (is.null(sigma)) {
@@ -245,7 +247,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
   } else {
     # If sigma is known, do manual z-test stuff
-    sem <- sigma/sqrt(length(x))
+    sem     <- sigma/sqrt(length(x))
     results <- data.frame(estimate = mean(x, na.rm = na.rm),
                           statistic = (mean(x, na.rm = na.rm) - mu)/sem)
   }
