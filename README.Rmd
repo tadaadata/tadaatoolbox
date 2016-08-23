@@ -24,6 +24,7 @@ system(command = "cp vignettes/overview.html docs/index.html")
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
+[![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)).<br />
