@@ -209,3 +209,60 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
   }
 }
 
+
+#' Tadaa, one-sample tests!
+#'
+#' @param data A \code{data.frame}.
+#' @param x A numeric vector.
+#' @param mu The true mean (\eqn{\mu}) to test for.
+#' @param sigma Population sigma. If supplied, a z-test is performed,
+#' else a one-sample \link[stats]{t.test} is performed.
+#' @inheritParams tadaa_t.test
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @import pixiedust
+#' @import stats
+#' @family Tadaa-functions
+#' @export
+#' @examples
+#' df <- data.frame(x = rnorm(n = 20, mean = 100, sd = 1))
+#'
+#' tadaa_one_sample(df, x, mu = 105, sigma = 1)
+#'
+#' # No data.frame, just a vector
+#' tadaa_one_sample(x = rnorm(20), mu = 0)
+tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.sided",
+                             na.rm = TRUE, print = "df") {
+
+  # If x is a numeric vector, just use that
+  # Otherwise it's a column of 'data', so we'll need that
+  if (!is.numeric(x)) {
+    x <- deparse(substitute(x))
+    x <- data[[x]]
+  }
+
+  if (is.null(sigma)) {
+    # If sigma is unknown, just do a t-test
+    results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
+  } else {
+    # If sigma is known, do manual z-test stuff
+    sem <- sigma/sqrt(length(x))
+    results <- data.frame(estimate = mean(x, na.rm = na.rm),
+                          statistic = (mean(x, na.rm = na.rm) - mu)/sem)
+  }
+
+
+  ### Output ###
+  if (print == "df") {
+    return(results)
+  } else {
+    output <- pixiedust::dust(results)
+    output <- pixiedust::sprinkle(output, col = 3, fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, round = 3)
+
+    if (!(print %in% c("df", "console", "html", "markdown"))) {
+      stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+    }
+
+    return(pixiedust::sprinkle_print_method(output, print_method = print))
+  }
+}
