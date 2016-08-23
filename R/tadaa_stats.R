@@ -245,12 +245,25 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   if (is.null(sigma)) {
     # If sigma is unknown, just do a t-test
     results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
+    # Effect size
+    results$d <- (mean(x, na.rm = na.rm) - mu) / sd(x)
+    # Power
+    results$power <- pwr::pwr.t.test(n = length(x), d = results$d, type = "one.sample",
+                                     alternative = direction)$power
   } else {
     # If sigma is known, do manual z-test stuff
     sem     <- sigma/sqrt(length(x))
-    results <- data.frame(estimate = mean(x, na.rm = na.rm),
+    results <- data.frame(estimate  = mean(x, na.rm = na.rm),
                           statistic = (mean(x, na.rm = na.rm) - mu)/sem)
+
+    # Effect size
+    results$d <- (mean(x, na.rm = na.rm) - mu) / sigma
+    # Power
+    results$power <- pwr::pwr.norm.test(d = results$d, n = length(x),
+                                        alternative = direction)$power
   }
+
+
 
 
   ### Output ###
