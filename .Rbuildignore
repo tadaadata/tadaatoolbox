@@ -6,3 +6,4 @@ travis.yml
 ^cran-comments\.md$
 dev/*
 docs/
+^CONDUCT\.md$
