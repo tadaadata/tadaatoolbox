@@ -3,6 +3,8 @@
 ## v.0.11.9000 (dev/GitHub)
 
 ### Minor changes
+- Add `tadaa_one_sample`: For one-sample t-tests and finally an easy z-test.
+    - Add `confint_t`: Helper to get CIs, similar to `confint_t`
 
 ### Patch changes
 
