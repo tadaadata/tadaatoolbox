@@ -4,12 +4,12 @@
 \alias{confint_norm}
 \title{Confidence Intervals}
 \usage{
-confint_norm(data, alpha = 0.05, na.rm = TRUE)
+confint_norm(x, alpha = 0.05, na.rm = TRUE)
 }
 \arguments{
-\item{data}{A \code{data.frame}}
+\item{x}{A Numeric vector.}
 
-\item{alpha}{Alpha, default is \code{0.05}}
+\item{alpha}{Alpha, default is \code{0.05}.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 }

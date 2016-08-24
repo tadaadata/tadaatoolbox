@@ -7,6 +7,8 @@
     - Add `confint_t`: Helper to get CIs, similar to `confint_t`
 
 ### Patch changes
+- Fix documentation inconsistencies.
+
 
 ## v0.10.0 (on CRAN)
 

@@ -4,17 +4,17 @@
 \alias{confint_t}
 \title{Confidence Intervals}
 \usage{
-confint_t(data, alpha = 0.05, na.rm = TRUE)
+confint_t(x, alpha = 0.05, na.rm = TRUE)
 }
 \arguments{
-\item{data}{A \code{data.frame}}
+\item{x}{A Numeric vector.}
 
-\item{alpha}{Alpha, default is \code{0.05}}
+\item{alpha}{Alpha, default is \code{0.05}.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 }
 \value{
-\code{numeric} of length one (size of CI in one direction)
+\code{numeric} of length one (size of CI in one direction).
 }
 \description{
 Confidence Intervals

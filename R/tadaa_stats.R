@@ -212,6 +212,9 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 
 #' Tadaa, one-sample tests!
 #'
+#' If `sigma` is omitted, the function will basically just perform a one-sample \link[stats]{t.test},
+#' but if `sigma` is provided, a z-test is performed. It basically works the same way, except that we
+#' pretend we know the population sigma.
 #' @param data A \code{data.frame}.
 #' @param x A numeric vector.
 #' @param mu The true mean (\eqn{\mu}) to test for.

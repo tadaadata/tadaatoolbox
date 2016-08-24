@@ -2,14 +2,14 @@
 % Please edit documentation in R/confint.R
 \name{mean_ci_t}
 \alias{mean_ci_t}
-\title{Get mean and ci for data}
+\title{Get mean and CI for a numeric vector}
 \usage{
-mean_ci_t(data, alpha = 0.05, na.rm = TRUE)
+mean_ci_t(x, alpha = 0.05, na.rm = TRUE)
 }
 \arguments{
-\item{data}{A \code{data.frame}}
+\item{x}{A Numeric vector.}
 
-\item{alpha}{Alpha, default is \code{0.05}}
+\item{alpha}{Alpha, default is \code{0.05}.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 }

@@ -28,7 +28,9 @@ Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
-Tadaa, one-sample tests!
+If `sigma` is omitted, the function will basically just perform a one-sample \link[stats]{t.test},
+but if `sigma` is provided, a z-test is performed. It basically works the same way, except that we
+pretend we know the population sigma.
 }
 \examples{
 df <- data.frame(x = rnorm(n = 20, mean = 100, sd = 1))
