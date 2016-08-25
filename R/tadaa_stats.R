@@ -272,7 +272,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     }
     results$p.value     <- p
     results$conf.low    <- mean_x - confint_norm(x)
-    results$conf.high   <- mean_x - confint_norm(x)
+    results$conf.high   <- mean_x + confint_norm(x)
     results$method      <- "z-test"
     results$alternative <- direction
 
