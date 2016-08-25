@@ -98,7 +98,7 @@ confint_norm <- function(x, alpha = 0.05, na.rm = TRUE){
   alpha    <- alpha/2
   sd       <- sd(x, na.rm = na.rm)
   sem      <- sd/sqrt(length(na.omit(x)))
-  w_krit   <- qnorm(1 - (alpha), mean = mean(x), sd = sem)
+  w_krit   <- qnorm(1 - (alpha), mean = mean(x, na.rm = na.rm), sd = sem)
   width    <- w_krit * sem
 
   return(width)
