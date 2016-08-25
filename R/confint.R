@@ -16,8 +16,8 @@ confint_t <- function(x, alpha = 0.05, na.rm = TRUE){
 
   alpha    <- alpha/2
   sd       <- sd(x, na.rm = na.rm)
-  w_krit   <- qt(1 - (alpha), df = (length(x) - 1))
-  width    <- w_krit * sd/sqrt(length(x))
+  w_krit   <- qt(1 - (alpha), df = (length(na.omit(x)) - 1))
+  width    <- w_krit * sd/sqrt(length(na.omit(x)))
 
   return(width)
 }
@@ -63,14 +63,14 @@ confint_sem <- function(x, conf.level = .95) {
     stop("Data is not a numeric vector")
   }
   # SEM if sigma is known // todo: add option or correct for length(x) and NAs
-  sem  <- sd(x, na.rm = T) / sqrt(length(x))
+  sem  <- sd(x, na.rm = T) / sqrt(length(na.omit(x)))
   # clvl <- qnorm(1 - conf.level / 2)
   clvl <- qnorm(conf.level + ((1 - conf.level) / 2))
 
   CI_upper <- mean(x, na.rm = T) + (sem * clvl)
   CI_lower <- mean(x, na.rm = T) - (sem * clvl)
 
-  bunch_of_stats <- data.frame(y   = mean(x, na.rm = T),
+  bunch_of_stats <- data.frame(y    = mean(x, na.rm = T),
                                SEM  = sem,
                                ymin = CI_lower,
                                ymax = CI_upper)
