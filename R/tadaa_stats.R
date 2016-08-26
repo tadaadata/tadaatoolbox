@@ -351,8 +351,8 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   } else {
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = "W", p.value = "p", parameter = "df",
-                                           conf.low = "conf_low", conf.high = "conf_high")
+                                           statistic = "W", p.value = "p", method = "Method",
+                                           alternative = "direction")
 
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
