@@ -46,6 +46,15 @@ Functionality
 
 See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current version in this repository [on GitHub pages](http://tadaadata.github.io/tadaatoolbox/).
 
+Tidy test output
+----------------
+
+-   `tadaa_aov`: For `aov` with included partial *η*<sup>2</sup> and Cohen's f.
+-   `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.
+-   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
+-   `tadaa_wilcoxon`: A wrapper for `wilcox.test` tidied and optionally `pixiedust`ed.
+-   `tadaa_normtest` lets you do tests for normality (4 methods) over multiple variables.
+
 Statistical functions
 ---------------------
 
@@ -73,15 +82,6 @@ Misc. helpers
 -   `labels_to_factor`: If you mix and match `sjPlot`, `haven` and `ggplot2`, you might need to translate `labels` to `factors`, which is precisely what this functions does. Drop in `data.frame` with `label`, receive `data.frame` with `factors`.
 -   `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
 -   `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
-
-Tidy test output
-----------------
-
--   `tadaa_aov`: For `aov` with included partial eta^2.
--   `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.
--   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
--   `tadaa_wilcoxon`: A wrapper for `wilcox.test` tidied and optionally `pixiedust`ed.
--   `tadaa_normtest` lets you do tests for normality (4 methods) over multiple variables.
 
 Helpers for plots
 -----------------
