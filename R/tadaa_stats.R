@@ -351,8 +351,8 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   } else {
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = "W", p.value = "p", parameter = "df",
-                                           conf.low = "conf_low", conf.high = "conf_high")
+                                           statistic = "W", p.value = "p", method = "Method",
+                                           alternative = "direction")
 
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
@@ -363,6 +363,41 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pixiedust::pvalString(value)))
     output <- pixiedust::sprinkle(output, round = 3)
+  }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+}
+
+
+#' Tadaa, Kruskal-Wallis!
+#'
+#' @param formula Formula for model, passed to \code{kruskal.test}.
+#' @param data Data for model.
+#' @param print Print method, per default a regular \code{data.frame}.
+#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @export
+#' @family Tadaa-functions
+#' @import stats
+#' @examples
+#' tadaa_kruskal(stunzahl ~ jahrgang, data = ngo)
+tadaa_kruskal <- function(formula, data = NULL, print = "console"){
+
+  model <- broom::tidy(kruskal.test(formula = formula, data = data))
+
+  if (print == "df") {
+    return(model)
+  } else {
+    output <- suppressWarnings(pixiedust::dust(model))
+    output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi²",
+                                           p.value = "p", parameter = "df", method = "Method")
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pvalString(value)))
+    output <- pixiedust::sprinkle(output, round = 3)
+
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
