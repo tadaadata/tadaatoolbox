@@ -48,7 +48,7 @@ mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE){
   return(ret)
 }
 
-#' Standard Error of the Mean
+#' Standard Error of the Mean with CI
 #'
 #' @param x a numeric vector or R object which is coercible to one
 #' @param conf.level the confidence level (alpha) of the Interval
@@ -57,8 +57,8 @@ mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE){
 #' @examples
 #' iq <- rnorm(100, 100, 15)
 #'
-#' confint_sem(iq)
-confint_sem <- function(x, conf.level = .95) {
+#' mean_ci_sem(iq)
+mean_ci_sem <- function(x, conf.level = .95) {
   if (!is.numeric(x)) {
     stop("Data is not a numeric vector")
   }

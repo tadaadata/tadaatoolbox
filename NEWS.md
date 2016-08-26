@@ -4,8 +4,9 @@
 
 ### Minor changes
 - Add `tadaa_one_sample`: For one-sample t-tests and finally an easy z-test.
-    - Add `confint_t`: Helper to get CIs, similar to `confint_t`
-- Move `tadaa_sem` $\rightarrow$ `confint_sem` because it's more `confint` than `tadaa`.
+    - Add `confint_norm`: Helper to get CIs, similar to `confint_t`
+- Add `tadaa_wilcoxon`: For when `tadaa_t.test` isn't non-parametric enough. Same usage.
+- Move `tadaa_sem` $\rightarrow$ `mean_ci_sem` because it's more `confint` than `tadaa`.
 
 ### Patch changes
 - Fix documentation inconsistencies.
