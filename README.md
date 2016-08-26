@@ -3,11 +3,12 @@
 tadaatoolbox
 ============
 
-[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![GitHub commits](https://img.shields.io/github/commits-since/tadaadata/tadaatoolbox/0.10.0.svg?maxAge=2592000)]() [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](http://cranlogs.r-pkg.org/badges/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Repo Size](https://reposs.herokuapp.com/?path=tadaadata/tadaatoolbox)](https://github.com/rexfinn/reposs)
 
 This is **tadaatoolbox** version `0.11.9000` ([semver](http://semver.org/)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br /> To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).
+Also, since this project is still in the `0.x.y` version, you should expect the API to change at any time. Once we reach `1.0.0`, API changes will be rolled out more slowly and include depracation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or `devtools`.
 
 As a sideproject, I attempted to visualize the package depencencies [in this document](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/dev/dependencies/dependencies.html). It's not optimal yet, but at least it's a glimpse of the first two layers of dependencies.
 
@@ -61,7 +62,6 @@ Statistical functions
 
 -   `tadaa_nom`: All the nominal stats in one table.
 -   `tadaa_ord`: All the ordinal stats in one table.
--   `tadaa_sem`: Standard error and CI, you guessed it, in one table.
 
 Misc. helpers
 -------------
@@ -88,6 +88,8 @@ Helpers for plots
 
 -   `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
     -   `confint_t`: For the underlying function to get the CI width. Returns a single value.
+    -   `confint_norm`: Similar, but baes on normal distribution. Returns a single value.
+-   `mean_ci_sem`: Standard error and CI, you guessed it, in one table.
 
 ### Interaction plots
 
