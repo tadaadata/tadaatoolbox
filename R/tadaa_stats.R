@@ -301,3 +301,73 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     return(pixiedust::sprinkle_print_method(output, print_method = print))
   }
 }
+
+
+#' Tadaa, Wilcoxon!
+#'
+#' @param data A \code{data.frame}.
+#' @inheritParams tadaa_t.test
+#' @param ... Further arguments passed to \link[stats]{wilcox.test}, e.g. \code{correct = FALSE}.
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @import pixiedust
+#' @import stats
+#' @family Tadaa-functions
+#' @export
+#' @examples
+#' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
+#' tadaa_wilcoxon(df, x, y)
+#'
+#' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
+#' tadaa_wilcoxon(df, x, y, paired = TRUE)
+tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
+                           paired = FALSE, na.rm = TRUE, print = "df", ...) {
+
+  response <- deparse(substitute(response))
+  group    <- deparse(substitute(group))
+
+  # Check the type of the group
+  if (is.factor(data[[group]])) {
+    groups <- levels(data[[group]])
+  } else {
+    groups <- unique(data[[group]])
+  }
+
+  # Subset groups of response
+  x <- data[data[[group]] == groups[1], ][[response]]
+  y <- data[data[[group]] == groups[2], ][[response]]
+
+  # Kick out NAs if specified
+  if (na.rm) {
+    x <- x[!is.na(x)]
+    y <- y[!is.na(y)]
+  }
+
+  # wilcox test
+  test <- broom::tidy(wilcox.test(x = x, y = y, direction = direction,
+                             paired = paired, ...))
+
+  if (print == "df") {
+    return(test)
+  } else {
+    output <- pixiedust::dust(test)
+    output <- pixiedust::sprinkle_colnames(output,
+                                           statistic = "W", p.value = "p", parameter = "df",
+                                           conf.low = "conf_low", conf.high = "conf_high")
+
+    if ("estimate" %in% output$body$col_name) {
+      output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
+    }
+    if ("estimate1" %in% output$body$col_name) {
+      output <- pixiedust::sprinkle_colnames(output, estimate1 = groups[[1]], estimate2 = groups[[2]])
+    }
+
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pixiedust::pvalString(value)))
+    output <- pixiedust::sprinkle(output, round = 3)
+  }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+}
