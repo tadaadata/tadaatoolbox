@@ -390,7 +390,7 @@ tadaa_kruskal <- function(formula, data = NULL, print = "console"){
     return(model)
   } else {
     output <- suppressWarnings(pixiedust::dust(model))
-    output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi²",
+    output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi\u00B2",
                                            p.value = "p", parameter = "df", method = "Method")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 3)
