@@ -396,8 +396,7 @@ tadaa_kruskal <- function(formula, data = NULL, print = "console"){
     output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi²",
                                            p.value = "p", parameter = "df", method = "Method")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pvalString(value)))
-    output <- pixiedust::sprinkle(output, col = 1, round = 3)
-    # output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, round = 3)
 
   }
 
