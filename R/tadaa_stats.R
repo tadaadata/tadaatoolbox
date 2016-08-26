@@ -371,3 +371,39 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 
   return(pixiedust::sprinkle_print_method(output, print_method = print))
 }
+
+
+#' Tadaa, Kruskal-Wallis!
+#'
+#' @param formula Formula for model, passed to \code{kruskal.test}.
+#' @param data Data for model.
+#' @param print Print method, per default a regular \code{data.frame}.
+#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @export
+#' @family Tadaa-functions
+#' @import stats
+#' @examples
+#' tadaa_kruskal(stunzahl ~ jahrgang, data = ngo)
+tadaa_kruskal <- function(formula, data = NULL, print = "console"){
+
+  model <- broom::tidy(kruskal.test(formula = formula, data = data))
+
+  if (print == "df") {
+    return(model)
+  } else {
+    output <- suppressWarnings(pixiedust::dust(model))
+    output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi²",
+                                           p.value = "p", parameter = "df", method = "Method")
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pvalString(value)))
+    output <- pixiedust::sprinkle(output, col = 1, round = 3)
+    # output <- pixiedust::sprinkle(output, round = 3)
+
+  }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+}
