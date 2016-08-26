@@ -39,7 +39,8 @@ tadaa_t.test(df, x, y, paired = TRUE)
 \seealso{
 Other Tadaa.functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
+  \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_wilcoxon}}
 }
