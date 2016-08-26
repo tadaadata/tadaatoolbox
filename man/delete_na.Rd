@@ -22,7 +22,14 @@ Adapted from \url{http://stackoverflow.com/a/30461945/409362}.
 }
 \examples{
 \dontrun{
-df <- delete_na(df)
+df <- data.frame(x = sample(c(1:10, NA), 10),
+                 y = sample(c(1:10, NA), 10),
+                 z = sample(c(1:10, NA), 10))
+
+df <- delete_na(df, 1)
+
+# Or with magrittr syntax sugar
+df \%<>\% delete_na
 }
 }
 
