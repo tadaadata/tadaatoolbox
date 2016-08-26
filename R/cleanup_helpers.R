@@ -56,7 +56,6 @@ drop_labels <- function(x) {
 #' Easy p-value formatting
 #'
 #' @param pv A p-value in numeric form.
-#'
 #' @return A formatted \code{character} representation of the input value.
 #' @export
 #' @note Simplified version of \link[pixiedust]{pvalString} which considers \code{< 0.05}.
@@ -77,9 +76,9 @@ pval_string <- function(pv) {
       "> 0.99"
     } else if (p > 0.1) {
       format(round(p, 2), digits = 2)
-    } else if (p > 0.05) {
+    } else if (p >= 0.05) {
       format(round(p, 3), digits = 3)
-    } else if (p > 0.01) {
+    } else if (p > 0.01 & p < 0.05) {
       "< 0.05"
     } else if (p > 0.001) {
       "< 0.01"

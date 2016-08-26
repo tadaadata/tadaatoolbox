@@ -12,6 +12,9 @@
 ### Patch changes
 - Fix documentation inconsistencies.
 
+### Notable bug fixes
+- Turns out `pval_string(0.05)` returned `< 0.05`. Well. That was embarrassing.
+
 ## v0.10.0 (on CRAN)
 
 ### Minor changes
