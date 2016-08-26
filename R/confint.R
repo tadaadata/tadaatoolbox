@@ -1,5 +1,6 @@
 #' Confidence Intervals
 #'
+#' @rdname confint
 #' @param x A Numeric vector.
 #' @param alpha Alpha, default is \code{0.05}.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
@@ -79,12 +80,7 @@ mean_ci_sem <- function(x, conf.level = .95) {
 }
 
 
-#' Confidence Intervals
-#'
-#' @param x A Numeric vector.
-#' @param alpha Alpha, default is \code{0.05}.
-#' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#' @return \code{numeric} of length one (size of CI in one direction)
+#' @rdname confint
 #' @export
 #' @import stats
 #' @examples
