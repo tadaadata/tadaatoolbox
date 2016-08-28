@@ -6,6 +6,7 @@
 - Add `tadaa_one_sample`: For one-sample t-tests and finally an easy z-test.
     - Add `confint_norm`: Helper to get CIs, similar to `confint_t`
 - Add `tadaa_wilcoxon`: For when `tadaa_t.test` isn't non-parametric enough. Same usage.
+    - Additionally displays medians of each group.
 - Add `tadaa_kruskal`: For when `tadaa_aov` isn't non-parametric enough, too.
 - Move `tadaa_sem` $\rightarrow$ `mean_ci_sem` because it's more `confint` than `tadaa`.
 

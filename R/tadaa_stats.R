@@ -343,6 +343,11 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   test <- broom::tidy(wilcox.test(x = x, y = y, direction = direction,
                              paired = paired, ...))
 
+  test$median1 <- median(x, na.rm = na.rm)
+  test$median2 <- median(y, na.rm = na.rm)
+
+  test <- test[c("statistic", "median1", "median2", "p.value", "method", "alternative")]
+
   if (print == "df") {
     return(test)
   } else {
@@ -354,11 +359,11 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
     }
-    if ("estimate1" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate1 = groups[[1]], estimate2 = groups[[2]])
+    if ("median1" %in% output$body$col_name) {
+      output <- pixiedust::sprinkle_colnames(output, median1 = groups[[1]], median2 = groups[[2]])
     }
 
-    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pixiedust::pvalString(value)))
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 3)
   }
 
