@@ -27,8 +27,7 @@ tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_heatmap}},
-  \code{\link{tadaa_int}}, \code{\link{tadaa_kruskal}},
+Other Tadaa-functions: \code{\link{tadaa_kruskal}},
   \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}

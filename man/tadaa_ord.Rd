@@ -25,8 +25,7 @@ As of now, only Gamma and Somers D are supported. But let's be honest: Everybody
 tadaa_ord(ngo$abschalt, ngo$geschl)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
+Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}},

@@ -8,19 +8,22 @@ tadaa_int(data, response, group1, group2, grid = FALSE,
   brewer_palette = "Set1", labels = c("A", "B"))
 }
 \arguments{
-\item{data}{A \code{data.frame}}
+\item{data}{A \code{data.frame}.}
 
-\item{response}{Response variable}
+\item{response}{Response variable.}
 
-\item{group1}{First grouping variable}
+\item{group1}{First grouping variable.}
 
-\item{group2}{Second grouping variable}
+\item{group2}{Second grouping variable.}
 
-\item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.}
+\item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid
+via \link[cowplot]{plot_grid}.}
 
-\item{brewer_palette}{The name of the \link[RColorBrewer]{RColorBrewer} palette to use, defaults to \code{Set1}}
+\item{brewer_palette}{The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+defaults to \code{Set1}.}
 
-\item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}), defaults to \code{c("A", "B")}}
+\item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}),
+defaults to \code{c("A", "B")}.}
 }
 \value{
 Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
@@ -37,10 +40,7 @@ tadaa_int(ngo, stunzahl, jahrgang, geschl)
 tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_heatmap}}, \code{\link{tadaa_kruskal}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
-  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
+Other Tadaa-plot functions: \code{\link{tadaa_heatmap}},
+  \code{\link{tadaa_mean_ci}}
 }
 

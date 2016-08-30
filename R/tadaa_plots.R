@@ -2,17 +2,20 @@
 #'
 #' Easily generate interaction plots of two nominal grouping
 #' variables and a numeric response variable.
-#' @param data A \code{data.frame}
-#' @param response Response variable
-#' @param group1 First grouping variable
-#' @param group2 Second grouping variable
-#' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid via \link[cowplot]{plot_grid}.
-#' @param brewer_palette The name of the \link[RColorBrewer]{RColorBrewer} palette to use, defaults to \code{Set1}
-#' @param labels Labels used for the plots when printed in a grid (\code{grid = TRUE}), defaults to \code{c("A", "B")}
+#' @param data A \code{data.frame}.
+#' @param response Response variable.
+#' @param group1 First grouping variable.
+#' @param group2 Second grouping variable.
+#' @param grid If \code{TRUE}, the resulting graphs will be arranged in a grid
+#' via \link[cowplot]{plot_grid}.
+#' @param brewer_palette The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+#' defaults to \code{Set1}.
+#' @param labels Labels used for the plots when printed in a grid (\code{grid = TRUE}),
+#' defaults to \code{c("A", "B")}.
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
 #' Printed: The one or two ggplot2 objects, depending on \code{grid}.
 #' @export
-#' @family Tadaa-functions
+#' @family Tadaa-plot functions
 #' @import ggplot2
 #' @importFrom cowplot plot_grid
 #' @examples
@@ -20,7 +23,8 @@
 #'
 #' # As grid
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
-tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palette = "Set1", labels = c("A", "B")){
+tadaa_int <- function(data, response, group1, group2, grid = FALSE,
+                      brewer_palette = "Set1", labels = c("A", "B")) {
 
   sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))
 
@@ -28,7 +32,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palet
   data <- dplyr::summarize_(data, .dots = list(mw = sdots))
 
 
-  p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw", colour = substitute(group2))) +
+  p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw",
+                                       colour = substitute(group2))) +
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group2))) +
           scale_colour_brewer(palette = brewer_palette) +
@@ -36,7 +41,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palet
                              substitute(group2)), y = paste0("Mean ", substitute(response))) +
           theme(legend.position = "top")
 
-  p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw", colour = substitute(group1))) +
+  p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw",
+                                       colour = substitute(group1))) +
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group1))) +
           scale_colour_brewer(palette = brewer_palette) +
@@ -64,7 +70,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE, brewer_palet
 #' @param group The grouping variable (y-axis)
 #' @return A ggplot2 object
 #' @export
-#' @family Tadaa-functions
+#' @family Tadaa-plot functions
 #' @import ggplot2
 #' @examples
 #' tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
@@ -86,4 +92,36 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
     theme(legend.position = "bottom")
 
   return(map)
+}
+
+#' Means with Errorbars
+#'
+
+#' @param data A \code{data.frame}
+#' @param response Response variable, numeric.
+#' @param group Grouping variable, ideally a \code{factor}.
+#' @param brewer_palette Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+#' defaults to \code{NULL}: No brewer palette.
+#' @return A ggplot2 object.
+#' @export
+#' @family Tadaa-plot functions
+#' @import ggplot2
+#' @examples
+#' tadaa_mean_ci(ngo, deutsch, jahrgang, brewer_palette = "Set1")
+tadaa_mean_ci <- function(data, response, group, brewer_palette = NULL) {
+
+  x <- deparse(substitute(group))
+  y <- deparse(substitute(response))
+
+  p <- ggplot(data = data, aes_string(x = x, y = y, color = x)) +
+        stat_summary(fun.data = "mean_ci_t", geom = "errorbar", width = 0.6, size = 1.5) +
+        stat_summary(fun.y = "mean", geom = "point", size = 3, color = "black") +
+        stat_summary(fun.y = "mean", geom = "point", size = 2, color = "white") +
+        guides(color = F)
+  if (!is.null(brewer_palette)) {
+    p <- p + scale_color_brewer(palette = brewer_palette)
+  }
+  p <- p + labs(title = paste0(y, " by ", x), y = paste0("Mean of ", y, " with 95% CI"))
+
+  return(p)
 }

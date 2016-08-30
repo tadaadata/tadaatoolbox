@@ -41,8 +41,7 @@ tadaa_one_sample(df, x, mu = 101, sigma = 1)
 tadaa_one_sample(x = rnorm(20), mu = 0)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
+Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}

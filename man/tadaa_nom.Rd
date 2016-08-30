@@ -25,8 +25,7 @@ Get all the nominal stats
 tadaa_nom(ngo$abschalt, ngo$geschl)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
+Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},

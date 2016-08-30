@@ -39,8 +39,7 @@ df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 tadaa_wilcoxon(df, x, y, paired = TRUE)
 }
 \seealso{
-Other Tadaa.functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_heatmap}}, \code{\link{tadaa_int}},
+Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
