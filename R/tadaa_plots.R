@@ -38,14 +38,17 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
   data <- dplyr::group_by_(data, substitute(group1), substitute(group2))
   data <- dplyr::summarize_(data, .dots = list(mw = sdots))
 
+  title1 <- ifelse(!grid, paste0("Interaction of ", substitute(group1), " & ", substitute(group2)),
+                   paste0("Interaction of\n", substitute(group1), " & ", substitute(group2)))
+  title2 <- ifelse(!grid, paste0("Interaction of ", substitute(group2), " & ", substitute(group1)),
+                   paste0("Interaction of\n", substitute(group2), " & ", substitute(group1)))
 
   p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw",
                                        colour = substitute(group2))) +
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group2))) +
           scale_colour_brewer(palette = brewer_palette) +
-          labs(title = paste0("Interaction of\n", substitute(group1), " & ",
-                             substitute(group2)), y = paste0("Mean ", substitute(response)),
+          labs(title = title1, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
           theme(legend.position = "top")
 
@@ -54,12 +57,11 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
           geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group1))) +
           scale_colour_brewer(palette = brewer_palette) +
-          labs(title = paste0("Interaction of\n", substitute(group2), " & ",
-                             substitute(group1)), y = paste0("Mean ", substitute(response)),
+          labs(title = title2, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
           theme(legend.position = "top")
 
-  if (!grid){
+  if (!grid) {
     print(p1)
     print(p2)
   } else {
