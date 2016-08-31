@@ -2,8 +2,9 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
-travis.yml
 ^cran-comments\.md$
 dev/*
 docs/
 ^CONDUCT\.md$
+^CONTRIBUTING\.md$
+^\.travis\.yml$

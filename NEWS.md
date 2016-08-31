@@ -2,7 +2,8 @@
 
 ## v.0.11.9000 (dev/GitHub)
 
-### Minor changes
+### New Features
+- Add `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars (thanks Christoph for the suggestion).
 - Add `tadaa_one_sample`: For one-sample t-tests and finally an easy z-test.
     - Add `confint_norm`: Helper to get CIs, similar to `confint_t`
 - Add `tadaa_wilcoxon`: For when `tadaa_t.test` isn't non-parametric enough. Same usage.
@@ -10,10 +11,8 @@
 - Add `tadaa_kruskal`: For when `tadaa_aov` isn't non-parametric enough, too.
 - Move `tadaa_sem` $\rightarrow$ `mean_ci_sem` because it's more `confint` than `tadaa`.
 
-### Patch changes
+### Patches & Bug Fixes
 - Fix documentation inconsistencies.
-
-### Notable bug fixes
 - Turns out `pval_string(0.05)` returned `< 0.05`. Well. That was embarrassing.
 
 ## v0.10.0 (on CRAN)
