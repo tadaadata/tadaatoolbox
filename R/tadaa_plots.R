@@ -12,6 +12,7 @@
 #' defaults to \code{Set1}.
 #' @param labels Labels used for the plots when printed in a grid (\code{grid = TRUE}),
 #' defaults to \code{c("A", "B")}.
+#' @param show_n If \code{TRUE}, displays N in plot subtitle.
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
 #' Printed: The one or two ggplot2 objects, depending on \code{grid}.
 #' @export
@@ -24,7 +25,13 @@
 #' # As grid
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,
-                      brewer_palette = "Set1", labels = c("A", "B")) {
+                      brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE) {
+
+  if (show_n) {
+    subtitle <- paste0("N = ", nrow(data))
+  } else {
+    subtitle <- NULL
+  }
 
   sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))
 
@@ -38,7 +45,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
           geom_line(aes_string(group = substitute(group2))) +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = paste0("Interaction of\n", substitute(group1), " & ",
-                             substitute(group2)), y = paste0("Mean ", substitute(response))) +
+                             substitute(group2)), y = paste0("Mean ", substitute(response)),
+               subtitle = subtitle) +
           theme(legend.position = "top")
 
   p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw",
@@ -47,7 +55,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
           geom_line(aes_string(group = substitute(group1))) +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = paste0("Interaction of\n", substitute(group2), " & ",
-                             substitute(group1)), y = paste0("Mean ", substitute(response))) +
+                             substitute(group1)), y = paste0("Mean ", substitute(response)),
+               subtitle = subtitle) +
           theme(legend.position = "top")
 
   if (!grid){

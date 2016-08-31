@@ -5,7 +5,7 @@
 \title{Interaction plots}
 \usage{
 tadaa_int(data, response, group1, group2, grid = FALSE,
-  brewer_palette = "Set1", labels = c("A", "B"))
+  brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -24,6 +24,8 @@ defaults to \code{Set1}.}
 
 \item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}),
 defaults to \code{c("A", "B")}.}
+
+\item{show_n}{If \code{TRUE}, displays N in plot subtitle.}
 }
 \value{
 Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.

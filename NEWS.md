@@ -10,6 +10,7 @@
     - Additionally displays medians of each group.
 - Add `tadaa_kruskal`: For when `tadaa_aov` isn't non-parametric enough, too.
 - Move `tadaa_sem` $\rightarrow$ `mean_ci_sem` because it's more `confint` than `tadaa`.
+- Add `show_n` option to `tadaa_int`: Optionally display N in subtitle.
 
 ### Patches & Bug Fixes
 - Fix documentation inconsistencies.
