@@ -43,7 +43,7 @@ effect_size_t <- function(data, response, group, na.rm = TRUE){
   var2 <- var(y)
 
   # Calculate pooled variance and difference of means
-  s    <- sqrt(sum(n1 * var1, n2 * var2)/((n1 + n2) - 2))
+  s    <- sqrt(sum((n1 - 1) * var1, (n2 - 1) * var2)/((n1 + n2) - 2))
   m_d  <- mean(x) - mean(y)
 
   # Get effect size (absolute)
