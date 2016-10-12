@@ -12,8 +12,11 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "df"){
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = c("df", "console", "html", "markdown")){
 
+  # match print-argument
+  print <- match.arg(print)
+  
   model <- broom::tidy(aov(formula = formula, data = data))
 
   if (show_effect_size) {
@@ -32,10 +35,6 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "df
     output <- pixiedust::sprinkle(output, col = 3:4, round = 2)
     output <- pixiedust::sprinkle(output, round = 3)
 
-  }
-
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
   }
 
   return(pixiedust::sprinkle_print_method(output, print_method = print))
