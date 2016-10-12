@@ -7,7 +7,6 @@
 #' single character value
 #' @param as_character Always return a character. \code{TRUE} by default, or \link[dplyr]{summarize}
 #' will be very unpleased.
-#' @param na.rm If \code{TRUE}, missing values (\code{NA}) will be ignored.
 #'
 #' @return A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending
 #' on input.
@@ -21,11 +20,7 @@
 #' x <- structure(c(2L, 1L, 2L, 2L, 2L, 1L), .Label = c("Ja", "Nein"), class = "factor")
 #' modus(x)
 #'}
-modus <- function(x, as_character = TRUE, reduce = TRUE, na.rm = FALSE){
-  if (na.rm) {
-    x <- x[!is.na(x)]
-  }
-
+modus <- function(x, as_character = TRUE, reduce = TRUE){
   mode <- names(table(x)[table(x) == max(table(x))])
 
   if (reduce & length(mode) > 1) {
