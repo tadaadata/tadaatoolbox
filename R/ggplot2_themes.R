@@ -7,7 +7,7 @@
 #' headers, or \code{"Lato"} for the body style.
 #' @param bg Background color, defaults to \code{\link[rmdformats]{readthedown}}'s background,
 #' \code{#fcfcfc}
-#' @param axis_emph Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy"}.
+#' @param axis_emph Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy", NULL}.
 #' @import ggplot2
 #' @return A ggplot2 theme
 #' @export
@@ -45,7 +45,7 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
             panel.grid.minor.x = element_line(size = .1, color = "black", linetype = "dotted"),
             panel.grid.major.y = element_line(size = .1, color = "black"),
             panel.grid.minor.y = element_line(size = .1, color = "black", linetype = "dotted"))
-  } else if (axis_emph == "") {
+  } else if (axis_emph == ""  | is.null(axis_emph)) {
   } else {
     warning(paste("Unknow option to axis_emph", axis_emph, "\nDoing nothing"))
   }

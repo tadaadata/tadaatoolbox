@@ -64,14 +64,14 @@ mean_ci_sem <- function(x, conf.level = .95) {
     stop("Data is not a numeric vector")
   }
   # SEM if sigma is known // todo: add option or correct for length(x) and NAs
-  sem  <- sd(x, na.rm = T) / sqrt(length(na.omit(x)))
+  sem  <- sd(x, na.rm = TRUE) / sqrt(length(na.omit(x)))
   # clvl <- qnorm(1 - conf.level / 2)
   clvl <- qnorm(conf.level + ((1 - conf.level) / 2))
 
-  CI_upper <- mean(x, na.rm = T) + (sem * clvl)
-  CI_lower <- mean(x, na.rm = T) - (sem * clvl)
+  CI_upper <- mean(x, na.rm = TRUE) + (sem * clvl)
+  CI_lower <- mean(x, na.rm = TRUE) - (sem * clvl)
 
-  bunch_of_stats <- data.frame(y    = mean(x, na.rm = T),
+  bunch_of_stats <- data.frame(y    = mean(x, na.rm = TRUE),
                                SEM  = sem,
                                ymin = CI_lower,
                                ymax = CI_upper)
