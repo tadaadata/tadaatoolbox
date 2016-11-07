@@ -7,7 +7,6 @@
 #' single character value
 #' @param as_character Always return a character. \code{TRUE} by default, or \link[dplyr]{summarize}
 #' will be very unpleased.
-#'
 #' @return A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending
 #' on input.
 #' @export

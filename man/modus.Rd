@@ -4,7 +4,7 @@
 \alias{modus}
 \title{Modus}
 \usage{
-modus(x, as_character = TRUE, reduce = TRUE, na.rm = FALSE)
+modus(x, as_character = TRUE, reduce = TRUE)
 }
 \arguments{
 \item{x}{A \code{vector} with numeric data.}
@@ -14,8 +14,6 @@ will be very unpleased.}
 
 \item{reduce}{Since \code{mode} can be of length > 1, this option pastes the result into a
 single character value}
-
-\item{na.rm}{If \code{TRUE}, missing values (\code{NA}) will be ignored.}
 }
 \value{
 A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending
