@@ -83,7 +83,6 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 
 * `tadaa_nom`: All the nominal stats in one table.
 * `tadaa_ord`: All the ordinal stats in one table.
-* `tadaa_sem`: Standard error and CI, you guessed it, in one table.
 
 # General Helper Functions
 
@@ -101,6 +100,9 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 
 * `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
     * `confint_t`: For the underlying function to get the CI width. Returns a single value.
+    * `confint_norm`: Similar, but baes on normal distribution. Returns a single value.
+* `mean_ci_sem`: Standard error and CI, you guessed it, in one table.
+
 
 ```{r confint}
 library(ggplot2)
