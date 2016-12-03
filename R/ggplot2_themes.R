@@ -30,7 +30,7 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
           legend.background = template_background,
           legend.key        = template_background,
           plot.caption      = element_text(hjust = 0),
-          strip.background  = ggplot2::element_blank())
+          strip.background  = element_blank())
 
   if (axis_emph == "x") {
     result <- result +
