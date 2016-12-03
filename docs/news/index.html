@@ -82,6 +82,101 @@
     </div>
 
     <div class="contents">
+    <div id="tadaatoolbox-0-11-9000-devgithub" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-11-9000-devgithub" class="anchor"> </a>tadaatoolbox 0.11.9000 (dev/GitHub)</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"> </a>New Features</h2>
+<ul><li>Add <code>tadaa_mean_ci</code>: Plots means with 95% confidence intervals as errorbars (thanks Christoph for the suggestion).</li>
+<li>Add <code>tadaa_one_sample</code>: For one-sample t-tests and finally an easy z-test.
+<ul><li>Add <code>confint_norm</code>: Helper to get CIs, similar to <code>confint_t</code>
+</li>
+</ul></li>
+<li>Add <code>tadaa_wilcoxon</code>: For when <code>tadaa_t.test</code> isn’t non-parametric enough. Same usage.
+<ul><li>Additionally displays medians of each group.</li>
+</ul></li>
+<li>Add <code>tadaa_kruskal</code>: For when <code>tadaa_aov</code> isn’t non-parametric enough, too.</li>
+<li>Move <code>tadaa_sem</code> $\rightarrow$ <code>mean_ci_sem</code> because it’s more <code>confint</code> than <code>tadaa</code>.</li>
+<li>Add <code>show_n</code> option to <code>tadaa_int</code>: Optionally display N in subtitle.</li>
+</ul></div>
+<div id="patches-bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#patches-bug-fixes" class="anchor"> </a>Patches &amp; Bug Fixes</h2>
+<ul><li>Fix documentation inconsistencies.</li>
+<li>Turns out <code><a href="../reference/pval_string.html">pval_string(0.05)</a></code> returned <code>&lt; 0.05</code>. Well. That was embarrassing.</li>
+</ul></div>
+</div>
+    <div id="tadaatoolbox-0-10-0-on-cran" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-10-0-on-cran" class="anchor"> </a>tadaatoolbox 0.10.0 (on CRAN)</h1>
+<div id="minor-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes" class="anchor"> </a>Minor changes</h2>
+<ul><li>New function: <code>tadaa_normtest</code> lets you do tests for normality (4 methods) over multiple variables.</li>
+<li>New function: <code>tadaa_heatmap</code> generates a heatmap. Mhhh, heatmaps.</li>
+<li>New function: <code>tadaa_sem</code> shows the standard error of the mean and it’s confidence interval</li>
+<li>New function: <code>pval_string</code> as a modification of <code>pixiedust::pvalString</code> that includes <code>p &lt; .05</code>.</li>
+<li>Added a ggplot2 theme for the <a href="https://github.com/juba/rmdformats/">rmdformats::readthedown</a> Rmd template.</li>
+<li>
+<code>tadaa_aov</code>, <code>tadaa_t.test</code> and the new <code>tadaa_normtest</code> now return a <code>data.frame</code> by default, allowing further shenanigans</li>
+</ul></div>
+<div id="patch-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#patch-changes" class="anchor"> </a>Patch changes</h2>
+<ul><li>New options in <code>tadaa_int</code>:
+<ul><li>Set <code>grid = TRUE</code> for the two interaction plots to be printen in a grid via <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html">cowplot::plot_grid</a>.<br/></li>
+<li>Choose the plot labels via the <code>labels</code> argument.</li>
+</ul></li>
+<li>
+<code>tadaa_int</code> plot output now also is a little tidier and optimized for smaller widths.</li>
+<li>
+<code>tadaa_aov</code> now also shows <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen.27s_.C6.922">Cohen’s f</a> for easier power calculations based on f (<code>pwr</code>, G*power)</li>
+<li>Add option <code>reduce</code> to <code>modus</code>, so multiple results will be concatenated to a character by default.</li>
+<li>Add additional option <code>as_character</code> to <code>modus</code> because guessing about return value classes is no joke.</li>
+<li>Fix issues with <code>generate_recodes</code> and <code>interval_labels</code> (#1).</li>
+</ul></div>
+</div>
+    <div id="tadaatoolbox-0-9-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-9-0" class="anchor"> </a>tadaatoolbox 0.9.0</h1>
+<div id="minor-changes-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"> </a>Minor changes</h2>
+<ul><li>Add <code>tadaa_ord</code> as ordinal equivalent of <code>tadaa_nom</code>.</li>
+<li>Make table output of both of the former functions smaller in width by abbreviating column names</li>
+<li>Add <code>brewer_palette</code> option to <code>tadaa_int</code>
+</li>
+<li>Dependencies declared in <code>DESCRIPTION</code> are still experimental because of uncertainty regarding failing travis builds. I don’t know what’s going on there.</li>
+</ul></div>
+<div id="patch-changes-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#patch-changes-1" class="anchor"> </a>Patch changes</h2>
+<ul><li>Add <code>family</code> tag to <code>tadaa_</code> functions so their documentation is linked</li>
+<li>Fix return values of <code>tadaa_aov</code>, <code>_t.test</code> and <code>_nom</code> which did not work as I expected</li>
+</ul></div>
+</div>
+    <div id="tadaatoolbox-0-8-1" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-8-1" class="anchor"> </a>tadaatoolbox 0.8.1</h1>
+<ul><li>Fix typo in <code>DESCRIPTION</code>, misspelling <code>pixiedust</code>. Sorry!</li>
+<li>Bump dependencies
+<ul><li>
+<code>pixiedust</code> depends on R (&gt;= 3.2.1), so we might as well depend on that version, too</li>
+<li>Specifiy minimal versions for <code>pixiedust</code>, <code>sjmisc</code>, and <code>broom</code>, just to be safe</li>
+</ul></li>
+<li>Add vignette
+<ul><li>Overhauling <code>README</code> to be less redundant compared to the usage vignette</li>
+</ul></li>
+</ul></div>
+    <div id="tadaatoolbox-0-8-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-8-0" class="anchor"> </a>tadaatoolbox 0.8.0</h1>
+<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>Working on CRAN compatibility</li>
+<li>Submitted to CRAN</li>
+<li>It’s on CRAN, yay!</li>
+</ul></div>
     </div>
   </div>
 
@@ -89,6 +184,11 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#tadaatoolbox-0-11-9000-devgithub">0.11.9000</a></li>
+        <li><a href="#tadaatoolbox-0-10-0-on-cran">0.10.0</a></li>
+        <li><a href="#tadaatoolbox-0-9-0">0.9.0</a></li>
+        <li><a href="#tadaatoolbox-0-8-1">0.8.1</a></li>
+        <li><a href="#tadaatoolbox-0-8-0">0.8.0</a></li>
       </ul>
     </div>
   </div>
