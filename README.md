@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+    ## 
+    ## This data.table install has not detected OpenMP support. It will work but slower in single threaded mode.
+
 tadaatoolbox
 ============
 
@@ -104,20 +107,8 @@ Dependencies
 
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
--   **stats**
--   **broom**
--   **dplyr**
--   **pwr**
--   **pixiedust**
--   **car**
--   **ggplot2**
--   **lazyeval**
--   **sjmisc**
--   **haven**
--   **ryouready**
--   **vcd**
--   **cowplot**
--   **nortest**
+-   **stats, broom, dplyr, pwr, pixiedust, car, ggplot2, lazyeval, sjmisc, haven**
+-   **ryouready, vcd, cowplot, nortest**
 
 Code of Conduct
 ===============

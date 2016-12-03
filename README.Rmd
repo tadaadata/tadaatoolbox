@@ -14,9 +14,8 @@ knitr::opts_chunk$set(
 
 library(tadaatoolbox)
 
-description <- as.data.frame(read.dcf("DESCRIPTION"), stringsAsFactors = F)
+description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tadaatoolbox")), stringsAsFactors = F)
 
-system(command = "cp vignettes/overview.html docs/index.html")
 ```
 
 # tadaatoolbox   
