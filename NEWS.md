@@ -16,6 +16,10 @@
 - Fix documentation inconsistencies.
 - Turns out `pval_string(0.05)` returned `< 0.05`. Well. That was embarrassing.
 
+## Data
+
+- Remove superfluous variables from `ngo`: `index`, `zeng`, `zdeutsch`, `zmathe`.
+
 # tadaatoolbox 0.10.0 (on CRAN)
 
 ## Minor changes
