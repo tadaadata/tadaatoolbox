@@ -29,7 +29,9 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
           plot.background   = template_background,
           legend.background = template_background,
           legend.key        = template_background,
-          plot.caption      = element_text(hjust = 0),
+          plot.caption      = element_text(hjust = 1, vjust = 0, size = rel(.7)),
+          axis.title.x      = element_text(hjust = 0),
+          strip.placement   = "outside",
           strip.background  = element_blank())
 
   if (axis_emph == "x") {

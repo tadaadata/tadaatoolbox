@@ -11,10 +11,11 @@
 - Move `tadaa_sem` ➡ `mean_ci_sem` because it's more `confint` than `tadaa`.
 - Add `show_n` option to `tadaa_int`: Optionally display N in subtitle.
 
-## Patches & Bug Fixes
+## Tweaks, Patches & Bug Fixes
 
 - Fix documentation inconsistencies.
 - Turns out `pval_string(0.05)` returned `< 0.05`. Well. That was embarrassing.
+- Minor tweaks to `theme_readthedown` rgarding text placement.
 
 ## Data
 
