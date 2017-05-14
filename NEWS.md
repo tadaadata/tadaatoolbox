@@ -2,6 +2,8 @@
 
 ## New Features
 
+- `tadaa_aov` now knows about types, uses type 1 by default and can do types 2 and 3.
+    - Method for effect size calculation now uses `lsr::etaSquared`, which also takes a `type` argument.
 - Add `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars (thanks Christoph for the suggestion).
 - Add `tadaa_one_sample`: For one-sample t-tests and finally an easy z-test.
     - Add `confint_norm`: Helper to get CIs, similar to `confint_t`

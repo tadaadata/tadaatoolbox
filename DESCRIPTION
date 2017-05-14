@@ -34,8 +34,9 @@ Imports:
     ryouready,
     vcd,
     cowplot,
-    nortest
-RoxygenNote: 5.0.1
+    nortest,
+    lsr
+RoxygenNote: 6.0.1
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues
 VignetteBuilder: knitr

@@ -3,6 +3,7 @@
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.
+#' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.
 #' @param print Print method, per default a regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
@@ -12,15 +13,21 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, print = "df"){
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, type = 1, print = "df"){
 
-  model <- broom::tidy(aov(formula = formula, data = data))
+  base_model <- stats::aov(formula = formula, data = data)
+  effects    <- lsr::etaSquared(base_model, type = type)
+
+  if (type %in% c(2, 3)) {
+    base_model <- car::Anova(base_model, type = type)
+  }
+
+  model <- broom::tidy(base_model)
 
   if (show_effect_size) {
-    resid             <- model$sumsq[nrow(model)]
-    model$part.eta.sq <- model$sumsq / (resid + model$sumsq)
-    model$part.eta.sq[nrow(model)] <- NA
-    model$cohens.f    <- sqrt(model$part.eta.sq / (1 - model$part.eta.sq))
+    effects          <- data.frame(term = rownames(effects), effects, row.names = NULL)
+    effects$cohens.f <- sqrt(effects$eta.sq.part / (1 - effects$eta.sq.part))
+    model            <- merge(model, effects, by = "term", all = T)
   }
 
   if (print == "df") {
