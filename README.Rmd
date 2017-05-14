@@ -21,14 +21,13 @@ description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tada
 # tadaatoolbox   
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![GitHub commits](https://img.shields.io/github/commits-since/tadaadata/tadaatoolbox/0.10.0.svg?maxAge=2592000)]()
-[![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
-[![CRAN_Downloads_Badge](http://cranlogs.r-pkg.org/badges/tadaatoolbox)](http://cran.r-project.org/package=tadaatoolbox)
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
+[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![Repo Size](https://reposs.herokuapp.com/?path=tadaadata/tadaatoolbox)](https://github.com/rexfinn/reposs)
 
-This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)(ish)).<br />
+This is **tadaatoolbox** version ``r description$Version`` ([semver](https://semver.org/)(ish)).<br />
 It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen. 
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br />
@@ -80,7 +79,7 @@ knitr::kable(data.frame(Contributer = names, Role = roles))
 # Functionality
 
 See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current 
-version in this repository [on GitHub pages](http://tadaadata.github.io/tadaatoolbox/).
+version in this repository [on GitHub pages](https://tadaadata.github.io/tadaatoolbox/).
 
 ## Tidy test output
 
