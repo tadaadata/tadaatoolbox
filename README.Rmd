@@ -28,7 +28,7 @@ description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tada
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Repo Size](https://reposs.herokuapp.com/?path=tadaadata/tadaatoolbox)](https://github.com/rexfinn/reposs)
 
-This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)).<br />
+This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)(ish)).<br />
 It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen. 
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br />

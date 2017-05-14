@@ -1,4 +1,4 @@
-# tadaatoolbox 0.11.9000 (dev/GitHub)
+# tadaatoolbox 0.11.0 (CRAN)
 
 ## New Features
 
@@ -23,7 +23,7 @@
 
 - Remove superfluous variables from `ngo`: `index`, `zeng`, `zdeutsch`, `zmathe`.
 
-# tadaatoolbox 0.10.0 (on CRAN)
+# tadaatoolbox 0.10.0
 
 ## Minor changes
 
