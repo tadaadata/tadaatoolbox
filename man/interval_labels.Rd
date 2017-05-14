@@ -26,4 +26,3 @@ labels  <- interval_labels(0, 100, 10)
 cut(x, breaks = seq(0, 100, 10), labels = labels)
 }
 }
-

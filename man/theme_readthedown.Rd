@@ -35,4 +35,3 @@ p + theme_readthedown(base_family = "Lato")
 p + theme_readthedown(base_family = "Roboto Slab", axis_emph = "x")
 }
 }
-

@@ -23,4 +23,3 @@ df <- data.frame(rating = round(runif(50, 1, 5)),
 tbl <- table(df)
 ord_gamma(tbl)
 }
-

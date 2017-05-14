@@ -23,4 +23,3 @@ Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 mean_ci_t(df$x)
 }
-

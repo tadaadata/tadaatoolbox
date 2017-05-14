@@ -22,4 +22,3 @@ This is a very simple wrapper for \link{chisq.test}.
 \examples{
 nom_chisqu(ngo$abschalt, ngo$geschl)
 }
-

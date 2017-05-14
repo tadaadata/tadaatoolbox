@@ -20,4 +20,3 @@ Re-label a vector after subsetting
 x <- drop_labels(x)
 }
 }
-

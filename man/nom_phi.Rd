@@ -20,4 +20,3 @@ Very simple wrapper for \link[vcd]{assocstats}.
 \examples{
 nom_phi(ngo$abschalt, ngo$geschl)
 }
-

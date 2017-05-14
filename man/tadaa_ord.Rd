@@ -31,4 +31,3 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_one_sample}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
-

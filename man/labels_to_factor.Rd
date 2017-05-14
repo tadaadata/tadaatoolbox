@@ -20,4 +20,3 @@ Convert all labels to factor variables
 data \%<>\% labels_to_factor
 }
 }
-

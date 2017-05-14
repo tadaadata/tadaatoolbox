@@ -24,4 +24,3 @@ Easily cluster numeric vectors in likert-like classes
 tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "quantiles")
 tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
 }
-

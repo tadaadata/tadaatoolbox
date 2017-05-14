@@ -22,4 +22,3 @@ Simplified version of \link[pixiedust]{pvalString} which considers \code{< 0.05}
 pv <- c(.9, .2, .049, .009, .000003)
 pval_string(pv)
 }
-

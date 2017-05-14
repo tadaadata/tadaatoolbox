@@ -32,4 +32,3 @@ df <- delete_na(df, 1)
 df \%<>\% delete_na
 }
 }
-

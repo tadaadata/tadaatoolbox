@@ -8,4 +8,3 @@
 \description{
 Some functions that make every day analysis a little more convenient.
 }
-

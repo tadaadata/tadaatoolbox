@@ -22,4 +22,3 @@ Kähler, W.-M. (2008). \emph{Statistische Datenanalyse: Verfahren verstehen
 und mit SPSS gekonnt einsetzen}. Wiesbaden: Vieweg.
 }
 \keyword{dataset}
-

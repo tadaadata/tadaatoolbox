@@ -45,4 +45,3 @@ tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 Other Tadaa-plot functions: \code{\link{tadaa_heatmap}},
   \code{\link{tadaa_mean_ci}}
 }
-

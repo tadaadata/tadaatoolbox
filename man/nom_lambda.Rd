@@ -24,4 +24,3 @@ Very simple wrapper for \link[ryouready]{nom.lambda}.
 \examples{
 nom_lambda(ngo$abschalt, ngo$geschl)
 }
-

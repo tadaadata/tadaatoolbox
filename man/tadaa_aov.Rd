@@ -4,7 +4,8 @@
 \alias{tadaa_aov}
 \title{Tadaa, anova!}
 \usage{
-tadaa_aov(formula, data = NULL, show_effect_size = TRUE, print = "df")
+tadaa_aov(formula, data = NULL, show_effect_size = TRUE, type = 1,
+  print = "df")
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
@@ -12,6 +13,8 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE, print = "df")
 \item{data}{Data for model.}
 
 \item{show_effect_size}{If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.}
+
+\item{type}{Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
@@ -32,4 +35,3 @@ Other Tadaa-functions: \code{\link{tadaa_kruskal}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
-

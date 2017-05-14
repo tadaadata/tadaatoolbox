@@ -32,4 +32,3 @@ x <- structure(c(2L, 1L, 2L, 2L, 2L, 1L), .Label = c("Ja", "Nein"), class = "fac
 modus(x)
 }
 }
-

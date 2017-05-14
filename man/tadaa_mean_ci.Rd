@@ -29,4 +29,3 @@ tadaa_mean_ci(ngo, deutsch, jahrgang, brewer_palette = "Set1")
 Other Tadaa-plot functions: \code{\link{tadaa_heatmap}},
   \code{\link{tadaa_int}}
 }
-

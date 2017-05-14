@@ -24,4 +24,3 @@ Very simple wrapper for \link[ryouready]{ord.somers.d}.
 \examples{
 ord_somers_d(ngo$abschalt, ngo$geschl)
 }
-

@@ -28,4 +28,3 @@ tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
 Other Tadaa-plot functions: \code{\link{tadaa_int}},
   \code{\link{tadaa_mean_ci}}
 }
-

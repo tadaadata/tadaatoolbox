@@ -22,4 +22,3 @@ iq <- rnorm(100, 100, 15)
 
 mean_ci_sem(iq)
 }
-
