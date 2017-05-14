@@ -35,8 +35,6 @@ Please consider this as a teaching project and be careful if you intend to use i
 To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).  
 Also, since this project is still in the `0.x.y` version, you should expect the API to change at any time. Once we reach `1.0.0`, API changes will be rolled out more slowly and include depracation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or `devtools`.
 
-As a sideproject, I attempted to visualize the package depencencies [in this document](http://htmlpreview.github.io/?https://github.com/tadaadata/tadaatoolbox/blob/master/dev/dependencies/dependencies.html). It's not optimal yet, but at least it's a glimpse of the first two layers of dependencies.
-
 # Installation
 
 Install the current development version from GitHub (recommended):
