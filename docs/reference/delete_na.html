@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -84,15 +86,20 @@
     <p>Delete cases with set amount of missing values</p>
     
 
-    <pre><span class='fu'>delete_na</span>(<span class='no'>df</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>ncol</span>(<span class='no'>df</span>) - <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>delete_na</span>(<span class='no'>df</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>ncol</span>(<span class='no'>df</span>) - <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>df</dt>
-      <dd>A <code>data.frame</code>,</dd>
-      <dt>n</dt>
-      <dd>Number of <code>NAs</code> allowed, defaults to <code>ncol(df) - 1</code>.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>A <code>data.frame</code>,</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>Number of <code>NAs</code> allowed, defaults to <code>ncol(df) - 1</code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -104,16 +111,16 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># df &lt;- data.frame(x = sample(c(1:10, NA), 10),</span>
-<span class='co'>#                  y = sample(c(1:10, NA), 10),</span>
-<span class='co'>#                  z = sample(c(1:10, NA), 10))</span>
-<span class='co'># </span>
-<span class='co'># df &lt;- delete_na(df, 1)</span>
-<span class='co'># </span>
-<span class='co'># # Or with magrittr syntax sugar</span>
-<span class='co'># df %&lt;&gt;% delete_na</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>NA</span>), <span class='fl'>10</span>),
+                   <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>NA</span>), <span class='fl'>10</span>),
+                   <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>NA</span>), <span class='fl'>10</span>))
+
+  <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>delete_na</span>(<span class='no'>df</span>, <span class='fl'>1</span>)
+
+  <span class='co'># Or with magrittr syntax sugar</span>
+  <span class='no'>df</span> <span class='kw'>%&lt;&gt;%</span> <span class='no'>delete_na</span>
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

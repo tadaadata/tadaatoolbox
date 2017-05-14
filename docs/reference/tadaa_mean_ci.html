@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -84,20 +86,29 @@
     <p>Means with Errorbars</p>
     
 
-    <pre><span class='fu'>tadaa_mean_ci</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_mean_ci</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd>A <code>data.frame</code></dd>
-      <dt>response</dt>
-      <dd>Response variable, numeric.</dd>
-      <dt>group</dt>
-      <dd>Grouping variable, ideally a <code>factor</code>.</dd>
-      <dt>brewer_palette</dt>
-      <dd>Optional: The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
-defaults to <code>NULL</code>: No brewer palette.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A <code>data.frame</code></p></td>
+    </tr>
+    <tr>
+      <th>response</th>
+      <td><p>Response variable, numeric.</p></td>
+    </tr>
+    <tr>
+      <th>group</th>
+      <td><p>Grouping variable, ideally a <code>factor</code>.</p></td>
+    </tr>
+    <tr>
+      <th>brewer_palette</th>
+      <td><p>Optional: The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
+defaults to <code>NULL</code>: No brewer palette.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

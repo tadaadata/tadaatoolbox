@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -81,20 +83,27 @@
     </div>
 
     
-    <p>Suitable for use within ggplot&#39;s <a href='http://www.rdocumentation.org/packages/ggplot2/topics/stat_summary'>stat_summary</a>.</p>
+    <p>Suitable for use within ggplot's <a href='http://www.rdocumentation.org/packages/ggplot2/topics/stat_summary'>stat_summary</a>.</p>
     
 
-    <pre><span class='fu'>mean_ci_t</span>(<span class='no'>x</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>mean_ci_t</span>(<span class='no'>x</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd>A Numeric vector.</dd>
-      <dt>alpha</dt>
-      <dd>Alpha, default is <code>0.05</code>.</dd>
-      <dt>na.rm</dt>
-      <dd>If <code>TRUE</code> (default), missing values are dropped.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A Numeric vector.</p></td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td><p>Alpha, default is <code>0.05</code>.</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>If <code>TRUE</code> (default), missing values are dropped.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

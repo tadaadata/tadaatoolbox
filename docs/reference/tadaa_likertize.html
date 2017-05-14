@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -84,18 +86,25 @@
     <p>Easily cluster numeric vectors in likert-like classes</p>
     
 
-    <pre><span class='fu'>tadaa_likertize</span>(<span class='no'>x</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_likertize</span>(<span class='no'>x</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd>Vector to be clustered.</dd>
-      <dt>classes</dt>
-      <dd>Number of classes. Defaults to 3, can also be 5.</dd>
-      <dt>method</dt>
-      <dd>How should the classes be calculated? Defaults to <code>quantiles</code>, can also be
-<code>means</code> for mean and standard deviation.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>Vector to be clustered.</p></td>
+    </tr>
+    <tr>
+      <th>classes</th>
+      <td><p>Number of classes. Defaults to 3, can also be 5.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>How should the classes be calculated? Defaults to <code>quantiles</code>, can also be
+<code>means</code> for mean and standard deviation.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -85,31 +87,48 @@
 variables and a numeric response variable.</p>
     
 
-    <pre><span class='fu'>tadaa_int</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='no'>group2</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+    <pre class="usage"><span class='fu'>tadaa_int</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='no'>group2</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>show_n</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd>A <code>data.frame</code>.</dd>
-      <dt>response</dt>
-      <dd>Response variable.</dd>
-      <dt>group1</dt>
-      <dd>First grouping variable.</dd>
-      <dt>group2</dt>
-      <dd>Second grouping variable.</dd>
-      <dt>grid</dt>
-      <dd>If <code>TRUE</code>, the resulting graphs will be arranged in a grid
-via <a href='http://www.rdocumentation.org/packages/cowplot/topics/plot_grid'>plot_grid</a>.</dd>
-      <dt>brewer_palette</dt>
-      <dd>The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
-defaults to <code>Set1</code>.</dd>
-      <dt>labels</dt>
-      <dd>Labels used for the plots when printed in a grid (<code>grid = TRUE</code>),
-defaults to <code>c(&quot;A&quot;, &quot;B&quot;)</code>.</dd>
-      <dt>show_n</dt>
-      <dd>If <code>TRUE</code>, displays N in plot subtitle.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A <code>data.frame</code>.</p></td>
+    </tr>
+    <tr>
+      <th>response</th>
+      <td><p>Response variable.</p></td>
+    </tr>
+    <tr>
+      <th>group1</th>
+      <td><p>First grouping variable.</p></td>
+    </tr>
+    <tr>
+      <th>group2</th>
+      <td><p>Second grouping variable.</p></td>
+    </tr>
+    <tr>
+      <th>grid</th>
+      <td><p>If <code>TRUE</code>, the resulting graphs will be arranged in a grid
+via <a href='http://www.rdocumentation.org/packages/cowplot/topics/plot_grid'>plot_grid</a>.</p></td>
+    </tr>
+    <tr>
+      <th>brewer_palette</th>
+      <td><p>The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
+defaults to <code>Set1</code>.</p></td>
+    </tr>
+    <tr>
+      <th>labels</th>
+      <td><p>Labels used for the plots when printed in a grid (<code>grid = TRUE</code>),
+defaults to <code>c("A", "B")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>show_n</th>
+      <td><p>If <code>TRUE</code>, displays N in plot subtitle.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

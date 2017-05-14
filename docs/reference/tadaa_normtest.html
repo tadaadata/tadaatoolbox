@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -84,23 +86,32 @@
     <p>Tadaa, test for normality!</p>
     
 
-    <pre><span class='fu'>tadaa_normtest</span>(<span class='no'>data</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ad"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_normtest</span>(<span class='no'>data</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ad"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>data</dt>
-      <dd>A <code>data.frame</code>.</dd>
-      <dt>method</dt>
-      <dd>The type of test to perform. Either <code>ad</code> for Anderson Darling,
-<code>shapiro</code> for Shapiro-Wilk, <code>pearson</code> for Pearson&#39;s chi-square test or
-<code>ks</code> for Kolmogorov-Smirnov (not recommended).</dd>
-      <dt>print</dt>
-      <dd>Print method, per default a regular <code>data.frame</code>.
-Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</dd>
-      <dt>...</dt>
-      <dd>Further arguments passed to test functions where applicable,
-see <a href='http://www.rdocumentation.org/packages/nortest/topics/pearson.test'>pearson.test</a> and <a href='http://www.rdocumentation.org/packages/stats/topics/ks.test'>ks.test</a>.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A <code>data.frame</code>.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>The type of test to perform. Either <code>ad</code> for Anderson Darling,
+<code>shapiro</code> for Shapiro-Wilk, <code>pearson</code> for Pearson's chi-square test or
+<code>ks</code> for Kolmogorov-Smirnov (not recommended).</p></td>
+    </tr>
+    <tr>
+      <th>print</th>
+      <td><p>Print method, per default a regular <code>data.frame</code>.
+Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Further arguments passed to test functions where applicable,
+see <a href='http://www.rdocumentation.org/packages/nortest/topics/pearson.test'>pearson.test</a> and <a href='http://www.rdocumentation.org/packages/stats/topics/ks.test'>ks.test</a>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -115,16 +126,16 @@ see <a href='http://www.rdocumentation.org/packages/nortest/topics/pearson.test'
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># library(dplyr)</span>
-<span class='co'># ngo %&gt;%</span>
-<span class='co'># select(englisch, deutsch, mathe) %&gt;%</span>
-<span class='co'># tadaa_normtest(method = "shapiro")</span>
-<span class='co'># </span>
-<span class='co'># ngo %&gt;%</span>
-<span class='co'># select(englisch, deutsch, mathe) %&gt;%</span>
-<span class='co'># tadaa_normtest(method = "pearson", print = "console")</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='fu'>library</span>(<span class='no'>dplyr</span>)
+  <span class='no'>ngo</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'>select</span>(<span class='no'>englisch</span>, <span class='no'>deutsch</span>, <span class='no'>mathe</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>tadaa_normtest</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"shapiro"</span>)
+
+  <span class='no'>ngo</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'>select</span>(<span class='no'>englisch</span>, <span class='no'>deutsch</span>, <span class='no'>mathe</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>tadaa_normtest</span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"pearson"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

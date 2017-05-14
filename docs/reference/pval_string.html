@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -84,13 +86,16 @@
     <p>Easy p-value formatting</p>
     
 
-    <pre><span class='fu'>pval_string</span>(<span class='no'>pv</span>)</pre>
+    <pre class="usage"><span class='fu'>pval_string</span>(<span class='no'>pv</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>pv</dt>
-      <dd>A p-value in numeric form.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pv</th>
+      <td><p>A p-value in numeric form.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -103,7 +108,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>pv</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>.9</span>, <span class='fl'>.2</span>, <span class='fl'>.049</span>, <span class='fl'>.009</span>, <span class='fl'>.000003</span>)
-<span class='fu'>pval_string</span>(<span class='no'>pv</span>)</div><div class='output co'>#&gt; [1] &quot;0.9&quot;     &quot;0.2&quot;     &quot;&lt; 0.05&quot;  &quot;&lt; 0.01&quot;  &quot;&lt; 0.001&quot;</div></pre>
+<span class='fu'>pval_string</span>(<span class='no'>pv</span>)</div><div class='output co'>#&gt; [1] "0.9"     "0.2"     "&lt; 0.05"  "&lt; 0.01"  "&lt; 0.001"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

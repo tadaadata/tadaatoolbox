@@ -25,12 +25,14 @@
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -85,15 +87,20 @@
 with cut.</p>
     
 
-    <pre><span class='fu'>interval_labels</span>(<span class='no'>from</span>, <span class='no'>to</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+    <pre class="usage"><span class='fu'>interval_labels</span>(<span class='no'>from</span>, <span class='no'>to</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>from, to</dt>
-      <dd>A <code>numeric value</code> for the beginning and the end of the interval.</dd>
-      <dt>width</dt>
-      <dd>The width of the interval, e.g. 5 (default) for intervals 0-5.</dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>from, to</th>
+      <td><p>A <code>numeric value</code> for the beginning and the end of the interval.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>The width of the interval, e.g. 5 (default) for intervals 0-5.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -101,12 +108,12 @@ with cut.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># x       &lt;- round(runif(100, 0, 100), 0)</span>
-<span class='co'># labels  &lt;- interval_labels(0, 100, 10)</span>
-<span class='co'># </span>
-<span class='co'># cut(x, breaks = seq(0, 100, 10), labels = labels)</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>x</span>       <span class='kw'>&lt;-</span> <span class='fu'>round</span>(<span class='fu'>runif</span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>100</span>), <span class='fl'>0</span>)
+  <span class='no'>labels</span>  <span class='kw'>&lt;-</span> <span class='fu'>interval_labels</span>(<span class='fl'>0</span>, <span class='fl'>100</span>, <span class='fl'>10</span>)
+
+  <span class='fu'>cut</span>(<span class='no'>x</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>100</span>, <span class='fl'>10</span>), <span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>labels</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
