@@ -104,20 +104,8 @@ Dependencies
 
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
--   **stats**
--   **broom**
--   **dplyr**
--   **pwr**
--   **pixiedust**
--   **car**
--   **ggplot2**
--   **lazyeval**
--   **sjmisc**
--   **haven**
--   **ryouready**
--   **vcd**
--   **cowplot**
--   **nortest**
+-   **stats, broom, dplyr, pwr, pixiedust, car, ggplot2, lazyeval, sjmisc, haven**
+-   **ryouready, vcd, cowplot, nortest, lsr**
 
 Code of Conduct
 ===============
