@@ -17,7 +17,7 @@
 
 - Fix documentation inconsistencies.
 - Turns out `pval_string(0.05)` returned `< 0.05`. Well. That was embarrassing.
-- Minor tweaks to `theme_readthedown` rgarding text placement.
+- Minor tweaks to `theme_readthedown` regarding text placement.
 
 ## Data
 
