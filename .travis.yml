@@ -4,3 +4,9 @@ cache: packages
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
+
+env:
+  global:
+    - _R_CHECK_CRAN_INCOMING_=true
+    - NOT_CRAN=false
+
