@@ -10,6 +10,8 @@
 #' @export
 #' @family Tadaa-functions
 #' @import stats
+#' @importFrom lsr etaSquared
+#' @import methods
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
