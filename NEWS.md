@@ -1,3 +1,12 @@
+# tadaatoolbox 0.11.1 (GitHub)
+
+## New Features
+
+## Tweaks, Patches & Bug Fixes
+
+- `theme_tadaa` is now an alias for `theme_readthedown`, will probably become the new canonical version.
+- `theme_tadaa` now finally adds vertical space to the `x` axis title via proper margining.
+
 # tadaatoolbox 0.11.0 (CRAN)
 
 ## New Features
