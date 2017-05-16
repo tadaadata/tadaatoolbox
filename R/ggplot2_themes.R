@@ -30,7 +30,7 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
           legend.background = template_background,
           legend.key        = template_background,
           plot.caption      = element_text(hjust = 1, vjust = 0, size = rel(.7)),
-          axis.title.x      = element_text(hjust = 0),
+          axis.title.x      = element_text(hjust = 0, margin = margin(t = 10)),
           strip.placement   = "outside",
           strip.background  = element_blank())
 
@@ -54,3 +54,6 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
   }
   return(result)
 }
+
+#' @rdname theme_readthedown
+theme_tadaa <- theme_readthedown

@@ -2,9 +2,13 @@
 % Please edit documentation in R/ggplot2_themes.R
 \name{theme_readthedown}
 \alias{theme_readthedown}
+\alias{theme_tadaa}
 \title{ggplot2 theme to fit the readthedown Rmd format}
 \usage{
 theme_readthedown(base_size = 12, base_family = "", bg = "#fcfcfc",
+  axis_emph = "xy")
+
+theme_tadaa(base_size = 12, base_family = "", bg = "#fcfcfc",
   axis_emph = "xy")
 }
 \arguments{
