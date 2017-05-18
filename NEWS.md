@@ -7,6 +7,7 @@
 - `theme_tadaa` is now an alias for `theme_readthedown`, will probably become the new canonical version.
 - `theme_tadaa` now finally adds vertical space to the `x` axis title via proper margining.
 - `tadaa_aov` now imports `methods`, which fixes an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found.
+- `tadaa_aov` now auto-factorizes independent variables by default, fixes #24
 
 # tadaatoolbox 0.11.0 (CRAN)
 

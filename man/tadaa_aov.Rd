@@ -4,8 +4,8 @@
 \alias{tadaa_aov}
 \title{Tadaa, anova!}
 \usage{
-tadaa_aov(formula, data = NULL, show_effect_size = TRUE, type = 1,
-  print = "df")
+tadaa_aov(formula, data = NULL, show_effect_size = TRUE, factorize = TRUE,
+  type = 1, print = "df")
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
@@ -13,6 +13,9 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE, type = 1,
 \item{data}{Data for model.}
 
 \item{show_effect_size}{If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.}
+
+\item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
+will automatically converted via \code{as.factor}, so beware of your inputs.}
 
 \item{type}{Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.}
 

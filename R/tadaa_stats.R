@@ -3,6 +3,8 @@
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.
+#' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
+#' will automatically converted via \code{as.factor}, so beware of your inputs.
 #' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.
 #' @param print Print method, per default a regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
@@ -15,8 +17,29 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, type = 1, print = "df"){
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
+                      factorize = TRUE, type = 1, print = "df"){
 
+  # Checks
+  if (factorize) {
+      terms  <- stats::terms(formula)
+      orders <- attr(terms, "order")
+      vars   <- attr(terms, "term.labels")[orders == 1]
+
+      if (!all(sapply(data[vars], is.factor))) {
+        non_factors <- vars[!sapply(data[vars], is.factor)]
+        warning("Some independent variables are not factors, auto-converting...")
+
+        for (var in non_factors) {
+
+          data[[var]] <- as.factor(data[[var]])
+
+          warning("Converting ", var, " to factor, please check your results")
+        }
+      }
+  }
+
+  # Model fitting
   base_model <- stats::aov(formula = formula, data = data)
   effects    <- lsr::etaSquared(base_model, type = type)
 
