@@ -60,8 +60,11 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   } else {
     output <- pixiedust::dust(model)
     output <- pixiedust::sprinkle_colnames(output, statistic = "F")
-    output <- pixiedust::sprinkle(output, col = 6, fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, col = 3:4, round = 2)
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = "statistic", round = 2)
+    output <- pixiedust::sprinkle(output, col = "eta.sq", round = 2)
+    output <- pixiedust::sprinkle(output, col = "eta.sq.part", round = 2)
+    output <- pixiedust::sprinkle(output, col = "cohens.f", round = 2)
     output <- pixiedust::sprinkle(output, round = 3)
 
   }
