@@ -162,7 +162,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            conf.low = "conf_low", conf.high = "conf_high")
 
     if ("estimate" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
+      output <- pixiedust::sprinkle_colnames(output, estimate = "Diff")
     }
     if ("estimate1" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate1 = groups[[1]], estimate2 = groups[[2]])
