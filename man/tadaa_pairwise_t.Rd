@@ -5,7 +5,8 @@
 \title{Extended Pairwise t-Tests}
 \usage{
 tadaa_pairwise_t(data, response, group1, group2 = NULL, p.adjust = "bonf",
-  paired = FALSE, pool.sd = !paired, alternative = "two.sided")
+  paired = FALSE, pool.sd = !paired, alternative = "two.sided",
+  print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame} containing the variables.}
@@ -25,6 +26,9 @@ to \link[stats]{pairwise.t.test}.}
 to \link[stats]{pairwise.t.test}.}
 
 \item{alternative}{Defaults to \code{two.sided}, also passed to \link[stats]{pairwise.t.test}.}
+
+\item{print}{Print method, defaults to \code{df} for \code{data.frame} output, otherwise
+passed to \link[pixiedust]{sprinkle_print_method}.}
 }
 \value{
 A \code{data.frame} with columns \code{term}, \code{comparison} and \code{adj.p.value}.
@@ -41,7 +45,7 @@ pairwise t-tests counted for the adjustment is only equal to the number of rows
 per \code{term} of the output.
 }
 \examples{
-tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl)
+tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, print = "console")
 
 }
 \seealso{

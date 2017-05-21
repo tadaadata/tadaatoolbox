@@ -14,8 +14,10 @@
 #' @param pool.sd Defaults to the inverse of \code{paired}, passed
 #' to \link[stats]{pairwise.t.test}.
 #' @param alternative Defaults to \code{two.sided}, also passed to \link[stats]{pairwise.t.test}.
-#'
+#' @param print Print method, defaults to \code{df} for \code{data.frame} output, otherwise
+#' passed to \link[pixiedust]{sprinkle_print_method}.
 #' @importFrom broom tidy
+#' @import pixiedust
 #' @import stats
 #' @return A \code{data.frame} with columns \code{term}, \code{comparison} and \code{adj.p.value}.
 #' @export
@@ -25,11 +27,11 @@
 #' per \code{term} of the output.
 #'
 #' @examples
-#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl)
+#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, print = "console")
 #'
 tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
                        p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
-                       alternative = "two.sided") {
+                       alternative = "two.sided", print = "df") {
 
   response <- deparse(substitute(response))
   group1   <- deparse(substitute(group1))
@@ -75,5 +77,19 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   tests$adj.p.value <- tests$p.value
   rownames(tests)   <- NULL
 
-  tests[c("term", "comparison", "adj.p.value")]
+  test <- tests[c("term", "comparison", "adj.p.value")]
+
+  if (print == "df") {
+    return(test)
+  } else {
+    output <- pixiedust::dust(test)
+    output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle_colnames(output,adj.p.value = "p (adj.)")
+  }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
 }
