@@ -2,7 +2,7 @@
 % Please edit documentation in R/tadaa_stats.R
 \name{tadaa_aov}
 \alias{tadaa_aov}
-\title{Tadaa, anova!}
+\title{Tadaa, ANOVA!}
 \usage{
 tadaa_aov(formula, data = NULL, show_effect_size = TRUE, factorize = TRUE,
   type = 1, print = "df")
@@ -26,7 +26,7 @@ Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
-Tadaa, anova!
+Tadaa, ANOVA!
 }
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
@@ -36,5 +36,6 @@ tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 Other Tadaa-functions: \code{\link{tadaa_kruskal}},
   \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
+  \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }

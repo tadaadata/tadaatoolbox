@@ -16,7 +16,7 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
-\item{paired}{If \code{TRUE}, a paired t.test is performed with approproate power calculation.}
+\item{paired}{If \code{TRUE}, a paired t.test is performed.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
@@ -24,10 +24,18 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
-A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+A \code{data.frame} by default, otherwise \code{dust} object,
+depending on \code{print}.
 }
 \description{
-Tadaa, t-Test!
+An extension for \link[stats]{t.test} with added boni and tidy and/or pretty output.
+Before a t-test is performed, \link[car]{leveneTest} is consulted as to wether
+heteroskedasticity is present (using the default \code{center = "mean"} method for
+a more robust test), and sets \code{var.equal} accordingly.
+Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
+\link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
+The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
+various \link[pixiedust]{sprinkle} shenanigans.
 }
 \examples{
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
@@ -35,11 +43,14 @@ tadaa_t.test(df, x, y)
 
 df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 tadaa_t.test(df, x, y, paired = TRUE)
+
+tadaa_t.test(ngo, deutsch, geschl, print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
+  \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_wilcoxon}}
 }

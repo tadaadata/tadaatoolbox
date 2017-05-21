@@ -1,4 +1,4 @@
-#' Tadaa, anova!
+#' Tadaa, ANOVA!
 #'
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
@@ -79,14 +79,24 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 
 #' Tadaa, t-Test!
 #'
+#' An extension for \link[stats]{t.test} with added boni and tidy and/or pretty output.
+#' Before a t-test is performed, \link[car]{leveneTest} is consulted as to wether
+#' heteroskedasticity is present (using the default \code{center = "mean"} method for
+#' a more robust test), and sets \code{var.equal} accordingly.
+#' Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
+#' \link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
+#' The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
+#' various \link[pixiedust]{sprinkle} shenanigans.
+#'
 #' @param data A \code{data.frame}.
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
 #' @param direction Test direction, like \code{alternative} in \link{t.test}.
-#' @param paired If \code{TRUE}, a paired t.test is performed with approproate power calculation.
+#' @param paired If \code{TRUE}, a paired t.test is performed.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @inheritParams tadaa_aov
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @return A \code{data.frame} by default, otherwise \code{dust} object,
+#' depending on \code{print}.
 #' @import pixiedust
 #' @import stats
 #' @importFrom car leveneTest
@@ -98,6 +108,8 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 #'
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_t.test(df, x, y, paired = TRUE)
+#'
+#' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, na.rm = TRUE, print = "df") {
 
@@ -126,7 +138,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   n2   <- length(y)
 
   # levene
-  levene    <- broom::tidy(car::leveneTest(data[[response]], data[[group]], center = "mean"))
+  levene    <- broom::tidy(car::leveneTest(data[[response]], data[[group]], center = "median"))
   var.equal <- ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
 
   # t.test

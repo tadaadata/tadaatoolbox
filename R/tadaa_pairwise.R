@@ -19,6 +19,7 @@
 #' @import stats
 #' @return A \code{data.frame} with columns \code{term}, \code{comparison} and \code{adj.p.value}.
 #' @export
+#' @family Tadaa-functions
 #' @note The adjustment method is applied within each \code{term}, meaning that the number of
 #' pairwise t-tests counted for the adjustment is only equal to the number of rows
 #' per \code{term} of the output.

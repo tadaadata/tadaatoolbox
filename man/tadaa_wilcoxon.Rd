@@ -16,7 +16,7 @@ tadaa_wilcoxon(data, response, group, direction = "two.sided",
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
-\item{paired}{If \code{TRUE}, a paired t.test is performed with approproate power calculation.}
+\item{paired}{If \code{TRUE}, a paired t.test is performed.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
@@ -43,5 +43,6 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
+  \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}
 }

@@ -2,7 +2,7 @@
 
 ## New Features
 
-- New function: `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
+- Add `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
 
 ## Tweaks, Patches & Bug Fixes
 
@@ -13,6 +13,9 @@
     - now auto-factorizes independent variables by default, fixes #24.
     - now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.
     - Fix wrong `sprinkle` labelling causing `eta.sq` to be formatted like a p-value.
+- `tadaa_t.test`:
+    - Internal Levene test now uses `center = "median"` for more robust results, as it should.
+- Documentation improvements
 
 # tadaatoolbox 0.11.0 (CRAN)
 
