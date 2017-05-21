@@ -1,6 +1,8 @@
-# tadaatoolbox 0.11.1 (GitHub)
+# tadaatoolbox 0.12.0 (GitHub)
 
 ## New Features
+
+- New function: `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
 
 ## Tweaks, Patches & Bug Fixes
 
