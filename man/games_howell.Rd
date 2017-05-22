@@ -2,7 +2,7 @@
 % Please edit documentation in R/tadaa_pairwise_games_howell.R
 \name{games_howell}
 \alias{games_howell}
-\title{Sidak setp-down procedure}
+\title{Games Howell post-hoc procedure}
 \source{
 \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
 }
@@ -15,7 +15,7 @@ games_howell(obs, grp)
 \item{grp}{Grouping variable, i.e. \code{factor}.}
 }
 \description{
-Sidak setp-down procedure
+Games Howell post-hoc procedure
 }
 \references{
 \url{https://rpubs.com/aaronsc32/games-howell-test}

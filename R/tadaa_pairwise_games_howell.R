@@ -39,9 +39,10 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
     tests <- rbind(tests, test_2, tests_int)
   }
 
-  rownames(tests)   <- NULL
+  rownames(tests) <- NULL
 
-  tests <- tests[c("term", "comparison", "se", "t", "df", "conf_low", "conf_high", "adj.p.value")]
+  tests <- tests[c("term", "comparison", "se", "t", "df",
+                   "conf_low", "conf_high", "adj.p.value")]
 
   if (print == "df") {
     return(tests)
@@ -59,7 +60,7 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
   return(pixiedust::sprinkle_print_method(output, print_method = print))
 }
 
-#' Sidak setp-down procedure
+#' Games Howell post-hoc procedure
 #' @param grp Grouping variable, i.e. \code{factor}.
 #' @param obs Dependent, numeric vector.
 #' @references \url{https://rpubs.com/aaronsc32/games-howell-test}
@@ -69,7 +70,7 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
 #' @import stats
 #' @keywords internal
 games_howell <- function(obs, grp) {
-  #Create combinations
+  # Create combinations
   combs <- combn(unique(grp), 2)
 
   # Statistics that will be used throughout the calculations:
@@ -134,7 +135,8 @@ games_howell <- function(obs, grp) {
                                     digits = 3)
 
   # Rename data frame columns
-  colnames(results) <- c('comparison', 'diff', 'se', 't', 'df', 'adj.p.value', 'conf_low', 'conf_high')
+  colnames(results) <- c('comparison', 'diff', 'se', 't', 'df',
+                         'adj.p.value', 'conf_low', 'conf_high')
 
   results
 }
