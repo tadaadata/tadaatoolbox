@@ -18,8 +18,9 @@ tadaa_pairwise_t(data, response, group1, group2 = NULL, p.adjust = "bonf",
 \item{group2}{(Optional) second grouping variable.}
 
 \item{p.adjust}{The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} is supported as a
-method not supported by \link[stats]{p.adjust}.}
+to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} supported as a
+method not supported by \link[stats]{p.adjust}, as is \code{sidakSD} for the
+Sidak step-down procedure.}
 
 \item{paired}{Defaults to \code{FALSE}, also passed to \link[stats]{pairwise.t.test}.}
 
@@ -46,8 +47,9 @@ pairwise t-tests counted for the adjustment is only equal to the number of rows
 per \code{term} of the output.
 The additional Sidak adjustment method uses the following method:
 \code{p_adj <- 1 - pbinom(q = 0, size = length(p_values), prob = p_values)}
-And is sometimes preferred over Bonferroni. The additional Sidak step-down procedures
-is not yet implemented.
+And is sometimes preferred over Bonferroni.
+The Sidak-like (1987) step-down procedure (\code{sidakSD}) is an improvement
+over the Holm's (1979) step-down procedure.
 }
 \examples{
 tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
@@ -57,6 +59,8 @@ tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "co
 }
 \references{
 \url{https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni}
+
+\url{https://rdrr.io/rforge/mutoss/man/SidakSD.html}
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},

@@ -3,7 +3,8 @@
 ## New Features
 
 - Add `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
-  - Also knows the *Sidak* method for p-adjustment.
+  - Also knows the *Sidak* method for p-adjustment, both regular and step-down procedures.
+  - See [this](https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni) and [that](https://rdrr.io/rforge/mutoss/man/SidakSD.html)
 
 ## Tweaks, Patches & Bug Fixes
 

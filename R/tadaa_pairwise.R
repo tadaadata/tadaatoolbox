@@ -9,8 +9,9 @@
 #' @param group1 The grouping variables, typically a \code{factor}.
 #' @param group2 (Optional) second grouping variable.
 #' @param p.adjust The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-#' to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} is supported as a
-#' method not supported by \link[stats]{p.adjust}.
+#' to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} supported as a
+#' method not supported by \link[stats]{p.adjust}, as is \code{sidakSD} for the
+#' Sidak step-down procedure.
 #' @param paired Defaults to \code{FALSE}, also passed to \link[stats]{pairwise.t.test}.
 #' @param pool.sd Defaults to the inverse of \code{paired}, passed
 #' to \link[stats]{pairwise.t.test}.
@@ -28,11 +29,12 @@
 #' per \code{term} of the output.
 #' The additional Sidak adjustment method uses the following method:
 #' \code{p_adj <- 1 - pbinom(q = 0, size = length(p_values), prob = p_values)}
-#' And is sometimes preferred over Bonferroni. The additional Sidak step-down procedures
-#' is not yet implemented.
+#' And is sometimes preferred over Bonferroni.
+#' The Sidak-like (1987) step-down procedure (\code{sidakSD}) is an improvement
+#' over the Holm's (1979) step-down procedure.
 #'
 #' @references \url{https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni}
-#'
+#' @references \url{https://rdrr.io/rforge/mutoss/man/SidakSD.html}
 #' @examples
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "bonf", print = "console")
@@ -47,11 +49,21 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   group2   <- deparse(substitute(group2))
 
   # This is a little bit of a workaround because of… variables.
+  # Since p.adjust is passed to pairwise.t.test this is necessary since
+  # we need that function to not perform any adjustments so we
+  # can apply the Sidak methods afterwards
   if (p.adjust == "sidak") {
     p.adjust <- "none"
     use_sidak <- TRUE
   } else {
     use_sidak <- FALSE
+  }
+
+  if (p.adjust == "sidakSD") {
+    p.adjust <- "none"
+    use_sidakSD <- TRUE
+  } else {
+    use_sidakSD <- FALSE
   }
 
 
@@ -66,6 +78,8 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
 
   if (use_sidak) {
     tests$p.value <- 1 - pbinom(q = 0, size = nrow(tests), prob = tests$p.value)
+  } else if (use_sidakSD) {
+    tests$p.value <- sidak_sd(tests$p.value)
   }
 
   if (group2 != "NULL") {
@@ -84,6 +98,8 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     if (use_sidak) {
       tests_int$p.value <- 1 - pbinom(q = 0, size = nrow(tests_int),
                                      prob = tests_int$p.value)
+    } else if (use_sidakSD) {
+      tests_int$p.value <- sidak_sd(tests_int$p.value)
     }
 
     tests_g2 <- stats::pairwise.t.test(x = data[[response]],
@@ -99,6 +115,8 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     if (use_sidak) {
       tests_g2$p.value <- 1 - pbinom(q = 0, size = nrow(tests_g2),
                                      prob = tests_g2$p.value)
+    } else if (use_sidakSD) {
+      tests_g2$p.value <- sidak_sd(tests_g2$p.value)
     }
 
     tests <- rbind(tests, tests_g2, tests_int)
@@ -124,4 +142,22 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   }
 
   return(pixiedust::sprinkle_print_method(output, print_method = print))
+}
+
+#' Sidak setp-down procedure
+#' @references \url{https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88}
+#' @keywords internal
+sidak_sd <- function(pvals) {
+  m       <- length(pvals)
+  m.good  <- sum(!is.na(pvals))
+  index   <- order(pvals)
+  pvals_s <- pvals[index]
+  tmp     <- pvals_s
+  tmp[1]  <- 1 - (1 - pvals_s[1])^m.good
+
+  for(i in 2:m) {
+    tmp[i] <- max(tmp[i - 1], 1 - (1 - pvals_s[i])^(m.good - i + 1))
+  }
+
+  tmp[order(index)]
 }
