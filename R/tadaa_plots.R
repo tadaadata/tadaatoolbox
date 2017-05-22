@@ -13,8 +13,10 @@
 #' @param labels Labels used for the plots when printed in a grid (\code{grid = TRUE}),
 #' defaults to \code{c("A", "B")}.
 #' @param show_n If \code{TRUE}, displays N in plot subtitle.
+#' @param print Default is \code{TRUE}, set \code{FALSE} to suppress automatic printing.
+#' Useful if you intend to further modify the outpur plots.
 #' @return Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
-#' Printed: The one or two ggplot2 objects, depending on \code{grid}.
+#' If \code{print = TRUE}: Printed: The one or two ggplot2 objects, depending on \code{grid}.
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
@@ -25,7 +27,8 @@
 #' # As grid
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,
-                      brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE) {
+                      brewer_palette = "Set1", labels = c("A", "B"),
+                      show_n = FALSE, print = TRUE) {
 
   if (show_n) {
     subtitle <- paste0("N = ", nrow(data))
@@ -38,10 +41,15 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
   data <- dplyr::group_by_(data, substitute(group1), substitute(group2))
   data <- dplyr::summarize_(data, .dots = list(mw = sdots))
 
-  title1 <- ifelse(!grid, paste0("Interaction of ", substitute(group1), " & ", substitute(group2)),
-                   paste0("Interaction of\n", substitute(group1), " & ", substitute(group2)))
-  title2 <- ifelse(!grid, paste0("Interaction of ", substitute(group2), " & ", substitute(group1)),
-                   paste0("Interaction of\n", substitute(group2), " & ", substitute(group1)))
+  title1 <- ifelse(!grid, paste0("Interaction of ",
+                                 substitute(group1), " & ", substitute(group2)),
+                   paste0("Interaction of\n",
+                          substitute(group1), " & ", substitute(group2)))
+
+  title2 <- ifelse(!grid, paste0("Interaction of ",
+                                 substitute(group2), " & ", substitute(group1)),
+                   paste0("Interaction of\n",
+                          substitute(group2), " & ", substitute(group1)))
 
   p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw",
                                        colour = substitute(group2))) +
@@ -61,11 +69,13 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
                subtitle = subtitle) +
           theme(legend.position = "top")
 
-  if (!grid) {
-    print(p1)
-    print(p2)
-  } else {
-    print(cowplot::plot_grid(p1, p2, align = "h", labels = labels))
+  if (print) {
+    if (!grid) {
+      print(p1)
+      print(p2)
+    } else {
+      print(cowplot::plot_grid(p1, p2, align = "h", labels = labels))
+    }
   }
 
   invisible(list(p1 = p1, p2 = p2))

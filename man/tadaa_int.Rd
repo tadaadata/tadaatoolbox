@@ -5,7 +5,8 @@
 \title{Interaction plots}
 \usage{
 tadaa_int(data, response, group1, group2, grid = FALSE,
-  brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE)
+  brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE,
+  print = TRUE)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -26,10 +27,13 @@ defaults to \code{Set1}.}
 defaults to \code{c("A", "B")}.}
 
 \item{show_n}{If \code{TRUE}, displays N in plot subtitle.}
+
+\item{print}{Default is \code{TRUE}, set \code{FALSE} to suppress automatic printing.
+Useful if you intend to further modify the outpur plots.}
 }
 \value{
 Invisible: A list with two ggplot2 objects named \code{p1} and \code{p2}.
-Printed: The one or two ggplot2 objects, depending on \code{grid}.
+If \code{print = TRUE}: Printed: The one or two ggplot2 objects, depending on \code{grid}.
 }
 \description{
 Easily generate interaction plots of two nominal grouping

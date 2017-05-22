@@ -20,8 +20,10 @@
     - Fix wrong `sprinkle` labelling causing `eta.sq` to be formatted like a p-value.
 - `tadaa_t.test`:
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
-- Documentation improvements
+- `tadaa_int`: 
+    - Gains `print` (logical) argument to suppress printing if so desired. The output will still be returned invisibly.
 - Remove `na.rm` argument from `tadaa_t.test` and `tadaa_wilcoxon` because it's problematic, and in case of `paired = TRUE` it would have produced flat out wrong results.
+- Documentation improvements
 
 # tadaatoolbox 0.11.0 (CRAN)
 
