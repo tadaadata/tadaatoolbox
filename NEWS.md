@@ -3,8 +3,11 @@
 ## New Features
 
 - Add `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
-  - Also knows the *Sidak* method for p-adjustment, both regular and step-down procedures.
-  - See [this](https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni) and [that](https://rdrr.io/rforge/mutoss/man/SidakSD.html)
+    - Also knows the *Sidak* method for p-adjustment, both regular and step-down procedures.
+    - See [this](https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni) and [that](https://rdrr.io/rforge/mutoss/man/SidakSD.html)
+- Add `tadaa_pairwise_gh` for the Games Howell post-hoc procedure as an alternative to `TukeyHSD`.
+    - Adapted from [this gist by GitHub user aschleg](https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096)
+    - [Further reading](https://rpubs.com/aaronsc32/games-howell-test)
 
 ## Tweaks, Patches & Bug Fixes
 
