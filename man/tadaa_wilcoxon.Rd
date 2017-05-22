@@ -5,7 +5,7 @@
 \title{Tadaa, Wilcoxon!}
 \usage{
 tadaa_wilcoxon(data, response, group, direction = "two.sided",
-  paired = FALSE, na.rm = TRUE, print = "df", ...)
+  paired = FALSE, print = "df", ...)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -17,8 +17,6 @@ tadaa_wilcoxon(data, response, group, direction = "two.sided",
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
 \item{paired}{If \code{TRUE}, a paired t.test is performed.}
-
-\item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}

@@ -5,7 +5,7 @@
 \title{Tadaa, t-Test!}
 \usage{
 tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  na.rm = TRUE, print = "df")
+  print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -17,8 +17,6 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
 \item{paired}{If \code{TRUE}, a paired t.test is performed.}
-
-\item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
@@ -36,6 +34,10 @@ Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
 \link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
 The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
 various \link[pixiedust]{sprinkle} shenanigans.
+}
+\note{
+The cutoff for the interal Levene's test to decided whether or not to perform
+a Welch-corrected t-test is set to `0.1` by default.
 }
 \examples{
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))

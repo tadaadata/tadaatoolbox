@@ -21,6 +21,7 @@
 - `tadaa_t.test`:
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
 - Documentation improvements
+- Remove `na.rm` argument from `tadaa_t.test` and `tadaa_wilcoxon` because it's problematic, and in case of `paired = TRUE` it would have produced flat out wrong results.
 
 # tadaatoolbox 0.11.0 (CRAN)
 

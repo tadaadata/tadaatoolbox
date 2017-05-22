@@ -5,7 +5,7 @@
 \title{Tadaa, one-sample tests!}
 \usage{
 tadaa_one_sample(data = NULL, x, mu, sigma = NULL,
-  direction = "two.sided", na.rm = TRUE, print = "df")
+  direction = "two.sided", na.rm = FALSE, print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -19,7 +19,7 @@ else a one-sample \link[stats]{t.test} is performed.}
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
-\item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
+\item{na.rm}{Whether to drop \code{NA} values. Default is \code{FALSE}.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}

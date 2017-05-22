@@ -93,7 +93,6 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 #' @param group The group variable, usually a \code{factor}.
 #' @param direction Test direction, like \code{alternative} in \link{t.test}.
 #' @param paired If \code{TRUE}, a paired t.test is performed.
-#' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @inheritParams tadaa_aov
 #' @return A \code{data.frame} by default, otherwise \code{dust} object,
 #' depending on \code{print}.
@@ -101,6 +100,8 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 #' @import stats
 #' @importFrom car leveneTest
 #' @family Tadaa-functions
+#' @note The cutoff for the interal Levene's test to decided whether or not to perform
+#' a Welch-corrected t-test is set to `0.1` by default.
 #' @export
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
@@ -111,7 +112,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 #'
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
-                         paired = FALSE, na.rm = TRUE, print = "df") {
+                         paired = FALSE, print = "df") {
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -128,17 +129,19 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   y <- data[data[[group]] == groups[2], ][[response]]
 
   # Kick out NAs if specified
-  if (na.rm) {
-    x <- x[!is.na(x)]
-    y <- y[!is.na(y)]
-  }
+  # if (na.rm) {
+  #   x <- x[!is.na(x)]
+  #   y <- y[!is.na(y)]
+  # }
 
   # Get n for each group
   n1   <- length(x)
   n2   <- length(y)
 
   # levene
-  levene    <- broom::tidy(car::leveneTest(data[[response]], data[[group]], center = "median"))
+  levene    <- broom::tidy(car::leveneTest(data[[response]],
+                                           data[[group]],
+                                           center = "median"))
   var.equal <- ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
 
   # t.test
@@ -146,11 +149,14 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                              paired = paired, var.equal = var.equal))
 
   # Additions
-  test$d       <- effect_size_t(data = data, response = response, group = group, na.rm = na.rm)
+  test$d       <- effect_size_t(data = data, response = response,
+                                group = group, na.rm = na.rm)
   if (paired) {
-    test$power <- pwr::pwr.t.test(n = n1, d = test$d, alternative = direction, type = "paired")$power
+    test$power <- pwr::pwr.t.test(n = n1, d = test$d,
+                                  alternative = direction, type = "paired")$power
   } else {
-    test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d, alternative = direction)$power
+    test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d,
+                                    alternative = direction)$power
   }
 
   if (print == "df") {
@@ -165,7 +171,9 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
       output <- pixiedust::sprinkle_colnames(output, estimate = "Diff")
     }
     if ("estimate1" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate1 = groups[[1]], estimate2 = groups[[2]])
+      output <- pixiedust::sprinkle_colnames(output,
+                                             estimate1 = groups[[1]],
+                                             estimate2 = groups[[2]])
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
@@ -267,6 +275,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 #' @param mu The true mean (\eqn{\mu}) to test for.
 #' @param sigma Population sigma. If supplied, a z-test is performed,
 #' else a one-sample \link[stats]{t.test} is performed.
+#' @param na.rm Whether to drop \code{NA} values. Default is \code{FALSE}.
 #' @inheritParams tadaa_t.test
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @import pixiedust
@@ -281,7 +290,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 #' # No data.frame, just a vector
 #' tadaa_one_sample(x = rnorm(20), mu = 0)
 tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.sided",
-                             na.rm = TRUE, print = "df") {
+                             na.rm = FALSE, print = "df") {
 
   # If x is a numeric vector, just use that
   # Otherwise it's a column of 'data', so we'll need that
@@ -364,7 +373,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_wilcoxon(df, x, y, paired = TRUE)
 tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
-                           paired = FALSE, na.rm = TRUE, print = "df", ...) {
+                           paired = FALSE, print = "df", ...) {
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -381,10 +390,10 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   y <- data[data[[group]] == groups[2], ][[response]]
 
   # Kick out NAs if specified
-  if (na.rm) {
-    x <- x[!is.na(x)]
-    y <- y[!is.na(y)]
-  }
+  # if (na.rm) {
+  #   x <- x[!is.na(x)]
+  #   y <- y[!is.na(y)]
+  # }
 
   # wilcox test
   test <- broom::tidy(wilcox.test(x = x, y = y, direction = direction,
