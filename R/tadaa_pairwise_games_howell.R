@@ -10,6 +10,7 @@
 #' @source \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
 #' @author \code{gitub.com/aschleg}, Lukas Burk
 #' @import pixiedust
+#' @family Tadaa-functions
 #' @note
 #' This function is really, really slow for large comparisons (\code{k > 50}).
 #' Sorry about that.
