@@ -9,7 +9,8 @@
 #' @param group1 The grouping variables, typically a \code{factor}.
 #' @param group2 (Optional) second grouping variable.
 #' @param p.adjust The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-#' to \link[stats]{pairwise.t.test}.
+#' to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} is supported as a
+#' method not supported by \link[stats]{p.adjust}.
 #' @param paired Defaults to \code{FALSE}, also passed to \link[stats]{pairwise.t.test}.
 #' @param pool.sd Defaults to the inverse of \code{paired}, passed
 #' to \link[stats]{pairwise.t.test}.
@@ -25,9 +26,17 @@
 #' @note The adjustment method is applied within each \code{term}, meaning that the number of
 #' pairwise t-tests counted for the adjustment is only equal to the number of rows
 #' per \code{term} of the output.
+#' The additional Sidak adjustment method uses the following method:
+#' \code{p_adj <- 1 - pbinom(q = 0, size = length(p_values), prob = p_values)}
+#' And is sometimes preferred over Bonferroni. The additional Sidak step-down procedures
+#' is not yet implemented.
+#'
+#' @references \url{https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni}
 #'
 #' @examples
-#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, print = "console")
+#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
+#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "bonf", print = "console")
+#' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "console")
 #'
 tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
                        p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
@@ -36,6 +45,14 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   response <- deparse(substitute(response))
   group1   <- deparse(substitute(group1))
   group2   <- deparse(substitute(group2))
+
+  # This is a little bit of a workaround because of… variables.
+  if (p.adjust == "sidak") {
+    p.adjust <- "none"
+    use_sidak <- TRUE
+  } else {
+    use_sidak <- FALSE
+  }
 
 
   tests <- stats::pairwise.t.test(x = data[[response]],
@@ -46,6 +63,10 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
                                   alternative = alternative)
   tests      <- broom::tidy(tests)
   tests$term <- group1
+
+  if (use_sidak) {
+    tests$p.value <- 1 - pbinom(q = 0, size = nrow(tests), prob = tests$p.value)
+  }
 
   if (group2 != "NULL") {
     data[["interaction"]] <- interaction(data[[group1]], data[[group2]], sep = " & ")
@@ -60,6 +81,11 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     tests_int      <- broom::tidy(tests_int)
     tests_int$term <- paste0(group1, ":", group2)
 
+    if (use_sidak) {
+      tests_int$p.value <- 1 - pbinom(q = 0, size = nrow(tests_int),
+                                     prob = tests_int$p.value)
+    }
+
     tests_g2 <- stats::pairwise.t.test(x = data[[response]],
                                        g = data[[group2]],
                                        p.adjust.method = p.adjust,
@@ -69,6 +95,11 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
 
     tests_g2      <- broom::tidy(tests_g2)
     tests_g2$term <- group2
+
+    if (use_sidak) {
+      tests_g2$p.value <- 1 - pbinom(q = 0, size = nrow(tests_g2),
+                                     prob = tests_g2$p.value)
+    }
 
     tests <- rbind(tests, tests_g2, tests_int)
   }
@@ -84,7 +115,8 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   } else {
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle_colnames(output,adj.p.value = "p (adj.)")
+    output <- pixiedust::sprinkle_colnames(output, adj.p.value = "p (adj.)")
+    #output <- pixiedust::sprinkle_table(output, cols = 1, caption = "", part = "head")
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {

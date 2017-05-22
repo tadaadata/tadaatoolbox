@@ -3,6 +3,7 @@
 ## New Features
 
 - Add `tadaa_pairwise_t` as an extension of `stats::pairwise.t.test` that works with two grouping factors and thereby can test interactions.
+  - Also knows the *Sidak* method for p-adjustment.
 
 ## Tweaks, Patches & Bug Fixes
 

@@ -18,7 +18,8 @@ tadaa_pairwise_t(data, response, group1, group2 = NULL, p.adjust = "bonf",
 \item{group2}{(Optional) second grouping variable.}
 
 \item{p.adjust}{The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-to \link[stats]{pairwise.t.test}.}
+to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} is supported as a
+method not supported by \link[stats]{p.adjust}.}
 
 \item{paired}{Defaults to \code{FALSE}, also passed to \link[stats]{pairwise.t.test}.}
 
@@ -43,10 +44,19 @@ without confidence intervals or test statistic though.
 The adjustment method is applied within each \code{term}, meaning that the number of
 pairwise t-tests counted for the adjustment is only equal to the number of rows
 per \code{term} of the output.
+The additional Sidak adjustment method uses the following method:
+\code{p_adj <- 1 - pbinom(q = 0, size = length(p_values), prob = p_values)}
+And is sometimes preferred over Bonferroni. The additional Sidak step-down procedures
+is not yet implemented.
 }
 \examples{
-tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, print = "console")
+tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
+tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "bonf", print = "console")
+tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "console")
 
+}
+\references{
+\url{https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni}
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
