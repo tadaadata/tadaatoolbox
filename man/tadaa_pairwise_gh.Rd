@@ -29,6 +29,10 @@ An implementation of the Games Howell procedure for pairwise comparisons.
 The workhorse of this function is adapted from this gist:
 \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
 }
+\note{
+This function is really, really slow for large comparisons (\code{k > 50}).
+Sorry about that.
+}
 \examples{
 tadaa_pairwise_gh(ngo, deutsch, jahrgang)
 tadaa_pairwise_gh(ngo, deutsch, jahrgang, geschl)

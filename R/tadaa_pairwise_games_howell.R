@@ -9,6 +9,10 @@
 #' @references \url{https://rpubs.com/aaronsc32/games-howell-test}
 #' @source \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
 #' @author \code{gitub.com/aschleg}, Lukas Burk
+#' @import pixiedust
+#' @note
+#' This function is really, really slow for large comparisons (\code{k > 50}).
+#' Sorry about that.
 #' @examples
 #' tadaa_pairwise_gh(ngo, deutsch, jahrgang)
 #' tadaa_pairwise_gh(ngo, deutsch, jahrgang, geschl)
@@ -56,9 +60,14 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
 }
 
 #' Sidak setp-down procedure
+#' @param grp Grouping variable, i.e. \code{factor}.
+#' @param obs Dependent, numeric vector.
 #' @references \url{https://rpubs.com/aaronsc32/games-howell-test}
 #' @source \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
-#' @author \code{gitub.com/aschleg}#' @keywords internal
+#' @author \code{gitub.com/aschleg}
+#' @importFrom utils combn
+#' @import stats
+#' @keywords internal
 games_howell <- function(obs, grp) {
   #Create combinations
   combs <- combn(unique(grp), 2)

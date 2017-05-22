@@ -9,6 +9,11 @@
 \usage{
 games_howell(obs, grp)
 }
+\arguments{
+\item{obs}{Dependent, numeric vector.}
+
+\item{grp}{Grouping variable, i.e. \code{factor}.}
+}
 \description{
 Sidak setp-down procedure
 }
@@ -16,5 +21,6 @@ Sidak setp-down procedure
 \url{https://rpubs.com/aaronsc32/games-howell-test}
 }
 \author{
-\code{gitub.com/aschleg}#' @keywords internal
+\code{gitub.com/aschleg}
 }
+\keyword{internal}
