@@ -4,7 +4,7 @@
 \alias{effect_size_t}
 \title{Simple Effect Size Calculation for t-Tests}
 \usage{
-effect_size_t(data, response, group, na.rm = TRUE)
+effect_size_t(data, response, group, absolute = FALSE, na.rm = TRUE)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -12,6 +12,8 @@ effect_size_t(data, response, group, na.rm = TRUE)
 \item{response}{The response variable (dependent).}
 
 \item{group}{The group variable, usually a \code{factor}.}
+
+\item{absolute}{If set to \code{TRUE}, the absolute effect size is returned.}
 
 \item{na.rm}{If \code{TRUE} (default), missing values are dropped.}
 }

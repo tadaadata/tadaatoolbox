@@ -3,6 +3,7 @@
 #' @param data A \code{data.frame}.
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
+#' @param absolute If set to \code{TRUE}, the absolute effect size is returned.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @return \code{numeric} of length 1.
 #' @export
@@ -10,7 +11,7 @@
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "y")
-effect_size_t <- function(data, response, group, na.rm = TRUE){
+effect_size_t <- function(data, response, group, absolute = FALSE, na.rm = TRUE){
 
   # # Handle NSE
   # if (!is.character(substitute(response)) & !is.character(substitute(group))) {
@@ -46,8 +47,12 @@ effect_size_t <- function(data, response, group, na.rm = TRUE){
   s    <- sqrt(sum((n1 - 1) * var1, (n2 - 1) * var2)/((n1 + n2) - 2))
   m_d  <- mean(x) - mean(y)
 
-  # Get effect size (absolute)
-  d    <- abs(m_d/s)
+  # Get effect size
+  d    <- m_d/s
+
+  if (absolute) {
+    d <- abs(d)
+  }
 
   return(d)
 }
