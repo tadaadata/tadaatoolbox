@@ -34,6 +34,7 @@
 ## Depracations
 
 - `labels_to_factor`: Was a wrapper around `haven::as_factor` and is obsolete by now, as `as_factor` can do the same thing this function was built for.
+- `tadaa_likertize` is renamed to `likertize`.
 
 # tadaatoolbox 0.11.0 (CRAN)
 

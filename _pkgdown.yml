@@ -26,11 +26,13 @@
       - generate_recodes
       - interval_labels
       - pval_string
+      - likertize
     - title: Plotting Templates
       contents:
       - tadaa_mean_ci
       - tadaa_plot_tukey
       - tadaa_heatmap
+      - tadaa_int
     - title: ggplot2 Themes
       contents:
       - starts_with("theme_")

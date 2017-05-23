@@ -8,9 +8,9 @@
 #' @importFrom car recode
 #' @export
 #' @examples
-#' tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "quantiles")
-#' tadaa_likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
-tadaa_likertize <- function(x, classes = 3, method = "quantiles"){
+#' likertize(x = runif(100, 0, 10), classes = 3, method = "quantiles")
+#' likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
+likertize <- function(x, classes = 3, method = "quantiles"){
 
   if (classes == 3) {
     if (method == "quantiles") {
@@ -29,6 +29,13 @@ tadaa_likertize <- function(x, classes = 3, method = "quantiles"){
   } else if (classes == 5) {
     stop("not yet implemented")
   }
+}
+
+#' @rdname likertize
+#' @export
+tadaa_likertize <- function(...) {
+  .Deprecated("It's called likertize() now.")
+  likertize(...)
 }
 
 #' Convenience functions for interval recodes

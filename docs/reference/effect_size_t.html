@@ -86,7 +86,7 @@
     <p>Simple Effect Size Calculation for t-Tests</p>
     
 
-    <pre class="usage"><span class='fu'>effect_size_t</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>effect_size_t</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>absolute</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -104,6 +104,10 @@
       <td><p>The group variable, usually a <code>factor</code>.</p></td>
     </tr>
     <tr>
+      <th>absolute</th>
+      <td><p>If set to <code>TRUE</code>, the absolute effect size is returned.</p></td>
+    </tr>
+    <tr>
       <th>na.rm</th>
       <td><p>If <code>TRUE</code> (default), missing values are dropped.</p></td>
     </tr>
@@ -116,7 +120,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>effect_size_t</span>(<span class='no'>df</span>, <span class='st'>"x"</span>, <span class='st'>"y"</span>)</div><div class='output co'>#&gt; [1] 0.1076996</div></pre>
+<span class='fu'>effect_size_t</span>(<span class='no'>df</span>, <span class='st'>"x"</span>, <span class='st'>"y"</span>)</div><div class='output co'>#&gt; [1] -0.1442004</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
