@@ -67,10 +67,13 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     output <- pixiedust::sprinkle(output, col = "eta.sq.part", round = 2)
     output <- pixiedust::sprinkle(output, col = "cohens.f", round = 2)
     output <- pixiedust::sprinkle_colnames(output, term = "Term",
-                                           sumsq = "SS", statistic = "F-value",
-                                           p.value = "p-value", eta.sq = "$\\eta^2$",
+                                           sumsq = "SS",
+                                           meansq = "MS",
+                                           statistic = "F",
+                                           p.value = "p",
+                                           eta.sq = "$\\eta^2$",
                                            eta.sq.part = "$\\eta_\\text{part}^2$",
-                                           cohens.f = "Cohens f")
+                                           cohens.f = "Cohen's f")
     output <- pixiedust::sprinkle(output, round = 3)
   }
 
