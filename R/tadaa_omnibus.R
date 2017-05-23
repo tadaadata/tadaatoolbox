@@ -22,21 +22,21 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 
   # Checks
   if (factorize) {
-      terms  <- stats::terms(formula)
-      orders <- attr(terms, "order")
-      vars   <- attr(terms, "term.labels")[orders == 1]
+    terms  <- stats::terms(formula)
+    orders <- attr(terms, "order")
+    vars   <- attr(terms, "term.labels")[orders == 1]
 
-      if (!all(sapply(data[vars], is.factor))) {
-        non_factors <- vars[!sapply(data[vars], is.factor)]
-        warning("Some independent variables are not factors, auto-converting...")
+    if (!all(sapply(data[vars], is.factor))) {
+      non_factors <- vars[!sapply(data[vars], is.factor)]
+      warning("Some independent variables are not factors, auto-converting...")
 
-        for (var in non_factors) {
+      for (var in non_factors) {
 
-          data[[var]] <- as.factor(data[[var]])
+        data[[var]] <- as.factor(data[[var]])
 
-          warning("Converting ", var, " to factor, please check your results")
-        }
+        warning("Converting ", var, " to factor, please check your results")
       }
+    }
   }
 
   # Model fitting
@@ -58,15 +58,20 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   if (print == "df") {
     return(model)
   } else {
-    output <- pixiedust::dust(model)
-    output <- pixiedust::sprinkle_colnames(output, statistic = "F")
+    sstype <- ifelse(type == 1, "I", ifelse(type == 2, "II", "III"))
+    output <- pixiedust::dust(model,
+                              caption = paste("**ANOVA using Type", sstype, "Sum of Squares**"))
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, col = "statistic", round = 2)
     output <- pixiedust::sprinkle(output, col = "eta.sq", round = 2)
     output <- pixiedust::sprinkle(output, col = "eta.sq.part", round = 2)
     output <- pixiedust::sprinkle(output, col = "cohens.f", round = 2)
+    output <- pixiedust::sprinkle_colnames(output, term = "Term",
+                                           sumsq = "SS", statistic = "F-value",
+                                           p.value = "p-value", eta.sq = "$\\eta^2$",
+                                           eta.sq.part = "$\\eta_\\text{part}^2$",
+                                           cohens.f = "Cohens f")
     output <- pixiedust::sprinkle(output, round = 3)
-
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
