@@ -83,14 +83,17 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   if (print == "df") {
     return(test)
   } else {
-    method <- trimws(as.character(test$method))
-    test$method <- NULL
+    method  <- trimws(as.character(test$method))
+    caption <-  paste0("**", method, "** with alternative = '", test$alternative, "'")
+
+    test$method      <- NULL
+    test$alternative <- NULL
+
     output <- pixiedust::dust(test)
-    output <- pixiedust::sprinkle_table(output, caption = paste0("**", method, "**"))
+    output <- pixiedust::sprinkle_table(output, caption = caption)
     output <- pixiedust::sprinkle_colnames(output,
                                            statistic = "t", p.value = "p", parameter = "df",
                                            conf.low = "CI (lo)", conf.high = "CI (hi)",
-                                           alternative = "Alternative",
                                            d = "Cohens $\\Delta$", power = "Power")
 
     if ("estimate" %in% output$body$col_name) {
