@@ -156,27 +156,34 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   # }
 
   # wilcox test
-  test <- broom::tidy(wilcox.test(x = x, y = y, direction = direction,
+  test <- broom::tidy(wilcox.test(x = x, y = y, alternative = direction,
                                   paired = paired, ...))
 
   test$median1 <- median(x, na.rm = TRUE)
   test$median2 <- median(y, na.rm = TRUE)
 
-  test <- test[c("statistic", "median1", "median2", "p.value", "method", "alternative")]
+  test <- test[c("median1", "median2", "statistic", "p.value", "method", "alternative")]
 
   if (print == "df") {
     return(test)
   } else {
-    output <- pixiedust::dust(test)
+    method  <- trimws(as.character(test$method))
+    caption <-  paste0("**", method, "** with alternative = '", test$alternative, "'")
+
+    test$method      <- NULL
+    test$alternative <- NULL
+
+    output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = "W", p.value = "p", method = "Method",
-                                           alternative = "Direction")
+                                           statistic = "W", p.value = "p")
 
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Difference")
     }
     if ("median1" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, median1 = groups[[1]], median2 = groups[[2]])
+      output <- pixiedust::sprinkle_colnames(output,
+                                             median1 = paste("Median", groups[[1]]),
+                                             median2 = paste("Median", groups[[2]]))
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))

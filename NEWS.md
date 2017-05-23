@@ -24,6 +24,8 @@
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
     - Power should now be properly reported for `alternative = "less"` or `greater`.
         - `effect_size_t` now doesn't return the absolute effect size by default.
+- `tadaa_wilcoxon`:
+    - Also fix `direction` argument not being honored.
 - `tadaa_int`: 
     - Gains `print` (logical) argument to suppress printing if so desired. The output will still be returned invisibly.
 - Remove `na.rm` argument from `tadaa_t.test` and `tadaa_wilcoxon` because it's problematic, and in case of `paired = TRUE` it would have produced flat out wrong results.
