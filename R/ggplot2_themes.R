@@ -56,4 +56,5 @@ theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", 
 }
 
 #' @rdname theme_readthedown
+#' @export
 theme_tadaa <- theme_readthedown
