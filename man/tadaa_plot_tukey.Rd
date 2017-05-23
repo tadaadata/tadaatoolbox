@@ -10,7 +10,7 @@ tadaa_plot_tukey(data, brewer_palette = "Set1")
 \item{data}{The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.}
 
 \item{brewer_palette}{Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
-defaults to \code{NULL}: No brewer palette.}
+defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
 }
 \value{
 A \link{ggplot2} object.

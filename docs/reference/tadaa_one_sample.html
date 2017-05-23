@@ -89,7 +89,7 @@ pretend we know the population sigma.</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_one_sample</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>x</span>, <span class='no'>mu</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -117,7 +117,7 @@ else a one-sample <a href='http://www.rdocumentation.org/packages/stats/topics/t
     </tr>
     <tr>
       <th>na.rm</th>
-      <td><p>If <code>TRUE</code> (default), missing values are dropped.</p></td>
+      <td><p>Whether to drop <code>NA</code> values. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>print</th>
@@ -135,6 +135,9 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
   <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
   <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
+  <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
+  <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
+  <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
   <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p>
     
 

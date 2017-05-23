@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interaction plots — tadaa_int • tadaatoolbox</title>
+<title>Plot TukeyHSD Results as Errorbars — tadaa_plot_tukey • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,79 +79,49 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Interaction plots</h1>
+    <h1>Plot TukeyHSD Results as Errorbars</h1>
     </div>
 
     
-    <p>Easily generate interaction plots of two nominal grouping
-variables and a numeric response variable.</p>
+    <p>This is a simple plotting template that takes the <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>tidy</a>'d output of
+<a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>TukeyHSD</a> or alternatively the <code>print = "df"</code> output
+of <a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a> and plots it nicely with error bars.</p>
     
 
-    <pre class="usage"><span class='fu'>tadaa_int</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='no'>group2</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>show_n</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>print</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_plot_tukey</span>(<span class='no'>data</span>, <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>A <code>data.frame</code>.</p></td>
-    </tr>
-    <tr>
-      <th>response</th>
-      <td><p>Response variable.</p></td>
-    </tr>
-    <tr>
-      <th>group1</th>
-      <td><p>First grouping variable.</p></td>
-    </tr>
-    <tr>
-      <th>group2</th>
-      <td><p>Second grouping variable.</p></td>
-    </tr>
-    <tr>
-      <th>grid</th>
-      <td><p>If <code>TRUE</code>, the resulting graphs will be arranged in a grid
-via <a href='http://www.rdocumentation.org/packages/cowplot/topics/plot_grid'>plot_grid</a>.</p></td>
+      <td><p>The <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>tidy</a>'d output of <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>TukeyHSD</a>.</p></td>
     </tr>
     <tr>
       <th>brewer_palette</th>
-      <td><p>The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
-defaults to <code>Set1</code>.</p></td>
-    </tr>
-    <tr>
-      <th>labels</th>
-      <td><p>Labels used for the plots when printed in a grid (<code>grid = TRUE</code>),
-defaults to <code>c("A", "B")</code>.</p></td>
-    </tr>
-    <tr>
-      <th>show_n</th>
-      <td><p>If <code>TRUE</code>, displays N in plot subtitle.</p></td>
-    </tr>
-    <tr>
-      <th>print</th>
-      <td><p>Default is <code>TRUE</code>, set <code>FALSE</code> to suppress automatic printing.
-Useful if you intend to further modify the outpur plots.</p></td>
+      <td><p>Optional: The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
+defaults to <code>NULL</code>: No brewer palette.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Invisible: A list with two ggplot2 objects named <code>p1</code> and <code>p2</code>.
-If <code>print = TRUE</code>: Printed: The one or two ggplot2 objects, depending on <code>grid</code>.</p>
+    <p>A ggplot2 object.</p>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The <code>alpha</code> of the error bars is set to <code>0.25</code> if the comparison
+is not significant, and <code>1</code> otherwise. That's neat.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>Other Tadaa-plot functions: <code><a href='tadaa_heatmap.html'>tadaa_heatmap</a></code>,
-  <code><a href='tadaa_mean_ci.html'>tadaa_mean_ci</a></code>,
-  <code><a href='tadaa_plot_tukey.html'>tadaa_plot_tukey</a></code></p>
+  <code><a href='tadaa_int.html'>tadaa_int</a></code>, <code><a href='tadaa_mean_ci.html'>tadaa_mean_ci</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_int</span>(<span class='no'>ngo</span>, <span class='no'>stunzahl</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><img src='tadaa_int-2.png' alt='' width='540' height='400' /><img src='tadaa_int-3.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># As grid</span>
-<span class='fu'>tadaa_int</span>(<span class='no'>ngo</span>, <span class='no'>stunzahl</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>tests</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)
+<span class='fu'>tadaa_plot_tukey</span>(<span class='no'>tests</span>)</div><img src='tadaa_plot_tukey-2.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -159,6 +129,8 @@ If <code>print = TRUE</code>: Printed: The one or two ggplot2 objects, depending
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#note">Note</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

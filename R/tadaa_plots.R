@@ -121,14 +121,14 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
 #' @param response Response variable, numeric.
 #' @param group Grouping variable, ideally a \code{factor}.
 #' @param brewer_palette Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
-#' defaults to \code{NULL}: No brewer palette.
+#' defaults to \code{Set1}. Use \code{NULL} for no brewer palette.
 #' @return A ggplot2 object.
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
 #' @examples
 #' tadaa_mean_ci(ngo, deutsch, jahrgang, brewer_palette = "Set1")
-tadaa_mean_ci <- function(data, response, group, brewer_palette = NULL) {
+tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 
   x <- deparse(substitute(group))
   y <- deparse(substitute(response))

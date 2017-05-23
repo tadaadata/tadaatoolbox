@@ -84,12 +84,81 @@
     </div>
 
     <div class="contents">
-    <div id="tadaatoolbox-0-11-0-cran" class="section level1">
+    <div id="tadaatoolbox-0-12-0-github" class="section level1">
 <h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-11-0-cran" class="anchor"></a>tadaatoolbox 0.11.0 (CRAN)</h1>
+<a href="#tadaatoolbox-0-12-0-github" class="anchor"></a>tadaatoolbox 0.12.0 (GitHub)</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
+<ul>
+<li>Add <code>tadaa_pairwise_t</code> as an extension of <code>stats::pairwise.t.test</code> that works with two grouping factors and thereby can test interactions.
+<ul>
+<li>Also knows the <em>Sidak</em> method for p-adjustment, both regular and step-down procedures.</li>
+<li>See <a href="https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni">this</a> and <a href="https://rdrr.io/rforge/mutoss/man/SidakSD.html">that</a>
+</li>
+</ul>
+</li>
+<li>Add <code>tadaa_pairwise_gh</code> for the Games Howell post-hoc procedure as an alternative to <code>TukeyHSD</code>.
+<ul>
+<li>Adapted from <a href="https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096">this gist by GitHub user aschleg</a>
+</li>
+<li><a href="https://rpubs.com/aaronsc32/games-howell-test">Further reading</a></li>
+</ul>
+</li>
+<li>Add <code>tadaa_pairwise_tukey</code> while we’re at it. Just a thin wrapper for <code>stats::TukeyHSD</code> but with tidied output and usage consistent with the previous <code>tadaa_pairwise_*</code> functions.</li>
+<li>Add <code>tadaa_plot_tukey</code> to plot Tukey HSD results as error bars because boy do I like error bars.</li>
+</ul>
+</div>
+<div id="tweaks-patches-bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tweaks-patches-bug-fixes" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
+<ul>
+<li>
+<code>theme_tadaa</code>:
+<ul>
+<li>is now an alias for <code>theme_readthedown</code>, will probably become the new canonical version.</li>
+<li>now finally adds vertical space to the <code>x</code> axis title via proper margining.</li>
+</ul>
+</li>
+<li>
+<code>tadaa_aov</code>:
+<ul>
+<li>now auto-factorizes independent variables by default, fixes #24.</li>
+<li>now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
+<li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
+</ul>
+</li>
+<li>
+<code>tadaa_t.test</code>:
+<ul>
+<li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.</li>
+</ul>
+</li>
+<li>
+<code>tadaa_int</code>:
+<ul>
+<li>Gains <code>print</code> (logical) argument to suppress printing if so desired. The output will still be returned invisibly.</li>
+</ul>
+</li>
+<li>Remove <code>na.rm</code> argument from <code>tadaa_t.test</code> and <code>tadaa_wilcoxon</code> because it’s problematic, and in case of <code>paired = TRUE</code> it would have produced flat out wrong results.</li>
+<li>Documentation improvements</li>
+</ul>
+</div>
+<div id="depracations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#depracations" class="anchor"></a>Depracations</h2>
+<ul>
+<li>
+<code>labels_to_factor</code>: Was a wrapper around <code>haven::as_factor</code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
+</ul>
+</div>
+</div>
+    <div id="tadaatoolbox-0-11-0-cran" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-11-0-cran" class="anchor"></a>tadaatoolbox 0.11.0 (CRAN)</h1>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>
 <code>tadaa_aov</code> now knows about types, uses type 1 by default and can do types 2 and 3.
@@ -114,9 +183,9 @@
 <li>Add <code>show_n</code> option to <code>tadaa_int</code>: Optionally display N in subtitle.</li>
 </ul>
 </div>
-<div id="tweaks-patches-bug-fixes" class="section level2">
+<div id="tweaks-patches-bug-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tweaks-patches-bug-fixes" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
+<a href="#tweaks-patches-bug-fixes-1" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
 <ul>
 <li>Fix documentation inconsistencies.</li>
 <li>Turns out <code><a href="../reference/pval_string.html">pval_string(0.05)</a></code> returned <code>&lt; 0.05</code>. Well. That was embarrassing.</li>
@@ -227,6 +296,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#tadaatoolbox-0-12-0-github">0.12.0</a></li>
         <li><a href="#tadaatoolbox-0-11-0-cran">0.11.0</a></li>
         <li><a href="#tadaatoolbox-0-10-0">0.10.0</a></li>
         <li><a href="#tadaatoolbox-0-9-0">0.9.0</a></li>

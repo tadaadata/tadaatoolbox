@@ -4,7 +4,7 @@
 \alias{tadaa_mean_ci}
 \title{Means with Errorbars}
 \usage{
-tadaa_mean_ci(data, response, group, brewer_palette = NULL)
+tadaa_mean_ci(data, response, group, brewer_palette = "Set1")
 }
 \arguments{
 \item{data}{A \code{data.frame}}
@@ -14,7 +14,7 @@ tadaa_mean_ci(data, response, group, brewer_palette = NULL)
 \item{group}{Grouping variable, ideally a \code{factor}.}
 
 \item{brewer_palette}{Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
-defaults to \code{NULL}: No brewer palette.}
+defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
 }
 \value{
 A ggplot2 object.

@@ -60,7 +60,7 @@
       <h1>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2017-05-14 UTC</h4>
+            <h4 class="date">2017-05-23 UTC</h4>
           </div>
 
     
@@ -83,6 +83,10 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <li><strong>tadaa_normtest</strong></li>
 <li><strong>tadaa_one_sample</strong></li>
 <li><strong>tadaa_ord</strong></li>
+<li><strong>tadaa_pairwise_gh</strong></li>
+<li><strong>tadaa_pairwise_t</strong></li>
+<li><strong>tadaa_pairwise_tukey</strong></li>
+<li><strong>tadaa_plot_tukey</strong></li>
 <li><strong>tadaa_t.test</strong></li>
 <li><strong>tadaa_wilcoxon</strong></li>
 </ul>
@@ -129,17 +133,18 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#anova-tadaa_aov" class="anchor"></a>ANOVA: <code>tadaa_aov</code>
 </h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>geschl, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<p>Table 1: <strong>ANOVA using Type I Sum of Squares</strong></p>
 <table class="table">
 <thead><tr class="header">
-<th align="left">term</th>
+<th align="left">Term</th>
 <th align="right">df</th>
-<th align="right">sumsq</th>
-<th align="right">meansq</th>
+<th align="right">SS</th>
+<th align="right">MS</th>
 <th align="right">F</th>
-<th align="right">p.value</th>
-<th align="right">eta.sq</th>
-<th align="right">eta.sq.part</th>
-<th align="right">cohens.f</th>
+<th align="right">p</th>
+<th align="right"><span class="math inline">\(\eta^2\)</span></th>
+<th align="right"><span class="math inline">\(\eta_\text{part}^2\)</span></th>
+<th align="right">Cohen’s f</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -215,11 +220,7 @@ cols &lt;-<span class="st"> </span>ngo[<span class="kw">c</span>(<span class="st
 <p>These are pretty self-explanatory. The goal is to provide simple functions for commonly used statistics that look and behave the same, and also only return a single numerical value to play nice with <code>dplyr::summarize</code>.</p>
 <ul>
 <li>
-<code>modus</code>: A simple function to extract the mode of a frequency table.
-<ul>
-<li>This is <strong>not</strong> guaranteed to only return a single value!</li>
-</ul>
-</li>
+<code>modus</code>: A simple function to extract the mode of a frequency table.</li>
 <li>
 <code>nom_chisqu</code>: Simple wrapper for <code>chisq.test</code> that produces a single value.</li>
 <li>
@@ -261,8 +262,6 @@ cols &lt;-<span class="st"> </span>ngo[<span class="kw">c</span>(<span class="st
 <code>tadaa_likertize</code>: Reduce a range of values to <code>n</code> classes (methodologically wonky).</li>
 <li>
 <code>delet_na</code>: Customizable way to drop <code>NA</code> observations from a dataset.</li>
-<li>
-<code>labels_to_factor</code>: If you mix and match <code>sjPlot</code>, <code>haven</code> and <code>ggplot2</code>, you might need to translate <code>labels</code> to <code>factors</code>, which is precisely what this functions does. Drop in <code>data.frame</code> with <code>label</code>, receive <code>data.frame</code> with <code>factors</code>.</li>
 <li>
 <code>drop_labels</code>: If you subset a <code>labelled</code> dataset, you might end up with labels that have no values with them. This function will drop the now unused <code>labels</code>.</li>
 <li>

@@ -65,8 +65,8 @@
 <div id="tadaatoolbox" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tadaatoolbox" class="anchor"></a>tadaatoolbox</h1></div>
-
-<p>This is <strong>tadaatoolbox</strong> version <code>0.11.9000</code> (<a href="https://semver.org/">semver</a>(ish)).<br> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.</p>
+<p><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version/tadaatoolbox" alt="CRAN_Status_Badge"></a> <img src="https://img.shields.io/github/commits-since/tadaadata/tadaatoolbox/0.11.0.svg?maxAge=2592000" alt="GitHub commits"><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox" alt="CRAN_Downloads_Badge"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/tadaatoolbox" alt="CRAN_Downloads_Badge"></a></p>
+<p>This is <strong>tadaatoolbox</strong> version <code>0.12.0</code> (<a href="http://semver.org/">semver</a>(ish)).<br> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.</p>
 <p>Please consider this as a teaching project and be careful if you intend to use it for production use.<br> To see what’s new, see <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md">NEWS.md</a>.<br>
 Also, since this project is still in the <code>0.x.y</code> version, you should expect the API to change at any time. Once we reach <code>1.0.0</code>, API changes will be rolled out more slowly and include depracation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or <code>devtools</code>.</p>
 </div>
@@ -114,7 +114,7 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <div id="functionality" class="section level1">
 <h1 class="hasAnchor">
 <a href="#functionality" class="anchor"></a>Functionality</h1>
-<p>See the included vignette for a demonstration: <code>browseVignettes("tadaatoolbox")</code> or view the current version in this repository <a href="https://tadaadata.github.io/tadaatoolbox/">on GitHub pages</a>.</p>
+<p>See the included vignette for a demonstration: <code>browseVignettes("tadaatoolbox")</code> or view the current version in this repository <a href="http://tadaatoolbox.tadaa-data.de/">the <code>pkgdown</code>ed version of this repo</a>.</p>
 <div id="tidy-test-output" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tidy-test-output" class="anchor"></a>Tidy test output</h2>
@@ -129,6 +129,8 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <code>tadaa_wilcoxon</code>: A wrapper for <code>wilcox.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
 <code>tadaa_normtest</code> lets you do tests for normality (4 methods) over multiple variables.</li>
+<li>
+<code>tadaa_pairwise_t</code>, <code>tadaa_pairwise_gh</code> and <code>tadaa_pairwise_tukey</code> for various pairwise procedures.</li>
 </ul>
 </div>
 <div id="statistical-functions" class="section level2">
@@ -176,8 +178,6 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <li>
 <code>delet_na</code>: Customizable way to drop <code>NA</code> observations from a dataset.</li>
 <li>
-<code>labels_to_factor</code>: If you mix and match <code>sjPlot</code>, <code>haven</code> and <code>ggplot2</code>, you might need to translate <code>labels</code> to <code>factors</code>, which is precisely what this functions does. Drop in <code>data.frame</code> with <code>label</code>, receive <code>data.frame</code> with <code>factors</code>.</li>
-<li>
 <code>drop_labels</code>: If you subset a <code>labelled</code> dataset, you might end up with labels that have no values with them. This function will drop the now unused <code>labels</code>.</li>
 <li>
 <code>pval_string</code>: Shamalessly adapted from <code>pixiedust::pvalString</code>, this will format a p-value as a character string in common <code>p &lt; 0.001</code> notation and so on. The difference from the <code>pixiedust</code> version is that this function will also print <code>p &lt; 0.05</code>.</li>
@@ -213,6 +213,8 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <code>tadaa_heatmap</code>: Simple heatmap template.</li>
 <li>
 <code>tadaa_mean_ci</code>: Plots means with 95% confidence intervals as errorbars.</li>
+<li>
+<code>tadaa_plot_tukey</code>: For pretty <code>TukeyHSD</code> visualization.</li>
 </ul>
 </div>
 </div>
@@ -222,8 +224,8 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <a href="#dependencies" class="anchor"></a>Dependencies</h1>
 <p>I rely on these awesome package for all the things this package does, so you might want to consider checking them out.</p>
 <ul>
-<li><strong>stats, broom, dplyr, pwr, pixiedust, car, ggplot2, lazyeval</strong></li>
-<li><strong>sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr</strong></li>
+<li><strong>stats, methods, broom, dplyr, pwr, pixiedust, car, ggplot2</strong></li>
+<li><strong>lazyeval, sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr</strong></li>
 </ul>
 </div>
 <div id="code-of-conduct" class="section level1">
@@ -251,15 +253,6 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <li>Lukas Burk <br><small class="roles"> Author, maintainer </small> </li>
 <li>Tobias Anton <br><small class="roles"> Author </small> </li>
 <li><a href="authors.html">All authors...</a></li>
-</ul>
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a></li>
-<li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version/tadaatoolbox" alt="CRAN_Status_Badge"></a></li>
-<li><a href=""><img src="https://img.shields.io/github/commits-since/tadaadata/tadaatoolbox/0.10.0.svg?maxAge=2592000" alt="GitHub commits"></a></li>
-<li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox" alt="CRAN_Downloads_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/tadaatoolbox" alt="CRAN_Downloads_Badge"></a></li>
-<li><a href="https://github.com/rexfinn/reposs"><img src="https://reposs.herokuapp.com/?path=tadaadata/tadaatoolbox" alt="Repo Size"></a></li>
 </ul>
 </div>
 

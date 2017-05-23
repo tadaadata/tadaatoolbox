@@ -87,7 +87,7 @@
     
 
     <pre class="usage"><span class='fu'>tadaa_wilcoxon</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>,
-  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -110,11 +110,7 @@
     </tr>
     <tr>
       <th>paired</th>
-      <td><p>If <code>TRUE</code>, a paired t.test is performed with approproate power calculation.</p></td>
-    </tr>
-    <tr>
-      <th>na.rm</th>
-      <td><p>If <code>TRUE</code> (default), missing values are dropped.</p></td>
+      <td><p>If <code>TRUE</code>, a paired t.test is performed.</p></td>
     </tr>
     <tr>
       <th>print</th>
@@ -137,13 +133,16 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
   <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
   <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
   <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
+  <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
+  <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
+  <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
   <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;   statistic  median1   median2   p.value
-#&gt; 1      1184 0.474049 0.4661924 0.6540176
+<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;   statistic   median1  median2   p.value
+#&gt; 1      1315 0.4661924 0.474049 0.6540176
 #&gt;                                              method alternative
 #&gt; 1 Wilcoxon rank sum test with continuity correction   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
