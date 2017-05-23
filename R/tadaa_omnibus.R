@@ -72,13 +72,10 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     return(model)
   } else {
     sstype <- switch(type, "1" = "I", "2" = "II", "3" = "III")
+
     output <- pixiedust::dust(model,
                               caption = paste("**ANOVA using Type", sstype, "Sum of Squares**"))
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, col = "statistic", round = 2)
-    output <- pixiedust::sprinkle(output, col = "eta.sq", round = 2)
-    output <- pixiedust::sprinkle(output, col = "eta.sq.part", round = 2)
-    output <- pixiedust::sprinkle(output, col = "cohens.f", round = 2)
     output <- pixiedust::sprinkle_colnames(output, term = "Term",
                                            sumsq = "SS",
                                            meansq = "MS",
@@ -87,7 +84,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                                            eta.sq = "$\\eta^2$",
                                            eta.sq.part = "$\\eta_\\text{part}^2$",
                                            cohens.f = "Cohen's f")
-    output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, round = 2, na_string = "")
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
