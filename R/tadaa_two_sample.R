@@ -86,15 +86,17 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle_colnames(output,
                                            statistic = "t", p.value = "p", parameter = "df",
-                                           conf.low = "conf_low", conf.high = "conf_high")
+                                           conf.low = "CI (lo)", conf.high = "CI (hi)",
+                                           method = "Method", alternative = "Alternative",
+                                           d = "Cohens $\\Delta$", power = "Power")
 
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Diff")
     }
     if ("estimate1" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output,
-                                             estimate1 = groups[[1]],
-                                             estimate2 = groups[[2]])
+                                             estimate1 = paste("$\\mu$", groups[[1]]),
+                                             estimate2 = paste("$\\mu$", groups[[2]]))
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
@@ -162,10 +164,10 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle_colnames(output,
                                            statistic = "W", p.value = "p", method = "Method",
-                                           alternative = "direction")
+                                           alternative = "Direction")
 
     if ("estimate" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate = "Differenz")
+      output <- pixiedust::sprinkle_colnames(output, estimate = "Difference")
     }
     if ("median1" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, median1 = groups[[1]], median2 = groups[[2]])
