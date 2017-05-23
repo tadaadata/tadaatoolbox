@@ -7,7 +7,7 @@
 \usage{
 likertize(x, classes = 3, method = "quantiles")
 
-tadaa_likertize(...)
+tadaa_likertize(x, classes = 3, method = "quantiles")
 }
 \arguments{
 \item{x}{Vector to be clustered.}

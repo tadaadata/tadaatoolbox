@@ -32,8 +32,9 @@ likertize <- function(x, classes = 3, method = "quantiles"){
 }
 
 #' @rdname likertize
+#' @inheritParams likertize
 #' @export
-tadaa_likertize <- function(...) {
+tadaa_likertize <- function(x, classes = 3, method = "quantiles") {
   .Deprecated("It's called likertize() now.")
   likertize(...)
 }
