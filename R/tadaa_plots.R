@@ -152,26 +152,46 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = NULL) {
 #' \link[stats]{TukeyHSD} or alternatively the \code{print = "df"} output
 #' of \link{tadaa_pairwise_tukey} and plots it nicely with error bars.
 #' @param data The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.
-#'
+#' @inheritParams tadaa_mean_ci
 #' @return A \link{ggplot2} object.
 #' @export
 #' @import ggplot2
+#' @importFrom dplyr arrange
 #' @family Tadaa-plot functions
-#'
+#' @note The \code{alpha} of the error bars is set to \code{0.25} if the comparison
+#' is not significant, and \code{1} otherwise. That's neat.
 #' @examples
 #' tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df")
 #' tadaa_plot_tukey(tests)
-tadaa_plot_tukey <- function(data) {
-  ggplot(data = data, aes(x = reorder(comparison, estimate),
-                           y = estimate,
-                           ymin = conf.low,
-                           ymax = conf.high,
-                           color = term)) +
+tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
+
+  data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
+
+  data <- dplyr::arrange(data, term, estimate)
+  data$comparison <- factor(data$comparison,
+                            levels = rev(as.character(data$comparison)),
+                            ordered = TRUE)
+
+  p <- ggplot(data = data,
+              aes(x     = comparison,
+                  y     = estimate,
+                  ymin  = conf.low,
+                  ymax  = conf.high,
+                  color = term,
+                  alpha = signif)) +
+    geom_point(size = 1.5) +
     geom_errorbar(width = .75, size = 1.25) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     coord_flip() +
+    scale_alpha_manual(values = c("no" = 0.25, "yes" = 1), guide = F) +
     labs(title = "Tukey HSD Results", subtitle = "Mean Difference with 95% CI",
          x = "Compared Groups", y = "Difference + CI", color = "Term (Factor)",
          caption = "Confidence intervals not including x = 0 are considered significant") +
     theme(legend.position = "top")
+
+  if (!is.null(brewer_palette)) {
+    p <- p + scale_color_brewer(palette = brewer_palette)
+  }
+
+  p
 }

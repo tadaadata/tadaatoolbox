@@ -4,10 +4,13 @@
 \alias{tadaa_plot_tukey}
 \title{Plot TukeyHSD Results as Errorbars}
 \usage{
-tadaa_plot_tukey(data)
+tadaa_plot_tukey(data, brewer_palette = "Set1")
 }
 \arguments{
 \item{data}{The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.}
+
+\item{brewer_palette}{Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+defaults to \code{NULL}: No brewer palette.}
 }
 \value{
 A \link{ggplot2} object.
@@ -16,6 +19,10 @@ A \link{ggplot2} object.
 This is a simple plotting template that takes the \link[broom]{tidy}'d output of
 \link[stats]{TukeyHSD} or alternatively the \code{print = "df"} output
 of \link{tadaa_pairwise_tukey} and plots it nicely with error bars.
+}
+\note{
+The \code{alpha} of the error bars is set to \code{0.25} if the comparison
+is not significant, and \code{1} otherwise. That's neat.
 }
 \examples{
 tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df")
