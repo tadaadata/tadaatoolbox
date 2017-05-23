@@ -117,7 +117,6 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
 
 #' Means with Errorbars
 #'
-
 #' @param data A \code{data.frame}
 #' @param response Response variable, numeric.
 #' @param group Grouping variable, ideally a \code{factor}.
@@ -145,4 +144,34 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = NULL) {
   p <- p + labs(title = paste0(y, " by ", x), y = paste0("Mean of ", y, " with 95% CI"))
 
   return(p)
+}
+
+#' Plot TukeyHSD Results as Errorbars
+#'
+#' This is a simple plotting template that takes the \link[broom]{tidy}'d output of
+#' \link[stats]{TukeyHSD} or alternatively the \code{print = "df"} output
+#' of \link{tadaa_pairwise_tukey} and plots it nicely with error bars.
+#' @param data The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.
+#'
+#' @return A \link{ggplot2} object.
+#' @export
+#' @import ggplot2
+#' @family Tadaa-plot functions
+#'
+#' @examples
+#' tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df")
+#' tadaa_plot_tukey(tests)
+tadaa_plot_tukey <- function(data) {
+  ggplot(data = data, aes(x = reorder(comparison, estimate),
+                           y = estimate,
+                           ymin = conf.low,
+                           ymax = conf.high,
+                           color = term)) +
+    geom_errorbar(width = .75, size = 1.25) +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    coord_flip() +
+    labs(title = "Tukey HSD Results", subtitle = "Mean Difference with 95% CI",
+         x = "Compared Groups", y = "Difference + CI", color = "Term (Factor)",
+         caption = "Confidence intervals not including x = 0 are considered significant") +
+    theme(legend.position = "top")
 }

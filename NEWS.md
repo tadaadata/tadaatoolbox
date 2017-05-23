@@ -9,6 +9,7 @@
     - Adapted from [this gist by GitHub user aschleg](https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096)
     - [Further reading](https://rpubs.com/aaronsc32/games-howell-test)
 - Add `tadaa_pairwise_tukey` while we're at it. Just a thin wrapper for `stats::TukeyHSD` but with tidied output and usage consistent with the previous `tadaa_pairwise_*` functions.
+- Add `tadaa_plot_tukey` to plot Tukey HSD results as error bars because boy do I like error bars.
 
 ## Tweaks, Patches & Bug Fixes
 
