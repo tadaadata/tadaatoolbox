@@ -20,5 +20,5 @@ tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 3, print = "markdown")
 
 ```{r t_test}
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
-tadaa_t.test(data = ngo, response = deutsch, group = geschl, direction = "greater", print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, direction = "less", print = "markdown")
 ```
