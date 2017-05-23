@@ -31,6 +31,10 @@ Tadaa, ANOVA!
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
+
+# Other types of sums
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_kruskal}},

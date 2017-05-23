@@ -17,6 +17,10 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
+#'
+#' # Other types of sums
+#' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
+#' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                       factorize = TRUE, type = 1, print = "df"){
 
@@ -48,6 +52,15 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   }
 
   model <- broom::tidy(base_model)
+
+  if (type %in% c(2, 3)) {
+    model$meansq <- model$sumsq/model$df
+    model <- model[c("term", "sumsq", "meansq", "df", "statistic", "p.value")]
+  }
+  if (type == 3) {
+    # remove intercept row
+    model <- model[-1, ]
+  }
 
   if (show_effect_size) {
     effects          <- data.frame(term = rownames(effects), effects, row.names = NULL)
