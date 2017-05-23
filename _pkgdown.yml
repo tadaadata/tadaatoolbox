@@ -3,6 +3,33 @@
       desc:  High-level functions with prettified output
       contents:
       - starts_with("tadaa_")
+    - title: Descriptive Statistics
+      desc: For, you know, descriptive statistics
+      contents:
+      - modus
+      - starts_with("nom_")
+      - starts_with("ord_")
+      - ends_with("_nom")
+      - ends_with("_ord")
+    - title: CIs
+      desc: Conficence intervals and helpers
+      contents:
+      - starts_with("mean_ci")
+      - starts_with("confint")
+    - title: Plotting Templates
+      contents:
+      - tadaa_mean_ci
+      - tadaa_plot_tukey
+      - tadaa_heatmap
+    - title: ggplot2 Themes
+      contents:
+      - starts_with("theme_")
     - title: Other functions
       contents:
       - -starts_with("tadaa_")
+    - title: Data
+      contents:
+      - ngo
+    - title: This package
+      contents:
+      - tadaatoolbox
