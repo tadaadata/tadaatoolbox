@@ -25,6 +25,10 @@
 - Remove `na.rm` argument from `tadaa_t.test` and `tadaa_wilcoxon` because it's problematic, and in case of `paired = TRUE` it would have produced flat out wrong results.
 - Documentation improvements
 
+## Depracations
+
+- `labels_to_factor`: Was a wrapper around `haven::as_factor` and is obsolete by now, as `as_factor` can do the same thing this function was built for.
+
 # tadaatoolbox 0.11.0 (CRAN)
 
 ## New Features

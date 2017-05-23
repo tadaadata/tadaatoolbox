@@ -37,6 +37,9 @@ delete_na <- function(df, n = ncol(df) - 1) {
 #' data %<>% labels_to_factor
 #' }
 labels_to_factor <- function(df) {
+
+  .Deprecated("Use haven::as_factor. It's basically the same but better.")
+
   for (column in names(df)) {
     if (sjmisc::is_labelled(df[[column]])) {
       df[[column]] <- haven::as_factor(df[[column]])

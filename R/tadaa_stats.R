@@ -150,7 +150,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
   # Additions
   test$d       <- effect_size_t(data = data, response = response,
-                                group = group, na.rm = na.rm)
+                                group = group, na.rm = TRUE)
   if (paired) {
     test$power <- pwr::pwr.t.test(n = n1, d = test$d,
                                   alternative = direction, type = "paired")$power
@@ -301,7 +301,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     stop("Argument 'x' must be numeric or a bare column name of 'data'")
   }
 
-  mean_x <- mean(x, na.rm = na.rm)
+  mean_x <- mean(x, na.rm = TRUE)
 
   if (is.null(sigma)) {
     # If sigma is unknown, just do a t-test
@@ -399,8 +399,8 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   test <- broom::tidy(wilcox.test(x = x, y = y, direction = direction,
                              paired = paired, ...))
 
-  test$median1 <- median(x, na.rm = na.rm)
-  test$median2 <- median(y, na.rm = na.rm)
+  test$median1 <- median(x, na.rm = TRUE)
+  test$median2 <- median(y, na.rm = TRUE)
 
   test <- test[c("statistic", "median1", "median2", "p.value", "method", "alternative")]
 

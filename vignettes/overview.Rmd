@@ -70,7 +70,6 @@ tadaa_normtest(data = cols, method = "shapiro", print = "markdown")
 These are pretty self-explanatory. The goal is to provide simple functions for commonly used statistics that look and behave the same, and also only return a single numerical value to play nice with `dplyr::summarize`.
 
 * `modus`: A simple function to extract the mode of a frequency table.
-    - This is **not** guaranteed to only return a single value!
 * `nom_chisqu`: Simple wrapper for `chisq.test` that produces a single value.
 * `nom_phi`: Simple wrapper for `vcd::assocstats` to extract phi.
 * `nom_v`: Simple wrapper for `vcd::assocstats` to extract Cramer's V.
@@ -92,7 +91,6 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 * `interval_labels`: To produce labels for clusters created by `cut`.
 * `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
 * `delet_na`: Customizable way to drop `NA` observations from a dataset.
-* `labels_to_factor`: If you mix and match `sjPlot`, `haven` and `ggplot2`, you might need to translate `labels` to `factors`, which is precisely what this functions does. Drop in `data.frame` with `label`, receive `data.frame` with `factors`.
 * `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
 * `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
