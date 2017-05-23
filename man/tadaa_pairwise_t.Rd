@@ -63,10 +63,13 @@ tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "co
 \url{https://rdrr.io/rforge/mutoss/man/SidakSD.html}
 }
 \seealso{
+\code{\link{tadaa_pairwise_tukey}}, \code{\link{tadaa_pairwise_gh}}
+
 Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
   \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_pairwise_gh}},
+  \code{\link{tadaa_pairwise_tukey}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }

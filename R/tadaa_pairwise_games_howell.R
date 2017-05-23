@@ -11,6 +11,7 @@
 #' @author \code{gitub.com/aschleg}, Lukas Burk
 #' @import pixiedust
 #' @family Tadaa-functions
+#' @seealso \code{\link{tadaa_pairwise_t}}, \code{\link{tadaa_pairwise_tukey}}
 #' @note
 #' This function is really, really slow for large comparisons (\code{k > 50}).
 #' Sorry about that.
