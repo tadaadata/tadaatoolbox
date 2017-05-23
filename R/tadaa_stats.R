@@ -301,13 +301,13 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     stop("Argument 'x' must be numeric or a bare column name of 'data'")
   }
 
-  mean_x <- mean(x, na.rm = TRUE)
+  mean_x <- mean(x, na.rm = na.rm)
 
   if (is.null(sigma)) {
     # If sigma is unknown, just do a t-test
     results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
     # Effect size
-    results$d <- (mean_x - mu) / sd(x)
+    results$d <- (mean_x - mu) / sd(x, na.rm = na.rm)
     # Power
     results$power <- pwr::pwr.t.test(n = length(x), d = results$d, type = "one.sample",
                                      alternative = direction)$power
