@@ -55,7 +55,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 
   if (type %in% c(2, 3)) {
     model$meansq <- model$sumsq/model$df
-    model <- model[c("term", "sumsq", "meansq", "df", "statistic", "p.value")]
+    model <- model[c("term", "df", "sumsq", "meansq", "statistic", "p.value")]
   }
   if (type == 3) {
     # remove intercept row
@@ -71,7 +71,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   if (print == "df") {
     return(model)
   } else {
-    sstype <- ifelse(type == 1, "I", ifelse(type == 2, "II", "III"))
+    sstype <- switch(type, "1" = "I", "2" = "II", "3" = "III")
     output <- pixiedust::dust(model,
                               caption = paste("**ANOVA using Type", sstype, "Sum of Squares**"))
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
