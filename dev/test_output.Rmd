@@ -1,0 +1,24 @@
+---
+title: "Output Tests"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tadaatoolbox)
+```
+
+## `tadaa_aov`
+
+```{r aov}
+tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 1, print = "markdown")
+tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 2, print = "markdown")
+tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 3, print = "markdown")
+```
+
+## `tadaa_t.test`
+
+```{r t_test}
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, direction = "greater", print = "markdown")
+```
