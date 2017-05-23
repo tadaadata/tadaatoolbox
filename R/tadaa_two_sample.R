@@ -101,8 +101,8 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     }
     if ("estimate1" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output,
-                                             estimate1 = paste("$\\mu$", groups[[1]]),
-                                             estimate2 = paste("$\\mu$", groups[[2]]))
+                                             estimate1 = paste("$\\mu_1$", groups[[1]]),
+                                             estimate2 = paste("$\\mu_2$", groups[[2]]))
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
