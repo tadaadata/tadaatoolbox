@@ -62,10 +62,19 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     model <- model[-1, ]
   }
 
+  # Put Residual row at the bottom
+  model <- rbind(model[model$term != "Residuals", ],
+                 model[model$term == "Residuals", ])
+
   if (show_effect_size) {
     effects          <- data.frame(term = rownames(effects), effects, row.names = NULL)
     effects$cohens.f <- sqrt(effects$eta.sq.part / (1 - effects$eta.sq.part))
-    model            <- merge(model, effects, by = "term", all = T)
+
+    # Drop eta.sq from output, as partial eta^2 suffices
+    effects <- effects[names(effects) != "eta.sq"]
+
+    # Merge with test output
+    model <- merge(model, effects, by = "term", all = T)
   }
 
   if (print == "df") {
@@ -81,7 +90,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                                            meansq = "MS",
                                            statistic = "F",
                                            p.value = "p",
-                                           eta.sq = "$\\eta^2$",
+                                         # eta.sq = "$\\eta^2$",
                                            eta.sq.part = "$\\eta_\\text{part}^2$",
                                            cohens.f = "Cohen's f")
     output <- pixiedust::sprinkle(output, round = 2, na_string = "")

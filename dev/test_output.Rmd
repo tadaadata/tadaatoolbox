@@ -16,7 +16,18 @@ library(tadaatoolbox)
 
 # `tadaa_aov`
 
-```{r aov}
+## One-Way
+
+```{r aov_oneway}
+tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 1, print = "markdown")
+tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 2, print = "markdown")
+tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 3, print = "markdown")
+```
+
+
+## Two-Way
+
+```{r aov_twoway}
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 1, print = "markdown")
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 2, print = "markdown")
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 3, print = "markdown")
