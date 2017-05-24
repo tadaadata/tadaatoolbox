@@ -86,13 +86,20 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   } else {
     sstype <- switch(type, "1" = "I", "2" = "II", "3" = "III")
 
+    # Guess ANOVA type based on number of factors, assuming only 1 response
+    # Length coerced to character for switch()'s default result to work
+    n_factors <- as.character(length(all.vars(formula)) - 1)
+    ways      <- switch(n_factors, "1" = "One-Way", "2" = "Two-Way", "Factorial")
+
+    method <- paste(ways, "ANOVA: Using Type", sstype, "Sum of Squares")
+
     # If model has 3 terms (1 factor + resid + total), display part.eta as eta^2,
     # otherwise display as part.eta. Since part.eta == eta^2 for one-way designs,
     # this should be okay I guess
     eta_label <- ifelse(nrow(model) == 3, "$\\eta^2$", "$\\eta_\\text{part}^2$")
 
-    output <- pixiedust::dust(model,
-                              caption = paste("**ANOVA using Type", sstype, "Sum of Squares**"))
+    output <- pixiedust::dust(model)
+    output <- pixiedust::sprinkle_table(output, caption = method, bold = T, part = "head")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output, term = "Term",
                                            sumsq = "SS",
@@ -126,15 +133,19 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 tadaa_kruskal <- function(formula, data = NULL, print = "console"){
 
   model <- broom::tidy(kruskal.test(formula = formula, data = data))
+  model <- model[c("statistic", "parameter", "p.value")]
 
   if (print == "df") {
     return(model)
   } else {
+    method <- "Kruskal-Wallis Rank Sum Test"
+
     output <- suppressWarnings(pixiedust::dust(model))
-    output <- pixiedust::sprinkle_colnames(output, statistic = "Kruskal-Wallis-Chi\u00B2",
-                                           p.value = "p", parameter = "df", method = "Method")
+    output <- pixiedust::sprinkle_table(output, caption = method, bold = T, part = "head")
+    output <- pixiedust::sprinkle_colnames(output, statistic = "$\\chi^2$",
+                                           p.value = "p", parameter = "df")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, round = 2)
 
   }
 
