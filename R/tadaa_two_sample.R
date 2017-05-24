@@ -83,8 +83,13 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   if (print == "df") {
     return(test)
   } else {
-    method  <- trimws(as.character(test$method))
-    caption <-  paste0("**", method, "** with alternative = '", test$alternative, "'")
+    method      <- trimws(as.character(test$method))
+    alternative <- switch(direction,
+                          "two.sided" = "$\\mu_1 \\neq \\mu_2$",
+                          "greater"   = "$\\mu_1 > \\mu_2$",
+                          "less"      = "$\\mu_1 < \\mu_2$")
+
+    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 
     test$method      <- NULL
     test$alternative <- NULL
@@ -92,9 +97,13 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle_table(output, caption = caption)
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = "t", p.value = "p", parameter = "df",
-                                           conf.low = "CI (lo)", conf.high = "CI (hi)",
-                                           d = "Cohens $\\Delta$", power = "Power")
+                                           statistic = "t",
+                                           p.value   = "p",
+                                           parameter = "df",
+                                           conf.low  = "CI (lo)",
+                                           conf.high = "CI (hi)",
+                                           d         = "Cohens $\\Delta$",
+                                           power     = "Power")
 
     if ("estimate" %in% output$body$col_name) {
       output <- pixiedust::sprinkle_colnames(output, estimate = "Diff")
@@ -106,7 +115,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, round = 2)
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
@@ -161,33 +170,34 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 
   test$median1 <- median(x, na.rm = TRUE)
   test$median2 <- median(y, na.rm = TRUE)
+  test$diff    <- test$median1 - test$median2
 
-  test <- test[c("median1", "median2", "statistic", "p.value", "method", "alternative")]
+  test <- test[c("diff", "median1", "median2", "statistic",
+                 "p.value", "method", "alternative")]
 
   if (print == "df") {
     return(test)
   } else {
-    method  <- trimws(as.character(test$method))
-    caption <-  paste0("**", method, "** with alternative = '", test$alternative, "'")
+    method      <- trimws(as.character(test$method))
+    alternative <- switch(direction,
+                          "two.sided" = "$M_1 \\neq M_2$",
+                          "greater"   = "$M_1 > M_2$",
+                          "less"      = "$M_1 < M_2$")
+
+    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 
     test$method      <- NULL
     test$alternative <- NULL
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = "W", p.value = "p")
-
-    if ("estimate" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate = "Difference")
-    }
-    if ("median1" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output,
-                                             median1 = paste("Median", groups[[1]]),
-                                             median2 = paste("Median", groups[[2]]))
-    }
-
+                                           diff      = "Difference",
+                                           statistic = "W",
+                                           p.value   = "p",
+                                           median1 = paste("$M_1$", groups[[1]]),
+                                           median2 = paste("$M_2$", groups[[2]]))
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, round = 2)
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {

@@ -48,17 +48,22 @@ tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
 
 ```{r t_test}
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
-tadaa_t.test(data = ngo, response = deutsch, group = geschl, direction = "less", print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
+             direction = "less", print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
+             direction = "greater", print = "markdown")
 ```
 
 ## `tadaa_wilcoxon`
 
 ```{r wilcoxon}
-df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
-tadaa_wilcoxon(df, x, y, print = "markdown")
-tadaa_wilcoxon(df, x, y, direction = "less", print = "markdown")
+tadaa_wilcoxon(ngo, deutsch, geschl, print = "markdown")
+tadaa_wilcoxon(ngo, deutsch, geschl, 
+               direction = "less", print = "markdown")
 
-df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
-tadaa_wilcoxon(df, x, y, paired = TRUE, print = "markdown")
+tadaa_wilcoxon(ngo, deutsch, geschl, paired = TRUE, print = "markdown")
+tadaa_wilcoxon(ngo, deutsch, geschl, paired = TRUE, 
+               direction = "less", print = "markdown")
+
 ```
 
