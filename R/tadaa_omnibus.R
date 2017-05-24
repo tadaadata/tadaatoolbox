@@ -66,6 +66,10 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   model <- rbind(model[model$term != "Residuals", ],
                  model[model$term == "Residuals", ])
 
+  # Append Total row
+  totals <- data.frame("term" = "Total", lapply(model[-1], sum))
+  model  <- rbind(model, totals)
+
   if (show_effect_size) {
     effects          <- data.frame(term = rownames(effects), effects, row.names = NULL)
     effects$cohens.f <- sqrt(effects$eta.sq.part / (1 - effects$eta.sq.part))
@@ -82,6 +86,11 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   } else {
     sstype <- switch(type, "1" = "I", "2" = "II", "3" = "III")
 
+    # If model has 3 terms (1 factor + resid + total), display part.eta as eta^2,
+    # otherwise display as part.eta. Since part.eta == eta^2 for one-way designs,
+    # this should be okay I guess
+    eta_label <- ifelse(nrow(model) == 3, "$\\eta^2$", "$\\eta_\\text{part}^2$")
+
     output <- pixiedust::dust(model,
                               caption = paste("**ANOVA using Type", sstype, "Sum of Squares**"))
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
@@ -90,8 +99,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                                            meansq = "MS",
                                            statistic = "F",
                                            p.value = "p",
-                                         # eta.sq = "$\\eta^2$",
-                                           eta.sq.part = "$\\eta_\\text{part}^2$",
+                                           eta.sq.part = eta_label,
                                            cohens.f = "Cohen's f")
     output <- pixiedust::sprinkle(output, round = 2, na_string = "")
   }
