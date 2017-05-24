@@ -14,9 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tadaatoolbox)
 ```
 
-# `tadaa_aov`
+# Omnibus Tests
 
-## One-Way
+## `tadaa_aov`
+
+### One-Way
 
 ```{r aov_oneway}
 tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 1, print = "markdown")
@@ -25,7 +27,7 @@ tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 3, print = "markdown")
 ```
 
 
-## Two-Way
+### Two-Way
 
 ```{r aov_twoway}
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 1, print = "markdown")
@@ -33,14 +35,23 @@ tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 2, print = "markdown")
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 3, print = "markdown")
 ```
 
-# `tadaa_t.test`
+## Kruskal-Wallis
+
+```{r kruskal}
+tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
+```
+
+
+# Two-Sample tests
+
+## `tadaa_t.test`
 
 ```{r t_test}
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, direction = "less", print = "markdown")
 ```
 
-# `tadaa_wilcoxon`
+## `tadaa_wilcoxon`
 
 ```{r wilcoxon}
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
