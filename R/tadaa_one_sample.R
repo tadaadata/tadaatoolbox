@@ -56,7 +56,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     if (direction == "two.sided") {
       p <- pnorm(mean_x, mean = mu, sd = sem)
       p <- pmin(p, 1 - p) * 2
-    } else if (direction == "less") {
+    } else if (direction == "less"){
       p <- pnorm(mean_x, mean = mu, sd = sem, lower.tail = TRUE)
     } else if (direction == "greater") {
       p <- pnorm(mean_x, mean = mu, sd = sem, lower.tail = FALSE)
@@ -84,9 +84,9 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   } else {
     method      <- trimws(as.character(results$method))
     alternative <- switch(direction,
-                          "two.sided" = paste0(mu, "$\\neq \\mu_1$"),
-                          "greater"   = paste0(mu, "$> \\mu_1$"),
-                          "less"      = paste0(mu, "$< \\mu_1$"))
+                          "two.sided" = paste0(mu, " $\\neq \\mu_1$"),
+                          "greater"   = paste0(mu, " $> \\mu_1$"),
+                          "less"      = paste0(mu, " $< \\mu_1$"))
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 

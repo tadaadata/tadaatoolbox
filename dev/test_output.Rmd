@@ -79,6 +79,10 @@ tadaa_one_sample(data = ngo, x = deutsch, mu = 7, sigma = 2,
 
 # t
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7.5, print = "markdown")
+tadaa_one_sample(data = ngo, x = deutsch, mu = 8, 
+                 direction = "less", print = "markdown")
+tadaa_one_sample(data = ngo, x = deutsch, mu = 7, 
+                 direction = "greater", print = "markdown")
 ```
 
 
