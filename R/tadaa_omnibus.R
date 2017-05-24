@@ -91,23 +91,23 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     n_factors <- as.character(length(all.vars(formula)) - 1)
     ways      <- switch(n_factors, "1" = "One-Way", "2" = "Two-Way", "Factorial")
 
-    method <- paste(ways, "ANOVA: Using Type", sstype, "Sum of Squares")
+    method <- paste("**", ways, "ANOVA**: Using Type", sstype, "Sum of Squares")
 
     # If model has 3 terms (1 factor + resid + total), display part.eta as eta^2,
     # otherwise display as part.eta. Since part.eta == eta^2 for one-way designs,
     # this should be okay I guess
     eta_label <- ifelse(nrow(model) == 3, "$\\eta^2$", "$\\eta_\\text{part}^2$")
 
-    output <- pixiedust::dust(model)
-    output <- pixiedust::sprinkle_table(output, caption = method, bold = T, part = "head")
+    output <- pixiedust::dust(model, caption = method)
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle_colnames(output, term = "Term",
-                                           sumsq = "SS",
-                                           meansq = "MS",
-                                           statistic = "F",
-                                           p.value = "p",
+    output <- pixiedust::sprinkle_colnames(output,
+                                           term        = "Term",
+                                           sumsq       = "SS",
+                                           meansq      = "MS",
+                                           statistic   = "F",
+                                           p.value     = "p",
                                            eta.sq.part = eta_label,
-                                           cohens.f = "Cohen's f")
+                                           cohens.f    = "Cohen's f")
     output <- pixiedust::sprinkle(output, round = 2, na_string = "")
   }
 
@@ -138,10 +138,9 @@ tadaa_kruskal <- function(formula, data = NULL, print = "console"){
   if (print == "df") {
     return(model)
   } else {
-    method <- "Kruskal-Wallis Rank Sum Test"
+    method <- "**Kruskal-Wallis Rank Sum Test**"
 
-    output <- suppressWarnings(pixiedust::dust(model))
-    output <- pixiedust::sprinkle_table(output, caption = method, bold = T, part = "head")
+    output <- suppressWarnings(pixiedust::dust(model, caption = method))
     output <- pixiedust::sprinkle_colnames(output, statistic = "$\\chi^2$",
                                            p.value = "p", parameter = "df")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
