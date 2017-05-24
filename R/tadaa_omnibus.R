@@ -91,7 +91,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     n_factors <- as.character(length(all.vars(formula)) - 1)
     ways      <- switch(n_factors, "1" = "One-Way", "2" = "Two-Way", "Factorial")
 
-    method <- paste("**", ways, "ANOVA**: Using Type", sstype, "Sum of Squares")
+    method <- paste0("**", ways, " ANOVA**: Using Type", sstype, "Sum of Squares")
 
     # If model has 3 terms (1 factor + resid + total), display part.eta as eta^2,
     # otherwise display as part.eta. Since part.eta == eta^2 for one-way designs,
