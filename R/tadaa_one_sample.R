@@ -50,7 +50,8 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     # If sigma is known, do manual z-test stuff
     sem     <- sigma/sqrt(length(x))
     results <- data.frame(estimate  = mean_x,
-                          statistic = (mean_x - mu)/sem)
+                          statistic = (mean_x - mu)/sem,
+                          se        = sem)
 
     if (direction == "two.sided") {
       p <- pnorm(mean_x, mean = mu, sd = sem)
@@ -97,6 +98,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     output <- pixiedust::sprinkle_colnames(output,
                                            estimate  = paste0("$\\mu$ ", x_lab),
                                            statistic = statistic_label,
+                                           se        = "SE",
                                            p.value   = "p",
                                            conf.low  = "CI (lo)",
                                            conf.high = "CI (hi)",
