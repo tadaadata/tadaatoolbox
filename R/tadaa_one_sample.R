@@ -84,9 +84,9 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   } else {
     method      <- trimws(as.character(results$method))
     alternative <- switch(direction,
-                          "two.sided" = paste0("$\\mu \\neq ", mu, "$"),
-                          "greater"   = paste0("$\\mu > ", mu, "$"),
-                          "less"      = paste0("$\\mu < ", mu, "$"))
+                          "two.sided" = paste0(mu, "$\\neq \\mu_1$"),
+                          "greater"   = paste0(mu, "$> \\mu_1$"),
+                          "less"      = paste0(mu, "$< \\mu_1$"))
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 
@@ -98,7 +98,6 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     output <- pixiedust::sprinkle_colnames(output,
                                            estimate  = paste0("$\\mu$ ", x_lab),
                                            statistic = statistic_label,
-                                           se        = "SE",
                                            p.value   = "p",
                                            conf.low  = "CI (lo)",
                                            conf.high = "CI (hi)",
@@ -106,6 +105,8 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
                                            power     = "Power")
     if ("parameter" %in% names(results)) {
       output <- pixiedust::sprinkle_colnames(output, parameter = "df")
+    } else if ("se" %in% names(results)) {
+      output <- pixiedust::sprinkle_colnames(output, se        = "SE")
     }
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)

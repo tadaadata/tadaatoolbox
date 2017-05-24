@@ -72,6 +72,10 @@ tadaa_wilcoxon(ngo, deutsch, geschl, paired = TRUE,
 ```{r one_sample}
 # z: known sigma
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7.5, sigma = 2, print = "markdown")
+tadaa_one_sample(data = ngo, x = deutsch, mu = 8, sigma = 2, 
+                 direction = "less", print = "markdown")
+tadaa_one_sample(data = ngo, x = deutsch, mu = 7, sigma = 2, 
+                 direction = "greater", print = "markdown")
 
 # t
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7.5, print = "markdown")
