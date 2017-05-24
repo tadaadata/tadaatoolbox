@@ -102,7 +102,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            parameter = "df",
                                            conf.low  = "CI (lo)",
                                            conf.high = "CI (hi)",
-                                           d         = "Cohens $\\Delta$",
+                                           d         = "Cohen\\'s d",
                                            power     = "Power")
 
     if ("estimate" %in% output$body$col_name) {
