@@ -28,8 +28,8 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   # If x is a numeric vector, just use that
   # Otherwise it's a column of 'data', so we'll need that
   if (!is.null(data)) {
-    x <- deparse(substitute(x))
-    x <- data[[x]]
+    x_lab <- deparse(substitute(x))
+    x     <- data[[x_lab]]
   } else if (!is.numeric(x)) {
     stop("Argument 'x' must be numeric or a bare column name of 'data'")
   }
@@ -44,6 +44,8 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     # Power
     results$power <- pwr::pwr.t.test(n = length(x), d = results$d, type = "one.sample",
                                      alternative = direction)$power
+    # Name statistic
+    statistic_label <- "t"
   } else {
     # If sigma is known, do manual z-test stuff
     sem     <- sigma/sqrt(length(x))
@@ -51,7 +53,8 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
                           statistic = (mean_x - mu)/sem)
 
     if (direction == "two.sided") {
-      p <- 2 * pnorm(mean_x, mean = mu, sd = sem)
+      p <- pnorm(mean_x, mean = mu, sd = sem)
+      p <- pmin(p, 1 - p) * 2
     } else if (direction == "less") {
       p <- pnorm(mean_x, mean = mu, sd = sem, lower.tail = TRUE)
     } else if (direction == "greater") {
@@ -62,7 +65,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     results$p.value     <- p
     results$conf.low    <- mean_x - confint_norm(x)
     results$conf.high   <- mean_x + confint_norm(x)
-    results$method      <- "z-test"
+    results$method      <- "z-Test"
     results$alternative <- direction
 
     # Effect size
@@ -70,20 +73,46 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     # Power
     results$power <- pwr::pwr.norm.test(d = results$d, n = length(x),
                                         alternative = direction)$power
+    # Name statistic
+    statistic_label <- "z"
   }
 
   ### Output ###
   if (print == "df") {
     return(results)
   } else {
+    method      <- trimws(as.character(results$method))
+    alternative <- switch(direction,
+                          "two.sided" = paste0("$\\mu \\neq ", mu, "$"),
+                          "greater"   = paste0("$\\mu > ", mu, "$"),
+                          "less"      = paste0("$\\mu < ", mu, "$"))
+
+    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
+
+    results$method      <- NULL
+    results$alternative <- NULL
+
     output <- pixiedust::dust(results)
-    output <- pixiedust::sprinkle(output, col = 3, fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, round = 3)
-
-    if (!(print %in% c("df", "console", "html", "markdown"))) {
-      stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+    output <- pixiedust::sprinkle_table(output, caption = caption)
+    output <- pixiedust::sprinkle_colnames(output,
+                                           estimate  = paste0("$\\mu$ ", x_lab),
+                                           statistic = statistic_label,
+                                           p.value   = "p",
+                                           conf.low  = "CI (lo)",
+                                           conf.high = "CI (hi)",
+                                           d         = "Cohen\\'s d",
+                                           power     = "Power")
+    if ("parameter" %in% names(results)) {
+      output <- pixiedust::sprinkle_colnames(output, parameter = "df")
     }
-
-    return(pixiedust::sprinkle_print_method(output, print_method = print))
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, round = 2)
   }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+
 }
