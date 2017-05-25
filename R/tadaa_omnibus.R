@@ -108,7 +108,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
 
     output <- pixiedust::dust(model, caption = method)
     output <- pixiedust::redust(output, footer, part = "foot")
-    output <- pixiedust::sprinkle_table(output, na_string = "", round = 2, part = "foot")
+    output <- pixiedust::sprinkle(output, rows = 1, border = "top", part = "foot")
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output,
@@ -119,7 +119,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                                            p.value     = "p",
                                            eta.sq.part = eta_label,
                                            cohens.f    = "Cohen's f")
-    output <- pixiedust::sprinkle(output, round = 2, na_string = "")
+    output <- pixiedust::sprinkle_table(output, round = 2, na_string = "", part = "table")
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
