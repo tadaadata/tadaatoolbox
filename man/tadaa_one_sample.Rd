@@ -21,7 +21,7 @@ otherwise a one-sample \link[stats]{t.test} is performed.}
 
 \item{na.rm}{Whether to drop \code{NA} values. Default is \code{FALSE}.}
 
-\item{print}{Print method, per default a regular \code{data.frame}.
+\item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
@@ -43,9 +43,9 @@ tadaa_one_sample(x = rnorm(20), mu = 0)
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
+  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_ord}}, \code{\link{tadaa_pairwise_gh}},
   \code{\link{tadaa_pairwise_tukey}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}

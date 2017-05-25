@@ -6,7 +6,7 @@
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
 #' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.
-#' @param print Print method, per default a regular \code{data.frame}.
+#' @param print Print method, default \code{df}: A regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @export
@@ -59,8 +59,12 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
   }
   if (type == 3) {
     # remove intercept row
-    model <- model[-1, ]
+    model <- model[model$term != "(Intercept)", ]
   }
+
+  # Put interactions below factors
+  model <- rbind(model[!grepl(":", model$term), ],
+                 model[grepl(":", model$term), ])
 
   # Put Residual row at the bottom
   model <- rbind(model[model$term != "Residuals", ],

@@ -85,4 +85,15 @@ tadaa_one_sample(data = ngo, x = deutsch, mu = 7,
                  direction = "greater", print = "markdown")
 ```
 
+# Assumptions
+
+## Levene
+
+```{r levene}
+tadaa_levene(ngo, deutsch ~ jahrgang, print = "markdown")
+tadaa_levene(ngo, deutsch ~ jahrgang, center = "mean", print = "markdown")
+tadaa_levene(ngo, deutsch ~ jahrgang * geschl, print = "markdown")
+```
+
+
 

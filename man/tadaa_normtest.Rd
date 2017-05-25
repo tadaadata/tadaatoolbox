@@ -13,7 +13,7 @@ tadaa_normtest(data, method = "ad", print = "df", ...)
 \code{shapiro} for Shapiro-Wilk, \code{pearson} for Pearson's chi-square test or
 \code{ks} for Kolmogorov-Smirnov (not recommended).}
 
-\item{print}{Print method, per default a regular \code{data.frame}.
+\item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 
 \item{...}{Further arguments passed to test functions where applicable,
@@ -39,9 +39,9 @@ tadaa_normtest(method = "pearson", print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
+  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_one_sample}},
+  \code{\link{tadaa_ord}}, \code{\link{tadaa_pairwise_gh}},
   \code{\link{tadaa_pairwise_tukey}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}

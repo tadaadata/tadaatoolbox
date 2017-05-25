@@ -63,13 +63,73 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
     return(results)
   } else {
     output <- pixiedust::dust(results)
-    output <- pixiedust::sprinkle(output, col = 3, fn = quote(pval_string(value)))
-    output <- pixiedust::sprinkle(output, round = 3)
+    output <- pixiedust::sprinkle(output, col = p.value, fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, round = 2)
+  }
 
-    if (!(print %in% c("df", "console", "html", "markdown"))) {
-      stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
+
+}
+
+#' Levene's Test for Homoskedasticity
+#'
+#' A thin wrapper around \link[car]{leveneTest} with some formatting done.
+#' @param data Data for the test
+#' @param formula Formula specifiyng groups, passed to \code{leveneTest}.
+#' @param center Method to use, either \code{median} (default for robustness) or \code{mean}.
+#' @inheritParams tadaa_aov
+#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @note The case of \code{center = "median"} is technically called \emph{Brown–Forsythe test},
+#' so if that's selected the header for non-\code{df} returns will reflect that.
+#' @export
+#' @importFrom stats terms
+#' @importFrom car leveneTest
+#' @importFrom broom tidy
+#' @import pixiedust
+#' @family Tadaa-functions
+
+#' @examples
+#' tadaa_levene(ngo, deutsch ~ jahrgang, print = "console")
+#' tadaa_levene(ngo, deutsch ~ jahrgang * geschl, print = "console")
+tadaa_levene <- function(data, formula, center = "median", print = "df") {
+
+  # Labels for groups
+  factors <- attr(terms(formula), "term.labels")
+  factors <- factors[attr(terms(formula), "order") == 1]
+  groups  <- paste0(factors, collapse = ":")
+
+  # Actual test
+  test   <- broom::tidy(car::leveneTest(formula, data = data, center = center))
+
+  # Label terms
+  test$term <- c(groups, "Residuals")
+
+  if (print == "df") {
+    return(test)
+  } else {
+    method <- "**Levene's Test** for Homogeneity of Variance"
+
+    if (center == "median") {
+      method <- paste(method, "(**Brown–Forsythe** Adaption)")
     }
 
-    return(pixiedust::sprinkle_print_method(output, print_method = print))
+    output <- pixiedust::dust(test, caption = method)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle_colnames(output,
+                                           term      = "Term",
+                                           statistic = "F",
+                                           p.value   = "p")
+    output <- pixiedust::sprinkle(output, round = 2, na_string = "")
   }
+
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
+  return(pixiedust::sprinkle_print_method(output, print_method = print))
 }

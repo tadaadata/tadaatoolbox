@@ -18,7 +18,7 @@ tadaa_wilcoxon(data, response, group, direction = "two.sided",
 
 \item{paired}{If \code{TRUE}, a paired t.test is performed.}
 
-\item{print}{Print method, per default a regular \code{data.frame}.
+\item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 
 \item{...}{Further arguments passed to \link[stats]{wilcox.test}, e.g. \code{correct = FALSE}.}
@@ -38,8 +38,8 @@ tadaa_wilcoxon(df, x, y, paired = TRUE)
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_pairwise_gh}},
   \code{\link{tadaa_pairwise_tukey}},

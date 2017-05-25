@@ -21,7 +21,7 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 \item{var.equal}{If set, passed to \link[stats]{t.test} to decide whether to use a
 Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.}
 
-\item{print}{Print method, per default a regular \code{data.frame}.
+\item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
@@ -54,8 +54,8 @@ tadaa_t.test(ngo, deutsch, geschl, print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}},
+  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
+  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
   \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
   \code{\link{tadaa_pairwise_gh}},
   \code{\link{tadaa_pairwise_tukey}},
