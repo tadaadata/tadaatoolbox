@@ -107,6 +107,16 @@
 </li>
 <li>Add <code>tadaa_pairwise_tukey</code> while we’re at it. Just a thin wrapper for <code>stats::TukeyHSD</code> but with tidied output and usage consistent with the previous <code>tadaa_pairwise_*</code> functions.</li>
 <li>Add <code>tadaa_plot_tukey</code> to plot Tukey HSD results as error bars because boy do I like error bars.</li>
+<li>Re-exports:
+<ul>
+<li>
+<code>%&gt;%</code> from <code>magrittr</code> as all the cool kids to these days.</li>
+<li>
+<code>get_label</code> / <code>get_labels</code> and <code>word_wrap</code> from <code>sjmisc</code>, as they’re handy.</li>
+<li>
+<code>as_factor</code> from <code>haven</code> as a replacement for the deprecated <code>labels_to_factor</code>.</li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="tweaks-patches-bug-fixes" class="section level2">
@@ -131,7 +141,23 @@
 <li>
 <code>tadaa_t.test</code>:
 <ul>
-<li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.</li>
+<li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.
+<ul>
+<li>Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$</li>
+</ul>
+</li>
+<li>Power should now be properly reported for <code>alternative = "less"</code> or <code>greater</code>.
+<ul>
+<li>
+<code>effect_size_t</code> now doesn’t return the absolute effect size by default.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>tadaa_wilcoxon</code>:
+<ul>
+<li>Also fix <code>direction</code> argument not being honored.</li>
 </ul>
 </li>
 <li>
@@ -140,8 +166,11 @@
 <li>Gains <code>print</code> (logical) argument to suppress printing if so desired. The output will still be returned invisibly.</li>
 </ul>
 </li>
+<li>
+<code>tadaa_one_sample</code>: Should make sense now.</li>
 <li>Remove <code>na.rm</code> argument from <code>tadaa_t.test</code> and <code>tadaa_wilcoxon</code> because it’s problematic, and in case of <code>paired = TRUE</code> it would have produced flat out wrong results.</li>
 <li>Documentation improvements</li>
+<li>Improved <code>print = markdown</code> output of <code>tadaa_aov</code>, <code>tadaa_t.test</code>, <code>tadaa_wilcoxon</code>, <code>tadaa_one_sample</code>, <code>tadaa_kruskal</code>. Unfortunately <code>print = "console"</code> now has headers with unparsed $\LaTeX$-expressions, but who uses that anyway.</li>
 </ul>
 </div>
 <div id="depracations" class="section level2">
@@ -150,6 +179,8 @@
 <ul>
 <li>
 <code>labels_to_factor</code>: Was a wrapper around <code>haven::as_factor</code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
+<li>
+<code>tadaa_likertize</code> is renamed to <code>likertize</code>.</li>
 </ul>
 </div>
 </div>

@@ -94,7 +94,7 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
     
 
     <pre class="usage"><span class='fu'>tadaa_t.test</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+  <span class='kw'>var.equal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -120,8 +120,13 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
       <td><p>If <code>TRUE</code>, a paired t.test is performed.</p></td>
     </tr>
     <tr>
+      <th>var.equal</th>
+      <td><p>If set, passed to <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a> to decide whether to use a
+Welch-correction. Default is <code>NULL</code> to automatically determine heteroskedasticity.</p></td>
+    </tr>
+    <tr>
       <th>print</th>
-      <td><p>Print method, per default a regular <code>data.frame</code>.
+      <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
 Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     </table>
@@ -134,13 +139,14 @@ depending on <code>print</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>The cutoff for the interal Levene's test to decided whether or not to perform
-a Welch-corrected t-test is set to `0.1` by default.</p>
+a Welch-corrected t-test is set to <code>0.05</code> by default. To override the internal tests and
+decide whether to use a Welch test, set <code>var.equal</code> as you would with <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
-  <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
-  <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
+  <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_levene.html'>tadaa_levene</a></code>,
+  <code><a href='tadaa_nom.html'>tadaa_nom</a></code>, <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
   <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
   <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
   <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
@@ -152,17 +158,19 @@ a Welch-corrected t-test is set to `0.1` by default.</p>
     <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
 <span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;   estimate1 estimate2 statistic    p.value parameter   conf.low   conf.high
 #&gt; 1 0.4117382 0.5349579 -2.184687 0.03129598        98 -0.2351466 -0.01129271
-#&gt;               method alternative         d     power
-#&gt; 1  Two Sample t-test   two.sided 0.4369375 0.5805609</div><div class='input'>
+#&gt;               method alternative          d     power
+#&gt; 1  Two Sample t-test   two.sided -0.4369375 0.5805609</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
 <span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;    estimate statistic    p.value parameter     conf.low conf.high        method
 #&gt; 1 0.1199594  1.909568 0.06205258        49 -0.006282482 0.2462013 Paired t-test
 #&gt;   alternative        d     power
 #&gt; 1   two.sided 0.410698 0.8123965</div><div class='input'>
-<span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: attributes are not identical across measure variables; they will be dropped</span></div><div class='output co'>#&gt;   Männlich Weiblich      t       p  df conf_low conf_high             method
-#&gt; 1    7.088     8.12 -4.106 &lt; 0.001 248   -1.527    -0.537  Two Sample t-test
-#&gt;   alternative     d power
-#&gt; 1   two.sided 0.519 0.983
+<span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 12: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
+#&gt; 
+#&gt;   $\\mu_1$ Männlich $\\mu_2$ Weiblich  df     t              CI       p
+#&gt; 1              7.09              8.12 248 -4.11 (-1.53 - -0.54) &lt; 0.001
+#&gt;   Cohen\\'s d Power
+#&gt; 1       -0.52  0.98
 #&gt; 
 #&gt; </div></pre>
   </div>

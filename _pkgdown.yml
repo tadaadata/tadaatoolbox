@@ -1,8 +1,15 @@
   reference:
-    - title: Tadaa!
+    - title: Tidy Test Output
       desc:  High-level functions with prettified output
       contents:
       - starts_with("tadaa_")
+      - -ends_with("_nom")
+      - -ends_with("_ord")
+      - -tadaa_mean_ci
+      - -tadaa_plot_tukey
+      - -tadaa_heatmap
+      - -tadaa_int
+      - -matches("likertize")
     - title: Descriptive Statistics
       desc: For, you know, descriptive statistics
       contents:

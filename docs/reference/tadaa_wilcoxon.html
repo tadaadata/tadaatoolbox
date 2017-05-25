@@ -114,7 +114,7 @@
     </tr>
     <tr>
       <th>print</th>
-      <td><p>Print method, per default a regular <code>data.frame</code>.
+      <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
 Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     <tr>
@@ -130,8 +130,8 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
-  <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
-  <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
+  <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_levene.html'>tadaa_levene</a></code>,
+  <code><a href='tadaa_nom.html'>tadaa_nom</a></code>, <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
   <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
   <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
   <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
@@ -141,13 +141,13 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;   statistic   median1  median2   p.value
-#&gt; 1      1315 0.4661924 0.474049 0.6540176
+<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;           diff   median1  median2 statistic   p.value
+#&gt; 1 -0.007856602 0.4661924 0.474049      1315 0.6540176
 #&gt;                                              method alternative
 #&gt; 1 Wilcoxon rank sum test with continuity correction   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;   statistic   median1   median2   p.value
-#&gt; 1       763 0.6006741 0.5800668 0.2275632
+<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;         diff   median1   median2 statistic   p.value
+#&gt; 1 0.02060732 0.6006741 0.5800668       763 0.2275632
 #&gt;                                                 method alternative
 #&gt; 1 Wilcoxon signed rank test with continuity correction   two.sided</div></pre>
   </div>

@@ -60,7 +60,7 @@
       <h1>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2017-05-23 UTC</h4>
+            <h4 class="date">2017-05-25 UTC</h4>
           </div>
 
     
@@ -77,6 +77,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <li><strong>tadaa_heatmap</strong></li>
 <li><strong>tadaa_int</strong></li>
 <li><strong>tadaa_kruskal</strong></li>
+<li><strong>tadaa_levene</strong></li>
 <li><strong>tadaa_likertize</strong></li>
 <li><strong>tadaa_mean_ci</strong></li>
 <li><strong>tadaa_nom</strong></li>
@@ -97,32 +98,29 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </h2>
 <p>On of the first implemented functions, <code>tadaa_t.test</code>, automagically checks for homogenity of variance via <code>car::leveneTest</code>, and if the resulting p-value is below .1, homogenity of variance is assumed in the following call to <code>stats::t.test</code>. Afterwards the effect size <span class="math inline">\(d\)</span> is is calculated with pooled/weighted variances to ensure accuracy, and the power of the test is calculated via the <code>pwr</code> package (also keeping in mind whether the test is <code>paired</code> or not). It then formats the output according to <code>broom::tidy</code>, sprinkles it with <code>pixiedust</code> and prints either to console, markdown or whatever printing method is passed via the <code>print</code> argument to <code>pixiedust::sprinkle_print_method</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_t.test.html">tadaa_t.test</a></span>(ngo, stunzahl, geschl, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<p>Table 1: <strong>Two Sample t-test</strong> with alternative hypothesis: <span class="math inline">\(\mu_1 \neq \mu_2\)</span></p>
 <table class="table">
 <thead><tr class="header">
-<th align="right">Männlich</th>
-<th align="right">Weiblich</th>
-<th align="right">t</th>
-<th align="right">p</th>
-<th align="right">df</th>
-<th align="right">conf_low</th>
-<th align="right">conf_high</th>
-<th align="left">method</th>
-<th align="left">alternative</th>
-<th align="right">d</th>
-<th align="right">power</th>
+<th align="center">
+<span class="math inline">\(\mu_1\)</span> Männlich</th>
+<th align="center">
+<span class="math inline">\(\mu_2\)</span> Weiblich</th>
+<th align="center">df</th>
+<th align="center">t</th>
+<th align="center">CI</th>
+<th align="center">p</th>
+<th align="center">Cohen's d</th>
+<th align="center">Power</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="right">33.616</td>
-<td align="right">33.664</td>
-<td align="right">-0.108</td>
-<td align="right">0.91</td>
-<td align="right">248</td>
-<td align="right">-0.92</td>
-<td align="right">0.824</td>
-<td align="left">Two Sample t-test</td>
-<td align="left">two.sided</td>
-<td align="right">0.014</td>
-<td align="right">0.051</td>
+<td align="center">33.62</td>
+<td align="center">33.66</td>
+<td align="center">248</td>
+<td align="center">-0.11</td>
+<td align="center">(-0.92 - 0.82)</td>
+<td align="center">0.91</td>
+<td align="center">-0.01</td>
+<td align="center">0.05</td>
 </tr></tbody>
 </table>
 <p><br></p>
@@ -133,41 +131,48 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#anova-tadaa_aov" class="anchor"></a>ANOVA: <code>tadaa_aov</code>
 </h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>geschl, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
-<p>Table 1: <strong>ANOVA using Type I Sum of Squares</strong></p>
+<p>Table 2: <strong>One-Way ANOVA</strong>: Using Type I Sum of Squares</p>
 <table class="table">
 <thead><tr class="header">
-<th align="left">Term</th>
-<th align="right">df</th>
-<th align="right">SS</th>
-<th align="right">MS</th>
-<th align="right">F</th>
-<th align="right">p</th>
-<th align="right"><span class="math inline">\(\eta^2\)</span></th>
-<th align="right"><span class="math inline">\(\eta_\text{part}^2\)</span></th>
-<th align="right">Cohen’s f</th>
+<th align="center">Term</th>
+<th align="center">df</th>
+<th align="center">SS</th>
+<th align="center">MS</th>
+<th align="center">F</th>
+<th align="center">p</th>
+<th align="center"><span class="math inline">\(\eta^2\)</span></th>
+<th align="center">Cohen’s f</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">geschl</td>
-<td align="right">1</td>
-<td align="right">0.144</td>
-<td align="right">0.144</td>
-<td align="right">0.012</td>
-<td align="right">0.91</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0.007</td>
+<td align="center">geschl</td>
+<td align="center">1</td>
+<td align="center">0.14</td>
+<td align="center">0.14</td>
+<td align="center">0.01</td>
+<td align="center">0.91</td>
+<td align="center">0</td>
+<td align="center">0.01</td>
 </tr>
 <tr class="even">
-<td align="left">Residuals</td>
-<td align="right">248</td>
-<td align="right">3037.456</td>
-<td align="right">12.248</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
+<td align="center">Residuals</td>
+<td align="center">248</td>
+<td align="center">3037.46</td>
+<td align="center">12.25</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">249</td>
+<td align="center">3037.6</td>
+<td align="center">12.39</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>

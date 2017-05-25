@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get all the ordinal stats — tadaa_ord • tadaatoolbox</title>
+<title>Objects exported from other packages — reexports • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,69 +79,27 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get all the ordinal stats</h1>
+    <h1>Objects exported from other packages</h1>
     </div>
 
     
-    <p>As of now, only Gamma and Somers D are supported. But let's be honest: Everybody hates Tau.</p>
+    <p>These objects are imported from other packages. Follow the links
+below to see their documentation.</p><dl class='dl-horizontal'>
+  <dt>haven</dt><dd><p><code><a href='http://www.rdocumentation.org/packages/haven/topics/as_factor'>as_factor</a></code></p></dd>
+
+    <dt>magrittr</dt><dd><p><code>%&gt;%</code></p></dd>
+
+    <dt>sjmisc</dt><dd><p><code><a href='http://www.rdocumentation.org/packages/sjmisc/topics/get_label'>get_label</a></code>, <code><a href='http://www.rdocumentation.org/packages/sjmisc/topics/get_labels'>get_labels</a></code>, <code><a href='http://www.rdocumentation.org/packages/sjmisc/topics/word_wrap'>word_wrap</a></code></p></dd>
+</dl>
     
 
-    <pre class="usage"><span class='fu'>tadaa_ord</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>Dependent variable. Alternatively a <code>table</code>.</p></td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td><p>Independent variable</p></td>
-    </tr>
-    <tr>
-      <th>round</th>
-      <td><p>Ho many digits should be rounded. Default is 2.</p></td>
-    </tr>
-    <tr>
-      <th>print</th>
-      <td><p>Print method. Passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> as of now.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+        
 
-    <p>A <code>dust</code> object, depending on <code>print</code>.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
-  <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>, <code><a href='tadaa_levene.html'>tadaa_levene</a></code>,
-  <code><a href='tadaa_nom.html'>tadaa_nom</a></code>, <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
-  <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>,
-  <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
-  <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
-  <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
-  <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p>
-    
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_ord</span>(<span class='no'>ngo</span>$<span class='no'>abschalt</span>, <span class='no'>ngo</span>$<span class='no'>geschl</span>)</div><div class='output co'>#&gt;   Gamma Somers' D (x dep.) Somers' D (y dep.) Somers' D (sym.)
-#&gt; 1 -0.29              -0.15              -0.15            -0.15
-#&gt; 
-#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>

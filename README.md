@@ -103,8 +103,8 @@ Dependencies
 
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
--   **stats, methods, broom, dplyr, pwr, pixiedust, car, ggplot2**
--   **lazyeval, sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr**
+-   **stats, methods, broom, magrittr, dplyr, pwr, pixiedust, car, ggplot2, lazyeval**
+-   **sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr**
 
 Code of Conduct
 ===============

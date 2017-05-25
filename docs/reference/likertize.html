@@ -88,7 +88,7 @@
 
     <pre class="usage"><span class='fu'>likertize</span>(<span class='no'>x</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)
 
-<span class='fu'>tadaa_likertize</span>(<span class='no'>...</span>)</pre>
+<span class='fu'>tadaa_likertize</span>(<span class='no'>x</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -114,30 +114,30 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>likertize</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>10</span>), <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)</div><div class='output co'>#&gt;   [1] mittel  hoch    niedrig niedrig niedrig hoch    niedrig niedrig niedrig
-#&gt;  [10] hoch    niedrig hoch    niedrig hoch    niedrig hoch    mittel  hoch   
-#&gt;  [19] hoch    hoch    mittel  niedrig niedrig mittel  mittel  mittel  niedrig
-#&gt;  [28] hoch    hoch    hoch    hoch    niedrig mittel  mittel  niedrig mittel 
-#&gt;  [37] mittel  mittel  hoch    mittel  hoch    niedrig mittel  mittel  hoch   
-#&gt;  [46] mittel  mittel  hoch    mittel  niedrig mittel  mittel  hoch    mittel 
-#&gt;  [55] mittel  hoch    niedrig niedrig mittel  niedrig niedrig hoch    hoch   
-#&gt;  [64] hoch    mittel  mittel  niedrig mittel  niedrig mittel  mittel  hoch   
-#&gt;  [73] niedrig hoch    mittel  mittel  hoch    niedrig mittel  hoch    mittel 
-#&gt;  [82] mittel  niedrig niedrig hoch    niedrig hoch    hoch    hoch    mittel 
-#&gt;  [91] hoch    niedrig niedrig niedrig hoch    mittel  niedrig niedrig hoch   
+    <pre class="examples"><div class='input'><span class='fu'>likertize</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>10</span>), <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"quantiles"</span>)</div><div class='output co'>#&gt;   [1] niedrig mittel  niedrig mittel  hoch    hoch    hoch    niedrig mittel 
+#&gt;  [10] hoch    niedrig hoch    hoch    hoch    hoch    niedrig hoch    mittel 
+#&gt;  [19] niedrig mittel  niedrig mittel  niedrig mittel  hoch    mittel  niedrig
+#&gt;  [28] mittel  mittel  mittel  mittel  mittel  hoch    hoch    niedrig niedrig
+#&gt;  [37] niedrig mittel  mittel  niedrig hoch    mittel  mittel  niedrig hoch   
+#&gt;  [46] mittel  mittel  niedrig hoch    niedrig niedrig hoch    mittel  niedrig
+#&gt;  [55] hoch    niedrig mittel  niedrig hoch    hoch    hoch    hoch    niedrig
+#&gt;  [64] hoch    hoch    mittel  niedrig hoch    mittel  mittel  hoch    hoch   
+#&gt;  [73] niedrig mittel  niedrig mittel  mittel  niedrig hoch    hoch    niedrig
+#&gt;  [82] mittel  hoch    niedrig mittel  niedrig niedrig niedrig niedrig hoch   
+#&gt;  [91] hoch    mittel  mittel  mittel  niedrig mittel  mittel  hoch    hoch   
 #&gt; [100] niedrig
-#&gt; Levels: niedrig &lt; mittel &lt; hoch</div><div class='input'><span class='fu'>likertize</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>10</span>), <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"meansd"</span>)</div><div class='output co'>#&gt;   [1] mittel  niedrig mittel  mittel  niedrig mittel  mittel  niedrig hoch   
-#&gt;  [10] mittel  mittel  mittel  mittel  hoch    mittel  niedrig mittel  niedrig
-#&gt;  [19] mittel  niedrig niedrig mittel  mittel  hoch    mittel  niedrig mittel 
-#&gt;  [28] mittel  niedrig mittel  niedrig niedrig niedrig mittel  mittel  mittel 
-#&gt;  [37] mittel  mittel  mittel  hoch    mittel  mittel  niedrig mittel  hoch   
-#&gt;  [46] mittel  mittel  mittel  mittel  mittel  hoch    mittel  mittel  niedrig
-#&gt;  [55] niedrig mittel  mittel  niedrig hoch    mittel  niedrig mittel  niedrig
-#&gt;  [64] hoch    niedrig niedrig hoch    hoch    mittel  hoch    hoch    niedrig
-#&gt;  [73] mittel  mittel  hoch    mittel  hoch    mittel  hoch    mittel  hoch   
-#&gt;  [82] hoch    mittel  niedrig niedrig hoch    mittel  hoch    hoch    niedrig
-#&gt;  [91] mittel  mittel  mittel  mittel  hoch    mittel  hoch    mittel  mittel 
-#&gt; [100] niedrig
+#&gt; Levels: niedrig &lt; mittel &lt; hoch</div><div class='input'><span class='fu'>likertize</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>10</span>), <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"meansd"</span>)</div><div class='output co'>#&gt;   [1] mittel  mittel  mittel  mittel  mittel  niedrig hoch    mittel  hoch   
+#&gt;  [10] mittel  hoch    mittel  mittel  mittel  hoch    mittel  mittel  hoch   
+#&gt;  [19] niedrig hoch    mittel  mittel  hoch    niedrig hoch    mittel  hoch   
+#&gt;  [28] niedrig mittel  mittel  hoch    niedrig niedrig hoch    mittel  niedrig
+#&gt;  [37] hoch    niedrig mittel  hoch    mittel  mittel  mittel  mittel  niedrig
+#&gt;  [46] mittel  niedrig niedrig mittel  hoch    hoch    mittel  mittel  niedrig
+#&gt;  [55] mittel  mittel  mittel  mittel  hoch    niedrig mittel  hoch    mittel 
+#&gt;  [64] mittel  mittel  niedrig mittel  niedrig mittel  niedrig mittel  niedrig
+#&gt;  [73] mittel  niedrig hoch    mittel  mittel  mittel  mittel  hoch    mittel 
+#&gt;  [82] mittel  hoch    niedrig hoch    niedrig mittel  mittel  mittel  mittel 
+#&gt;  [91] hoch    mittel  niedrig mittel  hoch    hoch    mittel  mittel  mittel 
+#&gt; [100] mittel 
 #&gt; Levels: niedrig &lt; mittel &lt; hoch</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
