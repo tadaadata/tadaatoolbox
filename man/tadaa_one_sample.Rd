@@ -8,14 +8,14 @@ tadaa_one_sample(data = NULL, x, mu, sigma = NULL,
   direction = "two.sided", na.rm = FALSE, print = "df")
 }
 \arguments{
-\item{data}{A \code{data.frame}.}
+\item{data}{A \code{data.frame} (optional).}
 
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector or bare column name of \code{data}.}
 
 \item{mu}{The true mean (\eqn{\mu}) to test for.}
 
 \item{sigma}{Population sigma. If supplied, a z-test is performed,
-else a one-sample \link[stats]{t.test} is performed.}
+otherwise a one-sample \link[stats]{t.test} is performed.}
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
@@ -28,9 +28,10 @@ Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
-If `sigma` is omitted, the function will basically just perform a one-sample \link[stats]{t.test},
-but if `sigma` is provided, a z-test is performed. It basically works the same way, except that we
-pretend we know the population sigma.
+If \code{sigma} is omitted, the function will just perform a one-sample \link[stats]{t.test},
+but if \code{sigma} is provided, a z-test is performed. It basically works the same way,
+except that we pretend we know the population sigma and use the normal distribution
+for comparison.
 }
 \examples{
 df <- data.frame(x = rnorm(n = 20, mean = 100, sd = 1))

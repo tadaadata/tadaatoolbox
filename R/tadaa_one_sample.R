@@ -1,13 +1,14 @@
 #' Tadaa, one-sample tests!
 #'
-#' If `sigma` is omitted, the function will basically just perform a one-sample \link[stats]{t.test},
-#' but if `sigma` is provided, a z-test is performed. It basically works the same way, except that we
-#' pretend we know the population sigma.
-#' @param data A \code{data.frame}.
-#' @param x A numeric vector.
+#' If \code{sigma} is omitted, the function will just perform a one-sample \link[stats]{t.test},
+#' but if \code{sigma} is provided, a z-test is performed. It basically works the same way,
+#' except that we pretend we know the population sigma and use the normal distribution
+#' for comparison.
+#' @param data A \code{data.frame} (optional).
+#' @param x A numeric vector or bare column name of \code{data}.
 #' @param mu The true mean (\eqn{\mu}) to test for.
 #' @param sigma Population sigma. If supplied, a z-test is performed,
-#' else a one-sample \link[stats]{t.test} is performed.
+#' otherwise a one-sample \link[stats]{t.test} is performed.
 #' @param na.rm Whether to drop \code{NA} values. Default is \code{FALSE}.
 #' @inheritParams tadaa_t.test
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
@@ -84,9 +85,9 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   } else {
     method      <- trimws(as.character(results$method))
     alternative <- switch(direction,
-                          "two.sided" = paste0(mu, " $\\neq \\mu_1$"),
-                          "greater"   = paste0(mu, " $> \\mu_1$"),
-                          "less"      = paste0(mu, " $< \\mu_1$"))
+                          "two.sided" = paste0("$\\mu_1 \\neq$ ", mu),
+                          "greater"   = paste0("$\\mu_1 >$ ", mu),
+                          "less"      = paste0("$\\mu_1 <$ ", mu))
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 
@@ -96,7 +97,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     output <- pixiedust::dust(results)
     output <- pixiedust::sprinkle_table(output, caption = caption)
     output <- pixiedust::sprinkle_colnames(output,
-                                           estimate  = paste0("$\\mu$ ", x_lab),
+                                           estimate  = paste0("$\\mu_1$ ", x_lab),
                                            statistic = statistic_label,
                                            p.value   = "p",
                                            conf.low  = "CI (lo)",
