@@ -36,7 +36,7 @@ likertize <- function(x, classes = 3, method = "quantiles"){
 #' @export
 tadaa_likertize <- function(x, classes = 3, method = "quantiles") {
   .Deprecated("It's called likertize() now.")
-  likertize(...)
+  likertize(x, classes, method)
 }
 
 #' Convenience functions for interval recodes

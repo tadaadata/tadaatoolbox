@@ -111,10 +111,10 @@ tadaa_levene <- function(data, formula, center = "median", print = "df") {
   if (print == "df") {
     return(test)
   } else {
-    method <- "**Levene's Test** for Homogeneity of Variance"
+    method <- "**Levene\\'s Test** for Homogeneity of Variance"
 
     if (center == "median") {
-      method <- paste(method, "(**Brown–Forsythe** Adaption)")
+      method <- paste(method, "(**Brown-Forsythe** Adaption)")
     }
 
     output <- pixiedust::dust(test, caption = method)
