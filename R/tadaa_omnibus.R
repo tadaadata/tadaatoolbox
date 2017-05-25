@@ -102,7 +102,13 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     # this should be okay I guess
     eta_label <- ifelse(nrow(model) == 3, "$\\eta^2$", "$\\eta_\\text{part}^2$")
 
+    # Extract Residuals and Totals and put them in the footer explicitly
+    footer <- model[model$term %in% c("Residuals", "Total"), ]
+    model  <- model[!(model$term %in% c("Residuals", "Total")), ]
+
     output <- pixiedust::dust(model, caption = method)
+    output <- pixiedust::redust(output, footer, part = "foot")
+    output <- pixiedust::sprinkle_table(output, na_string = "", round = 2, part = "foot")
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output,
