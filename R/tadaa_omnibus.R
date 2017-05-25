@@ -99,6 +99,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     eta_label <- ifelse(nrow(model) == 3, "$\\eta^2$", "$\\eta_\\text{part}^2$")
 
     output <- pixiedust::dust(model, caption = method)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output,
                                            term        = "Term",
@@ -141,6 +142,7 @@ tadaa_kruskal <- function(formula, data = NULL, print = "console"){
     method <- "**Kruskal-Wallis Rank Sum Test**"
 
     output <- suppressWarnings(pixiedust::dust(model, caption = method))
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output, statistic = "$\\chi^2$",
                                            p.value = "p", parameter = "df")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))

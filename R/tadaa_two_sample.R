@@ -207,6 +207,7 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
     test$alternative <- NULL
 
     output <- pixiedust::dust(test, caption = caption)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output,
                                            diff      = "Difference",
                                            statistic = "W",

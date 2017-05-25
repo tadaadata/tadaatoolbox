@@ -91,17 +91,24 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
 
-    results$method      <- NULL
-    results$alternative <- NULL
+    results$ci     <-  paste0("(", round(results$conf.low, 2),
+                           " - ", round(results$conf.high, 2), ")")
 
-    output <- pixiedust::dust(results)
-    output <- pixiedust::sprinkle_table(output, caption = caption)
+    if ("parameter" %in% names(results)) {
+      results <- results[c("estimate", "parameter", "statistic",
+                           "ci", "p.value", "d", "power")]
+    } else if ("se" %in% names(results)) {
+      results <- results[c("estimate", "se", "statistic", "ci",
+                           "p.value", "d", "power")]
+    }
+
+    output <- pixiedust::dust(results, caption = caption)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output,
                                            estimate  = paste0("$\\mu_1$ ", x_lab),
                                            statistic = statistic_label,
                                            p.value   = "p",
-                                           conf.low  = "CI (lo)",
-                                           conf.high = "CI (hi)",
+                                           ci        = "CI",
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
     if ("parameter" %in% names(results)) {
