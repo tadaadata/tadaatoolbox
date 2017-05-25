@@ -28,8 +28,10 @@
     - Also fix `direction` argument not being honored.
 - `tadaa_int`: 
     - Gains `print` (logical) argument to suppress printing if so desired. The output will still be returned invisibly.
+- `tadaa_one_sample`: Should make sense now.
 - Remove `na.rm` argument from `tadaa_t.test` and `tadaa_wilcoxon` because it's problematic, and in case of `paired = TRUE` it would have produced flat out wrong results.
 - Documentation improvements
+- Improved `print = markdown` output of `tadaa_aov`, `tadaa_t.test`, `tadaa_wilcoxon`, `tadaa_one_sample`, `tadaa_kruskal`. Unfortunately `print = "console"` now has headers with unparsed $\LaTeX$-expressions, but who uses that anyway.
 
 ## Depracations
 
