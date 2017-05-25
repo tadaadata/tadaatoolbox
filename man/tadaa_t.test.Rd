@@ -5,7 +5,7 @@
 \title{Tadaa, t-Test!}
 \usage{
 tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  print = "df")
+  var.equal = NULL, print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -17,6 +17,9 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
 \item{paired}{If \code{TRUE}, a paired t.test is performed.}
+
+\item{var.equal}{If set, passed to \link[stats]{t.test} to decide whether to use a
+Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
@@ -37,7 +40,8 @@ various \link[pixiedust]{sprinkle} shenanigans.
 }
 \note{
 The cutoff for the interal Levene's test to decided whether or not to perform
-a Welch-corrected t-test is set to `0.1` by default.
+a Welch-corrected t-test is set to \code{0.05} by default. To override the internal tests and
+decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
 }
 \examples{
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))

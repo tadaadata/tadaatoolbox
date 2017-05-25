@@ -14,6 +14,8 @@
 #' @param group The group variable, usually a \code{factor}.
 #' @param direction Test direction, like \code{alternative} in \link{t.test}.
 #' @param paired If \code{TRUE}, a paired t.test is performed.
+#' @param var.equal If set, passed to \link[stats]{t.test} to decide whether to use a
+#' Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.
 #' @inheritParams tadaa_aov
 #' @return A \code{data.frame} by default, otherwise \code{dust} object,
 #' depending on \code{print}.
@@ -22,7 +24,8 @@
 #' @importFrom car leveneTest
 #' @family Tadaa-functions
 #' @note The cutoff for the interal Levene's test to decided whether or not to perform
-#' a Welch-corrected t-test is set to `0.1` by default.
+#' a Welch-corrected t-test is set to \code{0.05} by default. To override the internal tests and
+#' decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
 #' @export
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
@@ -33,7 +36,7 @@
 #'
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
-                         paired = FALSE, print = "df") {
+                         paired = FALSE, var.equal = NULL, print = "df") {
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -49,10 +52,15 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   x <- data[data[[group]] == groups[1], ][[response]]
   y <- data[data[[group]] == groups[2], ][[response]]
 
-  # Kick out NAs if specified
-  # if (na.rm) {
-  #   x <- x[!is.na(x)]
-  #   y <- y[!is.na(y)]
+
+  # # Quick test for non-normality for small N
+  # if (length(x) < 30 | length(y) < 30) {
+  #   shapiro_x <- stats::shapiro.test(x)$p.value
+  #   shapiro_y <- stats::shapiro.test(y)$p.value
+  #
+  #   if (min(shapiro_x, shapiro_y) < 0.05) {
+  #     message("At least one group has n < 30 and appears to be non-normal!")
+  #   }
   # }
 
   # Get n for each group
@@ -60,10 +68,13 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   n2   <- length(y)
 
   # levene
-  levene    <- broom::tidy(car::leveneTest(data[[response]],
-                                           data[[group]],
-                                           center = "median"))
-  var.equal <- ifelse(levene$p.value[[1]] <= .1, FALSE, TRUE)
+  if (is.null(var.equal)) {
+    levene    <- broom::tidy(car::leveneTest(data[[response]],
+                                             data[[group]],
+                                             center = "median"))
+
+    var.equal <- (levene$p.value[[1]] >= .05)
+  }
 
   # t.test
   test <- broom::tidy(t.test(x = x, y = y, alternative = direction,
@@ -90,18 +101,24 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                           "less"      = "$\\mu_1 < \\mu_2$")
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
+    test$ci     <-  paste0("(", round(test$conf.low, 2),
+                           " - ", round(test$conf.high, 2), ")")
 
-    test$method      <- NULL
-    test$alternative <- NULL
+    if ("estimate" %in% names(test)) {
+      test <- test[c("estimate", "parameter", "statistic",
+                     "ci", "p.value", "d", "power")]
+    } else {
+      test <- test[c("estimate1", "estimate2", "parameter",
+                     "statistic", "ci", "p.value", "d", "power")]
+    }
 
-    output <- pixiedust::dust(test)
-    output <- pixiedust::sprinkle_table(output, caption = caption)
+    output <- pixiedust::dust(test, caption = caption)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output,
                                            statistic = "t",
                                            p.value   = "p",
                                            parameter = "df",
-                                           conf.low  = "CI (lo)",
-                                           conf.high = "CI (hi)",
+                                           ci        = "CI",
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
 
