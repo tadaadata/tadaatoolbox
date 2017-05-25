@@ -1,6 +1,6 @@
 Package: tadaatoolbox
 Type: Package
-Date: 2017-05-21
+Date: 2017-05-25
 Title: Helpers for Data Analysis and Presentation Focused on Undergrad Psychology
 Version: 0.12.0
 Authors@R: c(person("Lukas", "Burk", email = "lukas@quantenbrot.de", role = c("aut", "cre")),
@@ -24,6 +24,7 @@ Imports:
     stats,
     methods,
     broom,
+    magrittr,
     dplyr,
     pwr,
     pixiedust,

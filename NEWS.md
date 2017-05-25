@@ -10,6 +10,10 @@
     - [Further reading](https://rpubs.com/aaronsc32/games-howell-test)
 - Add `tadaa_pairwise_tukey` while we're at it. Just a thin wrapper for `stats::TukeyHSD` but with tidied output and usage consistent with the previous `tadaa_pairwise_*` functions.
 - Add `tadaa_plot_tukey` to plot Tukey HSD results as error bars because boy do I like error bars.
+- Re-exports:
+    - `%>%` from `magrittr` as all the cool kids to these days.
+    - `get_label` / `get_labels` and `word_wrap` from `sjmisc`, as they're handy.
+    - `as_factor` from `haven` as a replacement for the deprecated `labels_to_factor`.
 
 ## Tweaks, Patches & Bug Fixes
 
