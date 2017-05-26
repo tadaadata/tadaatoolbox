@@ -1,10 +1,14 @@
 ---
 title: "ANOVA Contrast Tests"
 author: "Lukas"
-date: "5/26/2017"
+date: "`r format(Sys.time(), '%F %H:%M')`"
 output: 
   html_document:
     df_print: kable
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    code_folding: show
 ---
 
 ```{r setup, include=FALSE}
@@ -34,6 +38,20 @@ data_1 <- tibble(response = c(rnorm(20, mean = 5,   sd = 2),
           mutate(factor_A_unordered = factor(factor_A_unordered, ordered = F),
                  factor_A_ordered   = factor(factor_A_ordered,   ordered = T),
                  factor_B_unordered = factor(factor_B_unordered, ordered = F))
+```
+
+# Contrasts
+
+## Current Contrasts of Test Data Factors
+
+```{r contr_data}
+lapply(data_1[-1], contrasts)
+```
+
+## Current R Defaults
+
+```{r contr_defaults}
+getOption("contrasts") %>% as.tibble()
 ```
 
 

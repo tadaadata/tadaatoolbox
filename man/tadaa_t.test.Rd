@@ -16,7 +16,7 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
-\item{paired}{If \code{TRUE}, a paired t.test is performed.}
+\item{paired}{If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.}
 
 \item{var.equal}{If set, passed to \link[stats]{t.test} to decide whether to use a
 Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.}

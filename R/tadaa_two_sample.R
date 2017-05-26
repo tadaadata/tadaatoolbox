@@ -13,7 +13,7 @@
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
 #' @param direction Test direction, like \code{alternative} in \link{t.test}.
-#' @param paired If \code{TRUE}, a paired t.test is performed.
+#' @param paired If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.
 #' @param var.equal If set, passed to \link[stats]{t.test} to decide whether to use a
 #' Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.
 #' @inheritParams tadaa_aov

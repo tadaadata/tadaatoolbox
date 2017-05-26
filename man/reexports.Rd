@@ -5,11 +5,17 @@
 \alias{reexports}
 \alias{\%>\%}
 \alias{reexports}
+\alias{\%<>\%}
+\alias{reexports}
 \alias{as_factor}
 \alias{reexports}
 \alias{get_label}
 \alias{reexports}
 \alias{get_labels}
+\alias{reexports}
+\alias{set_label}
+\alias{reexports}
+\alias{set_labels}
 \alias{reexports}
 \alias{word_wrap}
 \title{Objects exported from other packages}
@@ -21,8 +27,8 @@ below to see their documentation.
 \describe{
   \item{haven}{\code{\link[haven]{as_factor}}}
 
-  \item{magrittr}{\code{\link[magrittr]{\%>\%}}}
+  \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}}
 
-  \item{sjmisc}{\code{\link[sjmisc]{get_label}}, \code{\link[sjmisc]{get_labels}}, \code{\link[sjmisc]{word_wrap}}}
+  \item{sjmisc}{\code{\link[sjmisc]{get_label}}, \code{\link[sjmisc]{get_labels}}, \code{\link[sjmisc]{set_label}}, \code{\link[sjmisc]{set_labels}}, \code{\link[sjmisc]{word_wrap}}}
 }}
 

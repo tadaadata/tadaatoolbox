@@ -16,7 +16,7 @@ tadaa_wilcoxon(data, response, group, direction = "two.sided",
 
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
-\item{paired}{If \code{TRUE}, a paired t.test is performed.}
+\item{paired}{If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
