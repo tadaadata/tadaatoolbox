@@ -1,0 +1,66 @@
+---
+title: "ANOVA Contrast Tests"
+author: "Lukas"
+date: "5/26/2017"
+output: 
+  html_document:
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tibble)
+library(dplyr)
+library(tadaatoolbox)
+library(car)
+library(broom)
+```
+
+# Testing dataset
+
+```{r test_data}
+data_1 <- tibble(response = c(rnorm(20, mean = 5,   sd = 2), 
+                              rnorm(20, mean = 6,   sd = 1.5), 
+                              rnorm(20, mean = 6.5, sd = 2.1)),
+                 factor_A_unordered = c(rep("groupA_1", 20),
+                                        rep("groupA_2", 20),
+                                        rep("groupA_3", 20)),
+                 factor_A_ordered   = c(rep("groupA_low", 20),
+                                        rep("groupA_mid", 20),
+                                        rep("groupA_high", 20)),
+                 factor_B_unordered = c(rep("groupB_1", 30),
+                                        rep("groupB_2", 30))) %>%
+          mutate(factor_A_unordered = factor(factor_A_unordered, ordered = F),
+                 factor_A_ordered   = factor(factor_A_ordered,   ordered = T),
+                 factor_B_unordered = factor(factor_B_unordered, ordered = F))
+```
+
+
+# Unordered vs. Ordered Factors
+
+## One-Way
+
+```{r 1way_order_unorder}
+model_unord <- aov(response ~ factor_A_unordered, data = data_1) %>% tidy()
+model_ord   <- aov(response ~ factor_A_ordered, data = data_1)   %>% tidy()
+
+model_unord
+model_ord
+
+(model_unord == model_ord) %>% as.tibble()
+```
+
+## Two-Way
+
+```{r 2way_order_unorder}
+model_unord <- aov(response ~ factor_A_unordered * factor_B_unordered, 
+                   data = data_1) %>% tidy()
+model_ord   <- aov(response ~ factor_A_ordered * factor_B_unordered, 
+                   data = data_1) %>% tidy()
+
+model_unord
+model_ord
+
+(model_unord == model_ord) %>% as.tibble()
+```
