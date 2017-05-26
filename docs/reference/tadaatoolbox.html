@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>tadaatoolbox. — tadaatoolbox • tadaatoolbox</title>
+<title>Tadaa, Toolbox! — tadaatoolbox • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,20 +79,38 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>tadaatoolbox.</h1>
+    <h1>Tadaa, Toolbox!</h1>
     </div>
 
     
-    <p>Some functions that make every day analysis a little more convenient.</p>
+    <p>Make every day analysis a little more convenient.
+The goal is to provide an easy, and where possible, consistent API to commonly used
+functionality and statistical methods used in undergrad psychology.</p>
     
 
         
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The functions prefixed with <code>tadaa_</code> are the primary elements of the package, and
+they are meant to be used inside <code>rmarkdown</code> reports, where they return neatly
+formatted output with added boni such as <code>LaTeX</code>-formatted column headers such as
+\(\eta^2_{text{part}}\) instead of something like <code>part.eta.sq</code>.</p>
+<p>The package is heavily dependent on and intended to be used in the context of the following
+other packages:</p><ul>
+<li><p>The tidyverse, because of the whole tidyness thing.</p></li>
+<li><p>sjPlot, sjmisc for pretty output and labelled data tools.</p></li>
+<li><p>pixiedust for the output formatting.</p></li>
+<li><p>pwr, car, ryouready, lsr, nortest: For stats I can't implement myself.</p></li>
+</ul>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

@@ -117,7 +117,7 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
     </tr>
     <tr>
       <th>paired</th>
-      <td><p>If <code>TRUE</code>, a paired t.test is performed.</p></td>
+      <td><p>If <code>TRUE</code>, a paired test is performed, defaults to <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>var.equal</th>
@@ -165,7 +165,7 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
 #&gt; 1 0.1199594  1.909568 0.06205258        49 -0.006282482 0.2462013 Paired t-test
 #&gt;   alternative        d     power
 #&gt; 1   two.sided 0.410698 0.8123965</div><div class='input'>
-<span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 12: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
+<span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 6: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
 #&gt; 
 #&gt;   $\\mu_1$ Männlich $\\mu_2$ Weiblich  df     t              CI       p
 #&gt; 1              7.09              8.12 248 -4.11 (-1.53 - -0.54) &lt; 0.001

@@ -60,7 +60,7 @@
       <h1>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2017-05-25 UTC</h4>
+            <h4 class="date">2017-05-26 UTC</h4>
           </div>
 
     
@@ -316,10 +316,10 @@ cols &lt;-<span class="st"> </span>ngo[<span class="kw">c</span>(<span class="st
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ngo &lt;-<span class="st"> </span>ryouready<span class="op">::</span>d.ngo
 
 ## sjPlot value labels
-ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>geschl,   <span class="kw">c</span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))
-ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>abschalt, <span class="kw">c</span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))
-ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>jahrgang, <span class="kw">c</span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>))
-ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>hausauf,  <span class="kw">c</span>(<span class="st">"gar nicht"</span>, <span class="st">"weniger als halbe Stunde"</span>,
+ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_labels</a></span>(ngo<span class="op">$</span>geschl,   <span class="kw">c</span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))
+ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_labels</a></span>(ngo<span class="op">$</span>abschalt, <span class="kw">c</span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))
+ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_labels</a></span>(ngo<span class="op">$</span>jahrgang, <span class="kw">c</span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>))
+ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_labels</a></span>(ngo<span class="op">$</span>hausauf,  <span class="kw">c</span>(<span class="st">"gar nicht"</span>, <span class="st">"weniger als halbe Stunde"</span>,
                                                    <span class="st">"halbe Stunde bis Stunde"</span>, <span class="st">"1 bis 2 Stunden"</span>,
                                                    <span class="st">"2 bis 3 Stunden"</span>, <span class="st">"3 bis 4 Stunden"</span>,
                                                    <span class="st">"mehr als 4 Stunden"</span>))
@@ -332,10 +332,10 @@ ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>car<span clas
 ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span><span class="kw">factor</span>(ngo<span class="op">$</span>abschalt, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))
 
 ## Variable labels
-ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>geschl, <span class="st">"Geschlecht"</span>)
-ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>abschalt, <span class="st">"Abschalten"</span>)
-ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>jahrgang, <span class="st">"Jahrgang"</span>)
-ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>hausauf, <span class="st">"Hausaufgaben"</span>)
+ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_label</a></span>(ngo<span class="op">$</span>geschl, <span class="st">"Geschlecht"</span>)
+ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_label</a></span>(ngo<span class="op">$</span>abschalt, <span class="st">"Abschalten"</span>)
+ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_label</a></span>(ngo<span class="op">$</span>jahrgang, <span class="st">"Jahrgang"</span>)
+ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw"><a href="../reference/reexports.html">set_label</a></span>(ngo<span class="op">$</span>hausauf, <span class="st">"Hausaufgaben"</span>)
 
 ## Saving
 ngo &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">tbl_df</span>(ngo)</code></pre></div>
