@@ -12,6 +12,8 @@
 #' likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
 likertize <- function(x, classes = 3, method = "quantiles"){
 
+  .Deprecated("You probably want to use sjmisc::split_var")
+
   if (classes == 3) {
     if (method == "quantiles") {
       quantiles <- quantile(x, (1:2) / classes)
@@ -35,7 +37,7 @@ likertize <- function(x, classes = 3, method = "quantiles"){
 #' @inheritParams likertize
 #' @export
 tadaa_likertize <- function(x, classes = 3, method = "quantiles") {
-  .Deprecated("It's called likertize() now.")
+  .Deprecated("It's called likertize() now, but you probably want to use sjmisc::split_var")
   likertize(x, classes, method)
 }
 

@@ -12,7 +12,7 @@
 - Add `tadaa_plot_tukey` to plot Tukey HSD results as error bars because boy do I like error bars.
 - Re-exports:
     - `%>%` from `magrittr` as all the cool kids to these days.
-    - `get_label` / `get_labels` and `word_wrap` from `sjmisc`, as they're handy.
+    - `[sg]et_label[s]`and `word_wrap` from `sjmisc`, as they're handy.
     - `as_factor` from `haven` as a replacement for the deprecated `labels_to_factor`.
 
 ## Tweaks, Patches & Bug Fixes
@@ -29,6 +29,7 @@
         - Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$ 
     - Power should now be properly reported for `alternative = "less"` or `greater`.
         - `effect_size_t` now doesn't return the absolute effect size by default.
+    - Added `conf.level` argument used for CI and power calculations
 - `tadaa_wilcoxon`:
     - Also fix `direction` argument not being honored.
 - `tadaa_int`: 
@@ -41,7 +42,7 @@
 ## Depracations
 
 - `labels_to_factor`: Was a wrapper around `haven::as_factor` and is obsolete by now, as `as_factor` can do the same thing this function was built for.
-- `tadaa_likertize` is renamed to `likertize`.
+- `tadaa_likertize` is renamed to `likertize`, deprecated since `sjmisc::split_var` is probably better anyway.
 
 # tadaatoolbox 0.11.0 (CRAN)
 
