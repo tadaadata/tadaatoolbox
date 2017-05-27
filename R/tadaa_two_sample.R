@@ -91,6 +91,18 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                     alternative = direction)$power
   }
 
+  # For paired tests, wie still want both means, probably
+  if (paired || !(all(c("estimate1", "estimate2") %in% names(test)))) {
+    test$estimate1 <- mean(x, na.rm = TRUE)
+    test$estimate2 <- mean(y, na.rm = TRUE)
+  }
+
+  # For non-welch-tests, we still want the difference I guess
+  if (var.equal || !("estimate" %in% names(test))) {
+    test$estimate <- test$estimate1 - test$estimate2
+    test <- test[c("estimate", names(test)[names(test) != "estimate"])]
+  }
+
   if (print == "df") {
     return(test)
   } else {
@@ -102,15 +114,12 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
     caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
     test$ci     <-  paste0("(", round(test$conf.low, 2),
-                           " - ", round(test$conf.high, 2), ")")
+                           " - ",
+                           round(test$conf.high, 2), ")")
 
-    if ("estimate" %in% names(test)) {
-      test <- test[c("estimate", "parameter", "statistic",
-                     "ci", "p.value", "d", "power")]
-    } else {
-      test <- test[c("estimate1", "estimate2", "parameter",
-                     "statistic", "ci", "p.value", "d", "power")]
-    }
+    test <- cbind(test[which(grepl("estimate", names(test)))],
+                  test[c("parameter", "statistic",
+                         "ci", "p.value", "d", "power")])
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")

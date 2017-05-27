@@ -63,6 +63,10 @@ tadaa_t.test(data = ngo, response = deutsch, group = geschl,
              direction = "less", print = "markdown")
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
              direction = "greater", print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, paired = TRUE,
+             print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, var.equal = FALSE,
+             print = "markdown")
 ```
 
 ## `tadaa_wilcoxon`
