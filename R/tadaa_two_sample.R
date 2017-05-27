@@ -40,6 +40,10 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, var.equal = NULL,
                          conf.level = 0.95, print = "df") {
 
+  if (!(print %in% c("df", "console", "html", "markdown"))) {
+    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+  }
+
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
 
@@ -104,8 +108,11 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   # For non-welch-tests, we still want the difference I guess
   if (var.equal || !("estimate" %in% names(test))) {
     test$estimate <- test$estimate1 - test$estimate2
-    test <- test[c("estimate", names(test)[names(test) != "estimate"])]
   }
+
+  # Sort estimates
+  est_cols <- c("estimate", "estimate1", "estimate2")
+  test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
 
   if (print == "df") {
     return(test)
@@ -120,15 +127,16 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     test$ci     <-  paste0("(", round(test$conf.low, 2),
                            " - ",
                            round(test$conf.high, 2), ")")
-    CI_lab      <- paste0("$CI_{", round(100 * conf.level), "\\%}$")
+    CI_lab      <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
 
-    test <- cbind(test[which(grepl("estimate", names(test)))],
-                  test[c("parameter", "statistic",
-                         "ci", "p.value", "d", "power")])
+    test <- test[c(est_cols, "parameter", "statistic", "ci", "p.value", "d", "power")]
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output,
+                                           estimate = "Diff",
+                                           estimate1 = paste("$\\mu_1$", groups[[1]]),
+                                           estimate2 = paste("$\\mu_2$", groups[[2]]),
                                            statistic = "t",
                                            p.value   = "p",
                                            parameter = "df",
@@ -136,24 +144,12 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
 
-    if ("estimate" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output, estimate = "Diff")
-    }
-    if ("estimate1" %in% output$body$col_name) {
-      output <- pixiedust::sprinkle_colnames(output,
-                                             estimate1 = paste("$\\mu_1$", groups[[1]]),
-                                             estimate2 = paste("$\\mu_2$", groups[[2]]))
-    }
-
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
-  }
+    output <- pixiedust::sprinkle_print_method(output, print_method = print)
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+    return(output)
   }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
 }
 
 #' Tadaa, Wilcoxon!
