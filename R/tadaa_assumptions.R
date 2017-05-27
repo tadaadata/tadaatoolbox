@@ -31,7 +31,7 @@
 tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 
   if (print == "df" & length(method) > 1 & length(method) <= 3) {
-    res <- bind_rows(lapply(method, function(x) {
+    res <- dplyr::bind_rows(lapply(method, function(x) {
       tadaa_normtest(data, method = x)
     }))
     return(res)
@@ -63,7 +63,7 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
     return(results)
   } else {
     output <- pixiedust::dust(results)
-    output <- pixiedust::sprinkle(output, col = p.value, fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
   }
 

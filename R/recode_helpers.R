@@ -8,8 +8,10 @@
 #' @importFrom car recode
 #' @export
 #' @examples
+#' \dontrun{
 #' likertize(x = runif(100, 0, 10), classes = 3, method = "quantiles")
 #' likertize(x = runif(100, 0, 10), classes = 3, method = "meansd")
+#' }
 likertize <- function(x, classes = 3, method = "quantiles"){
 
   .Deprecated("You probably want to use sjmisc::split_var")

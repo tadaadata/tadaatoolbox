@@ -42,7 +42,7 @@ data.frame(A = rnorm(100, mean = c(25, 30, 45)),
            G = c(rep("a", 50), rep("b", 50)),
            R = sample(letters[3:6], size = 100, TRUE),
            Z = sample(letters[7:8], size = 100, TRUE)) %>%
-  tadaa_aov(data = ., formula = A ~ G * R * Z, type = 3, print = "console")
+  tadaa_aov(data = ., formula = A ~ G * R * Z, type = 3, print = "markdown")
 ```
 
 
