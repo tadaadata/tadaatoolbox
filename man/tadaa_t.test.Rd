@@ -5,7 +5,7 @@
 \title{Tadaa, t-Test!}
 \usage{
 tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  var.equal = NULL, print = "df")
+  var.equal = NULL, conf.level = 0.95, print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -20,6 +20,8 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 
 \item{var.equal}{If set, passed to \link[stats]{t.test} to decide whether to use a
 Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.}
+
+\item{conf.level}{Confidence level used for power and CI, default is \code{0.95}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}

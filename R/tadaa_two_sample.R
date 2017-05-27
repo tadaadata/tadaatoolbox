@@ -16,6 +16,7 @@
 #' @param paired If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.
 #' @param var.equal If set, passed to \link[stats]{t.test} to decide whether to use a
 #' Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.
+#' @param conf.level Confidence level used for power and CI, default is \code{0.95}.
 #' @inheritParams tadaa_aov
 #' @return A \code{data.frame} by default, otherwise \code{dust} object,
 #' depending on \code{print}.
@@ -36,7 +37,8 @@
 #'
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
-                         paired = FALSE, var.equal = NULL, print = "df") {
+                         paired = FALSE, var.equal = NULL,
+                         conf.level = 0.95, print = "df") {
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -78,16 +80,18 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
   # t.test
   test <- broom::tidy(t.test(x = x, y = y, alternative = direction,
-                             paired = paired, var.equal = var.equal))
+                             paired = paired, var.equal = var.equal,
+                             conf.level = conf.level))
 
   # Additions
   test$d       <- effect_size_t(data = data, response = response,
                                 group = group, na.rm = TRUE)
   if (paired) {
-    test$power <- pwr::pwr.t.test(n = n1, d = test$d,
+    test$power <- pwr::pwr.t.test(n = n1, d = test$d, sig.level = 1 - conf.level,
                                   alternative = direction, type = "paired")$power
   } else {
     test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d,
+                                    sig.level = 1 - conf.level,
                                     alternative = direction)$power
   }
 
@@ -116,6 +120,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     test$ci     <-  paste0("(", round(test$conf.low, 2),
                            " - ",
                            round(test$conf.high, 2), ")")
+    CI_lab      <- paste0("$CI_{", round(100 * conf.level), "\\%}$")
 
     test <- cbind(test[which(grepl("estimate", names(test)))],
                   test[c("parameter", "statistic",
@@ -127,7 +132,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            statistic = "t",
                                            p.value   = "p",
                                            parameter = "df",
-                                           ci        = "CI",
+                                           ci        = CI_lab,
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
 
