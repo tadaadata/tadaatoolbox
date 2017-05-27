@@ -21,7 +21,7 @@ effect_size_t(data, response, group, absolute = FALSE, na.rm = TRUE)
 \code{numeric} of length 1.
 }
 \description{
-Simple Effect Size Calculation for t-Tests
+Calculates Cohen's d for two sample comparisons.
 }
 \examples{
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))

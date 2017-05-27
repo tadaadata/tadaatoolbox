@@ -1,5 +1,6 @@
 #' Simple Effect Size Calculation for t-Tests
 #'
+#' Calculates Cohen's d for two sample comparisons.
 #' @param data A \code{data.frame}.
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
@@ -30,22 +31,16 @@ effect_size_t <- function(data, response, group, absolute = FALSE, na.rm = TRUE)
   x <- data[data[[group]] == groups[1], ][[response]]
   y <- data[data[[group]] == groups[2], ][[response]]
 
-  # Kick out NAs if specified
-  if (na.rm) {
-    x <- x[!is.na(x)]
-    y <- y[!is.na(y)]
-  }
-
   # Get stats for each group
   n1   <- length(x)
-  var1 <- var(x)
+  var1 <- var(x, na.rm = na.rm)
 
   n2   <- length(y)
-  var2 <- var(y)
+  var2 <- var(y, na.rm = na.rm)
 
   # Calculate pooled variance and difference of means
   s    <- sqrt(sum((n1 - 1) * var1, (n2 - 1) * var2)/((n1 + n2) - 2))
-  m_d  <- mean(x) - mean(y)
+  m_d  <- mean(x, na.rm = na.rm) - mean(y, na.rm = na.rm)
 
   # Get effect size
   d    <- m_d/s
