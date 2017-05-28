@@ -41,6 +41,6 @@ For \code{paired = TRUE}, \eqn{S_p} is substituted by \eqn{S_D = S_{x-y}} via \c
 }
 \examples{
 set.seed(42)
-df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
+df <- data.frame(x = runif(100), group = sample(c("A", "B"), 100, TRUE))
 effect_size_t(df, "x", "group")
 }

@@ -23,7 +23,7 @@
 #' @import stats
 #' @examples
 #' set.seed(42)
-#' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
+#' df <- data.frame(x = runif(100), group = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "group")
 effect_size_t <- function(data, response, group, absolute = FALSE,
                           paired = FALSE, na.rm = TRUE){
