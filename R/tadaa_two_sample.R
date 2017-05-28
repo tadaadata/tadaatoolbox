@@ -110,9 +110,14 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     test$estimate <- test$estimate1 - test$estimate2
   }
 
-  # Sort estimates
+  # Add SE because why not
+  test$se <- test$estimate/test$statistic
+
+  # Sort estimates (and columns... it's hard)
   est_cols <- c("estimate", "estimate1", "estimate2")
-  test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
+  # test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
+  test <- test[c(est_cols,"statistic", "se", "parameter", "conf.low", "conf.high",
+                 "p.value", "d", "power", "method", "alternative")]
 
   if (print == "df") {
     return(test)
@@ -129,7 +134,9 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                            round(test$conf.high, 2), ")")
     CI_lab      <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
 
-    test <- test[c(est_cols, "parameter", "statistic", "ci", "p.value", "d", "power")]
+    # Sort… again
+    test <- test[c(est_cols,"statistic", "se", "parameter", "ci",
+                   "p.value", "d", "power")]
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
@@ -140,6 +147,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            statistic = "t",
                                            p.value   = "p",
                                            parameter = "df",
+                                           se        = "SE",
                                            ci        = CI_lab,
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
