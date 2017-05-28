@@ -5,17 +5,26 @@
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a \code{factor}.
 #' @param absolute If set to \code{TRUE}, the absolute effect size is returned.
+#' @param paired Whether the effect should be calculated for a paired
+#' t-test, default is \code{FALSE}.
 #' @param na.rm If \code{TRUE} (default), missing values are dropped.
 #' @return \code{numeric} of length 1.
 #' @export
+#' @details The effect size here is Cohen's d as calculated by
+#' \eqn{d = \frac{m_{diff}{D_p}}, where \eqn{m_{diff} = \bar{x_1} - \bar{x_1}}} and
+#' \eqn{S_p = \sqrt{\frac{n_1 - 1 \cdot {s_x_1}^2 +
+#' \frac{n_2 - 1 \cdot {s_x_2}^2}{n_1 + n_2 - 2}}}}.
+#'
+#' For \code{paired = TRUE}, \eqn{D_p} is substituted by \eqn{S_D = S_{x-y}} via \code{sd(x - y)}.
 #' @import stats
 #' @examples
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' effect_size_t(df, "x", "y")
-effect_size_t <- function(data, response, group, absolute = FALSE, na.rm = TRUE){
+effect_size_t <- function(data, response, group, absolute = FALSE,
+                          paired = FALSE, na.rm = TRUE){
 
-  # # Handle NSE
-  # if (!is.character(substitute(response)) & !is.character(substitute(group))) {
+  # Handle NSE
+  # if (is.name(substitute(response)) & is.name(substitute(group))) {
   #   response <- deparse(substitute(response))
   #   group    <- deparse(substitute(group))
   # }
@@ -39,7 +48,11 @@ effect_size_t <- function(data, response, group, absolute = FALSE, na.rm = TRUE)
   var2 <- var(y, na.rm = na.rm)
 
   # Calculate pooled variance and difference of means
-  s    <- sqrt(sum((n1 - 1) * var1, (n2 - 1) * var2)/((n1 + n2) - 2))
+  if (paired) {
+    s    <- sd(x - y)
+  } else {
+    s    <- sqrt(sum((n1 - 1) * var1, (n2 - 1) * var2)/((n1 + n2) - 2))
+  }
   m_d  <- mean(x, na.rm = na.rm) - mean(y, na.rm = na.rm)
 
   # Get effect size

@@ -77,7 +77,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
   # Additions
   test$d       <- effect_size_t(data = data, response = response,
-                                group = group, na.rm = TRUE)
+                                group = group, paired = paired, na.rm = TRUE)
   if (paired) {
     test$power <- pwr::pwr.t.test(n = n1, d = test$d, sig.level = 1 - conf.level,
                                   alternative = direction, type = "paired")$power
