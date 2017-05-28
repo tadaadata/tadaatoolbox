@@ -5,7 +5,8 @@
 \title{Tadaa, one-sample tests!}
 \usage{
 tadaa_one_sample(data = NULL, x, mu, sigma = NULL,
-  direction = "two.sided", na.rm = FALSE, print = "df")
+  direction = "two.sided", na.rm = FALSE, conf.level = 0.95,
+  print = c("df", "console", "html", "markdown"))
 }
 \arguments{
 \item{data}{A \code{data.frame} (optional).}
@@ -20,6 +21,8 @@ otherwise a one-sample \link[stats]{t.test} is performed.}
 \item{direction}{Test direction, like \code{alternative} in \link{t.test}.}
 
 \item{na.rm}{Whether to drop \code{NA} values. Default is \code{FALSE}.}
+
+\item{conf.level}{Confidence level used for power and CI, default is \code{0.95}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
