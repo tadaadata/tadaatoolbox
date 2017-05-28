@@ -47,6 +47,7 @@ a Welch-corrected t-test is set to \code{0.05} by default. To override the inter
 decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
 }
 \examples{
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 tadaa_t.test(df, x, y)
 

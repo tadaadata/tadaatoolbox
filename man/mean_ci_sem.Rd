@@ -18,6 +18,7 @@ a \code{data.frame} with the mean, SEM and its Confidence Interval
 Standard Error of the Mean with CI
 }
 \examples{
+set.seed(42)
 iq <- rnorm(100, 100, 15)
 
 mean_ci_sem(iq)

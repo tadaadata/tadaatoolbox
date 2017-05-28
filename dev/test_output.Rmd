@@ -53,20 +53,20 @@ tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
 ```
 
 
-# Two-Sample tests
+# Two-Sample Tests
 
 ## `tadaa_t.test`
 
 ```{r t_test}
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
-tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
-             direction = "less", print = "markdown")
-tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
-             direction = "greater", print = "markdown")
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, paired = TRUE,
              print = "markdown")
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, var.equal = FALSE,
              print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
+             direction = "less", print = "markdown")
+tadaa_t.test(data = ngo, response = deutsch, group = geschl, 
+             direction = "greater", print = "markdown")
 ```
 
 ## `tadaa_wilcoxon`
@@ -82,17 +82,22 @@ tadaa_wilcoxon(ngo, deutsch, geschl, paired = TRUE,
 
 ```
 
-# One-Sample Test
+# One-Sample Tests
 
-```{r one_sample}
+## z-Test
+
+```{r one_sample_z}
 # z: known sigma
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7.5, sigma = 2, print = "markdown")
 tadaa_one_sample(data = ngo, x = deutsch, mu = 8, sigma = 2, 
                  direction = "less", print = "markdown")
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7, sigma = 2, 
                  direction = "greater", print = "markdown")
+```
 
-# t
+## t-Test
+
+```{r one_sample_t}
 tadaa_one_sample(data = ngo, x = deutsch, mu = 7.5, print = "markdown")
 tadaa_one_sample(data = ngo, x = deutsch, mu = 8, 
                  direction = "less", print = "markdown")

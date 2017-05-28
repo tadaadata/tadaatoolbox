@@ -8,6 +8,7 @@
 #' @export
 #' @import stats
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' confint_t(df$x)
 confint_t <- function(x, alpha = 0.05, na.rm = TRUE){
@@ -34,6 +35,7 @@ confint_t <- function(x, alpha = 0.05, na.rm = TRUE){
 #' @export
 #' @import stats
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' mean_ci_t(df$x)
 mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE){
@@ -56,6 +58,7 @@ mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE){
 #' @return a \code{data.frame} with the mean, SEM and its Confidence Interval
 #' @export
 #' @examples
+#' set.seed(42)
 #' iq <- rnorm(100, 100, 15)
 #'
 #' mean_ci_sem(iq)
@@ -84,6 +87,7 @@ mean_ci_sem <- function(x, conf.level = .95) {
 #' @export
 #' @import stats
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' confint_norm(df$x)
 confint_norm <- function(x, alpha = 0.05, na.rm = TRUE){

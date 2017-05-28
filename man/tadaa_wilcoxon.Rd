@@ -30,6 +30,7 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 Tadaa, Wilcoxon!
 }
 \examples{
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 tadaa_wilcoxon(df, x, y)
 

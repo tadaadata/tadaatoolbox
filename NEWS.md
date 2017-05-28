@@ -28,8 +28,10 @@
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
         - Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$ 
     - Power should now be properly reported for `alternative = "less"` or `greater`.
-        - `effect_size_t` now doesn't return the absolute effect size by default.
     - Added `conf.level` argument used for CI and power calculations
+    - `effect_size_t`:
+        - Now doesn't return the absolute effect size by default.
+        - Added `paired` argument so effects for paired tests are now a thing.
 - `tadaa_wilcoxon`:
     - Also fix `direction` argument not being honored.
 - `tadaa_int`: 

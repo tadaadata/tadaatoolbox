@@ -112,7 +112,7 @@
 <li>
 <code>%&gt;%</code> from <code>magrittr</code> as all the cool kids to these days.</li>
 <li>
-<code>get_label</code> / <code>get_labels</code> and <code>word_wrap</code> from <code>sjmisc</code>, as they’re handy.</li>
+<code>[sg]et_label[s]</code>and <code>word_wrap</code> from <code>sjmisc</code>, as they’re handy.</li>
 <li>
 <code>as_factor</code> from <code>haven</code> as a replacement for the deprecated <code>labels_to_factor</code>.</li>
 </ul>
@@ -152,6 +152,7 @@
 <code>effect_size_t</code> now doesn’t return the absolute effect size by default.</li>
 </ul>
 </li>
+<li>Added <code>conf.level</code> argument used for CI and power calculations</li>
 </ul>
 </li>
 <li>
@@ -180,7 +181,7 @@
 <li>
 <code>labels_to_factor</code>: Was a wrapper around <code>haven::as_factor</code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
 <li>
-<code>tadaa_likertize</code> is renamed to <code>likertize</code>.</li>
+<code>tadaa_likertize</code> is renamed to <code>likertize</code>, deprecated since <code>sjmisc::split_var</code> is probably better anyway.</li>
 </ul>
 </div>
 </div>

@@ -23,8 +23,10 @@ confint_norm(x, alpha = 0.05, na.rm = TRUE)
 Confidence Intervals
 }
 \examples{
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 confint_t(df$x)
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 confint_norm(df$x)
 }

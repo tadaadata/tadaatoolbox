@@ -17,6 +17,7 @@
 #' @family Tadaa-functions
 #' @export
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = rnorm(n = 20, mean = 100, sd = 1))
 #'
 #' tadaa_one_sample(df, x, mu = 101, sigma = 1)

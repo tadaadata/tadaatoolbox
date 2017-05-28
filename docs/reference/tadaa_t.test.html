@@ -94,7 +94,8 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
     
 
     <pre class="usage"><span class='fu'>tadaa_t.test</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>var.equal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+  <span class='kw'>var.equal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>,
+  <span class='st'>"markdown"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -123,6 +124,10 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
       <th>var.equal</th>
       <td><p>If set, passed to <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a> to decide whether to use a
 Welch-correction. Default is <code>NULL</code> to automatically determine heteroskedasticity.</p></td>
+    </tr>
+    <tr>
+      <th>conf.level</th>
+      <td><p>Confidence level used for power and CI, default is <code>0.95</code>.</p></td>
     </tr>
     <tr>
       <th>print</th>
@@ -155,22 +160,23 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;   estimate1 estimate2 statistic    p.value parameter   conf.low   conf.high
-#&gt; 1 0.4117382 0.5349579 -2.184687 0.03129598        98 -0.2351466 -0.01129271
-#&gt;               method alternative          d     power
-#&gt; 1  Two Sample t-test   two.sided -0.4369375 0.5805609</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;     estimate estimate1 estimate2 statistic         se parameter    conf.low
+#&gt; 1 0.04084413 0.5560931  0.515249  0.775392 0.05267546        98 -0.06368861
+#&gt;   conf.high   p.value         d     power             method alternative
+#&gt; 1 0.1453769 0.4399752 0.1582762 0.1197895  Two Sample t-test   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;    estimate statistic    p.value parameter     conf.low conf.high        method
-#&gt; 1 0.1199594  1.909568 0.06205258        49 -0.006282482 0.2462013 Paired t-test
-#&gt;   alternative        d     power
-#&gt; 1   two.sided 0.410698 0.8123965</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;       estimate estimate1 estimate2   statistic         se parameter   conf.low
+#&gt; 1 -0.004614406 0.5607142 0.5653286 -0.08090487 0.05703497        49 -0.1192305
+#&gt;   conf.high   p.value           d      power        method alternative
+#&gt; 1 0.1100017 0.9358472 -0.01144168 0.05072124 Paired t-test   two.sided</div><div class='input'>
 <span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 6: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
 #&gt; 
-#&gt;   $\\mu_1$ Männlich $\\mu_2$ Weiblich  df     t              CI       p
-#&gt; 1              7.09              8.12 248 -4.11 (-1.53 - -0.54) &lt; 0.001
-#&gt;   Cohen\\'s d Power
-#&gt; 1       -0.52  0.98
+#&gt;    Diff $\\mu_1$ Männlich $\\mu_2$ Weiblich     t   SE  df    $CI_{95\\%}$
+#&gt; 1 -1.03              7.09              8.12 -4.11 0.25 248 (-1.53 - -0.54)
+#&gt;         p Cohen\\'s d Power
+#&gt; 1 &lt; 0.001       -0.52  0.98
 #&gt; 
 #&gt; </div></pre>
   </div>

@@ -29,13 +29,18 @@ Calculates Cohen's d for two sample comparisons.
 }
 \details{
 The effect size here is Cohen's d as calculated by
-\eqn{d = \frac{m_{diff}{D_p}}, where \eqn{m_{diff} = \bar{x_1} - \bar{x_1}}} and
-\eqn{S_p = \sqrt{\frac{n_1 - 1 \cdot {s_x_1}^2 +
-\frac{n_2 - 1 \cdot {s_x_2}^2}{n_1 + n_2 - 2}}}}.
+\eqn{d = \frac{m_{diff}}{D_p}}, where \eqn{m_{diff} = \bar{x_1} - \bar{x_1}} and
+\eqn{S_p =
+  \sqrt{
+    \frac{n_1 - 1 \cdot {s_{x_1}}^2 + n_2 - 1 \cdot {s_{x_2}}^2}
+    {n_1 + n_2 - 2}
+  }
+}.
 
-For \code{paired = TRUE}, \eqn{D_p} is substituted by \eqn{S_D = S_{x-y}} via \code{sd(x - y)}.
+For \code{paired = TRUE}, \eqn{S_p} is substituted by \eqn{S_D = S_{x-y}} via \code{sd(x - y)}.
 }
 \examples{
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
-effect_size_t(df, "x", "y")
+effect_size_t(df, "x", "group")
 }

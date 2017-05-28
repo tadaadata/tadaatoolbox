@@ -29,6 +29,7 @@
 #' decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
 #' @export
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_t.test(df, x, y)
 #'
@@ -159,6 +160,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 #' @family Tadaa-functions
 #' @export
 #' @examples
+#' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_wilcoxon(df, x, y)
 #'

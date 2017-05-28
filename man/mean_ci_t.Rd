@@ -20,6 +20,7 @@ A \code{data.frame} with y (mean), ymin and ymax values.
 Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
 }
 \examples{
+set.seed(42)
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 mean_ci_t(df$x)
 }

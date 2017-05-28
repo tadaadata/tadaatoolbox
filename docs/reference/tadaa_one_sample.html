@@ -90,7 +90,8 @@ for comparison.</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_one_sample</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>x</span>, <span class='no'>mu</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
+  <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -121,6 +122,10 @@ otherwise a one-sample <a href='http://www.rdocumentation.org/packages/stats/top
       <td><p>Whether to drop <code>NA</code> values. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
+      <th>conf.level</th>
+      <td><p>Confidence level used for power and CI, default is <code>0.95</code>.</p></td>
+    </tr>
+    <tr>
       <th>print</th>
       <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
 Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
@@ -143,17 +148,18 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
+    <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
 
 <span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;   estimate statistic        se      p.value conf.low conf.high method
-#&gt; 1 100.1102 -3.979176 0.2236068 6.915454e-05 80.64757  119.5729 z-Test
+#&gt; 1 100.2593 -3.312505 0.2236068 0.0009246447 83.41726  117.1013 z-Test
 #&gt;   alternative          d     power
-#&gt; 1   two.sided -0.8897708 0.9782674</div><div class='input'>
+#&gt; 1   two.sided -0.7406986 0.9118989</div><div class='input'>
 <span class='co'># No data.frame, just a vector</span>
-<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate statistic   p.value parameter  conf.low conf.high
-#&gt; 1 -0.2223487 -0.805793 0.4303323        19 -0.799893 0.3551956
-#&gt;              method alternative          d     power
-#&gt; 1 One Sample t-test   two.sided -0.1801808 0.1193946</div></pre>
+<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate statistic   p.value parameter   conf.low conf.high
+#&gt; 1 0.07864501 0.4033616 0.6911854        19 -0.3294402 0.4867302
+#&gt;              method alternative       se         d      power
+#&gt; 1 One Sample t-test   two.sided 0.194974 0.0901944 0.06700092</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
