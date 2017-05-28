@@ -5,7 +5,8 @@
 \title{Tadaa, t-Test!}
 \usage{
 tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  var.equal = NULL, conf.level = 0.95, print = "df")
+  var.equal = NULL, conf.level = 0.95, print = c("df", "console", "html",
+  "markdown"))
 }
 \arguments{
 \item{data}{A \code{data.frame}.}

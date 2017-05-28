@@ -38,11 +38,9 @@
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, var.equal = NULL,
-                         conf.level = 0.95, print = "df") {
+                         conf.level = 0.95, print = c("df", "console", "html", "markdown")) {
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
-  }
+  print <- match.arg(print)
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -58,16 +56,6 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   x <- data[data[[group]] == groups[1], ][[response]]
   y <- data[data[[group]] == groups[2], ][[response]]
 
-
-  # # Quick test for non-normality for small N
-  # if (length(x) < 30 | length(y) < 30) {
-  #   shapiro_x <- stats::shapiro.test(x)$p.value
-  #   shapiro_y <- stats::shapiro.test(y)$p.value
-  #
-  #   if (min(shapiro_x, shapiro_y) < 0.05) {
-  #     message("At least one group has n < 30 and appears to be non-normal!")
-  #   }
-  # }
 
   # Get n for each group
   n1   <- length(x)
@@ -177,7 +165,9 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_wilcoxon(df, x, y, paired = TRUE)
 tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
-                           paired = FALSE, print = "df", ...) {
+                           paired = FALSE, print = c("df", "console", "html", "markdown"), ...) {
+
+  print <- match.arg(print)
 
   response <- deparse(substitute(response))
   group    <- deparse(substitute(group))
@@ -193,11 +183,6 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
   x <- data[data[[group]] == groups[1], ][[response]]
   y <- data[data[[group]] == groups[2], ][[response]]
 
-  # Kick out NAs if specified
-  # if (na.rm) {
-  #   x <- x[!is.na(x)]
-  #   y <- y[!is.na(y)]
-  # }
 
   # wilcox test
   test <- broom::tidy(wilcox.test(x = x, y = y, alternative = direction,
@@ -234,11 +219,8 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
                                            median2 = paste("$M_2$", groups[[2]]))
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
-  }
+    output <- pixiedust::sprinkle_print_method(output, print_method = print)
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+    output
   }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
 }

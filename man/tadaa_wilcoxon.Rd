@@ -5,7 +5,7 @@
 \title{Tadaa, Wilcoxon!}
 \usage{
 tadaa_wilcoxon(data, response, group, direction = "two.sided",
-  paired = FALSE, print = "df", ...)
+  paired = FALSE, print = c("df", "console", "html", "markdown"), ...)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
