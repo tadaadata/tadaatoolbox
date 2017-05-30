@@ -51,10 +51,12 @@ tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 
 # Other types of sums
+\dontrun{
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
-tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, check_contrasts = F,
-print = "console")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo,
+          type = 3, check_contrasts = FALSE, print = "console")
+}
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_kruskal}},
