@@ -4,7 +4,8 @@
 \alias{tadaa_kruskal}
 \title{Tadaa, Kruskal-Wallis!}
 \usage{
-tadaa_kruskal(formula, data = NULL, print = "console")
+tadaa_kruskal(formula, data = NULL, print = c("df", "console", "html",
+  "markdown"))
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{kruskal.test}.}

@@ -125,11 +125,11 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output,
-                                           term        = "Term",
-                                           sumsq       = "SS",
-                                           meansq      = "MS",
-                                           statistic   = "F",
-                                           p.value     = "p")
+                                           term      = "Term",
+                                           sumsq     = "SS",
+                                           meansq    = "MS",
+                                           statistic = "F",
+                                           p.value   = "p")
     if (show_effect_size) {
       output <- pixiedust::sprinkle_colnames(output,
                                              eta.sq.part = eta_label,
@@ -156,7 +156,9 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 #' @import stats
 #' @examples
 #' tadaa_kruskal(stunzahl ~ jahrgang, data = ngo)
-tadaa_kruskal <- function(formula, data = NULL, print = "console"){
+tadaa_kruskal <- function(formula, data = NULL, print = c("df", "console", "html", "markdown")){
+
+  print <- match.arg(print)
 
   model <- broom::tidy(kruskal.test(formula = formula, data = data))
   model <- model[c("statistic", "parameter", "p.value")]
@@ -175,9 +177,5 @@ tadaa_kruskal <- function(formula, data = NULL, print = "console"){
 
   }
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
-  }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
+  pixiedust::sprinkle_print_method(output, print_method = print)
 }
