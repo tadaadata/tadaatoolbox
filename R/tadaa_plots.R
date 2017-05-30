@@ -53,8 +53,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 
   p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw",
                                        colour = substitute(group2))) +
-          geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group2))) +
+          geom_point(shape = 23, fill = "white") +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = title1, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
@@ -62,8 +62,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 
   p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw",
                                        colour = substitute(group1))) +
-          geom_point(shape = 23) +
           geom_line(aes_string(group = substitute(group1))) +
+          geom_point(shape = 23, fill = "white") +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = title2, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
