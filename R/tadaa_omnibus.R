@@ -13,7 +13,7 @@
 #' via \link[pwr]{pwr.f2.test} and appended as a column.
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
-#' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} or \code{3}.
+#' @param type Which type of SS to use. Default is \code{3}, can also be \code{1} or \code{2}.
 #' @param print Print method, default \code{df}: A regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
@@ -34,7 +34,7 @@
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power = TRUE,
-                      factorize = TRUE, type = 1,
+                      factorize = TRUE, type = 3,
                       print = c("df", "console", "html", "markdown")){
 
   print <- match.arg(print)

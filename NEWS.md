@@ -21,8 +21,9 @@
     - is now an alias for `theme_readthedown`, will probably become the new canonical version.
     - now finally adds vertical space to the `x` axis title via proper margining.
 - `tadaa_aov`:
-    - now auto-factorizes independent variables by default, fixes #24.
-    - now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.
+    - Default `type` is now `3`, for generally safer results.
+    - Now auto-factorizes independent variables by default, fixes #24.
+    - Now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.
     - Fix wrong `sprinkle` labelling causing `eta.sq` to be formatted like a p-value.
     - Added `show_power` argument to calculate power via `pwr::pwr.f2.test`.
         - Requires more testing against software like G\*power to ensure accuracy.

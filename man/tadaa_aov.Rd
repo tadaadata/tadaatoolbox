@@ -5,7 +5,7 @@
 \title{Tadaa, ANOVA!}
 \usage{
 tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
-  show_power = TRUE, factorize = TRUE, type = 1, print = c("df",
+  show_power = TRUE, factorize = TRUE, type = 3, print = c("df",
   "console", "html", "markdown"))
 }
 \arguments{
@@ -22,7 +22,7 @@ via \link[pwr]{pwr.f2.test} and appended as a column.}
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}
 
-\item{type}{Which type of SS to use. Default is \code{1}, can also be \code{2} or \code{3}.}
+\item{type}{Which type of SS to use. Default is \code{3}, can also be \code{1} or \code{2}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
