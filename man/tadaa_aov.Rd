@@ -5,8 +5,8 @@
 \title{Tadaa, ANOVA!}
 \usage{
 tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
-  show_power = TRUE, factorize = TRUE, type = 3, print = c("df",
-  "console", "html", "markdown"))
+  show_power = TRUE, factorize = TRUE, type = 3, check_contrasts = TRUE,
+  print = c("df", "console", "html", "markdown"))
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
@@ -24,6 +24,9 @@ will automatically converted via \code{as.factor}, so beware of your inputs.}
 
 \item{type}{Which type of SS to use. Default is \code{3}, can also be \code{1} or \code{2}.}
 
+\item{check_contrasts}{Only applies to \code{type = 3}. If \code{TRUE} (default),
+the \code{contrasts} of each non-ordered \code{factor} are set to \code{"contr.sum"}.}
+
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
@@ -33,9 +36,15 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 \description{
 Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 optionally displays effect sizes (\eqn{\eta^2}, \eqn{\eta_{\text{part}}^2}, Cohen's f) and
-power (calulcated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
+power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
 If a specified independent variable is not properly encoded as a \code{factor}, it is
 automatically converted if \code{factorize = TRUE} to ensure valid results.
+}
+\details{
+If \code{type = 3} and \code{check_contrasts = TRUE}, the \code{"contrasts"} of
+each non-ordered factor will be checked and set to \code{contr.sum} to ensure the function
+yields usable results. It is highly recommended to only use \code{check_contrasts = FALSE}
+for debugging or educational purposes.
 }
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
@@ -44,6 +53,8 @@ tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 # Other types of sums
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, check_contrasts = F,
+print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_kruskal}},

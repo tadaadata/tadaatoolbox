@@ -22,6 +22,7 @@
     - now finally adds vertical space to the `x` axis title via proper margining.
 - `tadaa_aov`:
     - Default `type` is now `3`, for generally safer results.
+    - Added `check_contrasts` option for `type = 3` sums of squares, which ensures each non-ordered factor has `contr.sum` contrasts
     - Now auto-factorizes independent variables by default, fixes #24.
     - Now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.
     - Fix wrong `sprinkle` labelling causing `eta.sq` to be formatted like a p-value.

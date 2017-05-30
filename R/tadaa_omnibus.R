@@ -5,6 +5,11 @@
 #' power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
 #' If a specified independent variable is not properly encoded as a \code{factor}, it is
 #' automatically converted if \code{factorize = TRUE} to ensure valid results.
+#'
+#' If \code{type = 3} and \code{check_contrasts = TRUE}, the \code{"contrasts"} of
+#' each non-ordered factor will be checked and set to \code{contr.sum} to ensure the function
+#' yields usable results. It is highly recommended to only use \code{check_contrasts = FALSE}
+#' for debugging or educational purposes.
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect sizes
@@ -14,6 +19,8 @@
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
 #' @param type Which type of SS to use. Default is \code{3}, can also be \code{1} or \code{2}.
+#' @param check_contrasts Only applies to \code{type = 3}. If \code{TRUE} (default),
+#' the \code{contrasts} of each non-ordered \code{factor} are set to \code{"contr.sum"}.
 #' @param print Print method, default \code{df}: A regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
@@ -33,18 +40,20 @@
 #' # Other types of sums
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
+#' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, check_contrasts = F,
+#' print = "console")
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power = TRUE,
-                      factorize = TRUE, type = 3,
+                      factorize = TRUE, type = 3, check_contrasts = TRUE,
                       print = c("df", "console", "html", "markdown")){
 
   print <- match.arg(print)
 
   # Checks
-  if (factorize) {
-    terms  <- stats::terms(formula)
-    orders <- attr(terms, "order")
-    vars   <- attr(terms, "term.labels")[orders == 1]
+  terms  <- stats::terms(formula)
+  orders <- attr(terms, "order")
+  vars   <- attr(terms, "term.labels")[orders == 1]
 
+  if (factorize) {
     if (!all(sapply(data[vars], is.factor))) {
       non_factors <- vars[!sapply(data[vars], is.factor)]
       warning("Some independent variables are not factors, auto-converting...")
@@ -55,6 +64,18 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 
         warning("Converting ", var, " to factor, please check your results")
       }
+    }
+  }
+
+  if (check_contrasts & type == 3) {
+    non_ordered <- vars[!sapply(data[vars], is.ordered)]
+
+    for (var in non_ordered) {
+      contrasts(data[[var]]) <- contr.sum(n = levels(data[[var]]))
+
+      # if (interactive()) {
+      #   message("Setting contrasts of ", var, " to 'contr.sum'")
+      # }
     }
   }
 
