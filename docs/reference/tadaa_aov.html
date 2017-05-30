@@ -109,7 +109,7 @@ partial eta^2 and Cohen's f are appended as columns.</p></td>
     <tr>
       <th>show_power</th>
       <td><p>(Experimental) If <code>TRUE</code> (default), power is calculated
-via pwr::pwr.f2.test and appended as a column.</p></td>
+via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr.f2.test</a> and appended as a column.</p></td>
     </tr>
     <tr>
       <th>factorize</th>
@@ -164,7 +164,7 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt; 4          NA         NA
 #&gt; 5          NA         NA</div><div class='input'>
 <span class='co'># Other types of sums</span>
-<span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 4: **Two-Way ANOVA**: Using Type II Sum of Squares
+<span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 1: **Two-Way ANOVA**: Using Type II Sum of Squares
 #&gt; 
 #&gt;              Term  df      SS     MS    F       p $\\eta_\\text{part}^2$
 #&gt; 1          geschl   1    0.14   0.14 0.01     0.9                      0
@@ -179,7 +179,7 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt; 4                
 #&gt; 5                
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 5: **Two-Way ANOVA**: Using Type III Sum of Squares
+#&gt; </div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 2: **Two-Way ANOVA**: Using Type III Sum of Squares
 #&gt; 
 #&gt;              Term  df      SS    MS    F      p $\\eta_\\text{part}^2$
 #&gt; 1          geschl   1    7.29  7.29 0.74   0.39                      0

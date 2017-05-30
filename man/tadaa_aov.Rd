@@ -17,7 +17,7 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 partial eta^2 and Cohen's f are appended as columns.}
 
 \item{show_power}{(Experimental) If \code{TRUE} (default), power is calculated
-via \link[pwr]{pwr::pwr.f2.test} and appended as a column.}
+via \link[pwr]{pwr.f2.test} and appended as a column.}
 
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}

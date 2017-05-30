@@ -5,7 +5,7 @@
 #' @param show_effect_size If \code{TRUE} (default), effect sizes
 #' partial eta^2 and Cohen's f are appended as columns.
 #' @param show_power (Experimental) If \code{TRUE} (default), power is calculated
-#' via \link[pwr]{pwr::pwr.f2.test} and appended as a column.
+#' via \link[pwr]{pwr.f2.test} and appended as a column.
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
 #' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.

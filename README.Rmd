@@ -112,7 +112,7 @@ version in this repository [the `pkgdown`ed version of this repo](http://tadaato
 * `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
 * `delet_na`: Customizable way to drop `NA` observations from a dataset.
 * `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
-* `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
+* `pval_string`: Shamelessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
 ## Helpers for plots
 
