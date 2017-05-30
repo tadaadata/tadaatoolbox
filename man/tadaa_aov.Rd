@@ -35,7 +35,7 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 }
 \description{
 Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
-optionally displays effect sizes (\eqn{\eta^2}, \eqn{\eta_{\text{part}}^2}, Cohen's f) and
+optionally displays effect sizes ((partial )\eqn{\eta^2}, Cohen's f) and
 power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
 If a specified independent variable is not properly encoded as a \code{factor}, it is
 automatically converted if \code{factorize = TRUE} to ensure valid results.
