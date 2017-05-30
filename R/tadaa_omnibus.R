@@ -2,7 +2,10 @@
 #'
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
-#' @param show_effect_size If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.
+#' @param show_effect_size If \code{TRUE} (default), effect sizes
+#' partial eta^2 and Cohen's f are appended as columns.
+#' @param show_power (Experimental) If \code{TRUE} (default), power is calculated
+#' via \link[pwr]{pwr::pwr.f2.test} and appended as a column.
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
 #' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.
@@ -21,8 +24,11 @@
 #' # Other types of sums
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
-                      factorize = TRUE, type = 1, print = "df"){
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power = TRUE,
+                      factorize = TRUE, type = 1,
+                      print = c("df", "console", "html", "markdown")){
+
+  print <- match.arg(print)
 
   # Checks
   if (factorize) {
@@ -84,6 +90,13 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
     # Merge with test output
     model <- merge(model, effects, by = "term", all = T)
   }
+  if (show_power) {
+    fctr_rows <- !(model$term %in% c("Residuals", "Total"))
+
+    model$power[fctr_rows] <- pwr::pwr.f2.test(u = model$df[fctr_rows],
+                                               v = model$df[model$term == "Residuals"],
+                                               f2 = model$cohens.f[fctr_rows]^2)$power
+  }
 
   if (print == "df") {
     return(model)
@@ -116,17 +129,19 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                                            sumsq       = "SS",
                                            meansq      = "MS",
                                            statistic   = "F",
-                                           p.value     = "p",
-                                           eta.sq.part = eta_label,
-                                           cohens.f    = "Cohen's f")
+                                           p.value     = "p")
+    if (show_effect_size) {
+      output <- pixiedust::sprinkle_colnames(output,
+                                             eta.sq.part = eta_label,
+                                             cohens.f    = "Cohen's f")
+    }
+    if (show_power) {
+      output <- pixiedust::sprinkle_colnames(output, power = "Power")
+    }
     output <- pixiedust::sprinkle_table(output, round = 2, na_string = "", part = "table")
   }
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
-  }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
+  pixiedust::sprinkle_print_method(output, print_method = print)
 }
 
 #' Tadaa, Kruskal-Wallis!

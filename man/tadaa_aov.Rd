@@ -4,15 +4,20 @@
 \alias{tadaa_aov}
 \title{Tadaa, ANOVA!}
 \usage{
-tadaa_aov(formula, data = NULL, show_effect_size = TRUE, factorize = TRUE,
-  type = 1, print = "df")
+tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
+  show_power = TRUE, factorize = TRUE, type = 1, print = c("df",
+  "console", "html", "markdown"))
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
 
 \item{data}{Data for model.}
 
-\item{show_effect_size}{If \code{TRUE} (default), effect sizes partial eta^2 and Cohen's f are appended as columns.}
+\item{show_effect_size}{If \code{TRUE} (default), effect sizes
+partial eta^2 and Cohen's f are appended as columns.}
+
+\item{show_power}{(Experimental) If \code{TRUE} (default), power is calculated
+via \link[pwr]{pwr::pwr.f2.test} and appended as a column.}
 
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}
