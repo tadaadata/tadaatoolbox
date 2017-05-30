@@ -22,7 +22,7 @@ via \link[pwr]{pwr.f2.test} and appended as a column.}
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}
 
-\item{type}{Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.}
+\item{type}{Which type of SS to use. Default is \code{1}, can also be \code{2} or \code{3}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
@@ -31,7 +31,11 @@ Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
-Tadaa, ANOVA!
+Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
+optionally displays effect sizes (\eqn{\eta^2}, \eqn{\eta^2—{\text{part}}}, Cohen's f) and
+power (calulcated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
+If a specified independent variable is not properly encoded as a \code{factor}, it is
+automatically converted if \code{factorize = TRUE} to ensure valid results.
 }
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)

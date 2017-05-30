@@ -1,5 +1,10 @@
 #' Tadaa, ANOVA!
 #'
+#' Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
+#' optionally displays effect sizes (\eqn{\eta^2}, \eqn{\eta^2—{\text{part}}}, Cohen's f) and
+#' power (calulcated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
+#' If a specified independent variable is not properly encoded as a \code{factor}, it is
+#' automatically converted if \code{factorize = TRUE} to ensure valid results.
 #' @param formula Formula for model, passed to \code{aov}.
 #' @param data Data for model.
 #' @param show_effect_size If \code{TRUE} (default), effect sizes
@@ -8,15 +13,19 @@
 #' via \link[pwr]{pwr.f2.test} and appended as a column.
 #' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
 #' will automatically converted via \code{as.factor}, so beware of your inputs.
-#' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} oder \code{3}.
+#' @param type Which type of SS to use. Default is \code{1}, can also be \code{2} or \code{3}.
 #' @param print Print method, default \code{df}: A regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @export
 #' @family Tadaa-functions
-#' @import stats
-#' @importFrom lsr etaSquared
 #' @import methods
+#' @import stats
+#' @import pixiedust
+#' @importFrom lsr etaSquared
+#' @importFrom pwr pwr.f2.test
+#' @importFrom car Anova
+#' @importFrom broom tidy
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
