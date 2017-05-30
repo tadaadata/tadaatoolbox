@@ -24,9 +24,12 @@
     - now auto-factorizes independent variables by default, fixes #24.
     - now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.
     - Fix wrong `sprinkle` labelling causing `eta.sq` to be formatted like a p-value.
+    - Added `show_power` argument to calculate power via `pwr::pwr.f2.test`.
+        - Requires more testing against software like G\*power to ensure accuracy.
 - `tadaa_t.test`:
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
-        - Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$ 
+        - Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$.
+        - Use new argument `var.equal` to override interal Levene test.
     - Power should now be properly reported for `alternative = "less"` or `greater`.
     - Added `conf.level` argument used for CI and power calculations
     - `effect_size_t`:
@@ -41,7 +44,7 @@
 - Documentation improvements
 - Improved `print = markdown` output of `tadaa_aov`, `tadaa_t.test`, `tadaa_wilcoxon`, `tadaa_one_sample`, `tadaa_kruskal`. Unfortunately `print = "console"` now has headers with unparsed $\LaTeX$-expressions, but who uses that anyway.
 
-## Depracations
+## Deprecations
 
 - `labels_to_factor`: Was a wrapper around `haven::as_factor` and is obsolete by now, as `as_factor` can do the same thing this function was built for.
 - `tadaa_likertize` is renamed to `likertize`, deprecated since `sjmisc::split_var` is probably better anyway.

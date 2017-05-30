@@ -86,8 +86,9 @@
     <p>Tadaa, ANOVA!</p>
     
 
-    <pre class="usage"><span class='fu'>tadaa_aov</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>show_effect_size</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>factorize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_aov</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>show_effect_size</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show_power</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>factorize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>,
+  <span class='st'>"console"</span>, <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -102,7 +103,13 @@
     </tr>
     <tr>
       <th>show_effect_size</th>
-      <td><p>If <code>TRUE</code> (default), effect sizes partial eta^2 and Cohen's f are appended as columns.</p></td>
+      <td><p>If <code>TRUE</code> (default), effect sizes
+partial eta^2 and Cohen's f are appended as columns.</p></td>
+    </tr>
+    <tr>
+      <th>show_power</th>
+      <td><p>(Experimental) If <code>TRUE</code> (default), power is calculated
+via pwr::pwr.f2.test and appended as a column.</p></td>
     </tr>
     <tr>
       <th>factorize</th>
@@ -140,20 +147,24 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <pre class="examples"><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;        term  df   sumsq   meansq statistic      p.value eta.sq.part  cohens.f
 #&gt; 1  jahrgang   2  536.28 268.1400  26.47825 3.813958e-11   0.1765473 0.4630322
 #&gt; 2 Residuals 247 2501.32  10.1268        NA           NA          NA        NA
-#&gt; 3     Total 249 3037.60 278.2668        NA           NA          NA        NA</div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;              term  df    sumsq     meansq   statistic      p.value  eta.sq.part
+#&gt; 3     Total 249 3037.60 278.2668        NA           NA          NA        NA
+#&gt;       power
+#&gt; 1 0.9999996
+#&gt; 2        NA
+#&gt; 3        NA</div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;              term  df    sumsq     meansq   statistic      p.value  eta.sq.part
 #&gt; 1          geschl   1    0.144   0.144000  0.01460883 9.038958e-01 5.986869e-05
 #&gt; 2        jahrgang   2  536.280 268.140000 27.20286722 2.163140e-11 1.823213e-01
 #&gt; 3 jahrgang:geschl   2   96.056  48.028000  4.87245210 8.415591e-03 3.840433e-02
 #&gt; 4       Residuals 244 2405.120   9.857049          NA           NA           NA
 #&gt; 5           Total 249 3037.600 326.169049          NA           NA           NA
-#&gt;      cohens.f
-#&gt; 1 0.007737718
-#&gt; 2 0.472201569
-#&gt; 3 0.199845270
-#&gt; 4          NA
-#&gt; 5          NA</div><div class='input'>
+#&gt;      cohens.f      power
+#&gt; 1 0.007737718 0.05167563
+#&gt; 2 0.472201569 0.99999977
+#&gt; 3 0.199845270 0.80472634
+#&gt; 4          NA         NA
+#&gt; 5          NA         NA</div><div class='input'>
 <span class='co'># Other types of sums</span>
-<span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 1: **Two-Way ANOVA**: Using Type II Sum of Squares
+<span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 4: **Two-Way ANOVA**: Using Type II Sum of Squares
 #&gt; 
 #&gt;              Term  df      SS     MS    F       p $\\eta_\\text{part}^2$
 #&gt; 1          geschl   1    0.14   0.14 0.01     0.9                      0
@@ -161,14 +172,14 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt; 3 jahrgang:geschl   2   96.06  48.03 4.87  &lt; 0.01                   0.04
 #&gt; 4       Residuals 244 2405.12   9.86                                    
 #&gt; 5           Total 249  3037.6 326.17                                    
-#&gt;   Cohen's f
-#&gt; 1      0.01
-#&gt; 2      0.47
-#&gt; 3       0.2
-#&gt; 4          
-#&gt; 5          
+#&gt;   Cohen's f Power
+#&gt; 1      0.01  0.05
+#&gt; 2      0.47     1
+#&gt; 3       0.2   0.8
+#&gt; 4                
+#&gt; 5                
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 2: **Two-Way ANOVA**: Using Type III Sum of Squares
+#&gt; </div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 5: **Two-Way ANOVA**: Using Type III Sum of Squares
 #&gt; 
 #&gt;              Term  df      SS    MS    F      p $\\eta_\\text{part}^2$
 #&gt; 1          geschl   1    7.29  7.29 0.74   0.39                      0
@@ -176,12 +187,12 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt; 3 jahrgang:geschl   2   96.06 48.03 4.87 &lt; 0.01                   0.04
 #&gt; 4       Residuals 244 2405.12  9.86                                   
 #&gt; 5           Total 249 2604.11   113                                   
-#&gt;   Cohen's f
-#&gt; 1      0.06
-#&gt; 2       0.2
-#&gt; 3       0.2
-#&gt; 4          
-#&gt; 5          
+#&gt;   Cohen's f Power
+#&gt; 1      0.06  0.14
+#&gt; 2       0.2   0.8
+#&gt; 3       0.2   0.8
+#&gt; 4                
+#&gt; 5                
 #&gt; 
 #&gt; </div></pre>
   </div>

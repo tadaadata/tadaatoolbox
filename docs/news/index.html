@@ -136,6 +136,11 @@
 <li>now auto-factorizes independent variables by default, fixes #24.</li>
 <li>now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
 <li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
+<li>Added <code>show_power</code> argument to calculate power via <code>pwr::pwr.f2.test</code>.
+<ul>
+<li>Requires more testing against software like G*power to ensure accuracy.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -143,16 +148,19 @@
 <ul>
 <li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.
 <ul>
-<li>Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$</li>
+<li>Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$.</li>
+<li>Use new argument <code>var.equal</code> to override interal Levene test.</li>
 </ul>
 </li>
-<li>Power should now be properly reported for <code>alternative = "less"</code> or <code>greater</code>.
-<ul>
-<li>
-<code>effect_size_t</code> now doesn’t return the absolute effect size by default.</li>
-</ul>
-</li>
+<li>Power should now be properly reported for <code>alternative = "less"</code> or <code>greater</code>.</li>
 <li>Added <code>conf.level</code> argument used for CI and power calculations</li>
+<li>
+<code>effect_size_t</code>:
+<ul>
+<li>Now doesn’t return the absolute effect size by default.</li>
+<li>Added <code>paired</code> argument so effects for paired tests are now a thing.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -174,9 +182,9 @@
 <li>Improved <code>print = markdown</code> output of <code>tadaa_aov</code>, <code>tadaa_t.test</code>, <code>tadaa_wilcoxon</code>, <code>tadaa_one_sample</code>, <code>tadaa_kruskal</code>. Unfortunately <code>print = "console"</code> now has headers with unparsed $\LaTeX$-expressions, but who uses that anyway.</li>
 </ul>
 </div>
-<div id="depracations" class="section level2">
+<div id="deprecations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#depracations" class="anchor"></a>Depracations</h2>
+<a href="#deprecations" class="anchor"></a>Deprecations</h2>
 <ul>
 <li>
 <code>labels_to_factor</code>: Was a wrapper around <code>haven::as_factor</code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
