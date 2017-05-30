@@ -133,8 +133,9 @@
 <li>
 <code>tadaa_aov</code>:
 <ul>
-<li>now auto-factorizes independent variables by default, fixes #24.</li>
-<li>now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
+<li>Default <code>type</code> is now <code>3</code>, for generally safer results.</li>
+<li>Now auto-factorizes independent variables by default, fixes #24.</li>
+<li>Now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
 <li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
 <li>Added <code>show_power</code> argument to calculate power via <code>pwr::pwr.f2.test</code>.
 <ul>
