@@ -39,6 +39,13 @@ On of the first implemented functions, `tadaa_t.test`, automagically checks for 
 tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
 ```
 
+Or, if you're having a non-parametric day, try this:
+
+```{r wilcox}
+tadaa_wilcoxon(ngo, stunzahl, geschl, print = "markdown")
+```
+
+
 ## ANOVA: `tadaa_aov`
 
 The function knows 3 types of sums of squares, adjustable via the `type` argument and defaulting to type 3 sums of squares. Additionally for type 3, the function also automatically checks the contrasts associated with the factor variables (only for unordered factors), and if `check_names = TRUE`, the contrasts are set to `contr.sum`.
@@ -46,6 +53,13 @@ The function knows 3 types of sums of squares, adjustable via the `type` argumen
 ```{r anova}
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, print = "markdown")
 ```
+
+Or, if you're still unsure about the parametricity of your day:
+
+```{r kruskal}
+tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
+```
+
 
 ## Pairwise tests
 
@@ -122,9 +136,18 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 ```{r confint}
 library(ggplot2)
 
-ggplot(data = ngo, aes(x = jahrgang, y = stunzahl)) +
-  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
+ggplot(data = ngo, aes(x = jahrgang, y = deutsch)) +
+  stat_summary(fun.data = "mean_ci_t", geom = "errorbar") +
+  theme_tadaa()
 ```
+
+As a convenience, we added `tadaa_mean_ci` to quickly plot means with errorbars to get a quick glance at your data.
+
+```{r mean_ci_plot}
+tadaa_mean_ci(data = ngo, response = deutsch, group = jahrgang) +
+  theme_tadaa()
+```
+
 
 ### Prebuilt plotting functions
 
