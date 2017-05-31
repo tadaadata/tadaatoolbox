@@ -51,6 +51,7 @@ Tidy test output
 -   `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.
 -   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
 -   `tadaa_wilcoxon`: A wrapper for `wilcox.test` tidied and optionally `pixiedust`ed.
+-   `tadaa_levene`: Wrapper for `car::leveneTest` tidied and optionally `pixiedust`ed.
 -   `tadaa_normtest` lets you do tests for normality (4 methods) over multiple variables.
 -   `tadaa_pairwise_t`, `tadaa_pairwise_gh` and `tadaa_pairwise_tukey` for various pairwise procedures.
 
@@ -76,9 +77,7 @@ Misc. helpers
 
 -   `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
 -   `interval_labels`: To produce labels for clusters created by `cut`.
--   `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
--   `delet_na`: Customizable way to drop `NA` observations from a dataset.
--   `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
+-   `delete_na`: Customizable way to drop `NA` observations from a dataset.
 -   `pval_string`: Shamelessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
 Helpers for plots
