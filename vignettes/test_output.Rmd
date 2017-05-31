@@ -1,13 +1,16 @@
 ---
-title: "Output Tests"
+title: "Markdown Test Output"
+author: "Lukas Burk"
+date: "`r format(Sys.time(), '%F', tz = 'UTC', usetz = T)`"
 output: 
-  html_document: 
-    fig_caption: yes
-    number_sections: yes
+  rmarkdown::html_vignette:
     toc: yes
-editor_options: 
-  chunk_output_type: console
+vignette: >
+  %\VignetteIndexEntry{Markdown Test Output}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
