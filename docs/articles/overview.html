@@ -68,6 +68,7 @@
 <div class="contents">
 <p>This toolbox has been compiled to make the intro to R and statistics with R a little easier.<br>
 Besides that, it also contains some neat helper functions for tasks or problems one might run in frequently in our field.</p>
+<p>A neat overview of functions and stuff can be found <a href="http://tadaatoolbox.tadaa-data.de/">on tadaatoolbox.tadaa-data.de</a></p>
 <div id="high-level-functions" class="section level1">
 <h1 class="hasAnchor">
 <a href="#high-level-functions" class="anchor"></a>High Level Functions</h1>
@@ -129,13 +130,37 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </table>
 <p><br></p>
 <p><br></p>
+<p>Or, if you’re having a non-parametric day, try this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_wilcoxon.html">tadaa_wilcoxon</a></span>(ngo, stunzahl, geschl, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<p>Table 2: <strong>Wilcoxon rank sum test with continuity correction</strong> with alternative hypothesis: <span class="math inline">\(M_1 \neq M_2\)</span></p>
+<table class="table">
+<thead><tr class="header">
+<th align="center">Difference</th>
+<th align="center">
+<span class="math inline">\(M_1\)</span> Männlich</th>
+<th align="center">
+<span class="math inline">\(M_2\)</span> Weiblich</th>
+<th align="center">W</th>
+<th align="center">p</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center">-1</td>
+<td align="center">33</td>
+<td align="center">34</td>
+<td align="center">7079.5</td>
+<td align="center">0.19</td>
+</tr></tbody>
+</table>
+<p><br></p>
+<p><br></p>
 </div>
 <div id="anova-tadaa_aov" class="section level2">
 <h2 class="hasAnchor">
 <a href="#anova-tadaa_aov" class="anchor"></a>ANOVA: <code>tadaa_aov</code>
 </h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>geschl, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
-<p>Table 2: <strong>One-Way ANOVA</strong>: Using Type III Sum of Squares</p>
+<p>The function knows 3 types of sums of squares, adjustable via the <code>type</code> argument and defaulting to type 3 sums of squares. Additionally for type 3, the function also automatically checks the contrasts associated with the factor variables (only for unordered factors), and if <code>check_names = TRUE</code>, the contrasts are set to <code>contr.sum</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>jahrgang <span class="op">*</span><span class="st"> </span>geschl, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<p>Table 3: <strong>Two-Way ANOVA</strong>: Using Type III Sum of Squares</p>
 <table class="table">
 <thead><tr class="header">
 <th align="center">Term</th>
@@ -144,7 +169,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <th align="center">MS</th>
 <th align="center">F</th>
 <th align="center">p</th>
-<th align="center"><span class="math inline">\(\eta^2\)</span></th>
+<th align="center"><span class="math inline">\(\eta_\text{part}^2\)</span></th>
 <th align="center">Cohen’s f</th>
 <th align="center">Power</th>
 </tr></thead>
@@ -152,19 +177,41 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <tr class="odd">
 <td align="center">geschl</td>
 <td align="center">1</td>
-<td align="center">0.14</td>
-<td align="center">0.14</td>
-<td align="center">0.01</td>
-<td align="center">0.91</td>
+<td align="center">7.29</td>
+<td align="center">7.29</td>
+<td align="center">0.74</td>
+<td align="center">0.39</td>
 <td align="center">0</td>
-<td align="center">0.01</td>
-<td align="center">0.05</td>
+<td align="center">0.06</td>
+<td align="center">0.14</td>
+</tr>
+<tr class="even">
+<td align="center">jahrgang</td>
+<td align="center">2</td>
+<td align="center">536.28</td>
+<td align="center">268.14</td>
+<td align="center">27.2</td>
+<td align="center">&lt; 0.001</td>
+<td align="center">0.18</td>
+<td align="center">0.47</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">jahrgang:geschl</td>
+<td align="center">2</td>
+<td align="center">96.06</td>
+<td align="center">48.03</td>
+<td align="center">4.87</td>
+<td align="center">&lt; 0.01</td>
+<td align="center">0.04</td>
+<td align="center">0.2</td>
+<td align="center">0.8</td>
 </tr>
 <tr class="even">
 <td align="center">Residuals</td>
-<td align="center">248</td>
-<td align="center">3037.46</td>
-<td align="center">12.25</td>
+<td align="center">244</td>
+<td align="center">2405.12</td>
+<td align="center">9.86</td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -174,8 +221,8 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <tr class="odd">
 <td align="center">Total</td>
 <td align="center">249</td>
-<td align="center">3037.6</td>
-<td align="center">12.39</td>
+<td align="center">3044.75</td>
+<td align="center">333.32</td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -186,6 +233,167 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </table>
 <p><br></p>
 <p><br></p>
+<p>Or, if you’re still unsure about the parametricity of your day:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_kruskal.html">tadaa_kruskal</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>jahrgang, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<p>Table 4: <strong>Kruskal-Wallis Rank Sum Test</strong></p>
+<table class="table">
+<thead><tr class="header">
+<th align="center"><span class="math inline">\(\chi^2\)</span></th>
+<th align="center">df</th>
+<th align="center">p</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center">20.89</td>
+<td align="center">2</td>
+<td align="center">&lt; 0.001</td>
+</tr></tbody>
+</table>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="pairwise-tests" class="section level2">
+<h2 class="hasAnchor">
+<a href="#pairwise-tests" class="anchor"></a>Pairwise tests</h2>
+<div id="pairwise-t-tests" class="section level3">
+<h3 class="hasAnchor">
+<a href="#pairwise-t-tests" class="anchor"></a>Pairwise t-tests</h3>
+<p>Since we found <code>stats::pairwise.t.test</code> insuffucient in cases of two-way ANOVAs, we wrapped the function to also enable the testing of interactions. The adjusted p-values are only adjusted within each term, so it is like performing <code>stats::pairwise.t.test</code> 3 times with each factor and additionally the interaction of the two factors (which is what the function does internally).</p>
+<p>As a bonus, this functions knows the two additional p-adjustment methods <code>sidak</code> and <code>sidakSD</code> for the Sidak adjustement and the Sidak-like step-down procedure respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(ngo, <span class="dt">response =</span> deutsch, <span class="dt">group1 =</span> jahrgang, <span class="dt">p.adjust =</span> <span class="st">"bonf"</span>, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">comparison</th>
+<th align="right">p (adj.)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">jahrgang</td>
+<td align="left">12 - 11</td>
+<td align="right">&gt; 0.99</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang</td>
+<td align="left">13 - 11</td>
+<td align="right">&lt; 0.01</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang</td>
+<td align="left">13 - 12</td>
+<td align="right">&lt; 0.01</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(ngo, <span class="dt">response =</span> deutsch, <span class="dt">group1 =</span> jahrgang, <span class="dt">group2 =</span> geschl, <span class="dt">p.adjust =</span> <span class="st">"sidakSD"</span>, <span class="dt">print =</span> <span class="st">"markdown"</span>)</code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">comparison</th>
+<th align="right">p (adj.)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">jahrgang</td>
+<td align="left">12 - 11</td>
+<td align="right">0.86</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang</td>
+<td align="left">13 - 11</td>
+<td align="right">&lt; 0.01</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang</td>
+<td align="left">13 - 12</td>
+<td align="right">&lt; 0.01</td>
+</tr>
+<tr class="even">
+<td align="left">geschl</td>
+<td align="left">Weiblich - Männlich</td>
+<td align="right">&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">12 &amp; Männlich - 11 &amp; Männlich</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Männlich - 11 &amp; Männlich</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">11 &amp; Weiblich - 11 &amp; Männlich</td>
+<td align="right">&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">12 &amp; Weiblich - 11 &amp; Männlich</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Weiblich - 11 &amp; Männlich</td>
+<td align="right">&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Männlich - 12 &amp; Männlich</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">11 &amp; Weiblich - 12 &amp; Männlich</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">12 &amp; Weiblich - 12 &amp; Männlich</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Weiblich - 12 &amp; Männlich</td>
+<td align="right">&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">11 &amp; Weiblich - 13 &amp; Männlich</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">12 &amp; Weiblich - 13 &amp; Männlich</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Weiblich - 13 &amp; Männlich</td>
+<td align="right">&lt; 0.05</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">12 &amp; Weiblich - 11 &amp; Weiblich</td>
+<td align="right">0.4</td>
+</tr>
+<tr class="even">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Weiblich - 11 &amp; Weiblich</td>
+<td align="right">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">jahrgang:geschl</td>
+<td align="left">13 &amp; Weiblich - 12 &amp; Weiblich</td>
+<td align="right">&lt; 0.01</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+</div>
 </div>
 <div id="tests-for-normality-tadaa_normtest" class="section level2">
 <h2 class="hasAnchor">
@@ -272,11 +480,7 @@ cols &lt;-<span class="st"> </span>ngo[<span class="kw">c</span>(<span class="st
 <li>
 <code>interval_labels</code>: To produce labels for clusters created by <code>cut</code>.</li>
 <li>
-<code>tadaa_likertize</code>: Reduce a range of values to <code>n</code> classes (methodologically wonky).</li>
-<li>
-<code>delet_na</code>: Customizable way to drop <code>NA</code> observations from a dataset.</li>
-<li>
-<code>drop_labels</code>: If you subset a <code>labelled</code> dataset, you might end up with labels that have no values with them. This function will drop the now unused <code>labels</code>.</li>
+<code>delete_na</code>: Customizable way to drop <code>NA</code> observations from a dataset.</li>
 <li>
 <code>pval_string</code>: Shamalessly adapted from <code>pixiedust::pvalString</code>, this will format a p-value as a character string in common <code>p &lt; 0.001</code> notation and so on. The difference from the <code>pixiedust</code> version is that this function will also print <code>p &lt; 0.05</code>.</li>
 </ul>
@@ -299,9 +503,14 @@ cols &lt;-<span class="st"> </span>ngo[<span class="kw">c</span>(<span class="st
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> ngo, <span class="kw">aes</span>(<span class="dt">x =</span> jahrgang, <span class="dt">y =</span> stunzahl)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> <span class="st">"mean_ci_t"</span>, <span class="dt">geom =</span> <span class="st">"errorbar"</span>)</code></pre></div>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> ngo, <span class="kw">aes</span>(<span class="dt">x =</span> jahrgang, <span class="dt">y =</span> deutsch)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> <span class="st">"mean_ci_t"</span>, <span class="dt">geom =</span> <span class="st">"errorbar"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</code></pre></div>
 <p><img src="overview_files/figure-html/confint-1.png" width="672"></p>
+<p>As a convenience, we added <code>tadaa_mean_ci</code> to quickly plot means with errorbars to get a quick glance at your data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/tadaa_mean_ci.html">tadaa_mean_ci</a></span>(<span class="dt">data =</span> ngo, <span class="dt">response =</span> deutsch, <span class="dt">group =</span> jahrgang) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</code></pre></div>
+<p><img src="overview_files/figure-html/mean_ci_plot-1.png" width="672"></p>
 <div id="prebuilt-plotting-functions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#prebuilt-plotting-functions" class="anchor"></a>Prebuilt plotting functions</h3>
@@ -359,6 +568,7 @@ ngo &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw
 <a href="#high-level-functions">High Level Functions</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#t-tests-tadaa_t.test">t-Tests: <code>tadaa_t.test</code></a></li>
       <li><a href="#anova-tadaa_aov">ANOVA: <code>tadaa_aov</code></a></li>
+      <li><a href="#pairwise-tests">Pairwise tests</a></li>
       <li><a href="#tests-for-normality-tadaa_normtest">Tests for normality: <code>tadaa_normtest</code></a></li>
       </ul>
 </li>

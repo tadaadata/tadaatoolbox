@@ -8,8 +8,19 @@ cat(paste0("- **", apropos("tadaa_"), "**", collapse = "\n"))
 ## ----t-test--------------------------------------------------------------
 tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
 
+## ----wilcox--------------------------------------------------------------
+tadaa_wilcoxon(ngo, stunzahl, geschl, print = "markdown")
+
 ## ----anova---------------------------------------------------------------
-tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, print = "markdown")
+
+## ----kruskal-------------------------------------------------------------
+tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
+
+## ----pairw_t-------------------------------------------------------------
+tadaa_pairwise_t(ngo, response = deutsch, group1 = jahrgang, p.adjust = "bonf", print = "markdown")
+
+tadaa_pairwise_t(ngo, response = deutsch, group1 = jahrgang, group2 = geschl, p.adjust = "sidakSD", print = "markdown")
 
 ## ----normtest, eval=FALSE------------------------------------------------
 #  library(dplyr)
@@ -21,8 +32,13 @@ tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
 ## ----confint-------------------------------------------------------------
 library(ggplot2)
 
-ggplot(data = ngo, aes(x = jahrgang, y = stunzahl)) +
-  stat_summary(fun.data = "mean_ci_t", geom = "errorbar")
+ggplot(data = ngo, aes(x = jahrgang, y = deutsch)) +
+  stat_summary(fun.data = "mean_ci_t", geom = "errorbar") +
+  theme_tadaa()
+
+## ----mean_ci_plot--------------------------------------------------------
+tadaa_mean_ci(data = ngo, response = deutsch, group = jahrgang) +
+  theme_tadaa()
 
 ## ----tadaa_int, fig.width=6----------------------------------------------
 library(ggplot2)

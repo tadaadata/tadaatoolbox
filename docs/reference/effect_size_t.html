@@ -126,14 +126,15 @@ t-test, default is <code>FALSE</code>.</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The effect size here is Cohen's d as calculated by
-\(d = \frac{m_{diff}}{D_p}\), where \(m_{diff} = \bar{x_1} - \bar{x_1}\) and
+\(d = \frac{m_{diff}}{S_p}\), where \(m_{diff} = \bar{x}_1 - \bar{x}_2\) and
 \(S_p =
   \sqrt{
     \frac{n_1 - 1 \cdot {s_{x_1}}^2 + n_2 - 1 \cdot {s_{x_2}}^2}
     {n_1 + n_2 - 2}
   }
 \).</p>
-<p>For <code>paired = TRUE</code>, \(S_p\) is substituted by \(S_D = S_{x-y}\) via <code>sd(x - y)</code>.</p>
+<p>For <code>paired = TRUE</code>, \(S_p\) is substituted by \(S_D = S_{x_1 - x_2}\)
+via <code>sd(x1 - x2)</code>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
