@@ -162,15 +162,19 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;     estimate estimate1 estimate2 statistic         se parameter    conf.low
-#&gt; 1 0.04084413 0.5560931  0.515249  0.775392 0.05267546        98 -0.06368861
-#&gt;   conf.high   p.value         d     power             method alternative
-#&gt; 1 0.1453769 0.4399752 0.1582762 0.1197895  Two Sample t-test   two.sided</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;          estimate      estimate1      estimate2      statistic             se
+#&gt; 1 0.0408441279761 0.556093102194 0.515248974218 0.775391953267 0.052675460203
+#&gt;   parameter         conf.low    conf.high        p.value             d
+#&gt; 1        98 -0.0636886084481 0.1453768644 0.439975154795 0.15827621968
+#&gt;            power             method alternative
+#&gt; 1 0.119789511551  Two Sample t-test   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;       estimate estimate1 estimate2   statistic         se parameter   conf.low
-#&gt; 1 -0.004614406 0.5607142 0.5653286 -0.08090487 0.05703497        49 -0.1192305
-#&gt;   conf.high   p.value           d      power        method alternative
-#&gt; 1 0.1100017 0.9358472 -0.01144168 0.05072124 Paired t-test   two.sided</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;           estimate      estimate1      estimate2        statistic
+#&gt; 1 -0.0046144064154 0.560714220833 0.565328627249 -0.0809048673406
+#&gt;                se parameter        conf.low      conf.high        p.value
+#&gt; 1 0.0570349667095        49 -0.119230463165 0.110001650334 0.935847164515
+#&gt;                  d           power        method alternative
+#&gt; 1 -0.0114416760655 0.0507212434499 Paired t-test   two.sided</div><div class='input'>
 <span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 3: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
 #&gt; 
 #&gt;    Diff $\\mu_1$ Männlich $\\mu_2$ Weiblich     t   SE  df    $CI_{95\\%}$

@@ -140,46 +140,46 @@ passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprin
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><div class='output co'>#&gt;               term              comparison estimate    conf.low conf.high
-#&gt; 1         jahrgang                   12-11    0.050 -0.58970259 0.6897026
-#&gt; 2         jahrgang                   13-11    1.170  0.38652753 1.9534725
-#&gt; 3         jahrgang                   13-12    1.120  0.33652753 1.9034725
-#&gt; 4           geschl       Weiblich-Männlich    1.032  0.55406669 1.5099333
-#&gt; 5  jahrgang:geschl 12:Männlich-11:Männlich    0.740 -0.36202398 1.8420240
-#&gt; 6  jahrgang:geschl 13:Männlich-11:Männlich    1.160 -0.18969822 2.5096982
-#&gt; 7  jahrgang:geschl 11:Weiblich-11:Männlich    1.580  0.47797602 2.6820240
-#&gt; 8  jahrgang:geschl 12:Weiblich-11:Männlich    0.940 -0.16202398 2.0420240
-#&gt; 9  jahrgang:geschl 13:Weiblich-11:Männlich    2.760  1.41030178 4.1096982
-#&gt; 10 jahrgang:geschl 13:Männlich-12:Männlich    0.420 -0.92969822 1.7696982
-#&gt; 11 jahrgang:geschl 11:Weiblich-12:Männlich    0.840 -0.26202398 1.9420240
-#&gt; 12 jahrgang:geschl 12:Weiblich-12:Männlich    0.200 -0.90202398 1.3020240
-#&gt; 13 jahrgang:geschl 13:Weiblich-12:Männlich    2.020  0.67030178 3.3696982
-#&gt; 14 jahrgang:geschl 11:Weiblich-13:Männlich    0.420 -0.92969822 1.7696982
-#&gt; 15 jahrgang:geschl 12:Weiblich-13:Männlich   -0.220 -1.56969822 1.1296982
-#&gt; 16 jahrgang:geschl 13:Weiblich-13:Männlich    1.600  0.04150274 3.1584973
-#&gt; 17 jahrgang:geschl 12:Weiblich-11:Weiblich   -0.640 -1.74202398 0.4620240
-#&gt; 18 jahrgang:geschl 13:Weiblich-11:Weiblich    1.180 -0.16969822 2.5296982
-#&gt; 19 jahrgang:geschl 13:Weiblich-12:Weiblich    1.820  0.47030178 3.1696982
-#&gt;     adj.p.value
-#&gt; 1  9.814478e-01
-#&gt; 2  1.481194e-03
-#&gt; 3  2.499830e-03
-#&gt; 4  3.003890e-05
-#&gt; 5  3.870699e-01
-#&gt; 6  1.375805e-01
-#&gt; 7  7.363471e-04
-#&gt; 8  1.434668e-01
-#&gt; 9  2.068475e-07
-#&gt; 10 9.477117e-01
-#&gt; 11 2.464108e-01
-#&gt; 12 9.952998e-01
-#&gt; 13 3.542060e-04
-#&gt; 14 9.477117e-01
-#&gt; 15 9.971716e-01
-#&gt; 16 4.040344e-02
-#&gt; 17 5.541608e-01
-#&gt; 18 1.248016e-01
-#&gt; 19 1.897963e-03</div><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: attributes are not identical across measure variables; they will be dropped</span></div><div class='output co'>#&gt;       Term Comparison Diff CI_low CI_high p (adj.)
+    <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><div class='output co'>#&gt;               term              comparison estimate         conf.low
+#&gt; 1         jahrgang                   12-11    0.050 -0.5897025931261
+#&gt; 2         jahrgang                   13-11    1.170  0.3865275298529
+#&gt; 3         jahrgang                   13-12    1.120  0.3365275298529
+#&gt; 4           geschl       Weiblich-Männlich    1.032  0.5540666948626
+#&gt; 5  jahrgang:geschl 12:Männlich-11:Männlich    0.740 -0.3620239800300
+#&gt; 6  jahrgang:geschl 13:Männlich-11:Männlich    1.160 -0.1896982176922
+#&gt; 7  jahrgang:geschl 11:Weiblich-11:Männlich    1.580  0.4779760199700
+#&gt; 8  jahrgang:geschl 12:Weiblich-11:Männlich    0.940 -0.1620239800300
+#&gt; 9  jahrgang:geschl 13:Weiblich-11:Männlich    2.760  1.4103017823078
+#&gt; 10 jahrgang:geschl 13:Männlich-12:Männlich    0.420 -0.9296982176922
+#&gt; 11 jahrgang:geschl 11:Weiblich-12:Männlich    0.840 -0.2620239800300
+#&gt; 12 jahrgang:geschl 12:Weiblich-12:Männlich    0.200 -0.9020239800300
+#&gt; 13 jahrgang:geschl 13:Weiblich-12:Männlich    2.020  0.6703017823078
+#&gt; 14 jahrgang:geschl 11:Weiblich-13:Männlich    0.420 -0.9296982176922
+#&gt; 15 jahrgang:geschl 12:Weiblich-13:Männlich   -0.220 -1.5696982176922
+#&gt; 16 jahrgang:geschl 13:Weiblich-13:Männlich    1.600  0.0415027413813
+#&gt; 17 jahrgang:geschl 12:Weiblich-11:Weiblich   -0.640 -1.7420239800300
+#&gt; 18 jahrgang:geschl 13:Weiblich-11:Weiblich    1.180 -0.1696982176922
+#&gt; 19 jahrgang:geschl 13:Weiblich-12:Weiblich    1.820  0.4703017823078
+#&gt;         conf.high       adj.p.value
+#&gt; 1  0.689702593126 9.81447753429e-01
+#&gt; 2  1.953472470147 1.48119440363e-03
+#&gt; 3  1.903472470147 2.49982979842e-03
+#&gt; 4  1.509933305137 3.00388975241e-05
+#&gt; 5  1.842023980030 3.87069885176e-01
+#&gt; 6  2.509698217692 1.37580520957e-01
+#&gt; 7  2.682023980030 7.36347059978e-04
+#&gt; 8  2.042023980030 1.43466787839e-01
+#&gt; 9  4.109698217692 2.06847479922e-07
+#&gt; 10 1.769698217692 9.47711705732e-01
+#&gt; 11 1.942023980030 2.46410825000e-01
+#&gt; 12 1.302023980030 9.95299813499e-01
+#&gt; 13 3.369698217692 3.54206016988e-04
+#&gt; 14 1.769698217692 9.47711705732e-01
+#&gt; 15 1.129698217692 9.97171561397e-01
+#&gt; 16 3.158497258619 4.04034427567e-02
+#&gt; 17 0.462023980030 5.54160770911e-01
+#&gt; 18 2.529698217692 1.24801639876e-01
+#&gt; 19 3.169698217692 1.89796345526e-03</div><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: attributes are not identical across measure variables; they will be dropped</span></div><div class='output co'>#&gt;       Term Comparison Diff CI_low CI_high p (adj.)
 #&gt; 1 jahrgang      12-11 0.05 -0.619   0.719     0.98
 #&gt; 2 jahrgang      13-11 1.17  0.351   1.989   &lt; 0.01
 #&gt; 3 jahrgang      13-12 1.12  0.301   1.939   &lt; 0.01
