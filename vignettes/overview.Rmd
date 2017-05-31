@@ -19,6 +19,8 @@ knitr::opts_chunk$set(message = F, warning = F)
 This toolbox has been compiled to make the intro to R and statistics with R a little easier.  
 Besides that, it also contains some neat helper functions for tasks or problems one might run in frequently in our field.
 
+A neat overview of functions and stuff can be found [on tadaatoolbox.tadaa-data.de](http://tadaatoolbox.tadaa-data.de/)
+
 # High Level Functions
 
 There are several high level functions aimed at quick output generation:
@@ -39,9 +41,26 @@ tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")
 
 ## ANOVA: `tadaa_aov`
 
+The function knows 3 types of sums of squares, adjustable via the `type` argument and defaulting to type 3 sums of squares. Additionally for type 3, the function also automatically checks the contrasts associated with the factor variables (only for unordered factors), and if `check_names = TRUE`, the contrasts are set to `contr.sum`.
+
 ```{r anova}
-tadaa_aov(stunzahl ~ geschl, data = ngo, print = "markdown")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, print = "markdown")
 ```
+
+## Pairwise tests
+
+### Pairwise t-tests
+
+Since we found `stats::pairwise.t.test` insuffucient in cases of two-way ANOVAs, we wrapped the function to also enable the testing of interactions. The adjusted p-values are only adjusted within each term, so it is like performing `stats::pairwise.t.test` 3 times with each factor and additionally the interaction of the two factors (which is what the function does internally).
+
+As a bonus, this functions knows the two additional p-adjustment methods `sidak` and `sidakSD` for the Sidak adjustement and the Sidak-like step-down procedure respectively.
+
+```{r pairw_t}
+tadaa_pairwise_t(ngo, response = deutsch, group1 = jahrgang, p.adjust = "bonf", print = "markdown")
+
+tadaa_pairwise_t(ngo, response = deutsch, group1 = jahrgang, group2 = geschl, p.adjust = "sidakSD", print = "markdown")
+```
+
 
 ## Tests for normality: `tadaa_normtest`
 
