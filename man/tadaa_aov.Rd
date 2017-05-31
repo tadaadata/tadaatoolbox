@@ -35,12 +35,13 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 }
 \description{
 Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
-optionally displays effect sizes ((partial )\eqn{\eta^2}, Cohen's f) and
+optionally displays effect sizes ((partial) \eqn{\eta^2}, Cohen's f) and
 power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
-If a specified independent variable is not properly encoded as a \code{factor}, it is
-automatically converted if \code{factorize = TRUE} to ensure valid results.
 }
 \details{
+If a specified independent variable is not properly encoded as a \code{factor}, it is
+automatically converted if \code{factorize = TRUE} to ensure valid results.
+
 If \code{type = 3} and \code{check_contrasts = TRUE}, the \code{"contrasts"} of
 each non-ordered factor will be checked and set to \code{contr.sum} to ensure the function
 yields usable results. It is highly recommended to only use \code{check_contrasts = FALSE}
@@ -50,9 +51,9 @@ for debugging or educational purposes.
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 
-# Other types of sums
+# Other types of sums and print options
 \dontrun{
-tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 2, print = "console")
+tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 1, print = "console")
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo,
           type = 3, check_contrasts = FALSE, print = "console")

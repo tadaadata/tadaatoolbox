@@ -84,15 +84,13 @@
 
     
     <p>Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
-optionally displays effect sizes (\(\eta^2\), \(\eta_{\text{part}}^2\), Cohen's f) and
-power (calulcated via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr.f2.test</a> to work with unbalanced designs).
-If a specified independent variable is not properly encoded as a <code>factor</code>, it is
-automatically converted if <code>factorize = TRUE</code> to ensure valid results.</p>
+optionally displays effect sizes ((partial) \(\eta^2\), Cohen's f) and
+power (calculated via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr.f2.test</a> to work with unbalanced designs).</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_aov</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>show_effect_size</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>show_power</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>factorize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>,
-  <span class='st'>"console"</span>, <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
+  <span class='kw'>show_power</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>factorize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>check_contrasts</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -125,6 +123,11 @@ will automatically converted via <code>as.factor</code>, so beware of your input
       <td><p>Which type of SS to use. Default is <code>3</code>, can also be <code>1</code> or <code>2</code>.</p></td>
     </tr>
     <tr>
+      <th>check_contrasts</th>
+      <td><p>Only applies to <code>type = 3</code>. If <code>TRUE</code> (default),
+the <code>contrasts</code> of each non-ordered <code>factor</code> are set to <code>"contr.sum"</code>.</p></td>
+    </tr>
+    <tr>
       <th>print</th>
       <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
 Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
@@ -134,6 +137,15 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>data.frame</code> by default, otherwise <code>dust</code> object, depending on <code>print</code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If a specified independent variable is not properly encoded as a <code>factor</code>, it is
+automatically converted if <code>factorize = TRUE</code> to ensure valid results.</p>
+<p>If <code>type = 3</code> and <code>check_contrasts = TRUE</code>, the <code>"contrasts"</code> of
+each non-ordered factor will be checked and set to <code>contr.sum</code> to ensure the function
+yields usable results. It is highly recommended to only use <code>check_contrasts = FALSE</code>
+for debugging or educational purposes.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -155,50 +167,25 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt;       power
 #&gt; 1 0.9999996
 #&gt; 2        NA
-#&gt; 3        NA</div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;              term  df    sumsq     meansq statistic     p.value eta.sq.part
-#&gt; 1          geschl   1    7.290   7.290000 0.7395722 0.390642106 0.003021874
-#&gt; 2        jahrgang   2   95.648  47.824000 4.8517563 0.008584762 0.038247450
-#&gt; 3 jahrgang:geschl   2   96.056  48.028000 4.8724521 0.008415591 0.038404335
-#&gt; 4       Residuals 244 2405.120   9.857049        NA          NA          NA
-#&gt; 5           Total 249 2604.114 112.999049        NA          NA          NA
+#&gt; 3        NA</div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;              term  df    sumsq     meansq  statistic      p.value eta.sq.part
+#&gt; 1          geschl   1    7.290   7.290000  0.7395722 3.906421e-01 0.003021874
+#&gt; 2        jahrgang   2  536.280 268.140000 27.2028672 2.163140e-11 0.182321344
+#&gt; 3 jahrgang:geschl   2   96.056  48.028000  4.8724521 8.415591e-03 0.038404335
+#&gt; 4       Residuals 244 2405.120   9.857049         NA           NA          NA
+#&gt; 5           Total 249 3044.746 333.315049         NA           NA          NA
 #&gt;     cohens.f     power
 #&gt; 1 0.05505483 0.1380977
-#&gt; 2 0.19942039 0.8029492
+#&gt; 2 0.47220157 0.9999998
 #&gt; 3 0.19984527 0.8047263
 #&gt; 4         NA        NA
 #&gt; 5         NA        NA</div><div class='input'>
-<span class='co'># Other types of sums</span>
-<span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 1: **Two-Way ANOVA**: Using Type II Sum of Squares
-#&gt; 
-#&gt;              Term  df      SS     MS    F       p $\\eta_\\text{part}^2$
-#&gt; 1          geschl   1    0.14   0.14 0.01     0.9                      0
-#&gt; 2        jahrgang   2  536.28 268.14 27.2 &lt; 0.001                   0.18
-#&gt; 3 jahrgang:geschl   2   96.06  48.03 4.87  &lt; 0.01                   0.04
-#&gt; 4       Residuals 244 2405.12   9.86                                    
-#&gt; 5           Total 249  3037.6 326.17                                    
-#&gt;   Cohen's f Power
-#&gt; 1      0.01  0.05
-#&gt; 2      0.47     1
-#&gt; 3       0.2   0.8
-#&gt; 4                
-#&gt; 5                
-#&gt; 
-#&gt; </div><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 2: **Two-Way ANOVA**: Using Type III Sum of Squares
-#&gt; 
-#&gt;              Term  df      SS    MS    F      p $\\eta_\\text{part}^2$
-#&gt; 1          geschl   1    7.29  7.29 0.74   0.39                      0
-#&gt; 2        jahrgang   2   95.65 47.82 4.85 &lt; 0.01                   0.04
-#&gt; 3 jahrgang:geschl   2   96.06 48.03 4.87 &lt; 0.01                   0.04
-#&gt; 4       Residuals 244 2405.12  9.86                                   
-#&gt; 5           Total 249 2604.11   113                                   
-#&gt;   Cohen's f Power
-#&gt; 1      0.06  0.14
-#&gt; 2       0.2   0.8
-#&gt; 3       0.2   0.8
-#&gt; 4                
-#&gt; 5                
-#&gt; 
-#&gt; </div></pre>
+<span class='co'># Other types of sums and print options</span>
+<span class='fu'>not_run</span>({
+  <span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)
+  <span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)
+  <span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>,
+            <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>check_contrasts</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -206,6 +193,8 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

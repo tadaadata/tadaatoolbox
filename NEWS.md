@@ -12,6 +12,7 @@
 - Add `tadaa_plot_tukey` to plot Tukey HSD results as error bars because boy do I like error bars.
 - Re-exports:
     - `%>%` from `magrittr` as all the cool kids to these days.
+    - `%<>%` from `magrittr` because I happen to really like it.
     - `[sg]et_label[s]`and `word_wrap` from `sjmisc`, as they're handy.
     - `as_factor` from `haven` as a replacement for the deprecated `labels_to_factor`.
 
@@ -21,7 +22,7 @@
     - is now an alias for `theme_readthedown`, will probably become the new canonical version.
     - now finally adds vertical space to the `x` axis title via proper margining.
 - `tadaa_aov`:
-    - Default `type` is now `3`, for generally safer results.
+    - Default `type` is now `3`, for generally safer results and consistency with SPSS.
     - Added `check_contrasts` option for `type = 3` sums of squares, which ensures each non-ordered factor has `contr.sum` contrasts
     - Now auto-factorizes independent variables by default, fixes #24.
     - Now imports `methods`, which should fix an issue during `knitr` or `rmarkdown` processing where the function `is` couldn't be found. If not, manually `library(methods)` as a workaround.

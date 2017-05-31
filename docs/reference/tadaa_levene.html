@@ -132,13 +132,13 @@ so if that's selected the header for non-<code>df</code> returns will reflect th
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_levene</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span> ~ <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 3: **Levene\'s Test** for Homogeneity of Variance (**Brown-Forsythe** Adaption)
+    <pre class="examples"><div class='input'><span class='fu'>tadaa_levene</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span> ~ <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 1: **Levene\'s Test** for Homogeneity of Variance (**Brown-Forsythe** Adaption)
 #&gt; 
 #&gt;        Term  df    F    p
 #&gt; 1  jahrgang   2 0.41 0.66
 #&gt; 2 Residuals 247          
 #&gt; 
-#&gt; </div><div class='input'><span class='fu'>tadaa_levene</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 4: **Levene\'s Test** for Homogeneity of Variance (**Brown-Forsythe** Adaption)
+#&gt; </div><div class='input'><span class='fu'>tadaa_levene</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span> ~ <span class='no'>jahrgang</span> * <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 2: **Levene\'s Test** for Homogeneity of Variance (**Brown-Forsythe** Adaption)
 #&gt; 
 #&gt;              Term  df    F    p
 #&gt; 1 jahrgang:geschl   5 0.61 0.69

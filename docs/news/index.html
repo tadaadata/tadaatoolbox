@@ -112,6 +112,8 @@
 <li>
 <code>%&gt;%</code> from <code>magrittr</code> as all the cool kids to these days.</li>
 <li>
+<code>%&lt;&gt;%</code> from <code>magrittr</code> because I happen to really like it.</li>
+<li>
 <code>[sg]et_label[s]</code>and <code>word_wrap</code> from <code>sjmisc</code>, as they’re handy.</li>
 <li>
 <code>as_factor</code> from <code>haven</code> as a replacement for the deprecated <code>labels_to_factor</code>.</li>
@@ -133,7 +135,8 @@
 <li>
 <code>tadaa_aov</code>:
 <ul>
-<li>Default <code>type</code> is now <code>3</code>, for generally safer results.</li>
+<li>Default <code>type</code> is now <code>3</code>, for generally safer results and consistency with SPSS.</li>
+<li>Added <code>check_contrasts</code> option for <code>type = 3</code> sums of squares, which ensures each non-ordered factor has <code>contr.sum</code> contrasts</li>
 <li>Now auto-factorizes independent variables by default, fixes #24.</li>
 <li>Now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
 <li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
