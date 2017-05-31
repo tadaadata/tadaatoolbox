@@ -89,9 +89,7 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 
 * `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
 * `interval_labels`: To produce labels for clusters created by `cut`.
-* `tadaa_likertize`: Reduce a range of values to `n` classes (methodologically wonky).
-* `delet_na`: Customizable way to drop `NA` observations from a dataset.
-* `drop_labels`: If you subset a `labelled` dataset, you might end up with labels that have no values with them. This function will drop the now unused `labels`.
+* `delete_na`: Customizable way to drop `NA` observations from a dataset.
 * `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
 ## Plotting helpers
