@@ -22,7 +22,6 @@ description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tada
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
-![GitHub commits](https://img.shields.io/github/commits-since/tadaadata/tadaatoolbox/0.11.0.svg?maxAge=2592000)
 [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 
