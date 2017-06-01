@@ -3,3 +3,4 @@
 .RData
 
 dev/*html
+inst/doc/*
