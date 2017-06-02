@@ -108,13 +108,13 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
   heat <- as.data.frame(heat)
 
   if (annotate) {
-    anno <- geom_label(aes(label = Freq), stat = "identity",
+    anno <- geom_label(aes_string(label = "Freq"), stat = "identity",
                        fill = "white", alpha = .5, size = 5)
   } else {
     anno <- NULL
   }
 
-  balance <- ggplot(heat, aes(x = Var1, y = Var2, fill = Freq)) +
+  balance <- ggplot(heat, aes_string(x = "Var1", y = "Var2", fill = "Freq")) +
     geom_tile(color = "white", size = 0.75) +
     anno +
     labs(title = paste("Design Balance for", substitute(group1),
