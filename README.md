@@ -93,7 +93,7 @@ Helpers for plots
 ### Plotting templates
 
 -   `tadaa_int`: Simple interaction plot template.
--   `tadaa_heatmap`: Simple heatmap template.
+-   `tadaa_balance`: Simple visualization of grouping design balance.
 -   `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars.
 -   `tadaa_plot_tukey`: For pretty `TukeyHSD` visualization.
 

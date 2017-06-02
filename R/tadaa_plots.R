@@ -82,7 +82,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 }
 
 
-#' Heatmaps
+#' Grouping design balance
 #'
 #' Easily generate heatmaps to show how well balanced groups are designed, e.g. for ANOVA.
 #' @param data A \code{data.frame}
