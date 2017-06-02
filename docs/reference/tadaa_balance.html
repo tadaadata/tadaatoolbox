@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interaction plots — tadaa_int • tadaatoolbox</title>
+<title>Grouping design balance — tadaa_balance • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,79 +79,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Interaction plots</h1>
+    <h1>Grouping design balance</h1>
     </div>
 
     
-    <p>Easily generate interaction plots of two nominal grouping
-variables and a numeric response variable.</p>
+    <p>Easily generate heatmaps to show how well balanced groups are designed, e.g. for ANOVA.</p>
     
 
-    <pre class="usage"><span class='fu'>tadaa_int</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='no'>group2</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>show_n</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>print</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_balance</span>(<span class='no'>data</span>, <span class='no'>group1</span>, <span class='no'>group2</span>, <span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"D"</span>, <span class='kw'>annotate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>A <code>data.frame</code>.</p></td>
-    </tr>
-    <tr>
-      <th>response</th>
-      <td><p>Response variable.</p></td>
+      <td><p>A <code>data.frame</code></p></td>
     </tr>
     <tr>
       <th>group1</th>
-      <td><p>First grouping variable.</p></td>
+      <td><p>The grouping variable on the x-axis</p></td>
     </tr>
     <tr>
       <th>group2</th>
-      <td><p>Second grouping variable.</p></td>
+      <td><p>The grouping variable on the y-axis</p></td>
     </tr>
     <tr>
-      <th>grid</th>
-      <td><p>If <code>TRUE</code>, the resulting graphs will be arranged in a grid
-via <a href='http://www.rdocumentation.org/packages/cowplot/topics/plot_grid'>plot_grid</a>.</p></td>
+      <th>palette</th>
+      <td><p>The <a href='http://www.rdocumentation.org/packages/viridis/topics/reexports'>viridis</a> color palette to use; <code>c("A", "B", "C", "D")</code>,
+defaults to <code>"D"</code></p></td>
     </tr>
     <tr>
-      <th>brewer_palette</th>
-      <td><p>The name of the <a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>RColorBrewer</a> palette to use,
-defaults to <code>Set1</code>.</p></td>
-    </tr>
-    <tr>
-      <th>labels</th>
-      <td><p>Labels used for the plots when printed in a grid (<code>grid = TRUE</code>),
-defaults to <code>c("A", "B")</code>.</p></td>
-    </tr>
-    <tr>
-      <th>show_n</th>
-      <td><p>If <code>TRUE</code>, displays N in plot subtitle.</p></td>
-    </tr>
-    <tr>
-      <th>print</th>
-      <td><p>Default is <code>TRUE</code>, set <code>FALSE</code> to suppress automatic printing.
-Useful if you intend to further modify the outpur plots.</p></td>
+      <th>annotate</th>
+      <td><p>Should the n of each group be displayed in each cell of the heatmap?</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Invisible: A list with two ggplot2 objects named <code>p1</code> and <code>p2</code>.
-If <code>print = TRUE</code>: Printed: The one or two ggplot2 objects, depending on <code>grid</code>.</p>
+    <p>A ggplot2 object</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Tadaa-plot functions: <code><a href='tadaa_balance.html'>tadaa_balance</a></code>,
+    <p>Other Tadaa-plot functions: <code><a href='tadaa_int.html'>tadaa_int</a></code>,
   <code><a href='tadaa_mean_ci.html'>tadaa_mean_ci</a></code>,
   <code><a href='tadaa_plot_tukey.html'>tadaa_plot_tukey</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_int</span>(<span class='no'>ngo</span>, <span class='no'>stunzahl</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><img src='tadaa_int-2.png' alt='' width='540' height='400' /><img src='tadaa_int-3.png' alt='' width='540' height='400' /><div class='input'>
-<span class='co'># As grid</span>
-<span class='fu'>tadaa_int</span>(<span class='no'>ngo</span>, <span class='no'>stunzahl</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tadaa_balance</span>(<span class='no'>ngo</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><img src='tadaa_balance-2.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

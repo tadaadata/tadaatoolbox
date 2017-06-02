@@ -7,7 +7,7 @@
       - -ends_with("_ord")
       - -tadaa_mean_ci
       - -tadaa_plot_tukey
-      - -tadaa_heatmap
+      - -tadaa_balance
       - -tadaa_int
       - -matches("likertize")
     - title: Descriptive Statistics
@@ -38,7 +38,7 @@
       contents:
       - tadaa_mean_ci
       - tadaa_plot_tukey
-      - tadaa_heatmap
+      - tadaa_balance
       - tadaa_int
     - title: ggplot2 Themes
       contents:
