@@ -93,7 +93,7 @@ Helpers for plots
 ### Plotting templates
 
 -   `tadaa_int`: Simple interaction plot template.
--   `tadaa_balance`: Simple visualization of grouping design balance.
+-   `tadaa_heatmap`: Simple heatmap template.
 -   `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars.
 -   `tadaa_plot_tukey`: For pretty `TukeyHSD` visualization.
 
@@ -103,7 +103,7 @@ Dependencies
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
 -   **stats, methods, broom, magrittr, dplyr, pwr, pixiedust, car, ggplot2, lazyeval**
--   **sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr**
+-   **sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr, viridis**
 
 Code of Conduct
 ===============
