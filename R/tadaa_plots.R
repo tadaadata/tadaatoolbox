@@ -98,9 +98,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 #' @import viridis
 #' @examples
 #' tadaa_balance(ngo, jahrgang, geschl)
-tadaa_balance <- function(data, group1, group2, palette = "D", annotate = T) {
-  !missing(group1) || stop("group1 not specified")
-  !missing(group2) || stop("group2 not specified")
+tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) {
 
   group1 <- deparse(substitute(group1))
   group2 <- deparse(substitute(group2))
@@ -109,7 +107,7 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = T) {
   heat <- table(data[[group1]], data[[group2]])
   heat <- as.data.frame(heat)
 
-  if (annotate == T) {
+  if (annotate) {
     anno <- geom_label(aes(label = Freq), stat = "identity",
                        fill = "white", alpha = .5, size = 5)
   } else {
@@ -127,7 +125,7 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = T) {
     coord_equal(ratio = .625) +
     theme(legend.position = "none")
 
-  return(balance)
+  balance
 }
 
 #' Means with Errorbars
@@ -158,7 +156,7 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
   }
   p <- p + labs(title = paste0(y, " by ", x), y = paste0("Mean of ", y, " with 95% CI"))
 
-  return(p)
+  p
 }
 
 #' Plot TukeyHSD Results as Errorbars
@@ -181,7 +179,7 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
   # Please R CMD check
-  comparison <- NULL; estimate <- NULL; conf.low <- NULL;
+  comparison <- NULL; estimate <- NULL; conf.low <- NULL
   conf.high <- NULL; term <- NULL; signif <- NULL
 
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")

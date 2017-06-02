@@ -4,7 +4,7 @@
 \alias{tadaa_balance}
 \title{Grouping design balance}
 \usage{
-tadaa_balance(data, group1, group2, palette = "D", annotate = T)
+tadaa_balance(data, group1, group2, palette = "D", annotate = TRUE)
 }
 \arguments{
 \item{data}{A \code{data.frame}}
