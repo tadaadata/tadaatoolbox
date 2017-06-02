@@ -84,37 +84,50 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 
 #' Heatmaps
 #'
-#' Easily generate heatmaps of a continuous variable grouped by two categorical variables.
+#' Easily generate heatmaps to show how well balanced groups are designed, e.g. for ANOVA.
 #' @param data A \code{data.frame}
-#' @param heat The continuous variable displayed by the heat-tiles
-#' @param x The variable on the x-axis
-#' @param group The grouping variable (y-axis)
+#' @param group1 The grouping variable on the x-axis
+#' @param group2 The grouping variable on the y-axis
 #' @param palette The \link[viridis]{viridis} color palette to use; \code{c("A", "B", "C", "D")},
 #' defaults to \code{"D"}
+#' @param annotate Should the n of each group be displayed in each cell of the heatmap?
 #' @return A ggplot2 object
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
 #' @import viridis
 #' @examples
-#' tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
-tadaa_heatmap <- function(data = NULL, heat, x, group, palette = "D") {
-  !missing(heat)  || stop("heat not specified")
-  !missing(x)     || stop("x not specified")
-  !missing(group) || stop("group not specified")
+#' tadaa_balance(ngo, jahrgang, geschl)
+tadaa_balance <- function(data, group1, group2, palette = "D", annotate = T) {
+  !missing(group1) || stop("group1 not specified")
+  !missing(group2) || stop("group2 not specified")
 
-  map <- ggplot(data = data, aes_string(x = substitute(x),
-                                        y = substitute(group),
-                                        fill = substitute(heat))) +
-    geom_tile(color = "white", size = 0.5) +
-    labs(title = paste("Heatmap for", substitute(heat),
-                       "by", substitute(x), "and", substitute(group))) +
+  group1 <- deparse(substitute(group1))
+  group2 <- deparse(substitute(group2))
+  # group3 <- deparse(substitute(group3))
+
+  heat <- table(data[[group1]], data[[group2]])
+  heat <- as.data.frame(heat)
+
+  if (annotate == T) {
+    anno <- geom_label(aes(label = Freq), stat = "identity",
+                       fill = "white", alpha = .5, size = 5)
+  } else {
+    anno <- NULL
+  }
+
+  balance <- ggplot(heat, aes(x = Var1, y = Var2, fill = Freq)) +
+    geom_tile(color = "white", size = 0.75) +
+    anno +
+    labs(title = paste("Design Balance for", substitute(group1),
+                       "and", substitute(group2)),
+         x = group1, y = group2) +
     scale_x_discrete() +
     viridis::scale_fill_viridis(option = palette) +
-    coord_equal() +
-    theme(legend.position = "bottom")
+    coord_equal(ratio = .625) +
+    theme(legend.position = "none")
 
-  return(map)
+  return(balance)
 }
 
 #' Means with Errorbars
