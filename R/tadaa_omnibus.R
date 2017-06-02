@@ -111,7 +111,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
                  model[model$term == "Residuals", ])
 
   # Append Total row
-  totals <- data.frame("term" = "Total", lapply(model[-1], sum))
+  totals <- data.frame("term" = "Total", lapply(model[-1], sum), stringsAsFactors = FALSE)
   model  <- rbind(model, totals)
 
   if (show_effect_size) {
