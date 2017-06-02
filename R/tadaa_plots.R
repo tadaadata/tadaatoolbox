@@ -53,8 +53,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 
   p1 <- ggplot(data = data, aes_string(x = substitute(group1), y = "mw",
                                        colour = substitute(group2))) +
-          geom_line(aes_string(group = substitute(group2))) +
-          geom_point(shape = 23, fill = "white") +
+          geom_line(aes_string(group = substitute(group2)), position = position_dodge(.15)) +
+          geom_point(shape = 23, fill = "white", position = position_dodge(.15)) +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = title1, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
@@ -62,8 +62,8 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 
   p2 <- ggplot(data = data, aes_string(x = substitute(group2), y = "mw",
                                        colour = substitute(group1))) +
-          geom_line(aes_string(group = substitute(group1))) +
-          geom_point(shape = 23, fill = "white") +
+          geom_line(aes_string(group = substitute(group1)), position = position_dodge(.15)) +
+          geom_point(shape = 23, fill = "white", position = position_dodge(.15)) +
           scale_colour_brewer(palette = brewer_palette) +
           labs(title = title2, y = paste0("Mean ", substitute(response)),
                subtitle = subtitle) +
@@ -89,13 +89,14 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 #' @param heat The continuous variable displayed by the heat-tiles
 #' @param x The variable on the x-axis
 #' @param group The grouping variable (y-axis)
+#' @param palette The \link[Viridis]{Viridis} color palette to use; \code{c("A", "B", "C", "D")}, defaults to {"D"}
 #' @return A ggplot2 object
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
 #' @examples
 #' tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
-tadaa_heatmap <- function(data = NULL, heat, x, group) {
+tadaa_heatmap <- function(data = NULL, heat, x, group, palette = "D") {
   !missing(heat)  || stop("heat not specified")
   !missing(x)     || stop("x not specified")
   !missing(group) || stop("group not specified")
@@ -103,12 +104,11 @@ tadaa_heatmap <- function(data = NULL, heat, x, group) {
   map <- ggplot(data = data, aes_string(x = substitute(x),
                                         y = substitute(group),
                                         fill = substitute(heat))) +
-    geom_tile(color = "white", size = 0.1) +
+    geom_tile(color = "white", size = 0.5) +
     labs(title = paste("Heatmap for", substitute(heat),
                        "by", substitute(x), "and", substitute(group))) +
     scale_x_discrete() +
-    # color plattes getting added later on:
-    # scale_fill_brewer(palette = ...) +
+    viridis::scale_fill_viridis(option = palette) +
     coord_equal() +
     theme(legend.position = "bottom")
 
@@ -183,13 +183,13 @@ tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
                   ymax  = conf.high,
                   color = term,
                   alpha = signif)) +
-    geom_point(size = 1.5) +
     geom_errorbar(width = .75, size = 1.25) +
+    geom_point(shape = 23, size = 1.5) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     coord_flip() +
     scale_alpha_manual(values = c("no" = 0.25, "yes" = 1), guide = F) +
     labs(title = "Tukey HSD Results", subtitle = "Mean Difference with 95% CI",
-         x = "Compared Groups", y = "Difference + CI", color = "Term (Factor)",
+         x = "Compared Groups", y = "Mean Difference", color = "Term (Factor)",
          caption = "Confidence intervals not including x = 0 are considered significant") +
     theme(legend.position = "top")
 
