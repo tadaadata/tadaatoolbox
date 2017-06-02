@@ -37,3 +37,20 @@ modus <- function(x, as_character = TRUE, reduce = TRUE){
   }
 }
 
+#' Convert numeric vector to z-values
+#'
+#' A trivial scaling function. You might as well use \link[base]{scale}, which allows
+#' arbitrary centers and scales, but returns a \code{matrix} by default.
+#' @param x A numeric vector.
+#'
+#' @return A vector of z-values of the same length as \code{x}.
+#' @export
+#' @importFrom stats sd
+#'
+#' @examples
+#' x      <- rnorm(500, mean = 10, sd = 5)
+#' z_vals <- z(x)
+#' round(c(mean = mean(z_vals), sd = sd(z_vals)), 2)
+z <- function(x) {
+  (x - mean(x, na.rm = TRUE)) / stats::sd(x, na.rm = TRUE)
+}
