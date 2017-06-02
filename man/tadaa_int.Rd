@@ -46,7 +46,7 @@ tadaa_int(ngo, stunzahl, jahrgang, geschl)
 tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 }
 \seealso{
-Other Tadaa-plot functions: \code{\link{tadaa_heatmap}},
+Other Tadaa-plot functions: \code{\link{tadaa_balance}},
   \code{\link{tadaa_mean_ci}},
   \code{\link{tadaa_plot_tukey}}
 }
