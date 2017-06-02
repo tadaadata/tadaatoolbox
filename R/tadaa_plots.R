@@ -89,11 +89,13 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 #' @param heat The continuous variable displayed by the heat-tiles
 #' @param x The variable on the x-axis
 #' @param group The grouping variable (y-axis)
-#' @param palette The \link[Viridis]{Viridis} color palette to use; \code{c("A", "B", "C", "D")}, defaults to {"D"}
+#' @param palette The \link[viridis]{viridis} color palette to use; \code{c("A", "B", "C", "D")},
+#' defaults to \code{"D"}
 #' @return A ggplot2 object
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
+#' @import viridis
 #' @examples
 #' tadaa_heatmap(ngo, stunzahl, leistung, jahrgang)
 tadaa_heatmap <- function(data = NULL, heat, x, group, palette = "D") {

@@ -4,7 +4,7 @@
 \alias{tadaa_heatmap}
 \title{Heatmaps}
 \usage{
-tadaa_heatmap(data = NULL, heat, x, group)
+tadaa_heatmap(data = NULL, heat, x, group, palette = "D")
 }
 \arguments{
 \item{data}{A \code{data.frame}}
@@ -14,6 +14,9 @@ tadaa_heatmap(data = NULL, heat, x, group)
 \item{x}{The variable on the x-axis}
 
 \item{group}{The grouping variable (y-axis)}
+
+\item{palette}{The \link[viridis]{viridis} color palette to use; \code{c("A", "B", "C", "D")},
+defaults to \code{"D"}}
 }
 \value{
 A ggplot2 object
