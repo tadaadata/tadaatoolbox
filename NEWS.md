@@ -10,6 +10,7 @@
     - [Further reading](https://rpubs.com/aaronsc32/games-howell-test)
 - Add `tadaa_pairwise_tukey` while we're at it. Just a thin wrapper for `stats::TukeyHSD` but with tidied output and usage consistent with the previous `tadaa_pairwise_*` functions.
 - Add `tadaa_plot_tukey` to plot Tukey HSD results as error bars because boy do I like error bars.
+- Add `tadaa_balance` as a replacement for `tadaa_heatmap` to check equality of group sizes.
 - Re-exports:
     - `%>%` from `magrittr` as all the cool kids to these days.
     - `%<>%` from `magrittr` because I happen to really like it.
