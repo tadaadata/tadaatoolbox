@@ -20,8 +20,8 @@
 ## Tweaks, Patches & Bug Fixes
 
 - `theme_tadaa`:
-    - is now an alias for `theme_readthedown`, will probably become the new canonical version.
-    - now finally adds vertical space to the `x` axis title via proper margining.
+    - Is now an alias for `theme_readthedown`, will probably become the new canonical version.
+    - Now finally adds vertical space to the `x` axis title via proper margining.
 - `tadaa_aov`:
     - Default `type` is now `3`, for generally safer results and consistency with SPSS.
     - Added `check_contrasts` option for `type = 3` sums of squares, which ensures each non-ordered factor has `contr.sum` contrasts
@@ -33,7 +33,7 @@
 - `tadaa_t.test`:
     - Internal Levene test now uses `center = "median"` for more robust results, as it should.
         - Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$.
-        - Use new argument `var.equal` to override interal Levene test.
+        - Use new argument `var.equal` to override internal Levene test.
     - Power should now be properly reported for `alternative = "less"` or `greater`.
     - Added `conf.level` argument used for CI and power calculations
     - `effect_size_t`:
