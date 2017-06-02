@@ -7,7 +7,7 @@ Authors@R: c(person("Lukas", "Burk", email = "lukas@quantenbrot.de", role = c("a
              person("Tobias", "Anton", email = "unsichtbarer@quantenbrot.de", role = "aut"),
              person("Daniel", "Lüdecke", email = "d.luedecke@uke.de", role = "ctb"))
 Description: Contains functions for the easy display of statistical tests as well as
-    some convenience functions for or data cleanup. It is meant to ease existing workflows
+    some convenience functions for data cleanup. It is meant to ease existing workflows
     with packages like 'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the functions
     prefixed with 'tadaa_', which are built to work in an interactive environment, but also print
     tidy markdown tables powered by 'pixiedust' for the creation of 'RMarkdown' reports.
