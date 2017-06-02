@@ -29,6 +29,6 @@ tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df
 tadaa_plot_tukey(tests)
 }
 \seealso{
-Other Tadaa-plot functions: \code{\link{tadaa_heatmap}},
+Other Tadaa-plot functions: \code{\link{tadaa_balance}},
   \code{\link{tadaa_int}}, \code{\link{tadaa_mean_ci}}
 }
