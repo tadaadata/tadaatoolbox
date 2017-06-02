@@ -28,7 +28,10 @@
 #' select(englisch, deutsch, mathe) %>%
 #' tadaa_normtest(method = "pearson", print = "console")
 #' }
-tadaa_normtest <- function(data, method = "ad", print = "df", ...){
+tadaa_normtest <- function(data, method = "ad",
+                           print = c("df", "console", "html", "markdown"), ...){
+
+  print <- match.arg(print)
 
   if (print == "df" & length(method) > 1 & length(method) <= 3) {
     res <- dplyr::bind_rows(lapply(method, function(x) {
@@ -65,14 +68,10 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
     output <- pixiedust::dust(results)
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
+    output <- pixiedust::sprinkle_print_method(output, print_method = print)
+
+    output
   }
-
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
-  }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
-
 }
 
 #' Levene's Test for Homoskedasticity
@@ -95,7 +94,10 @@ tadaa_normtest <- function(data, method = "ad", print = "df", ...){
 #' @examples
 #' tadaa_levene(ngo, deutsch ~ jahrgang, print = "console")
 #' tadaa_levene(ngo, deutsch ~ jahrgang * geschl, print = "console")
-tadaa_levene <- function(data, formula, center = "median", print = "df") {
+tadaa_levene <- function(data, formula, center = "median",
+                         print = c("df", "console", "html", "markdown")) {
+
+  print <- match.arg(print)
 
   # Labels for groups
   factors <- attr(terms(formula), "term.labels")
@@ -125,11 +127,8 @@ tadaa_levene <- function(data, formula, center = "median", print = "df") {
                                            statistic = "F",
                                            p.value   = "p")
     output <- pixiedust::sprinkle(output, round = 2, na_string = "")
-  }
+    output <- pixiedust::sprinkle_print_method(output, print_method = print)
 
-  if (!(print %in% c("df", "console", "html", "markdown"))) {
-    stop("Print method must be 'df', 'console', 'html' or, 'markdown'")
+    output
   }
-
-  return(pixiedust::sprinkle_print_method(output, print_method = print))
 }

@@ -4,7 +4,8 @@
 \alias{tadaa_levene}
 \title{Levene's Test for Homoskedasticity}
 \usage{
-tadaa_levene(data, formula, center = "median", print = "df")
+tadaa_levene(data, formula, center = "median", print = c("df", "console",
+  "html", "markdown"))
 }
 \arguments{
 \item{data}{Data for the test}

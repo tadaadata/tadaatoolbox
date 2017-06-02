@@ -4,7 +4,8 @@
 \alias{tadaa_normtest}
 \title{Tadaa, test for normality!}
 \usage{
-tadaa_normtest(data, method = "ad", print = "df", ...)
+tadaa_normtest(data, method = "ad", print = c("df", "console", "html",
+  "markdown"), ...)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
