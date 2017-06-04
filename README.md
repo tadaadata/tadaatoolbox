@@ -42,7 +42,7 @@ Contributers
 Functionality
 =============
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view the current version in this repository [the `pkgdown`ed version of this repo](http://tadaatoolbox.tadaa-data.de/).
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](http://tadaatoolbox.tadaa-data.de/).
 
 Tidy test output
 ----------------
@@ -93,7 +93,7 @@ Helpers for plots
 ### Plotting templates
 
 -   `tadaa_int`: Simple interaction plot template.
--   `tadaa_heatmap`: Simple heatmap template.
+-   `tadaa_balance`: Check equality of group sizes.
 -   `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars.
 -   `tadaa_plot_tukey`: For pretty `TukeyHSD` visualization.
 
