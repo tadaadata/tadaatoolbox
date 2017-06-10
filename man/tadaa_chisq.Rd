@@ -12,6 +12,9 @@ tadaa_chisq(data, x, y, print = c("df", "console", "html", "markdown"))
 \item{x}{A vector of categorial data (\code{factor} or \code{character}).}
 
 \item{y}{Another vector of categorial data (also \code{factor} or \code{character}).}
+
+\item{print}{Print method, default \code{df}: A regular \code{data.frame}.
+Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object,
