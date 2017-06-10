@@ -1,3 +1,9 @@
+# tadaatoolbox 0.13.0 (GitHub)
+
+## New Features
+
+- Add `tadaa_chisq` for a $\chi^2$-Test with OR and effect size.
+
 # tadaatoolbox 0.12.0 (CRAN)
 
 ## New Features
