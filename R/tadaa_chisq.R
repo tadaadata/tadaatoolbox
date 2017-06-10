@@ -43,7 +43,8 @@ tadaa_chisq <- function(data, x, y,
   if (print == "df") {
     return(test)
   } else {
-    caption <- paste0("**", test$method, "**")
+    caption     <- paste0("**", test$method, "**")
+    test$method <- NULL
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
