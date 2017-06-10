@@ -58,6 +58,13 @@ tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
 
 # Two-Sample Tests
 
+## `tadaa_chisq`
+
+```{r chisq}
+tadaa_chisq(ngo, abschalt, geschl, print = "markdown")
+```
+
+
 ## `tadaa_t.test`
 
 ```{r t_test}

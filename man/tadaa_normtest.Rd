@@ -40,9 +40,10 @@ tadaa_normtest(method = "pearson", print = "console")
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_one_sample}},
-  \code{\link{tadaa_ord}}, \code{\link{tadaa_pairwise_gh}},
+  \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},
+  \code{\link{tadaa_levene}}, \code{\link{tadaa_nom}},
+  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
+  \code{\link{tadaa_pairwise_gh}},
   \code{\link{tadaa_pairwise_tukey}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}

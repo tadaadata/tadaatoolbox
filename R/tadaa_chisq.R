@@ -16,7 +16,6 @@
 #' @family Tadaa-functions
 #' @export
 #' @examples
-#' ngo <- tadaatoolbox::ngo
 #' tadaa_chisq(ngo, abschalt, geschl)
 #'
 #' tadaa_chisq(ngo, abschalt, jahrgang)
@@ -49,7 +48,7 @@ tadaa_chisq <- function(data, x, y,
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = paste("$\\Chi^2$"),
+                                           statistic = paste("$\\chi^2$"),
                                            p.value   = "p",
                                            parameter = "df")
 
