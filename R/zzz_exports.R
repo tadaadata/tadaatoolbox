@@ -10,21 +10,21 @@ magrittr::`%<>%`
 #' @export
 haven::as_factor
 
-#' @importFrom sjmisc get_label
+#' @importFrom sjlabelled get_label
 #' @export
-sjmisc::get_label
+sjlabelled::get_label
 
-#' @importFrom sjmisc get_labels
+#' @importFrom sjlabelled get_labels
 #' @export
-sjmisc::get_labels
+sjlabelled::get_labels
 
-#' @importFrom sjmisc set_label
+#' @importFrom sjlabelled set_label
 #' @export
-sjmisc::set_label
+sjlabelled::set_label
 
-#' @importFrom sjmisc set_labels
+#' @importFrom sjlabelled set_labels
 #' @export
-sjmisc::set_labels
+sjlabelled::set_labels
 
 #' @importFrom sjmisc word_wrap
 #' @export
