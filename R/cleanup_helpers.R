@@ -30,7 +30,7 @@ delete_na <- function(df, n = ncol(df) - 1) {
 #'
 #' @return An identical \code{data.frame} with labelled data converted to factors
 #' @export
-#' @importFrom sjmisc is_labelled
+#' @importFrom sjlabelled is_labelled
 #' @importFrom haven as_factor
 #' @examples
 #' \dontrun{
@@ -41,7 +41,7 @@ labels_to_factor <- function(df) {
   .Deprecated("Use haven::as_factor. It's basically the same but better.")
 
   for (column in names(df)) {
-    if (sjmisc::is_labelled(df[[column]])) {
+    if (sjlabelled::is_labelled(df[[column]])) {
       df[[column]] <- haven::as_factor(df[[column]])
     }
   }
@@ -53,14 +53,13 @@ labels_to_factor <- function(df) {
 #' @param x A vector with now unused labels
 #' @return Identical vector with appropriate labels
 #' @export
-#' @importFrom sjmisc set_labels
-#' @importFrom sjmisc get_labels
+#' @importFrom sjlabelled set_labels get_labels
 #' @examples
 #' \dontrun{
 #' x <- drop_labels(x)
 #' }
 drop_labels <- function(x) {
-  sjmisc::set_labels(x, labels = sjmisc::get_labels(x)[unique(x)])
+  sjlabelled::set_labels(x, labels = sjlabelled::get_labels(x)[unique(x)])
 }
 
 #' Easy p-value formatting
