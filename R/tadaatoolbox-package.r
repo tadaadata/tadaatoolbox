@@ -14,7 +14,7 @@
 #'
 #' \itemize{
 #'   \item The tidyverse, because of the whole tidyness thing.
-#'   \item sjPlot, sjmisc for pretty output and labelled data tools.
+#'   \item sjPlot, sjlabelled for pretty output and labelled data tools.
 #'   \item pixiedust for the output formatting.
 #'   \item pwr, car, ryouready, lsr, nortest: For stats I can't implement myself.
 #' }
