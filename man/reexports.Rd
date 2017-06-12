@@ -29,6 +29,8 @@ below to see their documentation.
 
   \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}}
 
-  \item{sjmisc}{\code{\link[sjmisc]{get_label}}, \code{\link[sjmisc]{get_labels}}, \code{\link[sjmisc]{set_label}}, \code{\link[sjmisc]{set_labels}}, \code{\link[sjmisc]{word_wrap}}}
+  \item{sjlabelled}{\code{\link[sjlabelled]{get_label}}, \code{\link[sjlabelled]{get_labels}}, \code{\link[sjlabelled]{set_label}}, \code{\link[sjlabelled]{set_labels}}}
+
+  \item{sjmisc}{\code{\link[sjmisc]{word_wrap}}}
 }}
 
