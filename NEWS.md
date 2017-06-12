@@ -4,6 +4,10 @@
 
 - Add `tadaa_chisq` for a $\chi^2$-Test with OR and effect size.
 
+## Under the Hood
+
+- Switched from `sjmisc` to the new `sjlabelled` (Thanks, @strengejacke!)
+
 # tadaatoolbox 0.12.0 (CRAN)
 
 ## New Features
