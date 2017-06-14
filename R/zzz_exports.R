@@ -6,6 +6,10 @@ magrittr::`%>%`
 #' @export
 magrittr::`%<>%`
 
+#' @importFrom magrittr %$%
+#' @export
+magrittr::`%$%`
+
 #' @importFrom haven as_factor
 #' @export
 haven::as_factor

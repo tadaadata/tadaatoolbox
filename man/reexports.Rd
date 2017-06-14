@@ -7,6 +7,8 @@
 \alias{reexports}
 \alias{\%<>\%}
 \alias{reexports}
+\alias{\%$\%}
+\alias{reexports}
 \alias{as_factor}
 \alias{reexports}
 \alias{get_label}
@@ -27,7 +29,7 @@ below to see their documentation.
 \describe{
   \item{haven}{\code{\link[haven]{as_factor}}}
 
-  \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}}
+  \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}, \code{\link[magrittr]{\%$\%}}}
 
   \item{sjlabelled}{\code{\link[sjlabelled]{get_label}}, \code{\link[sjlabelled]{get_labels}}, \code{\link[sjlabelled]{set_label}}, \code{\link[sjlabelled]{set_labels}}}
 

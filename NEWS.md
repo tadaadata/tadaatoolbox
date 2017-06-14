@@ -7,6 +7,7 @@
 ## Under the Hood
 
 - Switched from `sjmisc` to the new `sjlabelled` (Thanks, @strengejacke!)
+- Also re-export `magrittr::%$%` because it's really handy *sometimes*.
 
 # tadaatoolbox 0.12.0 (CRAN)
 
