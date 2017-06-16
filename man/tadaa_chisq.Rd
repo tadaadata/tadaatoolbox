@@ -4,7 +4,8 @@
 \alias{tadaa_chisq}
 \title{Tadaa, Chi-Square Test!}
 \usage{
-tadaa_chisq(data, x, y, print = c("df", "console", "html", "markdown"))
+tadaa_chisq(data, x, y, correct = TRUE, print = c("df", "console", "html",
+  "markdown"))
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -12,6 +13,9 @@ tadaa_chisq(data, x, y, print = c("df", "console", "html", "markdown"))
 \item{x}{A vector of categorial data (\code{factor} or \code{character}).}
 
 \item{y}{Another vector of categorial data (also \code{factor} or \code{character}).}
+
+\item{correct}{Apply Yate's continuity correction for 2x2 tables,
+passed to \link[stats]{chisq.test}. Defaults to \code{TRUE}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
 Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}

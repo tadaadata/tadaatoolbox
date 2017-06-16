@@ -9,6 +9,8 @@
 #' @param data A \code{data.frame}.
 #' @param x A vector of categorial data (\code{factor} or \code{character}).
 #' @param y Another vector of categorial data (also \code{factor} or \code{character}).
+#' @param correct Apply Yate's continuity correction for 2x2 tables,
+#' passed to \link[stats]{chisq.test}. Defaults to \code{TRUE}.
 #' @param print Print method, default \code{df}: A regular \code{data.frame}.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @return A \code{data.frame} by default, otherwise \code{dust} object,
@@ -21,7 +23,7 @@
 #' tadaa_chisq(ngo, abschalt, geschl)
 #'
 #' tadaa_chisq(ngo, abschalt, jahrgang)
-tadaa_chisq <- function(data, x, y,
+tadaa_chisq <- function(data, x, y, correct = TRUE,
                         print = c("df", "console", "html", "markdown")) {
 
   print <- match.arg(print)
@@ -32,7 +34,7 @@ tadaa_chisq <- function(data, x, y,
   tbl <- table(data[[x]], data[[y]])
 
   test <- broom::tidy(
-    chisq.test(data[[x]], data[[y]])
+    chisq.test(data[[x]], data[[y]], correct = correct)
   )
 
   if (length(tbl) == 4) {
