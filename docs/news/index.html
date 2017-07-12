@@ -84,12 +84,31 @@
     </div>
 
     <div class="contents">
-    <div id="tadaatoolbox-0-12-0-github" class="section level1">
+    <div id="tadaatoolbox-0-13-0-github" class="section level1">
 <h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-12-0-github" class="anchor"></a>tadaatoolbox 0.12.0 (GitHub)</h1>
+<a href="#tadaatoolbox-0-13-0-github" class="anchor"></a>tadaatoolbox 0.13.0 (GitHub)</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
+<ul>
+<li>Add <code>tadaa_chisq</code> for a $\chi^2$-Test with OR and effect size.</li>
+</ul>
+</div>
+<div id="under-the-hood" class="section level2">
+<h2 class="hasAnchor">
+<a href="#under-the-hood" class="anchor"></a>Under the Hood</h2>
+<ul>
+<li>Switched from <code>sjmisc</code> to the new <code>sjlabelled</code> (Thanks, @strengejacke!)</li>
+<li>Also re-export <code>magrittr::%$%</code> because it’s really handy <em>sometimes</em>.</li>
+</ul>
+</div>
+</div>
+    <div id="tadaatoolbox-0-12-0-cran" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-12-0-cran" class="anchor"></a>tadaatoolbox 0.12.0 (CRAN)</h1>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>Add <code>tadaa_pairwise_t</code> as an extension of <code>stats::pairwise.t.test</code> that works with two grouping factors and thereby can test interactions.
 <ul>
@@ -129,8 +148,8 @@
 <li>
 <code>theme_tadaa</code>:
 <ul>
-<li>is now an alias for <code>theme_readthedown</code>, will probably become the new canonical version.</li>
-<li>now finally adds vertical space to the <code>x</code> axis title via proper margining.</li>
+<li>Is now an alias for <code>theme_readthedown</code>, will probably become the new canonical version.</li>
+<li>Now finally adds vertical space to the <code>x</code> axis title via proper margining.</li>
 </ul>
 </li>
 <li>
@@ -154,7 +173,7 @@
 <li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.
 <ul>
 <li>Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$.</li>
-<li>Use new argument <code>var.equal</code> to override interal Levene test.</li>
+<li>Use new argument <code>var.equal</code> to override internal Levene test.</li>
 </ul>
 </li>
 <li>Power should now be properly reported for <code>alternative = "less"</code> or <code>greater</code>.</li>
@@ -198,12 +217,12 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-11-0-cran" class="section level1">
+    <div id="tadaatoolbox-0-11-0" class="section level1">
 <h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-11-0-cran" class="anchor"></a>tadaatoolbox 0.11.0 (CRAN)</h1>
-<div id="new-features-1" class="section level2">
+<a href="#tadaatoolbox-0-11-0" class="anchor"></a>tadaatoolbox 0.11.0</h1>
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New Features</h2>
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
 <li>
 <code>tadaa_aov</code> now knows about types, uses type 1 by default and can do types 2 and 3.
@@ -341,8 +360,9 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#tadaatoolbox-0-12-0-github">0.12.0</a></li>
-        <li><a href="#tadaatoolbox-0-11-0-cran">0.11.0</a></li>
+        <li><a href="#tadaatoolbox-0-13-0-github">0.13.0</a></li>
+        <li><a href="#tadaatoolbox-0-12-0-cran">0.12.0</a></li>
+        <li><a href="#tadaatoolbox-0-11-0">0.11.0</a></li>
         <li><a href="#tadaatoolbox-0-10-0">0.10.0</a></li>
         <li><a href="#tadaatoolbox-0-9-0">0.9.0</a></li>
         <li><a href="#tadaatoolbox-0-8-1">0.8.1</a></li>

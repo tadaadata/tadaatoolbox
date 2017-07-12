@@ -22,6 +22,9 @@ data.frame(A = rnorm(100, mean = c(25, 30, 45)),
 ## ----kruskal-------------------------------------------------------------
 tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
 
+## ----chisq---------------------------------------------------------------
+tadaa_chisq(ngo, abschalt, geschl, print = "markdown")
+
 ## ----t_test--------------------------------------------------------------
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, print = "markdown")
 tadaa_t.test(data = ngo, response = deutsch, group = geschl, paired = TRUE,
