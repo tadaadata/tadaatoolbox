@@ -10,6 +10,9 @@
 #' @param sigma Population sigma. If supplied, a z-test is performed,
 #' otherwise a one-sample \link[stats]{t.test} is performed.
 #' @param na.rm Whether to drop \code{NA} values. Default is \code{FALSE}.
+#' @param conf.level Confidence level used for power and CI, default is \code{0.95}.
+#' @param print Print method, default \code{df}: A regular \code{data.frame}.
+#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
 #' @inheritParams tadaa_t.test
 #' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 #' @import pixiedust
