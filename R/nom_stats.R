@@ -7,13 +7,15 @@
 #' @return A \code{numeric} value
 #' @export
 #' @import stats
+#' @note The warning message in case of low samples size and possibly incorrect
+#' approximation is suppressed silently.
 #' @examples
 #' nom_chisqu(ngo$abschalt, ngo$geschl)
 nom_chisqu <- function(x, y = NULL, correct = FALSE){
   if (is.table(x)) {
-    as.numeric(chisq.test(x = x, correct = correct)$statistic)
+    as.numeric(suppressWarnings(chisq.test(x = x, correct = correct)$statistic))
   } else {
-    as.numeric(chisq.test(x = x, y = y, correct = correct)$statistic)
+    as.numeric(suppressWarnings(chisq.test(x = x, y = y, correct = correct)$statistic))
   }
 }
 

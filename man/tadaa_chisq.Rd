@@ -31,6 +31,10 @@ Phi coefficient and Odds Ratios in case of a 2x2 table, Cramer's V otherwise.
 The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
 various \link[pixiedust]{sprinkle} shenanigans.
 }
+\note{
+The warning message in case of low samples size and possibly incorrect
+approximation is suppressed silently.
+}
 \examples{
 tadaa_chisq(ngo, abschalt, geschl)
 

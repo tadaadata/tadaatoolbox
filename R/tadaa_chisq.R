@@ -17,6 +17,8 @@
 #' depending on \code{print}.
 #' @import pixiedust
 #' @import stats
+#' @note The warning message in case of low samples size and possibly incorrect
+#' approximation is suppressed silently.
 #' @family Tadaa-functions
 #' @export
 #' @examples
@@ -34,7 +36,7 @@ tadaa_chisq <- function(data, x, y, correct = TRUE,
   tbl <- table(data[[x]], data[[y]])
 
   test <- broom::tidy(
-    chisq.test(data[[x]], data[[y]], correct = correct)
+    suppressWarnings(chisq.test(data[[x]], data[[y]], correct = correct))
   )
 
   if (length(tbl) == 4) {

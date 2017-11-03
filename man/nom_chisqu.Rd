@@ -19,6 +19,10 @@ A \code{numeric} value
 \description{
 This is a very simple wrapper for \link{chisq.test}.
 }
+\note{
+The warning message in case of low samples size and possibly incorrect
+approximation is suppressed silently.
+}
 \examples{
 nom_chisqu(ngo$abschalt, ngo$geschl)
 }
