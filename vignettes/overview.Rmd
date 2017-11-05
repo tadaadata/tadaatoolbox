@@ -13,7 +13,7 @@ vignette: >
 
 ```{r setup, include=FALSE}
 library(tadaatoolbox)
-knitr::opts_chunk$set(message = F, warning = F)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 ```
 
 This toolbox has been compiled to make the intro to R and statistics with R a little easier.  
