@@ -127,7 +127,7 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console"){
                     "lmbd_s" = lmbd_s)
 
   if (print == "markdown") {
-    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret), chisq = "$\\chi^2$$",
+    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret), chisq = "$\\chi^2$",
                                              cv = "Cramer's V",
                                              lmbd_x = "Lambda (x dep.)",
                                              lmbd_y = "Lambda (y dep.)",
