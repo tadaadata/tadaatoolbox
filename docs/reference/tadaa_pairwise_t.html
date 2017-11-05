@@ -176,28 +176,28 @@ over the Holm's (1979) step-down procedure.</p>
     <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
 #&gt; 1         jahrgang                       12 - 11     0.86
 #&gt; 2         jahrgang                       13 - 11  &lt; 0.001
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
+#&gt; 3         jahrgang                       13 - 12    0.001
 #&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
 #&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich    0.055
-#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich   &lt; 0.05
+#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich    0.014
 #&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich   &lt; 0.05
+#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich    0.015
 #&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
 #&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich     0.37
-#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich   &lt; 0.05
+#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich     0.03
 #&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich      0.6
 #&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich  &lt; 0.001
 #&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich     0.37
 #&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich     0.64
-#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich   &lt; 0.01
+#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    0.003
 #&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich    0.097
-#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich   &lt; 0.05
+#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich    0.013
 #&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich  &lt; 0.001
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
 #&gt; 1         jahrgang                       12 - 11   &gt; 0.99
-#&gt; 2         jahrgang                       13 - 11   &lt; 0.01
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
+#&gt; 2         jahrgang                       13 - 11    0.003
+#&gt; 3         jahrgang                       13 - 12    0.004
 #&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
 #&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     0.82
 #&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     0.21
@@ -213,12 +213,12 @@ over the Holm's (1979) step-down procedure.</p>
 #&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    0.052
 #&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich   &gt; 0.99
 #&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich     0.19
-#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich   &lt; 0.01
+#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich    0.002
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"sidak"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
 #&gt; 1         jahrgang                       12 - 11   &gt; 0.99
-#&gt; 2         jahrgang                       13 - 11   &lt; 0.01
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
+#&gt; 2         jahrgang                       13 - 11    0.003
+#&gt; 3         jahrgang                       13 - 12    0.004
 #&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
 #&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     0.57
 #&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     0.19
@@ -234,7 +234,7 @@ over the Holm's (1979) step-down procedure.</p>
 #&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    0.051
 #&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich     0.78
 #&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich     0.17
-#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich   &lt; 0.01
+#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich    0.002
 #&gt; 
 #&gt; </div><div class='input'>
 </div></pre>

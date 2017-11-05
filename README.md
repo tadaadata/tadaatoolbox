@@ -5,7 +5,7 @@ tadaatoolbox
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 
-This is **tadaatoolbox** version `0.13.0` ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
+This is **tadaatoolbox** version `0.14.0` ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br /> To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).
 Also, since this project is still in the `0.x.y` version, you should expect the API to change at any time. Once we reach `1.0.0`, API changes will be rolled out more slowly and include depracation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or `devtools`.
@@ -104,6 +104,7 @@ I rely on these awesome package for all the things this package does, so you mig
 
 -   **stats, methods, broom, magrittr, dplyr, pwr, pixiedust, car, ggplot2, lazyeval**
 -   **sjlabelled, sjmisc, haven, ryouready, vcd, cowplot, nortest, lsr, viridis**
+-   **DescTools**
 
 Code of Conduct
 ===============

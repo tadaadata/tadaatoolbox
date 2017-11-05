@@ -2,6 +2,11 @@
 knitr::opts_chunk$set(echo = TRUE)
 library(tadaatoolbox)
 
+## ----descriptives--------------------------------------------------------
+tadaa_nom(ngo$geschl, ngo$abschalt, print = "markdown")
+
+tadaa_ord(ngo$urteil, ngo$leist, print = "markdown")
+
 ## ----aov_oneway----------------------------------------------------------
 tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 1, print = "markdown")
 tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 2, print = "markdown")

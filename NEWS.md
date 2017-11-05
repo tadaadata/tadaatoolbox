@@ -1,4 +1,4 @@
-# tadaatoolbox 0.13.0 (GitHub)
+# tadaatoolbox 0.14.0 (GitHub)
 
 - Silence warnings in functions using `chisq.test`
 - Add `ord_tau` to calculate _all_ the Taus
