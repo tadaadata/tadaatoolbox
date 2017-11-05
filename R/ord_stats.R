@@ -46,6 +46,41 @@ ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
   }
 }
 
+#' Various Tau Statistics
+#'
+#' A wrapper for the appropriate functions form \link{DescTools} to calculate
+#' Tau A, B and C.
+#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param y Independent variable
+#' @param tau Which of the Taus to return. Default is \code{"b"}.
+#' @param reverse If \code{TRUE}, row and column variable are switched.
+#' @return \code{numeric} value
+#' @export
+#' @importFrom DescTools KendallTauA
+#' @importFrom DescTools StuartTauC
+#' @importFrom DescTools KendallTauB
+#' @examples
+#' ord_tau(ngo$urteil, ngo$leistung, tau = "a")
+ord_tau <- function(x, y = NULL, tau = "b", reverse = FALSE) {
+  if (!is.table(x)) {
+    x <- table(x, y)
+  }
+
+  direction <- ifelse(reverse, "column", "row")
+
+  if (tau %in% c("a", "A")) {
+    ret <- DescTools::KendallTauA(x, direction = direction)
+  } else if (tau %in% c("b", "B")) {
+    ret <- DescTools::KendallTauB(x, direction = direction)
+  } else if (tau %in% c("c", "C")) {
+    ret <- DescTools::StuartTauC(x, direction = direction)
+  } else {
+    stop("You need to specifiy which tau to return")
+  }
+
+  ret
+}
+
 #' Get all the ordinal stats
 #'
 #' As of now, only Gamma and Somers D are supported. But let's be honest: Everybody hates Tau.
@@ -63,19 +98,37 @@ tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
   if (!is.table(x)) {
     x <- table(x, y)
   }
+
   gamma  <- round(ord_gamma(x), round)
 
   somer_x <- round(ord_somers_d(x), round)
-  somer_y <- round(ord_somers_d(x, reverse = T), round)
+  #somer_y <- round(ord_somers_d(x, reverse = T), round)
   somer_s <- round(ord_somers_d(x, symmetric = T), round)
 
-  ret <- data.frame("gamma" = gamma, "somer_x" = somer_x, "somer_y" = somer_y,
-                    "somer_s" = somer_s)
+  tau_a <- round(ord_tau(x, tau = "a"), round)
+  tau_b <- round(ord_tau(x, tau = "b"), round)
+  tau_c <- round(ord_tau(x, tau = "c"), round)
 
-  retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
-                                           gamma = "Gamma",
-                                           somer_x = "Somers' D (x dep.)",
-                                           somer_y = "Somers' D (y dep.)",
-                                           somer_s = "Somers' D (sym.)")
+  ret <- data.frame("gamma" = gamma, "somer_x" = somer_x, "somer_s" = somer_s,
+                    "tau_a" = tau_a, "tau_b" = tau_b, "tau_c" = tau_c)
+
+  if (print != "markdown") {
+    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
+                                             gamma = "Gamma",
+                                             somer_x = "Somers' D",
+                                             somer_s = "Somers' D (sym.)",
+                                             tau_a = "Tau A",
+                                             tau_b = "Tau B",
+                                             tau_c = "Tau C")
+  } else {
+    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
+                                             gamma = "$\\gamma$",
+                                             somer_x = "Somers' D",
+                                             somer_s = "Somers' D (sym.)",
+                                             tau_a = "$\\tau_A$",
+                                             tau_b = "$\\tau_B$",
+                                             tau_c = "$\\tau_C$")
+  }
+
   return(pixiedust::sprinkle_print_method(retprint, print))
 }

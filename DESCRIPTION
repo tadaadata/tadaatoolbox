@@ -39,7 +39,8 @@ Imports:
     cowplot,
     nortest,
     lsr,
-    viridis
+    viridis,
+    DescTools
 RoxygenNote: 6.0.1
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues
