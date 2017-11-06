@@ -68,7 +68,7 @@ tadaa_chisq <- function(data, x, y, correct = TRUE,
                                              cramers = "Cramer\\'s V")
     }
 
-    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
     output <- pixiedust::sprinkle_print_method(output, print_method = print)
 

@@ -1,6 +1,7 @@
 # tadaatoolbox 0.14.1 (GitHub)
 
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests
+- Make sure `tadaa_`-test functions use `tadaatoolbox::pval_string` instead of the `pixiedust` version
 
 # tadaatoolbox 0.14.0 (CRAN (submitted))
 

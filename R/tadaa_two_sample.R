@@ -141,7 +141,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
                                            d         = "Cohen\\'s d",
                                            power     = "Power")
 
-    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
     output <- pixiedust::sprinkle_print_method(output, print_method = print)
 
@@ -219,7 +219,7 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
                                            p.value   = "p",
                                            median1 = paste("$M_1$", groups[[1]]),
                                            median2 = paste("$M_2$", groups[[2]]))
-    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
     output <- pixiedust::sprinkle_print_method(output, print_method = print)
 

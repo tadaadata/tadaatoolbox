@@ -133,7 +133,7 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     return(test)
   } else {
     output <- pixiedust::dust(test)
-    output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output, adj.p.value = "p (adj.)")
     #output <- pixiedust::sprinkle_table(output, cols = 1, caption = "", part = "head")
   }

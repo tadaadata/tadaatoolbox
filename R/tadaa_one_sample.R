@@ -130,7 +130,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     } else if ("se" %in% names(results)) {
       output <- pixiedust::sprinkle_colnames(output, se        = "SE")
     }
-    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
     output <- pixiedust::sprinkle_print_method(output, print_method = print)
 

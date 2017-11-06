@@ -157,7 +157,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
     output <- pixiedust::redust(output, footer, part = "foot")
     output <- pixiedust::sprinkle(output, rows = 1, border = "top", part = "foot")
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
-    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output,
                                            term      = "Term",
                                            sumsq     = "SS",
@@ -206,7 +206,7 @@ tadaa_kruskal <- function(formula, data = NULL, print = c("df", "console", "html
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(output, statistic = "$\\chi^2$",
                                            p.value = "p", parameter = "df")
-    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(pval_string(value)))
+    output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
 
   }
