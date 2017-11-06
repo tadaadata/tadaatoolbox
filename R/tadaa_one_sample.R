@@ -49,7 +49,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
 
     # Add SE because why not
-    results$se <- results$estimate/results$statistic
+    results$se <- sd(x, na.rm = TRUE)/sqrt(length(x))
 
     # Effect size
     results$d <- (mean_x - mu) / sd(x, na.rm = na.rm)

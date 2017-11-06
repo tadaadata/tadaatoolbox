@@ -1,10 +1,14 @@
-# tadaatoolbox 0.14.0 (GitHub)
+# tadaatoolbox 0.14.1 (GitHub)
+
+- Fix error in SEM calculation in `tadaa_one_sample` for t-tests
+
+# tadaatoolbox 0.14.0 (CRAN (submitted))
 
 - Silence warnings in functions using `chisq.test`
 - Add `ord_tau` to calculate _all_ the Taus
     - Append them on `tadaa_ord`
 
-# tadaatoolbox 0.13.0 (CRAN)
+# tadaatoolbox 0.13.0
 
 ## New Features
 
