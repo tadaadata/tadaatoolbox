@@ -153,16 +153,16 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
 
 <span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;        estimate      statistic            se           p.value      conf.low
-#&gt; 1 100.191920019 -3.61384353566 0.22360679775 0.000301691163949 70.6154750036
+#&gt; 1 100.259301365 -3.31250499755 0.22360679775 0.000924644740326 83.4172585823
 #&gt;       conf.high method alternative               d          power
-#&gt; 1 129.768365035 z-Test   two.sided -0.808079980577 0.950924018321</div><div class='input'>
+#&gt; 1 117.101344148 z-Test   two.sided -0.740698635032 0.911898913346</div><div class='input'>
 <span class='co'># No data.frame, just a vector</span>
 <span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;          estimate      statistic        p.value parameter        conf.low
-#&gt; 1 -0.270991796922 -1.09215325476 0.288421361906        19 -0.790325825392
-#&gt;        conf.high            method alternative             se              d
-#&gt; 1 0.248342231549 One Sample t-test   two.sided 0.248126163374 -0.24421289195
+#&gt; 1 0.0786450131217 0.403361635596 0.691185381281        19 -0.329440163298
+#&gt;        conf.high            method alternative             se               d
+#&gt; 1 0.486730189541 One Sample t-test   two.sided 0.194973954341 0.0901944036707
 #&gt;            power
-#&gt; 1 0.179526402124</div></pre>
+#&gt; 1 0.067000924269</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

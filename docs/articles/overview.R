@@ -1,6 +1,6 @@
 ## ----setup, include=FALSE------------------------------------------------
 library(tadaatoolbox)
-knitr::opts_chunk$set(message = F, warning = F)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 ## ----highlevel_intro, results='asis', echo=F-----------------------------
 cat(paste0("- **", apropos("tadaa_"), "**", collapse = "\n"))
