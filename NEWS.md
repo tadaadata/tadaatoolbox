@@ -1,7 +1,8 @@
-# tadaatoolbox 0.14.1 (GitHub)
+# tadaatoolbox 0.14.9000 (GitHub)
 
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests
 - Make sure `tadaa_`-test functions use `tadaatoolbox::pval_string` instead of the `pixiedust` version
+- Remove recoded `leist` var from `ngo`, as it should be computed from `leistung` by students
 
 # tadaatoolbox 0.14.0 (CRAN)
 
