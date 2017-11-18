@@ -11,6 +11,5 @@ env:
     - NOT_CRAN=false
 
 r:
-- oldrel
 - release
 - devel
