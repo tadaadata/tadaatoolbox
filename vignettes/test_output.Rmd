@@ -22,7 +22,7 @@ library(tadaatoolbox)
 ```{r descriptives}
 tadaa_nom(ngo$geschl, ngo$abschalt, print = "markdown")
 
-tadaa_ord(ngo$urteil, ngo$leist, print = "markdown")
+tadaa_ord(ngo$urteil, ngo$leistung, print = "markdown")
 ```
 
 # Omnibus Tests
