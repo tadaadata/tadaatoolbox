@@ -21,10 +21,12 @@
 #' @family Tadaa-plot functions
 #' @import ggplot2
 #' @examples
+#' \dontrun{
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
 #'
-#' # As grid
+#' # As grid, if cowplot is installed
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
+#' }
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,
                       brewer_palette = "Set1", labels = c("A", "B"),
                       show_n = FALSE, print = TRUE) {

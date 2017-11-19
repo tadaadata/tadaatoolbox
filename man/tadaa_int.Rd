@@ -40,10 +40,12 @@ Easily generate interaction plots of two nominal grouping
 variables and a numeric response variable.
 }
 \examples{
+\dontrun{
 tadaa_int(ngo, stunzahl, jahrgang, geschl)
 
 # As grid
 tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
+}
 }
 \seealso{
 Other Tadaa-plot functions: \code{\link{tadaa_balance}},
