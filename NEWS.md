@@ -3,6 +3,7 @@
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests
 - Make sure `tadaa_`-test functions use `tadaatoolbox::pval_string` instead of the `pixiedust` version
 - Remove recoded `leist` var from `ngo`, as it should be computed from `leistung` by students
+- Move `cowplot` from `Imports` to `Suggests` because whe only need it in one function, *sometimes*.
 
 # tadaatoolbox 0.14.0 (CRAN)
 
