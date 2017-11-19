@@ -6,10 +6,10 @@
 \title{ggplot2 theme to fit the readthedown Rmd format}
 \usage{
 theme_readthedown(base_size = 12, base_family = "", bg = "#fcfcfc",
-  axis_emph = "xy")
+  axis_emph = "xy", ...)
 
 theme_tadaa(base_size = 12, base_family = "", bg = "#fcfcfc",
-  axis_emph = "xy")
+  axis_emph = "xy", ...)
 }
 \arguments{
 \item{base_size}{Base text size, defaults to \code{12}.}
@@ -21,6 +21,8 @@ headers, or \code{"Lato"} for the body style.}
 \code{#fcfcfc}}
 
 \item{axis_emph}{Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy", NULL}.}
+
+\item{...}{Other arguments passed to \code{\link[ggplot2]{theme}}}
 }
 \value{
 A ggplot2 theme
