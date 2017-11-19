@@ -13,3 +13,6 @@ env:
 r:
 - release
 - devel
+
+r_packages:
+- cowplot
