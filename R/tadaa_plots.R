@@ -75,7 +75,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
       print(p1)
       print(p2)
     } else {
-      if (!requireNamespace("cowpolot")) {
+      if (!requireNamespace("cowplot")) {
         stop("Sorry, you need to install cowplot for this to work.")
       }
       print(cowplot::plot_grid(p1, p2, align = "h", labels = labels))
