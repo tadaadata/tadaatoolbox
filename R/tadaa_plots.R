@@ -20,7 +20,6 @@
 #' @export
 #' @family Tadaa-plot functions
 #' @import ggplot2
-#' @importFrom cowplot plot_grid
 #' @examples
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
 #'
@@ -74,6 +73,9 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
       print(p1)
       print(p2)
     } else {
+      if (!requireNamespace("cowpolot")) {
+        stop("Sorry, you need to install cowplot for this to work.")
+      }
       print(cowplot::plot_grid(p1, p2, align = "h", labels = labels))
     }
   }

@@ -19,7 +19,8 @@ Depends:
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    cowplot
 Imports:
     stats,
     methods,
@@ -36,7 +37,6 @@ Imports:
     haven,
     ryouready,
     vcd,
-    cowplot,
     nortest,
     lsr,
     viridis,
