@@ -2,18 +2,18 @@
 #'
 #' An implementation of the Games Howell procedure for pairwise comparisons.
 #' The workhorse of this function is adapted from this gist:
-#' \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
+#' https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
 #' @inheritParams tadaa_pairwise_t
-#' @return A \code{data.frame} or \link[pixiedust]{dust} object depending on \code{print}.
+#' @return A `data.frame` or \link[pixiedust]{dust} object depending on `print`.
 #' @export
-#' @references \url{https://rpubs.com/aaronsc32/games-howell-test}
-#' @source \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
-#' @author \code{gitub.com/aschleg}, Lukas Burk
+#' @references https://rpubs.com/aaronsc32/games-howell-test
+#' @source https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
+#' @author `gitub.com/aschleg`, Lukas Burk
 #' @import pixiedust
 #' @family Tadaa-functions
-#' @seealso \code{\link{tadaa_pairwise_t}}, \code{\link{tadaa_pairwise_tukey}}
+#' @seealso [tadaa_pairwise_t()], [tadaa_pairwise_tukey()]
 #' @note
-#' This function is really, really slow for large comparisons (\code{k > 50}).
+#' This function is really, really slow for large comparisons (`k > 50`).
 #' Sorry about that.
 #' @examples
 #' tadaa_pairwise_gh(ngo, deutsch, jahrgang)
@@ -63,11 +63,11 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
 }
 
 #' Games Howell post-hoc procedure
-#' @param grp Grouping variable, i.e. \code{factor}.
+#' @param grp Grouping variable, i.e. `factor`.
 #' @param obs Dependent, numeric vector.
-#' @references \url{https://rpubs.com/aaronsc32/games-howell-test}
-#' @source \url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
-#' @author \code{gitub.com/aschleg}
+#' @references https://rpubs.com/aaronsc32/games-howell-test
+#' @source https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
+#' @author `gitub.com/aschleg`
 #' @importFrom utils combn
 #' @import stats
 #' @keywords internal

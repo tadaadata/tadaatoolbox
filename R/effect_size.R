@@ -1,14 +1,14 @@
 #' Simple Effect Size Calculation for t-Tests
 #'
 #' Calculates Cohen's d for two sample comparisons.
-#' @param data A \code{data.frame}.
+#' @param data A `data.frame`.
 #' @param response The response variable (dependent).
-#' @param group The group variable, usually a \code{factor}.
-#' @param absolute If set to \code{TRUE}, the absolute effect size is returned.
+#' @param group The group variable, usually a `factor`.
+#' @param absolute If set to `TRUE`, the absolute effect size is returned.
 #' @param paired Whether the effect should be calculated for a paired
-#' t-test, default is \code{FALSE}.
-#' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#' @return \code{numeric} of length 1.
+#' t-test, default is `FALSE`.
+#' @param na.rm If `TRUE` (default), missing values are dropped.
+#' @return `numeric` of length 1.
 #' @export
 #' @details The effect size here is Cohen's d as calculated by
 #' \eqn{d = \frac{m_{diff}}{S_p}}, where \eqn{m_{diff} = \bar{x}_1 - \bar{x}_2} and
@@ -19,8 +19,8 @@
 #'   }
 #'}.
 #'
-#' For \code{paired = TRUE}, \eqn{S_p} is substituted by \eqn{S_D = S_{x_1 - x_2}}
-#' via \code{sd(x1 - x2)}.
+#' For `paired = TRUE`, \eqn{S_p} is substituted by \eqn{S_D = S_{x_1 - x_2}}
+#' via `sd(x1 - x2)`.
 #' @import stats
 #' @examples
 #' set.seed(42)

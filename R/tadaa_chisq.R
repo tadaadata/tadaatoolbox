@@ -3,18 +3,18 @@
 #' A comfortable wrapper of \\link[stats]{chisq.test} with pretty output and
 #' effect sizes depending on the size of the contingency table:
 #' Phi coefficient and Odds Ratios in case of a 2x2 table, Cramer's V otherwise.
-#' The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
+#' The result is either returned as a \link[broom]{tidy} `data.frame` or prettified using
 #' various \link[pixiedust]{sprinkle} shenanigans.
 #'
-#' @param data A \code{data.frame}.
-#' @param x A vector of categorial data (\code{factor} or \code{character}).
-#' @param y Another vector of categorial data (also \code{factor} or \code{character}).
+#' @param data A `data.frame`.
+#' @param x A vector of categorial data (`factor` or `character`).
+#' @param y Another vector of categorial data (also `factor` or `character`).
 #' @param correct Apply Yate's continuity correction for 2x2 tables,
-#' passed to \link[stats]{chisq.test}. Defaults to \code{TRUE}.
-#' @param print Print method, default \code{df}: A regular \code{data.frame}.
+#' passed to \link[stats]{chisq.test}. Defaults to `TRUE`.
+#' @param print Print method, default `df`: A regular `data.frame`.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
-#' @return A \code{data.frame} by default, otherwise \code{dust} object,
-#' depending on \code{print}.
+#' @return A `data.frame` by default, otherwise `dust` object,
+#' depending on `print`.
 #' @import pixiedust
 #' @import stats
 #' @note The warning message in case of low samples size and possibly incorrect

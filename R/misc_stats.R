@@ -2,12 +2,12 @@
 #'
 #' Calculate the mode of a numeric vector. German name kept to avoid confusion.
 #'
-#' @param x A \code{vector} with numeric data.
-#' @param reduce Since \code{mode} can be of length > 1, this option pastes the result into a
+#' @param x A `vector` with numeric data.
+#' @param reduce Since `mode` can be of length > 1, this option pastes the result into a
 #' single character value
-#' @param as_character Always return a character. \code{TRUE} by default, or \link[dplyr]{summarize}
+#' @param as_character Always return a character. `TRUE` by default, or \link[dplyr]{summarize}
 #' will be very unpleased.
-#' @return A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending
+#' @return A `vector` of length 1 of type `numeric` or `character`, depending
 #' on input.
 #' @export
 #' @examples
@@ -40,10 +40,10 @@ modus <- function(x, as_character = TRUE, reduce = TRUE){
 #' Convert numeric vector to z-values
 #'
 #' A trivial scaling function. You might as well use \link[base]{scale}, which allows
-#' arbitrary centers and scales, but returns a \code{matrix} by default.
+#' arbitrary centers and scales, but returns a `matrix` by default.
 #' @param x A numeric vector.
 #'
-#' @return A vector of z-values of the same length as \code{x}.
+#' @return A vector of z-values of the same length as `x`.
 #' @export
 #' @importFrom stats sd
 #'

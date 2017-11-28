@@ -1,13 +1,13 @@
 #' Tadaa, test for normality!
 #'
-#' @param data A \code{data.frame}.
-#' @param method The type of test to perform. Either \code{ad} for Anderson Darling,
-#' \code{shapiro} for Shapiro-Wilk, \code{pearson} for Pearson's chi-square test or
-#' \code{ks} for Kolmogorov-Smirnov (not recommended).
+#' @param data A `data.frame`.
+#' @param method The type of test to perform. Either `ad` for Anderson Darling,
+#' `shapiro` for Shapiro-Wilk, `pearson` for Pearson's chi-square test or
+#' `ks` for Kolmogorov-Smirnov (not recommended).
 #' @param ... Further arguments passed to test functions where applicable,
 #' see \link[nortest]{pearson.test} and \link[stats]{ks.test}.
 #' @inheritParams tadaa_aov
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @import pixiedust
 #' @import nortest
 #' @import stats
@@ -78,12 +78,12 @@ tadaa_normtest <- function(data, method = "ad",
 #'
 #' A thin wrapper around \link[car]{leveneTest} with some formatting done.
 #' @param data Data for the test
-#' @param formula Formula specifiyng groups, passed to \code{leveneTest}.
-#' @param center Method to use, either \code{median} (default for robustness) or \code{mean}.
+#' @param formula Formula specifiyng groups, passed to `leveneTest`.
+#' @param center Method to use, either `median` (default for robustness) or `mean`.
 #' @inheritParams tadaa_aov
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
-#' @note The case of \code{center = "median"} is technically called \emph{Brown–Forsythe test},
-#' so if that's selected the header for non-\code{df} returns will reflect that.
+#' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
+#' @note The case of `center = "median"` is technically called *Brown–Forsythe test*,
+#' so if that's selected the header for non-`df` returns will reflect that.
 #' @export
 #' @importFrom stats terms
 #' @importFrom car leveneTest

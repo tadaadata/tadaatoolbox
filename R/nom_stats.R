@@ -1,10 +1,10 @@
 #' Simple Chi^2
 #'
 #' This is a very simple wrapper for \link{chisq.test}.
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
-#' @param correct Apply correction, passed to \code{chisq.test}.
-#' @return A \code{numeric} value
+#' @param correct Apply correction, passed to `chisq.test`.
+#' @return A `numeric` value
 #' @export
 #' @import stats
 #' @note The warning message in case of low samples size and possibly incorrect
@@ -22,10 +22,10 @@ nom_chisqu <- function(x, y = NULL, correct = FALSE){
 #' Phi coefficient
 #'
 #' Very simple wrapper for \link[vcd]{assocstats}.
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
-#' @return \code{numeric} value
+#' @return `numeric` value
 #' @export
 #' @importFrom vcd assocstats
 #' @examples
@@ -40,10 +40,10 @@ nom_phi <- function(x, y = NULL){
 #' Cramer's V
 #'
 #' Very simple wrapper for \link[vcd]{assocstats}.
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
-#' @return \code{numeric} value
+#' @return `numeric` value
 #' @export
 #' @importFrom vcd assocstats
 #' @examples
@@ -58,10 +58,10 @@ nom_v <- function(x, y = NULL){
 #' Contingency Coefficient C
 #'
 #' Very simple wrapper for \link[vcd]{assocstats}.
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
-#' @return \code{numeric} value
+#' @return `numeric` value
 #' @export
 #' @importFrom vcd assocstats
 #' @examples
@@ -76,12 +76,12 @@ nom_c <- function(x, y = NULL){
 #' Lambda
 #'
 #' Very simple wrapper for \link[ryouready]{nom.lambda}.
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
-#' @param symmetric If \code{TRUE}, symmetric lambda is returned. Default is \code{FALSE}.
-#' @param reverse If \code{TRUE}, row and column variable are switched.
+#' @param symmetric If `TRUE`, symmetric lambda is returned. Default is `FALSE`.
+#' @param reverse If `TRUE`, row and column variable are switched.
 #'
-#' @return \code{numeric} value
+#' @return `numeric` value
 #' @export
 #' @importFrom ryouready nom.lambda
 #' @examples
@@ -101,11 +101,11 @@ nom_lambda <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
 
 #' Get all the nominal stats
 #'
-#' @param x Dependent variable. Alternatively a \code{table}.
+#' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param round Ho many digits should be rounded. Default is 2.
 #' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
-#' @return A \code{dust} object, depending on \code{print}.
+#' @return A `dust` object, depending on `print`.
 #' @export
 #' @import pixiedust
 #' @family Tadaa-functions

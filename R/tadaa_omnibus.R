@@ -5,27 +5,27 @@
 #' power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
 #'
 #' @details
-#' If a specified independent variable is not properly encoded as a \code{factor}, it is
-#' automatically converted if \code{factorize = TRUE} to ensure valid results.
+#' If a specified independent variable is not properly encoded as a `factor`, it is
+#' automatically converted if `factorize = TRUE` to ensure valid results.
 #'
-#' If \code{type = 3} and \code{check_contrasts = TRUE}, the \code{"contrasts"} of
-#' each non-ordered factor will be checked and set to \code{contr.sum} to ensure the function
-#' yields usable results. It is highly recommended to only use \code{check_contrasts = FALSE}
+#' If `type = 3` and `check_contrasts = TRUE`, the `"contrasts"` of
+#' each non-ordered factor will be checked and set to `contr.sum` to ensure the function
+#' yields usable results. It is highly recommended to only use `check_contrasts = FALSE`
 #' for debugging or educational purposes.
-#' @param formula Formula for model, passed to \code{aov}.
+#' @param formula Formula for model, passed to `aov`.
 #' @param data Data for model.
-#' @param show_effect_size If \code{TRUE} (default), effect sizes
+#' @param show_effect_size If `TRUE` (default), effect sizes
 #' partial eta^2 and Cohen's f are appended as columns.
-#' @param show_power (Experimental) If \code{TRUE} (default), power is calculated
+#' @param show_power (Experimental) If `TRUE` (default), power is calculated
 #' via \link[pwr]{pwr.f2.test} and appended as a column.
-#' @param factorize If \code{TRUE} (default), non-\code{factor} independent variables
-#' will automatically converted via \code{as.factor}, so beware of your inputs.
-#' @param type Which type of SS to use. Default is \code{3}, can also be \code{1} or \code{2}.
-#' @param check_contrasts Only applies to \code{type = 3}. If \code{TRUE} (default),
-#' the \code{contrasts} of each non-ordered \code{factor} are set to \code{"contr.sum"}.
-#' @param print Print method, default \code{df}: A regular \code{data.frame}.
+#' @param factorize If `TRUE` (default), non-`factor` independent variables
+#' will automatically converted via `as.factor`, so beware of your inputs.
+#' @param type Which type of SS to use. Default is `3`, can also be `1` or `2`.
+#' @param check_contrasts Only applies to `type = 3`. If `TRUE` (default),
+#' the `contrasts` of each non-ordered `factor` are set to `"contr.sum"`.
+#' @param print Print method, default `df`: A regular `data.frame`.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @export
 #' @family Tadaa-functions
 #' @import methods
@@ -180,11 +180,11 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 
 #' Tadaa, Kruskal-Wallis!
 #'
-#' @param formula Formula for model, passed to \code{kruskal.test}.
+#' @param formula Formula for model, passed to `kruskal.test`.
 #' @param data Data for model.
-#' @param print Print method, per default a regular \code{data.frame}.
+#' @param print Print method, per default a regular `data.frame`.
 #' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @export
 #' @family Tadaa-functions
 #' @import stats

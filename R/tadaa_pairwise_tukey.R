@@ -2,19 +2,19 @@
 #'
 #' This function is merely a thin wrapper around \link[stats]{TukeyHSD} with tidying done
 #' by \link[broom]{tidy} and optional formatting via \link[pixiedust]{sprinkle}.
-#' Its input is not a \code{aov} model like in the original function, but instead the
-#' \code{aov} model is fit internally based on the arguments given. This is meant to
-#' enable a consistent usage between the \code{tadaa_pairwise}-functions.
+#' Its input is not a `aov` model like in the original function, but instead the
+#' `aov` model is fit internally based on the arguments given. This is meant to
+#' enable a consistent usage between the `tadaa_pairwise`-functions.
 #' @inheritParams tadaa_pairwise_t
 #' @param ... Further arguments passed to \link[stats]{TukeyHSD}
 #'
-#' @return A \code{data.frame} or \link[pixiedust]{dust} object depending on \code{print}.
+#' @return A `data.frame` or \link[pixiedust]{dust} object depending on `print`.
 #' @export
 #' @importFrom stats TukeyHSD formula
 #' @importFrom broom tidy
 #' @import pixiedust
 #' @family Tadaa-functions
-#' @seealso \code{\link{tadaa_pairwise_t}}, \code{\link{tadaa_pairwise_gh}}
+#' @seealso [tadaa_pairwise_t()], [tadaa_pairwise_gh()]
 #' @examples
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl)
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, print = "console")

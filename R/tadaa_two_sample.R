@@ -2,31 +2,31 @@
 #'
 #' An extension for \link[stats]{t.test} with added boni and tidy and/or pretty output.
 #' Before a t-test is performed, \link[car]{leveneTest} is consulted as to wether
-#' heteroskedasticity is present (using the default \code{center = "mean"} method for
-#' a more robust test), and sets \code{var.equal} accordingly.
+#' heteroskedasticity is present (using the default `center = "mean"` method for
+#' a more robust test), and sets `var.equal` accordingly.
 #' Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
 #' \link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
-#' The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
+#' The result is either returned as a \link[broom]{tidy} `data.frame` or prettified using
 #' various \link[pixiedust]{sprinkle} shenanigans.
 #'
-#' @param data A \code{data.frame}.
+#' @param data A `data.frame`.
 #' @param response The response variable (dependent).
-#' @param group The group variable, usually a \code{factor}.
-#' @param direction Test direction, like \code{alternative} in \link{t.test}.
-#' @param paired If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.
+#' @param group The group variable, usually a `factor`.
+#' @param direction Test direction, like `alternative` in \link{t.test}.
+#' @param paired If `TRUE`, a paired test is performed, defaults to `FALSE`.
 #' @param var.equal If set, passed to \link[stats]{t.test} to decide whether to use a
-#' Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.
-#' @param conf.level Confidence level used for power and CI, default is \code{0.95}.
+#' Welch-correction. Default is `NULL` to automatically determine heteroskedasticity.
+#' @param conf.level Confidence level used for power and CI, default is `0.95`.
 #' @inheritParams tadaa_aov
-#' @return A \code{data.frame} by default, otherwise \code{dust} object,
-#' depending on \code{print}.
+#' @return A `data.frame` by default, otherwise `dust` object,
+#' depending on `print`.
 #' @import pixiedust
 #' @import stats
 #' @importFrom car leveneTest
 #' @family Tadaa-functions
 #' @note The cutoff for the interal Levene's test to decided whether or not to perform
-#' a Welch-corrected t-test is set to \code{0.05} by default. To override the internal tests and
-#' decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
+#' a Welch-corrected t-test is set to `0.05` by default. To override the internal tests and
+#' decide whether to use a Welch test, set `var.equal` as you would with \link[stats]{t.test}.
 #' @export
 #' @examples
 #' set.seed(42)
@@ -151,10 +151,10 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
 #' Tadaa, Wilcoxon!
 #'
-#' @param data A \code{data.frame}.
+#' @param data A `data.frame`.
 #' @inheritParams tadaa_t.test
-#' @param ... Further arguments passed to \link[stats]{wilcox.test}, e.g. \code{correct = FALSE}.
-#' @return A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
+#' @param ... Further arguments passed to \link[stats]{wilcox.test}, e.g. `correct = FALSE`.
+#' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @import pixiedust
 #' @import stats
 #' @family Tadaa-functions

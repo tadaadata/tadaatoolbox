@@ -2,9 +2,9 @@
 #'
 #' @rdname confint
 #' @param x A Numeric vector.
-#' @param alpha Alpha, default is \code{0.05}.
-#' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#' @return \code{numeric} of length one (size of CI in one direction).
+#' @param alpha Alpha, default is `0.05`.
+#' @param na.rm If `TRUE` (default), missing values are dropped.
+#' @return `numeric` of length one (size of CI in one direction).
 #' @export
 #' @import stats
 #' @examples
@@ -29,9 +29,9 @@ confint_t <- function(x, alpha = 0.05, na.rm = TRUE){
 #' Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
 #'
 #' @param x A Numeric vector.
-#' @param alpha Alpha, default is \code{0.05}.
-#' @param na.rm If \code{TRUE} (default), missing values are dropped.
-#' @return A \code{data.frame} with y (mean), ymin and ymax values.
+#' @param alpha Alpha, default is `0.05`.
+#' @param na.rm If `TRUE` (default), missing values are dropped.
+#' @return A `data.frame` with y (mean), ymin and ymax values.
 #' @export
 #' @import stats
 #' @examples
@@ -55,7 +55,7 @@ mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE){
 #'
 #' @param x a numeric vector or R object which is coercible to one
 #' @param conf.level the confidence level (alpha) of the Interval
-#' @return a \code{data.frame} with the mean, SEM and its Confidence Interval
+#' @return a `data.frame` with the mean, SEM and its Confidence Interval
 #' @export
 #' @examples
 #' set.seed(42)

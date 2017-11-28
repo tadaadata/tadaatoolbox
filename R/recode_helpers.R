@@ -2,9 +2,9 @@
 #'
 #' @param x Vector to be clustered.
 #' @param classes Number of classes. Defaults to 3, can also be 5.
-#' @param method How should the classes be calculated? Defaults to \code{quantiles}, can also be
-#' \code{means} for mean and standard deviation.
-#' @return An ordered \code{factor} with \code{classes} levels. And descriptive labels.
+#' @param method How should the classes be calculated? Defaults to `quantiles`, can also be
+#' `means` for mean and standard deviation.
+#' @return An ordered `factor` with `classes` levels. And descriptive labels.
 #' @importFrom car recode
 #' @export
 #' @examples
@@ -48,10 +48,10 @@ tadaa_likertize <- function(x, classes = 3, method = "quantiles") {
 #' Get recode assigments for even intervals of discrete numeric values compatible
 #' with \link[car]{recode}.
 #'
-#' @param from,to A \code{numeric value} for the beginning and the end of the interval.
+#' @param from,to A `numeric value` for the beginning and the end of the interval.
 #' @param width The width of the interval, e.g. 5 (default) for intervals 0-5.
 #'
-#' @return A \code{character} vector of recode assignments compatible with \link[car]{recode}
+#' @return A `character` vector of recode assignments compatible with \link[car]{recode}
 #' @export
 #' @examples
 #' \dontrun{
@@ -74,10 +74,10 @@ generate_recodes <- function(from, to, width = 5){
 #' Get interval labels for even intervals of discrete numeric values compatible
 #' with \link{cut}.
 #'
-#' @param from,to A \code{numeric value} for the beginning and the end of the interval.
+#' @param from,to A `numeric value` for the beginning and the end of the interval.
 #' @param width The width of the interval, e.g. 5 (default) for intervals 0-5.
 #'
-#' @return A \code{character} vector of interval labels compatible with \link{cut}
+#' @return A `character` vector of interval labels compatible with \link{cut}
 #' @export
 #' @examples
 #' \dontrun{
