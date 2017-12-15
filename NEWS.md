@@ -1,4 +1,4 @@
-# tadaatoolbox 0.15.0 (GitHub)
+# tadaatoolbox 0.15.0
 
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests
 - Make sure `tadaa_`-test functions use `tadaatoolbox::pval_string` instead of the `pixiedust` version
@@ -11,7 +11,7 @@
 - `[tadaa_]likertize` is removed. Use `sjmisc::split_var`.
 - `labels_to_factor` is removed because various `as_factor`s exist.
 
-# tadaatoolbox 0.14.0 (CRAN)
+# tadaatoolbox 0.14.0
 
 - Silence warnings in functions using `chisq.test`
 - Add `ord_tau` to calculate _all_ the Taus
