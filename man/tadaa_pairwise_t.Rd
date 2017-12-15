@@ -17,28 +17,28 @@ tadaa_pairwise_t(data, response, group1, group2 = NULL, p.adjust = "bonf",
 
 \item{group2}{(Optional) second grouping variable.}
 
-\item{p.adjust}{The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-to \link[stats]{pairwise.t.test}. Additionally, \code{sidak} supported as a
-method not supported by \link[stats]{p.adjust}, as is \code{sidakSD} for the
+\item{p.adjust}{The p-adjustment method, see \link[stats:p.adjust.methods]{stats::p.adjust.methods}, passed
+to \link[stats:pairwise.t.test]{stats::pairwise.t.test}. Additionally, \code{sidak} is supported as a
+method, which is not the case with \link[stats:p.adjust]{stats::p.adjust}, as is \code{sidakSD} for the
 Sidak step-down procedure.}
 
-\item{paired}{Defaults to \code{FALSE}, also passed to \link[stats]{pairwise.t.test}.}
+\item{paired}{Defaults to \code{FALSE}, also passed to \link[stats:pairwise.t.test]{stats::pairwise.t.test}.}
 
 \item{pool.sd}{Defaults to the inverse of \code{paired}, passed
-to \link[stats]{pairwise.t.test}.}
+to \link[stats:pairwise.t.test]{stats::pairwise.t.test}.}
 
-\item{alternative}{Defaults to \code{two.sided}, also passed to \link[stats]{pairwise.t.test}.}
+\item{alternative}{Defaults to \code{two.sided}, also passed to \link[stats:pairwise.t.test]{stats::pairwise.t.test}.}
 
 \item{print}{Print method, defaults to \code{df} for \code{data.frame} output, otherwise
-passed to \link[pixiedust]{sprinkle_print_method}.}
+passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method}.}
 }
 \value{
 A \code{data.frame} with columns \code{term}, \code{comparison} and \code{adj.p.value}.
 }
 \description{
-This is an extension of \link[stats]{pairwise.t.test} that's meant to deal with
+This is an extension of \link[stats:pairwise.t.test]{stats::pairwise.t.test} that's meant to deal with
 interactions our of the box, while also performing pairwise tests for the primary terms.
-The output of the function is modeled after \link[stats]{TukeyHSD}, unfortunately
+The output of the function is modeled after \link[stats:TukeyHSD]{stats::TukeyHSD}, unfortunately
 without confidence intervals or test statistic though.
 }
 \note{
@@ -58,12 +58,12 @@ tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "co
 
 }
 \references{
-\url{https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni}
+https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni
 
-\url{https://rdrr.io/rforge/mutoss/man/SidakSD.html}
+https://rdrr.io/rforge/mutoss/man/SidakSD.html
 }
 \seealso{
-\code{\link{tadaa_pairwise_tukey}}, \code{\link{tadaa_pairwise_gh}}
+\code{\link[=tadaa_pairwise_tukey]{tadaa_pairwise_tukey()}}, \code{\link[=tadaa_pairwise_gh]{tadaa_pairwise_gh()}}
 
 Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},

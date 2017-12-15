@@ -13,7 +13,7 @@ tadaa_kruskal(formula, data = NULL, print = c("df", "console", "html",
 \item{data}{Data for model.}
 
 \item{print}{Print method, per default a regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.

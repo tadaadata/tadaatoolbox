@@ -1,20 +1,20 @@
 #' Tadaa, t-Test!
 #'
-#' An extension for \link[stats]{t.test} with added boni and tidy and/or pretty output.
-#' Before a t-test is performed, \link[car]{leveneTest} is consulted as to wether
+#' An extension for [stats::t.test] with added boni and tidy and/or pretty output.
+#' Before a t-test is performed, [car::leveneTest] is consulted as to wether
 #' heteroskedasticity is present (using the default `center = "mean"` method for
 #' a more robust test), and sets `var.equal` accordingly.
-#' Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
-#' \link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
-#' The result is either returned as a \link[broom]{tidy} `data.frame` or prettified using
-#' various \link[pixiedust]{sprinkle} shenanigans.
+#' Afterwards, the effect size is calculated and [pwr::pwr.t.test] or
+#' [pwr::pwr.t2n.test] are used to calculate the test's power accordingly.
+#' The result is either returned as a [broom::tidy] `data.frame` or prettified using
+#' various [pixiedust::sprinkle] shenanigans.
 #'
 #' @param data A `data.frame`.
 #' @param response The response variable (dependent).
 #' @param group The group variable, usually a `factor`.
-#' @param direction Test direction, like `alternative` in \link{t.test}.
+#' @param direction Test direction, like `alternative` in [t.test].
 #' @param paired If `TRUE`, a paired test is performed, defaults to `FALSE`.
-#' @param var.equal If set, passed to \link[stats]{t.test} to decide whether to use a
+#' @param var.equal If set, passed to [stats::t.test] to decide whether to use a
 #' Welch-correction. Default is `NULL` to automatically determine heteroskedasticity.
 #' @param conf.level Confidence level used for power and CI, default is `0.95`.
 #' @inheritParams tadaa_aov
@@ -26,7 +26,7 @@
 #' @family Tadaa-functions
 #' @note The cutoff for the interal Levene's test to decided whether or not to perform
 #' a Welch-corrected t-test is set to `0.05` by default. To override the internal tests and
-#' decide whether to use a Welch test, set `var.equal` as you would with \link[stats]{t.test}.
+#' decide whether to use a Welch test, set `var.equal` as you would with [stats::t.test].
 #' @export
 #' @examples
 #' set.seed(42)
@@ -153,7 +153,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 #'
 #' @param data A `data.frame`.
 #' @inheritParams tadaa_t.test
-#' @param ... Further arguments passed to \link[stats]{wilcox.test}, e.g. `correct = FALSE`.
+#' @param ... Further arguments passed to [stats::wilcox.test], e.g. `correct = FALSE`.
 #' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @import pixiedust
 #' @import stats

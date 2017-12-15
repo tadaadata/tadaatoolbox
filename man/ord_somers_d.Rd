@@ -19,7 +19,7 @@ ord_somers_d(x, y = NULL, symmetric = FALSE, reverse = FALSE)
 \code{numeric} value
 }
 \description{
-Very simple wrapper for \link[ryouready]{ord.somers.d}.
+Very simple wrapper for \link[ryouready:ord.somers.d]{ryouready::ord.somers.d}.
 }
 \examples{
 ord_somers_d(ngo$abschalt, ngo$geschl)

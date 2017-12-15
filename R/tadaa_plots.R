@@ -7,8 +7,8 @@
 #' @param group1 First grouping variable.
 #' @param group2 Second grouping variable.
 #' @param grid If `TRUE`, the resulting graphs will be arranged in a grid
-#' via \link[cowplot]{plot_grid}.
-#' @param brewer_palette The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+#' via [cowplot::plot_grid].
+#' @param brewer_palette The name of the [RColorBrewer::RColorBrewer] palette to use,
 #' defaults to `Set1`.
 #' @param labels Labels used for the plots when printed in a grid (`grid = TRUE`),
 #' defaults to `c("A", "B")`.
@@ -92,7 +92,7 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 #' @param data A `data.frame`
 #' @param group1 The grouping variable on the x-axis
 #' @param group2 The grouping variable on the y-axis
-#' @param palette The \link[viridis]{viridis} color palette to use; `c("A", "B", "C", "D")`,
+#' @param palette The [viridis::viridis] color palette to use; `c("A", "B", "C", "D")`,
 #' defaults to `"D"`
 #' @param annotate Should the n of each group be displayed in each cell of the heatmap?
 #' @return A ggplot2 object
@@ -137,7 +137,7 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
 #' @param data A `data.frame`
 #' @param response Response variable, numeric.
 #' @param group Grouping variable, ideally a `factor`.
-#' @param brewer_palette Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+#' @param brewer_palette Optional: The name of the [RColorBrewer] palette to use,
 #' defaults to `Set1`. Use `NULL` for no brewer palette.
 #' @return A ggplot2 object.
 #' @export
@@ -165,12 +165,12 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 
 #' Plot TukeyHSD Results as Errorbars
 #'
-#' This is a simple plotting template that takes the \link[broom]{tidy}'d output of
-#' \link[stats]{TukeyHSD} or alternatively the `print = "df"` output
-#' of \link{tadaa_pairwise_tukey} and plots it nicely with error bars.
-#' @param data The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.
+#' This is a simple plotting template that takes the [broom::tidy]'d output of
+#' [stats::TukeyHSD] or alternatively the `print = "df"` output
+#' of [tadaa_pairwise_tukey] and plots it nicely with error bars.
+#' @param data The [broom::tidy]'d output of [stats::TukeyHSD].
 #' @inheritParams tadaa_mean_ci
-#' @return A \link{ggplot2} object.
+#' @return A [ggplot2] object.
 #' @export
 #' @import ggplot2
 #' @importFrom dplyr arrange

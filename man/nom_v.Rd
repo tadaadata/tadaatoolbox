@@ -15,7 +15,7 @@ nom_v(x, y = NULL)
 \code{numeric} value
 }
 \description{
-Very simple wrapper for \link[vcd]{assocstats}.
+Very simple wrapper for \link[vcd:assocstats]{vcd::assocstats}.
 }
 \examples{
 nom_v(ngo$abschalt, ngo$geschl)

@@ -13,7 +13,7 @@ tadaa_ord(x, y = NULL, round = 2, print = "console")
 
 \item{round}{Ho many digits should be rounded. Default is 2.}
 
-\item{print}{Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.}
+\item{print}{Print method. Passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} as of now.}
 }
 \value{
 A \code{dust} object, depending on \code{print}.

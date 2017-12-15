@@ -13,7 +13,7 @@ tadaa_balance(data, group1, group2, palette = "D", annotate = TRUE)
 
 \item{group2}{The grouping variable on the y-axis}
 
-\item{palette}{The \link[viridis]{viridis} color palette to use; \code{c("A", "B", "C", "D")},
+\item{palette}{The \link[viridis:viridis]{viridis::viridis} color palette to use; \code{c("A", "B", "C", "D")},
 defaults to \code{"D"}}
 
 \item{annotate}{Should the n of each group be displayed in each cell of the heatmap?}

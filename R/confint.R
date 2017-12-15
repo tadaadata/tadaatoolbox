@@ -26,7 +26,7 @@ confint_t <- function(x, alpha = 0.05, na.rm = TRUE){
 
 #' Get mean and CI for a numeric vector
 #'
-#' Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
+#' Suitable for use within ggplot's [ggplot2::stat_summary].
 #'
 #' @param x A Numeric vector.
 #' @param alpha Alpha, default is `0.05`.

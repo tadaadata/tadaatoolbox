@@ -5,7 +5,7 @@
 #' `shapiro` for Shapiro-Wilk, `pearson` for Pearson's chi-square test or
 #' `ks` for Kolmogorov-Smirnov (not recommended).
 #' @param ... Further arguments passed to test functions where applicable,
-#' see \link[nortest]{pearson.test} and \link[stats]{ks.test}.
+#' see [nortest::pearson.test] and [stats::ks.test].
 #' @inheritParams tadaa_aov
 #' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @import pixiedust
@@ -76,7 +76,7 @@ tadaa_normtest <- function(data, method = "ad",
 
 #' Levene's Test for Homoskedasticity
 #'
-#' A thin wrapper around \link[car]{leveneTest} with some formatting done.
+#' A thin wrapper around [car::leveneTest] with some formatting done.
 #' @param data Data for the test
 #' @param formula Formula specifiyng groups, passed to `leveneTest`.
 #' @param center Method to use, either `median` (default for robustness) or `mean`.

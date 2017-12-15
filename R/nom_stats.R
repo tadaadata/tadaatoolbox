@@ -1,6 +1,6 @@
 #' Simple Chi^2
 #'
-#' This is a very simple wrapper for \link{chisq.test}.
+#' This is a very simple wrapper for [stats::chisq.test].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param correct Apply correction, passed to `chisq.test`.
@@ -21,7 +21,7 @@ nom_chisqu <- function(x, y = NULL, correct = FALSE){
 
 #' Phi coefficient
 #'
-#' Very simple wrapper for \link[vcd]{assocstats}.
+#' Very simple wrapper for [vcd::assocstats].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
@@ -39,7 +39,7 @@ nom_phi <- function(x, y = NULL){
 
 #' Cramer's V
 #'
-#' Very simple wrapper for \link[vcd]{assocstats}.
+#' Very simple wrapper for [vcd::assocstats].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
@@ -57,7 +57,7 @@ nom_v <- function(x, y = NULL){
 
 #' Contingency Coefficient C
 #'
-#' Very simple wrapper for \link[vcd]{assocstats}.
+#' Very simple wrapper for [vcd::assocstats].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
@@ -75,7 +75,7 @@ nom_c <- function(x, y = NULL){
 
 #' Lambda
 #'
-#' Very simple wrapper for \link[ryouready]{nom.lambda}.
+#' Very simple wrapper for [ryouready::nom.lambda].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param symmetric If `TRUE`, symmetric lambda is returned. Default is `FALSE`.
@@ -104,7 +104,7 @@ nom_lambda <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param round Ho many digits should be rounded. Default is 2.
-#' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
+#' @param print Print method. Passed to [pixiedust::sprinkle_print_method] as of now.
 #' @return A `dust` object, depending on `print`.
 #' @export
 #' @import pixiedust

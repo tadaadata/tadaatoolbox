@@ -2,7 +2,7 @@
 #'
 #' Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 #' optionally displays effect sizes ((partial) \eqn{\eta^2}, Cohen's f) and
-#' power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
+#' power (calculated via [pwr::pwr.f2.test] to work with unbalanced designs).
 #'
 #' @details
 #' If a specified independent variable is not properly encoded as a `factor`, it is
@@ -17,14 +17,14 @@
 #' @param show_effect_size If `TRUE` (default), effect sizes
 #' partial eta^2 and Cohen's f are appended as columns.
 #' @param show_power (Experimental) If `TRUE` (default), power is calculated
-#' via \link[pwr]{pwr.f2.test} and appended as a column.
+#' via [pwr::pwr.f2.test] and appended as a column.
 #' @param factorize If `TRUE` (default), non-`factor` independent variables
 #' will automatically converted via `as.factor`, so beware of your inputs.
 #' @param type Which type of SS to use. Default is `3`, can also be `1` or `2`.
 #' @param check_contrasts Only applies to `type = 3`. If `TRUE` (default),
 #' the `contrasts` of each non-ordered `factor` are set to `"contr.sum"`.
 #' @param print Print method, default `df`: A regular `data.frame`.
-#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' Otherwise passed to [pixiedust::sprinkle_print_method] for fancyness.
 #' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @export
 #' @family Tadaa-functions
@@ -183,7 +183,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 #' @param formula Formula for model, passed to `kruskal.test`.
 #' @param data Data for model.
 #' @param print Print method, per default a regular `data.frame`.
-#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' Otherwise passed to [pixiedust::sprinkle_print_method] for fancyness.
 #' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @export
 #' @family Tadaa-functions

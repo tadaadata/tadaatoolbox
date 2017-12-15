@@ -1,14 +1,14 @@
 #' Tukey HSD pairwise comparisons
 #'
-#' This function is merely a thin wrapper around \link[stats]{TukeyHSD} with tidying done
-#' by \link[broom]{tidy} and optional formatting via \link[pixiedust]{sprinkle}.
+#' This function is merely a thin wrapper around [stats::TukeyHSD] with tidying done
+#' by [broom::tidy] and optional formatting via [pixiedust::sprinkle].
 #' Its input is not a `aov` model like in the original function, but instead the
 #' `aov` model is fit internally based on the arguments given. This is meant to
 #' enable a consistent usage between the `tadaa_pairwise`-functions.
 #' @inheritParams tadaa_pairwise_t
-#' @param ... Further arguments passed to \link[stats]{TukeyHSD}
+#' @param ... Further arguments passed to [stats::TukeyHSD]
 #'
-#' @return A `data.frame` or \link[pixiedust]{dust} object depending on `print`.
+#' @return A `data.frame` or [pixiedust::dust] object depending on `print`.
 #' @export
 #' @importFrom stats TukeyHSD formula
 #' @importFrom broom tidy

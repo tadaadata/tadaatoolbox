@@ -19,32 +19,32 @@ tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
 
 \item{paired}{If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.}
 
-\item{var.equal}{If set, passed to \link[stats]{t.test} to decide whether to use a
+\item{var.equal}{If set, passed to \link[stats:t.test]{stats::t.test} to decide whether to use a
 Welch-correction. Default is \code{NULL} to automatically determine heteroskedasticity.}
 
 \item{conf.level}{Confidence level used for power and CI, default is \code{0.95}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object,
 depending on \code{print}.
 }
 \description{
-An extension for \link[stats]{t.test} with added boni and tidy and/or pretty output.
-Before a t-test is performed, \link[car]{leveneTest} is consulted as to wether
+An extension for \link[stats:t.test]{stats::t.test} with added boni and tidy and/or pretty output.
+Before a t-test is performed, \link[car:leveneTest]{car::leveneTest} is consulted as to wether
 heteroskedasticity is present (using the default \code{center = "mean"} method for
 a more robust test), and sets \code{var.equal} accordingly.
-Afterwards, the effect size is calculated and \link[pwr]{pwr.t.test} or
-\link[pwr]{pwr.t2n.test} are used to calculate the test's power accordingly.
-The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
-various \link[pixiedust]{sprinkle} shenanigans.
+Afterwards, the effect size is calculated and \link[pwr:pwr.t.test]{pwr::pwr.t.test} or
+\link[pwr:pwr.t2n.test]{pwr::pwr.t2n.test} are used to calculate the test's power accordingly.
+The result is either returned as a \link[broom:tidy]{broom::tidy} \code{data.frame} or prettified using
+various \link[pixiedust:sprinkle]{pixiedust::sprinkle} shenanigans.
 }
 \note{
 The cutoff for the interal Levene's test to decided whether or not to perform
 a Welch-corrected t-test is set to \code{0.05} by default. To override the internal tests and
-decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats]{t.test}.
+decide whether to use a Welch test, set \code{var.equal} as you would with \link[stats:t.test]{stats::t.test}.
 }
 \examples{
 set.seed(42)

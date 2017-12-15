@@ -1,23 +1,23 @@
 #' Extended Pairwise t-Tests
 #'
-#' This is an extension of \link[stats]{pairwise.t.test} that's meant to deal with
+#' This is an extension of [stats::pairwise.t.test] that's meant to deal with
 #' interactions our of the box, while also performing pairwise tests for the primary terms.
-#' The output of the function is modeled after \link[stats]{TukeyHSD}, unfortunately
+#' The output of the function is modeled after [stats::TukeyHSD], unfortunately
 #' without confidence intervals or test statistic though.
 #' @param data A `data.frame` containing the variables.
 #' @param response The response variable, i.e. the dependent numeric vector.
 #' @param group1 The grouping variables, typically a `factor`.
 #' @param group2 (Optional) second grouping variable.
-#' @param p.adjust The p-adjustment method, see \link[stats]{p.adjust.methods}, passed
-#' to \link[stats]{pairwise.t.test}. Additionally, `sidak` supported as a
-#' method not supported by \link[stats]{p.adjust}, as is `sidakSD` for the
+#' @param p.adjust The p-adjustment method, see [stats::p.adjust.methods], passed
+#' to [stats::pairwise.t.test]. Additionally, `sidak` is supported as a
+#' method, which is not the case with [stats::p.adjust], as is `sidakSD` for the
 #' Sidak step-down procedure.
-#' @param paired Defaults to `FALSE`, also passed to \link[stats]{pairwise.t.test}.
+#' @param paired Defaults to `FALSE`, also passed to [stats::pairwise.t.test].
 #' @param pool.sd Defaults to the inverse of `paired`, passed
-#' to \link[stats]{pairwise.t.test}.
-#' @param alternative Defaults to `two.sided`, also passed to \link[stats]{pairwise.t.test}.
+#' to [stats::pairwise.t.test].
+#' @param alternative Defaults to `two.sided`, also passed to [stats::pairwise.t.test].
 #' @param print Print method, defaults to `df` for `data.frame` output, otherwise
-#' passed to \link[pixiedust]{sprinkle_print_method}.
+#' passed to [pixiedust::sprinkle_print_method].
 #' @importFrom broom tidy
 #' @import pixiedust
 #' @import stats

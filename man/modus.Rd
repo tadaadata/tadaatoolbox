@@ -9,11 +9,11 @@ modus(x, as_character = TRUE, reduce = TRUE)
 \arguments{
 \item{x}{A \code{vector} with numeric data.}
 
-\item{as_character}{Always return a character. \code{TRUE} by default, or \link[dplyr]{summarize}
+\item{as_character}{Always return a character. \code{TRUE} by default, or \link[dplyr:summarize]{dplyr::summarize}.
 will be very unpleased.}
 
 \item{reduce}{Since \code{mode} can be of length > 1, this option pastes the result into a
-single character value}
+single character value.}
 }
 \value{
 A \code{vector} of length 1 of type \code{numeric} or \code{character}, depending

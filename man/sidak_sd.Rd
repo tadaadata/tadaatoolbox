@@ -10,6 +10,6 @@ sidak_sd(pvals)
 Sidak setp-down procedure
 }
 \references{
-\url{https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88}
+https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88
 }
 \keyword{internal}

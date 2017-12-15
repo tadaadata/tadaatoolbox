@@ -12,11 +12,11 @@ generate_recodes(from, to, width = 5)
 \item{width}{The width of the interval, e.g. 5 (default) for intervals 0-5.}
 }
 \value{
-A \code{character} vector of recode assignments compatible with \link[car]{recode}
+A \code{character} vector of recode assignments compatible with \link[car:recode]{car::recode}.
 }
 \description{
 Get recode assigments for even intervals of discrete numeric values compatible
-with \link[car]{recode}.
+with \link[car:recode]{car::recode}.
 }
 \examples{
 \dontrun{

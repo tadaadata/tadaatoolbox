@@ -6,7 +6,7 @@
 \title{The ngo dataset}
 \format{A \code{data.frame} containing numerical and factor data.}
 \source{
-\code{\link[ryouready]{d.ngo}}
+\code{\link[ryouready:d.ngo]{ryouready::d.ngo()}}
 }
 \usage{
 ngo

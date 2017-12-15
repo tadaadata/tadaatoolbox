@@ -17,7 +17,7 @@ mean_ci_t(x, alpha = 0.05, na.rm = TRUE)
 A \code{data.frame} with y (mean), ymin and ymax values.
 }
 \description{
-Suitable for use within ggplot's \link[ggplot2]{stat_summary}.
+Suitable for use within ggplot's \link[ggplot2:stat_summary]{ggplot2::stat_summary}.
 }
 \examples{
 set.seed(42)

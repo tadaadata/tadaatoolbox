@@ -17,7 +17,7 @@ nom_chisqu(x, y = NULL, correct = FALSE)
 A \code{numeric} value
 }
 \description{
-This is a very simple wrapper for \link{chisq.test}.
+This is a very simple wrapper for \link[stats:chisq.test]{stats::chisq.test}.
 }
 \note{
 The warning message in case of low samples size and possibly incorrect

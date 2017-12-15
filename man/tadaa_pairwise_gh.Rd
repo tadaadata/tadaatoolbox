@@ -4,7 +4,7 @@
 \alias{tadaa_pairwise_gh}
 \title{Games Howell Post-Hoc Test}
 \source{
-\url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
+https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
 }
 \usage{
 tadaa_pairwise_gh(data, response, group1, group2 = NULL, print = "df")
@@ -19,15 +19,15 @@ tadaa_pairwise_gh(data, response, group1, group2 = NULL, print = "df")
 \item{group2}{(Optional) second grouping variable.}
 
 \item{print}{Print method, defaults to \code{df} for \code{data.frame} output, otherwise
-passed to \link[pixiedust]{sprinkle_print_method}.}
+passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method}.}
 }
 \value{
-A \code{data.frame} or \link[pixiedust]{dust} object depending on \code{print}.
+A \code{data.frame} or \link[pixiedust:dust]{pixiedust::dust} object depending on \code{print}.
 }
 \description{
 An implementation of the Games Howell procedure for pairwise comparisons.
 The workhorse of this function is adapted from this gist:
-\url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
+https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
 }
 \note{
 This function is really, really slow for large comparisons (\code{k > 50}).
@@ -38,10 +38,10 @@ tadaa_pairwise_gh(ngo, deutsch, jahrgang)
 tadaa_pairwise_gh(ngo, deutsch, jahrgang, geschl)
 }
 \references{
-\url{https://rpubs.com/aaronsc32/games-howell-test}
+https://rpubs.com/aaronsc32/games-howell-test
 }
 \seealso{
-\code{\link{tadaa_pairwise_t}}, \code{\link{tadaa_pairwise_tukey}}
+\code{\link[=tadaa_pairwise_t]{tadaa_pairwise_t()}}, \code{\link[=tadaa_pairwise_tukey]{tadaa_pairwise_tukey()}}
 
 Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},

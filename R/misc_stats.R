@@ -4,8 +4,8 @@
 #'
 #' @param x A `vector` with numeric data.
 #' @param reduce Since `mode` can be of length > 1, this option pastes the result into a
-#' single character value
-#' @param as_character Always return a character. `TRUE` by default, or \link[dplyr]{summarize}
+#' single character value.
+#' @param as_character Always return a character. `TRUE` by default, or [dplyr::summarize].
 #' will be very unpleased.
 #' @return A `vector` of length 1 of type `numeric` or `character`, depending
 #' on input.
@@ -39,7 +39,7 @@ modus <- function(x, as_character = TRUE, reduce = TRUE){
 
 #' Convert numeric vector to z-values
 #'
-#' A trivial scaling function. You might as well use \link[base]{scale}, which allows
+#' A trivial scaling function. You might as well use [base::scale], which allows
 #' arbitrary centers and scales, but returns a `matrix` by default.
 #' @param x A numeric vector.
 #'

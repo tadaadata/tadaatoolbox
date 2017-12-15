@@ -13,7 +13,7 @@ z(x)
 A vector of z-values of the same length as \code{x}.
 }
 \description{
-A trivial scaling function. You might as well use \link[base]{scale}, which allows
+A trivial scaling function. You might as well use \link[base:scale]{base::scale}, which allows
 arbitrary centers and scales, but returns a \code{matrix} by default.
 }
 \examples{

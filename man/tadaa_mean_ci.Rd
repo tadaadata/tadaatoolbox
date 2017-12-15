@@ -13,7 +13,7 @@ tadaa_mean_ci(data, response, group, brewer_palette = "Set1")
 
 \item{group}{Grouping variable, ideally a \code{factor}.}
 
-\item{brewer_palette}{Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+\item{brewer_palette}{Optional: The name of the \link{RColorBrewer} palette to use,
 defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
 }
 \value{

@@ -1,18 +1,18 @@
 #' Tadaa, Chi-Square Test!
 #'
-#' A comfortable wrapper of \\link[stats]{chisq.test} with pretty output and
+#' A comfortable wrapper of [stats::chisq.test] with pretty output and
 #' effect sizes depending on the size of the contingency table:
 #' Phi coefficient and Odds Ratios in case of a 2x2 table, Cramer's V otherwise.
-#' The result is either returned as a \link[broom]{tidy} `data.frame` or prettified using
-#' various \link[pixiedust]{sprinkle} shenanigans.
+#' The result is either returned as a [broom::tidy] `data.frame` or prettified using
+#' various [pixiedust::sprinkle] shenanigans.
 #'
 #' @param data A `data.frame`.
 #' @param x A vector of categorial data (`factor` or `character`).
 #' @param y Another vector of categorial data (also `factor` or `character`).
 #' @param correct Apply Yate's continuity correction for 2x2 tables,
-#' passed to \link[stats]{chisq.test}. Defaults to `TRUE`.
+#' passed to [stats::chisq.test]. Defaults to `TRUE`.
 #' @param print Print method, default `df`: A regular `data.frame`.
-#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' Otherwise passed to [pixiedust::sprinkle_print_method] for fancyness.
 #' @return A `data.frame` by default, otherwise `dust` object,
 #' depending on `print`.
 #' @import pixiedust

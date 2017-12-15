@@ -19,7 +19,7 @@ nom_lambda(x, y = NULL, symmetric = FALSE, reverse = FALSE)
 \code{numeric} value
 }
 \description{
-Very simple wrapper for \link[ryouready]{nom.lambda}.
+Very simple wrapper for \link[ryouready:nom.lambda]{ryouready::nom.lambda}.
 }
 \examples{
 nom_lambda(ngo$abschalt, ngo$geschl)

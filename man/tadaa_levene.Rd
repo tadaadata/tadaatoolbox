@@ -15,13 +15,13 @@ tadaa_levene(data, formula, center = "median", print = c("df", "console",
 \item{center}{Method to use, either \code{median} (default for robustness) or \code{mean}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
 }
 \description{
-A thin wrapper around \link[car]{leveneTest} with some formatting done.
+A thin wrapper around \link[car:leveneTest]{car::leveneTest} with some formatting done.
 }
 \note{
 The case of \code{center = "median"} is technically called \emph{Brown–Forsythe test},

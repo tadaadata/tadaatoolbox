@@ -17,18 +17,18 @@ theme_tadaa(base_size = 12, base_family = "", bg = "#fcfcfc",
 \item{base_family}{Base text family. Use \code{"Roboto Slab"} to match the \code{readthedown}
 headers, or \code{"Lato"} for the body style.}
 
-\item{bg}{Background color, defaults to \code{\link[rmdformats]{readthedown}}'s background,
+\item{bg}{Background color, defaults to \code{\link[rmdformats:readthedown]{rmdformats::readthedown()}}'s background,
 \code{#fcfcfc}}
 
 \item{axis_emph}{Which axis to emphasize visually (black lines). One of \code{"x", "y", "xy", NULL}.}
 
-\item{...}{Other arguments passed to \code{\link[ggplot2]{theme}}}
+\item{...}{Other arguments passed to \code{\link[ggplot2:theme]{ggplot2::theme()}}}
 }
 \value{
 A ggplot2 theme
 }
 \description{
-A ggplot theme to fit \code{\link[rmdformats]{readthedown}} in terms of background color and
+A ggplot theme to fit \code{\link[rmdformats:readthedown]{rmdformats::readthedown()}} in terms of background color and
 dark grid lines.
 }
 \examples{

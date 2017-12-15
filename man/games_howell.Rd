@@ -4,7 +4,7 @@
 \alias{games_howell}
 \title{Games Howell post-hoc procedure}
 \source{
-\url{https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096}
+https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
 }
 \usage{
 games_howell(obs, grp)
@@ -18,7 +18,7 @@ games_howell(obs, grp)
 Games Howell post-hoc procedure
 }
 \references{
-\url{https://rpubs.com/aaronsc32/games-howell-test}
+https://rpubs.com/aaronsc32/games-howell-test
 }
 \author{
 \code{gitub.com/aschleg}

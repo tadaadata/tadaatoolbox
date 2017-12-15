@@ -18,9 +18,9 @@ tadaa_int(data, response, group1, group2, grid = FALSE,
 \item{group2}{Second grouping variable.}
 
 \item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid
-via \link[cowplot]{plot_grid}.}
+via \link[cowplot:plot_grid]{cowplot::plot_grid}.}
 
-\item{brewer_palette}{The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+\item{brewer_palette}{The name of the \link[RColorBrewer:RColorBrewer]{RColorBrewer::RColorBrewer} palette to use,
 defaults to \code{Set1}.}
 
 \item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}),
@@ -43,7 +43,7 @@ variables and a numeric response variable.
 \dontrun{
 tadaa_int(ngo, stunzahl, jahrgang, geschl)
 
-# As grid
+# As grid, if cowplot is installed
 tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 }
 }

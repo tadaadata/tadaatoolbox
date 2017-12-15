@@ -67,7 +67,7 @@ drop_labels <- function(x) {
 #' @param pv A p-value in numeric form.
 #' @return A formatted `character` representation of the input value.
 #' @export
-#' @note Simplified version of \link[pixiedust]{pvalString} which considers `< 0.05`.
+#' @note Simplified version of [pixiedust::pvalString] which considers `< 0.05`.
 #' @examples
 #' pv <- c(.9, .2, .049, .009, .000003)
 #' pval_string(pv)

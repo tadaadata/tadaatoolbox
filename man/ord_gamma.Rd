@@ -15,7 +15,7 @@ ord_gamma(x, y = NULL)
 \code{numeric} of length 1.
 }
 \description{
-Simple wrapper for \link[ryouready]{ord.gamma}.
+Simple wrapper for \link[ryouready:ord.gamma]{ryouready::ord.gamma}.
 }
 \examples{
 df <- data.frame(rating = round(runif(50, 1, 5)),

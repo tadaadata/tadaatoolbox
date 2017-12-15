@@ -19,7 +19,7 @@ ord_tau(x, y = NULL, tau = "b", reverse = FALSE)
 \code{numeric} value
 }
 \description{
-A wrapper for the appropriate functions form \link{DescTools} to calculate
+A wrapper for the appropriate functions from \link{DescTools} to calculate
 Tau A, B and C.
 }
 \examples{

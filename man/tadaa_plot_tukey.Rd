@@ -7,17 +7,17 @@
 tadaa_plot_tukey(data, brewer_palette = "Set1")
 }
 \arguments{
-\item{data}{The \link[broom]{tidy}'d output of \link[stats]{TukeyHSD}.}
+\item{data}{The \link[broom:tidy]{broom::tidy}'d output of \link[stats:TukeyHSD]{stats::TukeyHSD}.}
 
-\item{brewer_palette}{Optional: The name of the \link[RColorBrewer]{RColorBrewer} palette to use,
+\item{brewer_palette}{Optional: The name of the \link{RColorBrewer} palette to use,
 defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
 }
 \value{
 A \link{ggplot2} object.
 }
 \description{
-This is a simple plotting template that takes the \link[broom]{tidy}'d output of
-\link[stats]{TukeyHSD} or alternatively the \code{print = "df"} output
+This is a simple plotting template that takes the \link[broom:tidy]{broom::tidy}'d output of
+\link[stats:TukeyHSD]{stats::TukeyHSD} or alternatively the \code{print = "df"} output
 of \link{tadaa_pairwise_tukey} and plots it nicely with error bars.
 }
 \note{

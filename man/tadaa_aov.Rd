@@ -17,7 +17,7 @@ tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
 partial eta^2 and Cohen's f are appended as columns.}
 
 \item{show_power}{(Experimental) If \code{TRUE} (default), power is calculated
-via \link[pwr]{pwr.f2.test} and appended as a column.}
+via \link[pwr:pwr.f2.test]{pwr::pwr.f2.test} and appended as a column.}
 
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}
@@ -28,7 +28,7 @@ will automatically converted via \code{as.factor}, so beware of your inputs.}
 the \code{contrasts} of each non-ordered \code{factor} are set to \code{"contr.sum"}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.
@@ -36,7 +36,7 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 \description{
 Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 optionally displays effect sizes ((partial) \eqn{\eta^2}, Cohen's f) and
-power (calculated via \link[pwr]{pwr.f2.test} to work with unbalanced designs).
+power (calculated via \link[pwr:pwr.f2.test]{pwr::pwr.f2.test} to work with unbalanced designs).
 }
 \details{
 If a specified independent variable is not properly encoded as a \code{factor}, it is

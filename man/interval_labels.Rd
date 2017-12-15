@@ -12,11 +12,11 @@ interval_labels(from, to, width = 5)
 \item{width}{The width of the interval, e.g. 5 (default) for intervals 0-5.}
 }
 \value{
-A \code{character} vector of interval labels compatible with \link{cut}
+A \code{character} vector of interval labels compatible with \link[base:cut]{base::cut}.
 }
 \description{
 Get interval labels for even intervals of discrete numeric values compatible
-with \link{cut}.
+with \link[base:cut]{base::cut}.
 }
 \examples{
 \dontrun{

@@ -19,9 +19,9 @@ tadaa_wilcoxon(data, response, group, direction = "two.sided",
 \item{paired}{If \code{TRUE}, a paired test is performed, defaults to \code{FALSE}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 
-\item{...}{Further arguments passed to \link[stats]{wilcox.test}, e.g. \code{correct = FALSE}.}
+\item{...}{Further arguments passed to \link[stats:wilcox.test]{stats::wilcox.test}, e.g. \code{correct = FALSE}.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.

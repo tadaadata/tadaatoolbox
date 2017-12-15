@@ -15,21 +15,21 @@ tadaa_chisq(data, x, y, correct = TRUE, print = c("df", "console", "html",
 \item{y}{Another vector of categorial data (also \code{factor} or \code{character}).}
 
 \item{correct}{Apply Yate's continuity correction for 2x2 tables,
-passed to \link[stats]{chisq.test}. Defaults to \code{TRUE}.}
+passed to \link[stats:chisq.test]{stats::chisq.test}. Defaults to \code{TRUE}.}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object,
 depending on \code{print}.
 }
 \description{
-A comfortable wrapper of \\link[stats]{chisq.test} with pretty output and
+A comfortable wrapper of \link[stats:chisq.test]{stats::chisq.test} with pretty output and
 effect sizes depending on the size of the contingency table:
 Phi coefficient and Odds Ratios in case of a 2x2 table, Cramer's V otherwise.
-The result is either returned as a \link[broom]{tidy} \code{data.frame} or prettified using
-various \link[pixiedust]{sprinkle} shenanigans.
+The result is either returned as a \link[broom:tidy]{broom::tidy} \code{data.frame} or prettified using
+various \link[pixiedust:sprinkle]{pixiedust::sprinkle} shenanigans.
 }
 \note{
 The warning message in case of low samples size and possibly incorrect

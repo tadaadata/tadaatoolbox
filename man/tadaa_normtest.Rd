@@ -15,10 +15,10 @@ tadaa_normtest(data, method = "ad", print = c("df", "console", "html",
 \code{ks} for Kolmogorov-Smirnov (not recommended).}
 
 \item{print}{Print method, default \code{df}: A regular \code{data.frame}.
-Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.}
+Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 
 \item{...}{Further arguments passed to test functions where applicable,
-see \link[nortest]{pearson.test} and \link[stats]{ks.test}.}
+see \link[nortest:pearson.test]{nortest::pearson.test} and \link[stats:ks.test]{stats::ks.test}.}
 }
 \value{
 A \code{data.frame} by default, otherwise \code{dust} object, depending on \code{print}.

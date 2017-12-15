@@ -1,6 +1,6 @@
 #' Gamma
 #'
-#' Simple wrapper for \link[ryouready]{ord.gamma}.
+#' Simple wrapper for [ryouready::ord.gamma].
 #'
 #' @param x A `table` or dependent numeric variable.
 #' @param y Empty or independent grouping variable
@@ -23,7 +23,7 @@ ord_gamma <- function(x, y = NULL){
 
 #' Somers' D
 #'
-#' Very simple wrapper for \link[ryouready]{ord.somers.d}.
+#' Very simple wrapper for [ryouready::ord.somers.d].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param symmetric If `TRUE`, symmetric D is returned. Default is `FALSE`.
@@ -48,7 +48,7 @@ ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
 
 #' Various Tau Statistics
 #'
-#' A wrapper for the appropriate functions form \link{DescTools} to calculate
+#' A wrapper for the appropriate functions from [DescTools] to calculate
 #' Tau A, B and C.
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
@@ -87,7 +87,7 @@ ord_tau <- function(x, y = NULL, tau = "b", reverse = FALSE) {
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param round Ho many digits should be rounded. Default is 2.
-#' @param print Print method. Passed to \link[pixiedust]{sprinkle_print_method} as of now.
+#' @param print Print method. Passed to [pixiedust::sprinkle_print_method] as of now.
 #' @return A `dust` object, depending on `print`.
 #' @export
 #' @import pixiedust

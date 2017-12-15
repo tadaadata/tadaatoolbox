@@ -1,6 +1,6 @@
 #' Tadaa, one-sample tests!
 #'
-#' If `sigma` is omitted, the function will just perform a one-sample \link[stats]{t.test},
+#' If `sigma` is omitted, the function will just perform a one-sample [stats::t.test],
 #' but if `sigma` is provided, a z-test is performed. It basically works the same way,
 #' except that we pretend we know the population sigma and use the normal distribution
 #' for comparison.
@@ -8,11 +8,11 @@
 #' @param x A numeric vector or bare column name of `data`.
 #' @param mu The true mean (\eqn{\mu}) to test for.
 #' @param sigma Population sigma. If supplied, a z-test is performed,
-#' otherwise a one-sample \link[stats]{t.test} is performed.
+#' otherwise a one-sample [stats::t.test] is performed.
 #' @param na.rm Whether to drop `NA` values. Default is `FALSE`.
 #' @param conf.level Confidence level used for power and CI, default is `0.95`.
 #' @param print Print method, default `df`: A regular `data.frame`.
-#' Otherwise passed to \link[pixiedust]{sprinkle_print_method} for fancyness.
+#' Otherwise passed to [pixiedust::sprinkle_print_method] for fancyness.
 #' @inheritParams tadaa_t.test
 #' @return A `data.frame` by default, otherwise `dust` object, depending on `print`.
 #' @import pixiedust

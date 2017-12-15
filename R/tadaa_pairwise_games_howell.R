@@ -4,7 +4,7 @@
 #' The workhorse of this function is adapted from this gist:
 #' https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
 #' @inheritParams tadaa_pairwise_t
-#' @return A `data.frame` or \link[pixiedust]{dust} object depending on `print`.
+#' @return A `data.frame` or [pixiedust::dust] object depending on `print`.
 #' @export
 #' @references https://rpubs.com/aaronsc32/games-howell-test
 #' @source https://gist.github.com/aschleg/ea7942efc6108aedfa9ec98aeb6c2096
