@@ -1,13 +1,13 @@
 #' Gamma
 #'
-#' Simple wrapper for [ryouready::ord.gamma].
+#' Simple wrapper for [DescTools::GoodmanKruskalGamma].
 #'
 #' @param x A `table` or dependent numeric variable.
 #' @param y Empty or independent grouping variable
 #'
 #' @return `numeric` of length 1.
 #' @export
-#' @importFrom ryouready ord.gamma
+#' @importFrom DescTools GoodmanKruskalGamma
 #' @examples
 #' df <- data.frame(rating = round(runif(50, 1, 5)),
 #'                  group  = sample(c("A", "B", "C"), 50, TRUE))
@@ -17,20 +17,20 @@ ord_gamma <- function(x, y = NULL){
   if (!is.table(x)) {
     x <- table(x, y)
   }
-  gamma <- as.numeric(ryouready::ord.gamma(x))
+  gamma <- DescTools::GoodmanKruskalGamma(x)
   return(gamma)
 }
 
 #' Somers' D
 #'
-#' Very simple wrapper for [ryouready::ord.somers.d].
+#' Very simple wrapper for [DescTools::SomersDelta].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param symmetric If `TRUE`, symmetric D is returned. Default is `FALSE`.
 #' @param reverse If `TRUE`, row and column variable are switched.
 #' @return `numeric` value
 #' @export
-#' @importFrom ryouready ord.somers.d
+#' @importFrom DescTools SomersDelta
 #' @examples
 #' ord_somers_d(ngo$abschalt, ngo$geschl)
 ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
@@ -38,11 +38,11 @@ ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
     x <- table(x, y)
   }
   if (symmetric) {
-    ryouready::ord.somers.d(x)$sd.symmetric
+    DescTools::SomersDelta(x)
   } else if (!reverse) {
-    ryouready::ord.somers.d(x)$sd.rc
+    DescTools::SomersDelta(x, direction = "row")
   } else {
-    ryouready::ord.somers.d(x)$sd.cr
+    DescTools::SomersDelta(x, direction = "column")
   }
 }
 

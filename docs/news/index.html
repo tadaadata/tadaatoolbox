@@ -84,6 +84,30 @@
     </div>
 
     <div class="contents">
+    <div id="tadaatoolbox-0-15-9000" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tadaatoolbox-0-15-9000" class="anchor"></a>tadaatoolbox 0.15.9000</h1>
+<div id="internals" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals" class="anchor"></a>Internals</h2>
+<ul>
+<li>Eliminate <code>ryouready</code> dependency, in favor of the more versatile <code>DescTools</code> package:
+<ul>
+<li>
+<code>nom_lambda</code>: Use <code>DescTools::Lambda</code>
+</li>
+<li>
+<code>ord_gamma</code>: Use <code>DescTools::GoodmanKruskalGamma</code>
+</li>
+<li>
+<code>ord_somers_d</code>: Use <code>DescTools::SomersDelta</code>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <code>DescTools</code> functions are very similar to what the wrappers do, so the wrappers might be removed in the future.</p>
+</div>
+</div>
     <div id="tadaatoolbox-0-15-0" class="section level1">
 <h1 class="hasAnchor">
 <a href="#tadaatoolbox-0-15-0" class="anchor"></a>tadaatoolbox 0.15.0</h1>
@@ -397,6 +421,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#tadaatoolbox-0-15-9000">0.15.9000</a></li>
         <li><a href="#tadaatoolbox-0-15-0">0.15.0</a></li>
         <li><a href="#tadaatoolbox-0-14-0">0.14.0</a></li>
         <li><a href="#tadaatoolbox-0-13-0">0.13.0</a></li>

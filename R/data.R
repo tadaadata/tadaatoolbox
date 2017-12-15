@@ -9,5 +9,4 @@
 #' @usage ngo
 #' @note `ryouready::d.ngo` is the source of this data, but with some recoding done.
 #' @format A `data.frame` containing numerical and factor data.
-#' @source [ryouready::d.ngo()]
 "ngo"

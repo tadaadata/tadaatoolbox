@@ -75,7 +75,7 @@ nom_c <- function(x, y = NULL){
 
 #' Lambda
 #'
-#' Very simple wrapper for [ryouready::nom.lambda].
+#' Very simple wrapper for [DescTools::Lambda].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param symmetric If `TRUE`, symmetric lambda is returned. Default is `FALSE`.
@@ -83,7 +83,7 @@ nom_c <- function(x, y = NULL){
 #'
 #' @return `numeric` value
 #' @export
-#' @importFrom ryouready nom.lambda
+#' @importFrom DescTools Lambda
 #' @examples
 #' nom_lambda(ngo$abschalt, ngo$geschl)
 nom_lambda <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
@@ -91,11 +91,11 @@ nom_lambda <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
     x <- table(x, y)
   }
   if (symmetric) {
-    ryouready::nom.lambda(x)$lambda.symmetric
+    DescTools::Lambda(x, direction = "symmetric")
   } else if (!reverse) {
-    ryouready::nom.lambda(x)$lambda.rc
+    DescTools::Lambda(x, direction = "row")
   } else {
-    ryouready::nom.lambda(x)$lambda.cr
+    DescTools::Lambda(x, direction = "column")
   }
 }
 

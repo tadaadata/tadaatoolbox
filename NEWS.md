@@ -1,3 +1,14 @@
+# tadaatoolbox 0.15.9000
+
+## Internals
+
+- Eliminate `ryouready` dependency, in favor of the more versatile `DescTools` package:
+    - `nom_lambda`: Use `DescTools::Lambda`
+    - `ord_gamma`: Use `DescTools::GoodmanKruskalGamma`
+    - `ord_somers_d`: Use `DescTools::SomersDelta`
+    
+The `DescTools` functions are very similar to what the wrappers do, so the wrappers might be removed in the future.
+
 # tadaatoolbox 0.15.0
 
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests

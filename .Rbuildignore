@@ -9,3 +9,4 @@ docs/
 ^CONTRIBUTING\.md$
 ^\.travis\.yml$
 ^\_pkgdown\.yml$
+^data-raw$

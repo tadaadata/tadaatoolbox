@@ -1,5 +1,5 @@
 #### Cleaning up ngo ####
-ngo <- ryouready::d.ngo
+ngo <- readRDS("data-raw/d.ngo.rds")
 
 ngo <- dplyr::select(ngo, -index, -zeng, -zdeutsch, -zmathe, -leist)
 
