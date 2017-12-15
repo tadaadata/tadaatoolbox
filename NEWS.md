@@ -9,6 +9,7 @@
 ## Removals
 
 - `[tadaa_]likertize` is removed. Use `sjmisc::split_var`.
+- `labels_to_factor` is removed because various `as_factor`s exist.
 
 # tadaatoolbox 0.14.0 (CRAN)
 

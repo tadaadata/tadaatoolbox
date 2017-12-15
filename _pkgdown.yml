@@ -9,7 +9,6 @@
       - -tadaa_plot_tukey
       - -tadaa_balance
       - -tadaa_int
-      - -matches("likertize")
     - title: Descriptive Statistics
       desc: For, you know, descriptive statistics
       contents:
@@ -33,7 +32,6 @@
       - generate_recodes
       - interval_labels
       - pval_string
-      - likertize
     - title: Plotting Templates
       contents:
       - tadaa_mean_ci

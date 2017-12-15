@@ -5,7 +5,7 @@ library(tadaatoolbox)
 ## ----descriptives--------------------------------------------------------
 tadaa_nom(ngo$geschl, ngo$abschalt, print = "markdown")
 
-tadaa_ord(ngo$urteil, ngo$leist, print = "markdown")
+tadaa_ord(ngo$urteil, ngo$leistung, print = "markdown")
 
 ## ----aov_oneway----------------------------------------------------------
 tadaa_aov(deutsch ~ jahrgang, data = ngo, type = 1, print = "markdown")

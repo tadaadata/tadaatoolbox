@@ -85,7 +85,7 @@
     
     <p>Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 optionally displays effect sizes ((partial) \(\eta^2\), Cohen's f) and
-power (calculated via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr.f2.test</a> to work with unbalanced designs).</p>
+power (calculated via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr::pwr.f2.test</a> to work with unbalanced designs).</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_aov</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>show_effect_size</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -111,7 +111,7 @@ partial eta^2 and Cohen's f are appended as columns.</p></td>
     <tr>
       <th>show_power</th>
       <td><p>(Experimental) If <code>TRUE</code> (default), power is calculated
-via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr.f2.test</a> and appended as a column.</p></td>
+via <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr::pwr.f2.test</a> and appended as a column.</p></td>
     </tr>
     <tr>
       <th>factorize</th>
@@ -130,7 +130,7 @@ the <code>contrasts</code> of each non-ordered <code>factor</code> are set to <c
     <tr>
       <th>print</th>
       <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
-Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
+Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     </table>
     
@@ -161,7 +161,7 @@ for debugging or educational purposes.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;        term  df   sumsq         meansq     statistic           p.value
-#&gt; 1  jahrgang   2  536.28 268.1400000000 26.4782514832 3.81395822293e-11
+#&gt; 1  jahrgang   2  536.28 268.1400000000 26.4782514832 3.81395822294e-11
 #&gt; 2 Residuals 247 2501.32  10.1268016194            NA                NA
 #&gt; 3     Total 249 3037.60 278.2668016194            NA                NA
 #&gt;      eta.sq.part       cohens.f          power

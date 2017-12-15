@@ -83,14 +83,14 @@
     </div>
 
     
-    <p>An extension for <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a> with added boni and tidy and/or pretty output.
-Before a t-test is performed, <a href='http://www.rdocumentation.org/packages/car/topics/leveneTest'>leveneTest</a> is consulted as to wether
+    <p>An extension for <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>stats::t.test</a> with added boni and tidy and/or pretty output.
+Before a t-test is performed, <a href='http://www.rdocumentation.org/packages/car/topics/leveneTest'>car::leveneTest</a> is consulted as to wether
 heteroskedasticity is present (using the default <code>center = "mean"</code> method for
 a more robust test), and sets <code>var.equal</code> accordingly.
-Afterwards, the effect size is calculated and <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.t.test'>pwr.t.test</a> or
-<a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.t2n.test'>pwr.t2n.test</a> are used to calculate the test's power accordingly.
-The result is either returned as a <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>tidy</a> <code>data.frame</code> or prettified using
-various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle</a> shenanigans.</p>
+Afterwards, the effect size is calculated and <a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.t.test'>pwr::pwr.t.test</a> or
+<a href='http://www.rdocumentation.org/packages/pwr/topics/pwr.t2n.test'>pwr::pwr.t2n.test</a> are used to calculate the test's power accordingly.
+The result is either returned as a <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>broom::tidy</a> <code>data.frame</code> or prettified using
+various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle</a> shenanigans.</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_t.test</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -122,7 +122,7 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
     </tr>
     <tr>
       <th>var.equal</th>
-      <td><p>If set, passed to <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a> to decide whether to use a
+      <td><p>If set, passed to <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>stats::t.test</a> to decide whether to use a
 Welch-correction. Default is <code>NULL</code> to automatically determine heteroskedasticity.</p></td>
     </tr>
     <tr>
@@ -132,7 +132,7 @@ Welch-correction. Default is <code>NULL</code> to automatically determine hetero
     <tr>
       <th>print</th>
       <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
-Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
+Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     </table>
     
@@ -145,7 +145,7 @@ depending on <code>print</code>.</p>
 
     <p>The cutoff for the interal Levene's test to decided whether or not to perform
 a Welch-corrected t-test is set to <code>0.05</code> by default. To override the internal tests and
-decide whether to use a Welch test, set <code>var.equal</code> as you would with <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a>.</p>
+decide whether to use a Welch test, set <code>var.equal</code> as you would with <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>stats::t.test</a>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -163,19 +163,19 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;          estimate      estimate1      estimate2      statistic             se
-#&gt; 1 0.0408441279761 0.556093102194 0.515248974218 0.775391953267 0.052675460203
-#&gt;   parameter         conf.low    conf.high        p.value             d
-#&gt; 1        98 -0.0636886084481 0.1453768644 0.439975154795 0.15827621968
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;           estimate     estimate1     estimate2       statistic              se
+#&gt; 1 -0.0512464027799 0.49578076165 0.54702716443 -0.841222713961 0.0609189480139
+#&gt;   parameter        conf.low       conf.high        p.value               d
+#&gt; 1        98 -0.172138072476 0.0696452669165 0.402271151967 -0.169469145192
 #&gt;            power             method alternative
-#&gt; 1 0.119789511551  Two Sample t-test   two.sided</div><div class='input'>
+#&gt; 1 0.132490420212  Two Sample t-test   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;           estimate      estimate1      estimate2        statistic
-#&gt; 1 -0.0046144064154 0.560714220833 0.565328627249 -0.0809048673406
-#&gt;                se parameter        conf.low      conf.high        p.value
-#&gt; 1 0.0570349667095        49 -0.119230463165 0.110001650334 0.935847164515
-#&gt;                  d           power        method alternative
-#&gt; 1 -0.0114416760655 0.0507212434499 Paired t-test   two.sided</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;          estimate     estimate1      estimate2      statistic              se
+#&gt; 1 0.0325683187367 0.45705630356 0.424487984823 0.485268517829 0.0671140153136
+#&gt;   parameter        conf.low      conf.high        p.value               d
+#&gt; 1        49 -0.102302344502 0.167438981975 0.629648555585 0.0686273319306
+#&gt;             power        method alternative
+#&gt; 1 0.0763156640048 Paired t-test   two.sided</div><div class='input'>
 <span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 3: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
 #&gt; 
 #&gt;    Diff $\\mu_1$ Männlich $\\mu_2$ Weiblich     t   SE  df    $CI_{95\\%}$

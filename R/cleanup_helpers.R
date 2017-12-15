@@ -24,30 +24,6 @@ delete_na <- function(df, n = ncol(df) - 1) {
   return(df[logindex, ])
 }
 
-#' Convert all labels to factor variables
-#'
-#' @param df A `data.frame`
-#'
-#' @return An identical `data.frame` with labelled data converted to factors
-#' @export
-#' @importFrom sjlabelled is_labelled
-#' @importFrom haven as_factor
-#' @examples
-#' \dontrun{
-#' data %<>% labels_to_factor
-#' }
-labels_to_factor <- function(df) {
-
-  .Deprecated("Use haven::as_factor. It's basically the same but better.")
-
-  for (column in names(df)) {
-    if (sjlabelled::is_labelled(df[[column]])) {
-      df[[column]] <- haven::as_factor(df[[column]])
-    }
-  }
-  return(df)
-}
-
 #' Re-label a vector after subsetting
 #'
 #' @param x A vector with now unused labels

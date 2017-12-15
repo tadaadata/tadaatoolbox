@@ -42,6 +42,7 @@ tadaa_mean_ci(data = ngo, response = deutsch, group = jahrgang) +
 
 ## ----tadaa_int, fig.width=6----------------------------------------------
 library(ggplot2)
+if (!("cowplot" %in% installed.packages())) install.packages("cowplot")
 
 tadaa_int(data = ngo, response = stunzahl, group1 = jahrgang, group2 = geschl, grid = T, brewer_palette = "Set1")
 

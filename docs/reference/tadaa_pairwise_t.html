@@ -83,9 +83,9 @@
     </div>
 
     
-    <p>This is an extension of <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>pairwise.t.test</a> that's meant to deal with
+    <p>This is an extension of <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a> that's meant to deal with
 interactions our of the box, while also performing pairwise tests for the primary terms.
-The output of the function is modeled after <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>TukeyHSD</a>, unfortunately
+The output of the function is modeled after <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a>, unfortunately
 without confidence intervals or test statistic though.</p>
     
 
@@ -114,28 +114,28 @@ without confidence intervals or test statistic though.</p>
     </tr>
     <tr>
       <th>p.adjust</th>
-      <td><p>The p-adjustment method, see <a href='http://www.rdocumentation.org/packages/stats/topics/p.adjust'>p.adjust.methods</a>, passed
-to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>pairwise.t.test</a>. Additionally, <code>sidak</code> supported as a
-method not supported by <a href='http://www.rdocumentation.org/packages/stats/topics/p.adjust'>p.adjust</a>, as is <code>sidakSD</code> for the
+      <td><p>The p-adjustment method, see <a href='http://www.rdocumentation.org/packages/stats/topics/p.adjust'>stats::p.adjust.methods</a>, passed
+to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>. Additionally, <code>sidak</code> is supported as a
+method, which is not the case with <a href='http://www.rdocumentation.org/packages/stats/topics/p.adjust'>stats::p.adjust</a>, as is <code>sidakSD</code> for the
 Sidak step-down procedure.</p></td>
     </tr>
     <tr>
       <th>paired</th>
-      <td><p>Defaults to <code>FALSE</code>, also passed to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>pairwise.t.test</a>.</p></td>
+      <td><p>Defaults to <code>FALSE</code>, also passed to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>pool.sd</th>
       <td><p>Defaults to the inverse of <code>paired</code>, passed
-to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>pairwise.t.test</a>.</p></td>
+to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>alternative</th>
-      <td><p>Defaults to <code>two.sided</code>, also passed to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>pairwise.t.test</a>.</p></td>
+      <td><p>Defaults to <code>two.sided</code>, also passed to <a href='http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>print</th>
       <td><p>Print method, defaults to <code>df</code> for <code>data.frame</code> output, otherwise
-passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a>.</p></td>
+passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a>.</p></td>
     </tr>
     </table>
     
@@ -156,12 +156,12 @@ over the Holm's (1979) step-down procedure.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href = 'https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni'>https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni</a>
-    <a href = 'https://rdrr.io/rforge/mutoss/man/SidakSD.html'>https://rdrr.io/rforge/mutoss/man/SidakSD.html</a></p>
+    <p>https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni</p>
+<p>https://rdrr.io/rforge/mutoss/man/SidakSD.html</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code></p>
+    <p><code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey()</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh()</a></code></p>
 <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
   <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
   <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,

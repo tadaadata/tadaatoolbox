@@ -83,8 +83,8 @@
     </div>
 
     
-    <p>This function is merely a thin wrapper around <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>TukeyHSD</a> with tidying done
-by <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>tidy</a> and optional formatting via <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle</a>.
+    <p>This function is merely a thin wrapper around <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a> with tidying done
+by <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>broom::tidy</a> and optional formatting via <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle</a>.
 Its input is not a <code>aov</code> model like in the original function, but instead the
 <code>aov</code> model is fit internally based on the arguments given. This is meant to
 enable a consistent usage between the <code>tadaa_pairwise</code>-functions.</p>
@@ -115,21 +115,21 @@ enable a consistent usage between the <code>tadaa_pairwise</code>-functions.</p>
     <tr>
       <th>print</th>
       <td><p>Print method, defaults to <code>df</code> for <code>data.frame</code> output, otherwise
-passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a>.</p></td>
+passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Further arguments passed to <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>TukeyHSD</a></p></td>
+      <td><p>Further arguments passed to <a href='http://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>data.frame</code> or <a href='http://www.rdocumentation.org/packages/pixiedust/topics/dust'>dust</a> object depending on <code>print</code>.</p>
+    <p>A <code>data.frame</code> or <a href='http://www.rdocumentation.org/packages/pixiedust/topics/dust'>pixiedust::dust</a> object depending on <code>print</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code></p>
+    <p><code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t()</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh()</a></code></p>
 <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
   <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
   <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
@@ -145,7 +145,7 @@ passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprin
 #&gt; 1         jahrgang                   12-11    0.050 -0.5897025931261
 #&gt; 2         jahrgang                   13-11    1.170  0.3865275298529
 #&gt; 3         jahrgang                   13-12    1.120  0.3365275298529
-#&gt; 4           geschl       Weiblich-Männlich    1.032  0.5540666948626
+#&gt; 4           geschl       Weiblich-Männlich    1.032  0.5540666948627
 #&gt; 5  jahrgang:geschl 12:Männlich-11:Männlich    0.740 -0.3620239800300
 #&gt; 6  jahrgang:geschl 13:Männlich-11:Männlich    1.160 -0.1896982176922
 #&gt; 7  jahrgang:geschl 11:Weiblich-11:Männlich    1.580  0.4779760199700

@@ -84,13 +84,26 @@
     </div>
 
     <div class="contents">
-    <div id="tadaatoolbox-0-14-1-github" class="section level1">
+    <div id="tadaatoolbox-0-14-9000-github" class="section level1">
 <h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-14-1-github" class="anchor"></a>tadaatoolbox 0.14.1 (GitHub)</h1>
+<a href="#tadaatoolbox-0-14-9000-github" class="anchor"></a>tadaatoolbox 0.14.9000 (GitHub)</h1>
 <ul>
 <li>Fix error in SEM calculation in <code>tadaa_one_sample</code> for t-tests</li>
 <li>Make sure <code>tadaa_</code>-test functions use <code>tadaatoolbox::pval_string</code> instead of the <code>pixiedust</code> version</li>
+<li>Remove recoded <code>leist</code> var from <code>ngo</code>, as it should be computed from <code>leistung</code> by students.</li>
+<li>Move <code>cowplot</code> from <code>Imports</code> to <code>Suggests</code> because whe only need it in one function, <em>sometimes</em>.</li>
+<li>More compact table output in <code>tadaa_nom</code> and <code>tadaa_ord</code>.</li>
 </ul>
+<div id="removals" class="section level2">
+<h2 class="hasAnchor">
+<a href="#removals" class="anchor"></a>Removals</h2>
+<ul>
+<li>
+<code>[tadaa_]likertize</code> is removed. Use <code>sjmisc::split_var</code>.</li>
+<li>
+<code>labels_to_factor</code> is removed because various <code>as_factor</code>s exist.</li>
+</ul>
+</div>
 </div>
     <div id="tadaatoolbox-0-14-0-cran" class="section level1">
 <h1 class="hasAnchor">
@@ -384,7 +397,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#tadaatoolbox-0-14-1-github">0.14.1</a></li>
+        <li><a href="#tadaatoolbox-0-14-9000-github">0.14.9000</a></li>
         <li><a href="#tadaatoolbox-0-14-0-cran">0.14.0</a></li>
         <li><a href="#tadaatoolbox-0-13-0">0.13.0</a></li>
         <li><a href="#tadaatoolbox-0-12-0">0.12.0</a></li>

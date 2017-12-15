@@ -83,11 +83,11 @@
     </div>
 
     
-    <p>A comfortable wrapper of \link[stats]chisq.test with pretty output and
+    <p>A comfortable wrapper of <a href='http://www.rdocumentation.org/packages/stats/topics/chisq.test'>stats::chisq.test</a> with pretty output and
 effect sizes depending on the size of the contingency table:
 Phi coefficient and Odds Ratios in case of a 2x2 table, Cramer's V otherwise.
-The result is either returned as a <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>tidy</a> <code>data.frame</code> or prettified using
-various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle</a> shenanigans.</p>
+The result is either returned as a <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>broom::tidy</a> <code>data.frame</code> or prettified using
+various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle</a> shenanigans.</p>
     
 
     <pre class="usage"><span class='fu'>tadaa_chisq</span>(<span class='no'>data</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>correct</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>,
@@ -111,12 +111,12 @@ various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkl
     <tr>
       <th>correct</th>
       <td><p>Apply Yate's continuity correction for 2x2 tables,
-passed to <a href='http://www.rdocumentation.org/packages/stats/topics/chisq.test'>chisq.test</a>. Defaults to <code>TRUE</code>.</p></td>
+passed to <a href='http://www.rdocumentation.org/packages/stats/topics/chisq.test'>stats::chisq.test</a>. Defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>print</th>
       <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
-Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>sprinkle_print_method</a> for fancyness.</p></td>
+Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     </table>
     
