@@ -102,29 +102,32 @@ tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
   gamma  <- round(ord_gamma(x), round)
 
   somer_x <- round(ord_somers_d(x), round)
-  #somer_y <- round(ord_somers_d(x, reverse = T), round)
+  somer_y <- round(ord_somers_d(x, reverse = T), round)
   somer_s <- round(ord_somers_d(x, symmetric = T), round)
 
   tau_a <- round(ord_tau(x, tau = "a"), round)
   tau_b <- round(ord_tau(x, tau = "b"), round)
   tau_c <- round(ord_tau(x, tau = "c"), round)
 
-  ret <- data.frame("gamma" = gamma, "somer_x" = somer_x, "somer_s" = somer_s,
+  ret <- data.frame("gamma" = gamma,
+                    "somer_x" = somer_x, "somer_y" = somer_y, "somer_s" = somer_s,
                     "tau_a" = tau_a, "tau_b" = tau_b, "tau_c" = tau_c)
 
   if (print != "markdown") {
     retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
                                              gamma = "Gamma",
-                                             somer_x = "Somers' D",
-                                             somer_s = "Somers' D (sym.)",
+                                             somer_x = "D (x)",
+                                             somer_y = "D (y)",
+                                             somer_s = "D (xy)",
                                              tau_a = "Tau A",
                                              tau_b = "Tau B",
                                              tau_c = "Tau C")
   } else {
     retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
                                              gamma = "$\\gamma$",
-                                             somer_x = "Somers' D",
-                                             somer_s = "Somers' D (sym.)",
+                                             somer_x = "$D_x$",
+                                             somer_y = "$D_y$",
+                                             somer_s = "$D_{xy}$",
                                              tau_a = "$\\tau_A$",
                                              tau_b = "$\\tau_B$",
                                              tau_c = "$\\tau_C$")

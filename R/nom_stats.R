@@ -122,16 +122,16 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console"){
   lmbd_y <- round(nom_lambda(x, reverse = T), round)
   lmbd_s <- round(nom_lambda(x, symmetric = T), round)
 
-  ret <- data.frame("chisq" = chisq, "cv" = v, "c" = cc,
+  ret <- data.frame("chisq" = chisq, "cv" = v,
                     "lmbd_x" = lmbd_x, "lmbd_y" = lmbd_y,
-                    "lmbd_s" = lmbd_s)
+                    "lmbd_s" = lmbd_s, "c" = cc)
 
   if (print == "markdown") {
     retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret), chisq = "$\\chi^2$",
                                              cv = "Cramer's V",
-                                             lmbd_x = "Lambda (x dep.)",
-                                             lmbd_y = "Lambda (y dep.)",
-                                             lmbd_s = "Lambda (sym.)")
+                                             lmbd_x = "$\\lambda_x$",
+                                             lmbd_y = "$\\lambda_y$",
+                                             lmbd_s = "$\\lambda_{xy}$")
   } else {
     retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret), chisq = "Chi^2",
                                              cv = "Cramer's V",
