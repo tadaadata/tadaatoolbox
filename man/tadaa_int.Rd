@@ -20,7 +20,7 @@ tadaa_int(data, response, group1, group2, grid = FALSE,
 \item{grid}{If \code{TRUE}, the resulting graphs will be arranged in a grid
 via \link[cowplot:plot_grid]{cowplot::plot_grid}.}
 
-\item{brewer_palette}{The name of the \link[RColorBrewer:RColorBrewer]{RColorBrewer::RColorBrewer} palette to use,
+\item{brewer_palette}{The name of the \code{RColorBrewer} palette to use,
 defaults to \code{Set1}.}
 
 \item{labels}{Labels used for the plots when printed in a grid (\code{grid = TRUE}),

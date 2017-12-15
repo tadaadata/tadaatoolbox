@@ -8,7 +8,7 @@
 #' @param group2 Second grouping variable.
 #' @param grid If `TRUE`, the resulting graphs will be arranged in a grid
 #' via [cowplot::plot_grid].
-#' @param brewer_palette The name of the [RColorBrewer::RColorBrewer] palette to use,
+#' @param brewer_palette The name of the `RColorBrewer` palette to use,
 #' defaults to `Set1`.
 #' @param labels Labels used for the plots when printed in a grid (`grid = TRUE`),
 #' defaults to `c("A", "B")`.
@@ -137,7 +137,7 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
 #' @param data A `data.frame`
 #' @param response Response variable, numeric.
 #' @param group Grouping variable, ideally a `factor`.
-#' @param brewer_palette Optional: The name of the [RColorBrewer] palette to use,
+#' @param brewer_palette Optional: The name of the `RColorBrewer`` palette to use,
 #' defaults to `Set1`. Use `NULL` for no brewer palette.
 #' @return A ggplot2 object.
 #' @export

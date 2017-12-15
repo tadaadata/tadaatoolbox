@@ -1,11 +1,11 @@
 #' ggplot2 theme to fit the readthedown Rmd format
 #'
-#' A ggplot theme to fit [rmdformats::readthedown()] in terms of background color and
+#' A ggplot theme to fit `rmdformats::readthedown` in terms of background color and
 #' dark grid lines.
 #' @param base_size Base text size, defaults to `12`.
 #' @param base_family Base text family. Use `"Roboto Slab"` to match the `readthedown`
 #' headers, or `"Lato"` for the body style.
-#' @param bg Background color, defaults to [rmdformats::readthedown()]'s background,
+#' @param bg Background color, defaults to `rmdformats::readthedown`'s background,
 #' `#fcfcfc`
 #' @param axis_emph Which axis to emphasize visually (black lines). One of `"x", "y", "xy", NULL`.
 #' @param ... Other arguments passed to [ggplot2::theme()]

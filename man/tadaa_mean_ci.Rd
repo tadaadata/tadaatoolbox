@@ -13,8 +13,7 @@ tadaa_mean_ci(data, response, group, brewer_palette = "Set1")
 
 \item{group}{Grouping variable, ideally a \code{factor}.}
 
-\item{brewer_palette}{Optional: The name of the \link{RColorBrewer} palette to use,
-defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
+\item{brewer_palette}{Optional: The name of the \code{RColorBrewer`` palette to use, defaults to}Set1\code{. Use}NULL` for no brewer palette.}
 }
 \value{
 A ggplot2 object.
