@@ -19,10 +19,10 @@ tadaa_ord(x, y = NULL, round = 2, print = "console")
 A \code{dust} object, depending on \code{print}.
 }
 \description{
-As of now, only Gamma and Somers D are supported. But let's be honest: Everybody hates Tau.
+Collects all \code{ord_} statistics in neat output.
 }
 \examples{
-tadaa_ord(ngo$abschalt, ngo$geschl)
+tadaa_ord(ngo$leistung, ngo$begabung)
 }
 \seealso{
 Other Tadaa-functions: \code{\link{tadaa_aov}},

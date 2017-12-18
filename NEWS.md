@@ -1,5 +1,9 @@
 # tadaatoolbox 0.15.9000
 
+## Changes
+
+- Add `ord_pairs` to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from [this gist](https://gist.github.com/marcschwartz/3665743).
+
 ## Internals
 
 - Eliminate `ryouready` dependency, in favor of the more versatile `DescTools` package:

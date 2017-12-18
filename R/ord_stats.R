@@ -83,7 +83,7 @@ ord_tau <- function(x, y = NULL, tau = "b", reverse = FALSE) {
 
 #' Get all the ordinal stats
 #'
-#' As of now, only Gamma and Somers D are supported. But let's be honest: Everybody hates Tau.
+#' Collects all `ord_` statistics in neat output.
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param round Ho many digits should be rounded. Default is 2.
@@ -93,7 +93,7 @@ ord_tau <- function(x, y = NULL, tau = "b", reverse = FALSE) {
 #' @import pixiedust
 #' @family Tadaa-functions
 #' @examples
-#' tadaa_ord(ngo$abschalt, ngo$geschl)
+#' tadaa_ord(ngo$leistung, ngo$begabung)
 tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
   if (!is.table(x)) {
     x <- table(x, y)
@@ -134,4 +134,135 @@ tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
   }
 
   return(pixiedust::sprinkle_print_method(retprint, print))
+}
+
+#' Retrieve all type of pairs for ordinal statistics
+#'
+#'
+#' @param x Dependent variable. Alternatively a `table`.
+#' @param y Independent variable
+#' @return A 1x5 `data.frame` with numeric values.
+#' @source Internals for this function are copied from
+#' [this gist](https://gist.github.com/marcschwartz/3665743) by GitHub user Marc Schwartz.
+#' @export
+#'
+#' @examples
+#' ord_pairs(ngo$leistung, ngo$begabung)
+ord_pairs <- function(x, y = NULL) {
+  if (!is.table(x)) {
+    x <- table(x, y)
+  }
+
+  data.frame(
+    nc = tadaatoolbox:::concordant(x),
+    nd = tadaatoolbox:::discordant(x),
+    tr = tadaatoolbox:::ties.row(x),
+    tc = tadaatoolbox:::ties.col(x),
+    total = (sum(x) * (sum(x) - 1))/2
+  )
+}
+
+
+# Calculate Pairs tied on Rows
+# cycle through each row of x and multiply by
+# sum(x elements to the right of x[r, c])
+# x = table
+#' @keywords internal
+ties.row <- function(x)
+{
+  x <- matrix(as.numeric(x), dim(x))
+
+  total.pairs <- 0
+
+  rows <- dim(x)[1]
+  cols <- dim(x)[2]
+
+  for (r in 1:rows)
+  {
+    for (c in 1:(cols - 1))
+    {
+      total.pairs <- total.pairs + (x[r, c] * sum(x[r, (c + 1):cols]))
+    }
+  }
+
+  total.pairs
+}
+
+# Calculate Pairs tied on Columns
+# cycle through each col of x and multiply by
+# sum(x elements below x[r, c])
+# x = table
+#' @keywords internal
+ties.col <- function(x)
+{
+  x <- matrix(as.numeric(x), dim(x))
+
+  total.pairs <- 0
+
+  rows <- dim(x)[1]
+  cols <- dim(x)[2]
+
+  for (c in 1:cols)
+  {
+    for (r in 1:(rows - 1))
+    {
+      total.pairs <- total.pairs + (x[r, c] * sum(x[(r + 1):rows, c]))
+    }
+  }
+
+  total.pairs
+}
+
+# Calculate CONcordant Pairs in a table
+# cycle through x[r, c] and multiply by
+# sum(x elements below and to the right of x[r, c])
+# x = table
+#' @keywords internal
+concordant <- function(x)
+{
+  x <- matrix(as.numeric(x), dim(x))
+
+  # get sum(matrix values > r AND > c)
+  # for each matrix[r, c]
+  mat.lr <- function(r, c)
+  {
+    lr <- x[(r.x > r) & (c.x > c)]
+    sum(lr)
+  }
+
+  # get row and column index for each
+  # matrix element
+  r.x <- row(x)
+  c.x <- col(x)
+
+  # return the sum of each matrix[r, c] * sums
+  # using mapply to sequence thru each matrix[r, c]
+  sum(x * mapply(mat.lr, r = r.x, c = c.x))
+}
+
+# Calculate DIScordant Pairs in a table
+# cycle through x[r, c] and multiply by
+# sum(x elements below and to the left of x[r, c])
+# x = table
+#' @keywords internal
+discordant <- function(x)
+{
+  x <- matrix(as.numeric(x), dim(x))
+
+  # get sum(matrix values > r AND < c)
+  # for each matrix[r, c]
+  mat.ll <- function(r, c)
+  {
+    ll <- x[(r.x > r) & (c.x < c)]
+    sum(ll)
+  }
+
+  # get row and column index for each
+  # matrix element
+  r.x <- row(x)
+  c.x <- col(x)
+
+  # return the sum of each matrix[r, c] * sums
+  # using mapply to sequence thru each matrix[r, c]
+  sum(x * mapply(mat.ll, r = r.x, c = c.x))
 }
