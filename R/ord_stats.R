@@ -13,7 +13,7 @@
 #'                  group  = sample(c("A", "B", "C"), 50, TRUE))
 #' tbl <- table(df)
 #' ord_gamma(tbl)
-ord_gamma <- function(x, y = NULL){
+ord_gamma <- function(x, y = NULL) {
   if (!is.table(x)) {
     x <- table(x, y)
   }
@@ -34,13 +34,15 @@ ord_gamma <- function(x, y = NULL){
 #' @importFrom DescTools SomersDelta
 #' @examples
 #' ord_somers_d(ngo$abschalt, ngo$geschl)
-ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
+ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE) {
   if (!is.table(x)) {
     x <- table(x, y)
   }
   if (symmetric) {
-    mean(c(DescTools::SomersDelta(x, direction = "row"),
-         DescTools::SomersDelta(x, direction = "column")))
+    mean(c(
+      DescTools::SomersDelta(x, direction = "row"),
+      DescTools::SomersDelta(x, direction = "column")
+    ))
   } else if (!reverse) {
     DescTools::SomersDelta(x, direction = "row")
   } else {
@@ -96,12 +98,12 @@ ord_tau <- function(x, y = NULL, tau = "b", reverse = FALSE) {
 #' @family Tadaa-functions
 #' @examples
 #' tadaa_ord(ngo$leistung, ngo$begabung)
-tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
+tadaa_ord <- function(x, y = NULL, round = 2, print = "console") {
   if (!is.table(x)) {
     x <- table(x, y)
   }
 
-  gamma  <- round(ord_gamma(x), round)
+  gamma <- round(ord_gamma(x), round)
 
   somer_x <- round(ord_somers_d(x), round)
   somer_y <- round(ord_somers_d(x, reverse = T), round)
@@ -111,28 +113,34 @@ tadaa_ord <- function(x, y = NULL, round = 2, print = "console"){
   tau_b <- round(ord_tau(x, tau = "b"), round)
   tau_c <- round(ord_tau(x, tau = "c"), round)
 
-  ret <- data.frame("gamma" = gamma,
-                    "somer_x" = somer_x, "somer_y" = somer_y, "somer_s" = somer_s,
-                    "tau_a" = tau_a, "tau_b" = tau_b, "tau_c" = tau_c)
+  ret <- data.frame(
+    "gamma" = gamma,
+    "somer_x" = somer_x, "somer_y" = somer_y, "somer_s" = somer_s,
+    "tau_a" = tau_a, "tau_b" = tau_b, "tau_c" = tau_c
+  )
 
   if (print != "markdown") {
-    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
-                                             gamma = "Gamma",
-                                             somer_x = "D (x)",
-                                             somer_y = "D (y)",
-                                             somer_s = "D (xy)",
-                                             tau_a = "Tau A",
-                                             tau_b = "Tau B",
-                                             tau_c = "Tau C")
+    retprint <- pixiedust::sprinkle_colnames(
+      pixiedust::dust(ret),
+      gamma = "Gamma",
+      somer_x = "D (x)",
+      somer_y = "D (y)",
+      somer_s = "D (xy)",
+      tau_a = "Tau A",
+      tau_b = "Tau B",
+      tau_c = "Tau C"
+    )
   } else {
-    retprint <- pixiedust::sprinkle_colnames(pixiedust::dust(ret),
-                                             gamma = "$\\gamma$",
-                                             somer_x = "$D_x$",
-                                             somer_y = "$D_y$",
-                                             somer_s = "$D_{xy}$",
-                                             tau_a = "$\\tau_A$",
-                                             tau_b = "$\\tau_B$",
-                                             tau_c = "$\\tau_C$")
+    retprint <- pixiedust::sprinkle_colnames(
+      pixiedust::dust(ret),
+      gamma = "$\\gamma$",
+      somer_x = "$D_x$",
+      somer_y = "$D_y$",
+      somer_s = "$D_{xy}$",
+      tau_a = "$\\tau_A$",
+      tau_b = "$\\tau_B$",
+      tau_c = "$\\tau_C$"
+    )
   }
 
   return(pixiedust::sprinkle_print_method(retprint, print))
@@ -160,7 +168,7 @@ ord_pairs <- function(x, y = NULL) {
     nd = discordant(x),
     tr = ties.row(x),
     tc = ties.col(x),
-    total = (sum(x) * (sum(x) - 1))/2
+    total = (sum(x) * (sum(x) - 1)) / 2
   )
 }
 
@@ -170,8 +178,7 @@ ord_pairs <- function(x, y = NULL) {
 # sum(x elements to the right of x[r, c])
 # x = table
 #' @keywords internal
-ties.row <- function(x)
-{
+ties.row <- function(x) {
   x <- matrix(as.numeric(x), dim(x))
 
   total.pairs <- 0
@@ -195,8 +202,7 @@ ties.row <- function(x)
 # sum(x elements below x[r, c])
 # x = table
 #' @keywords internal
-ties.col <- function(x)
-{
+ties.col <- function(x) {
   x <- matrix(as.numeric(x), dim(x))
 
   total.pairs <- 0
@@ -220,14 +226,12 @@ ties.col <- function(x)
 # sum(x elements below and to the right of x[r, c])
 # x = table
 #' @keywords internal
-concordant <- function(x)
-{
+concordant <- function(x) {
   x <- matrix(as.numeric(x), dim(x))
 
   # get sum(matrix values > r AND > c)
   # for each matrix[r, c]
-  mat.lr <- function(r, c)
-  {
+  mat.lr <- function(r, c) {
     lr <- x[(r.x > r) & (c.x > c)]
     sum(lr)
   }
@@ -247,14 +251,12 @@ concordant <- function(x)
 # sum(x elements below and to the left of x[r, c])
 # x = table
 #' @keywords internal
-discordant <- function(x)
-{
+discordant <- function(x) {
   x <- matrix(as.numeric(x), dim(x))
 
   # get sum(matrix values > r AND < c)
   # for each matrix[r, c]
-  mat.ll <- function(r, c)
-  {
+  mat.ll <- function(r, c) {
     ll <- x[(r.x > r) & (c.x < c)]
     sum(ll)
   }

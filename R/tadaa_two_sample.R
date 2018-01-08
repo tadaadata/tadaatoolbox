@@ -40,11 +40,10 @@
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, var.equal = NULL,
                          conf.level = 0.95, print = c("df", "console", "html", "markdown")) {
-
   print <- match.arg(print)
 
   response <- deparse(substitute(response))
-  group    <- deparse(substitute(group))
+  group <- deparse(substitute(group))
 
   # Check the type of the group
   if (is.factor(data[[group]])) {
@@ -59,33 +58,43 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 
 
   # Get n for each group
-  n1   <- length(x)
-  n2   <- length(y)
+  n1 <- length(x)
+  n2 <- length(y)
 
   # levene
   if (is.null(var.equal)) {
-    levene    <- broom::tidy(car::leveneTest(data[[response]],
-                                             data[[group]],
-                                             center = "median"))
+    levene <- broom::tidy(car::leveneTest(
+      data[[response]],
+      data[[group]],
+      center = "median"
+    ))
 
     var.equal <- (levene$p.value[[1]] >= .05)
   }
 
   # t.test
-  test <- broom::tidy(t.test(x = x, y = y, alternative = direction,
-                             paired = paired, var.equal = var.equal,
-                             conf.level = conf.level))
+  test <- broom::tidy(t.test(
+    x = x, y = y, alternative = direction,
+    paired = paired, var.equal = var.equal,
+    conf.level = conf.level
+  ))
 
   # Additions
-  test$d       <- effect_size_t(data = data, response = response,
-                                group = group, paired = paired, na.rm = TRUE)
+  test$d <- effect_size_t(
+    data = data, response = response,
+    group = group, paired = paired, na.rm = TRUE
+  )
   if (paired) {
-    test$power <- pwr::pwr.t.test(n = n1, d = test$d, sig.level = 1 - conf.level,
-                                  alternative = direction, type = "paired")$power
+    test$power <- pwr::pwr.t.test(
+      n = n1, d = test$d, sig.level = 1 - conf.level,
+      alternative = direction, type = "paired"
+    )$power
   } else {
-    test$power <- pwr::pwr.t2n.test(n1 = n1, n2 = n2, d = test$d,
-                                    sig.level = 1 - conf.level,
-                                    alternative = direction)$power
+    test$power <- pwr::pwr.t2n.test(
+      n1 = n1, n2 = n2, d = test$d,
+      sig.level = 1 - conf.level,
+      alternative = direction
+    )$power
   }
 
   # For paired tests, wie still want both means, probably
@@ -100,46 +109,55 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   }
 
   # Add SE because why not
-  test$se <- test$estimate/test$statistic
+  test$se <- test$estimate / test$statistic
 
   # Sort estimates (and columns... it's hard)
   est_cols <- c("estimate", "estimate1", "estimate2")
   # test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
-  test <- test[c(est_cols,"statistic", "se", "parameter", "conf.low", "conf.high",
-                 "p.value", "d", "power", "method", "alternative")]
+  test <- test[c(
+    est_cols, "statistic", "se", "parameter", "conf.low", "conf.high",
+    "p.value", "d", "power", "method", "alternative"
+  )]
 
   if (print == "df") {
     return(test)
   } else {
-    method      <- trimws(as.character(test$method))
+    method <- trimws(as.character(test$method))
     alternative <- switch(direction,
-                          "two.sided" = "$\\mu_1 \\neq \\mu_2$",
-                          "greater"   = "$\\mu_1 > \\mu_2$",
-                          "less"      = "$\\mu_1 < \\mu_2$")
+      "two.sided" = "$\\mu_1 \\neq \\mu_2$",
+      "greater" = "$\\mu_1 > \\mu_2$",
+      "less" = "$\\mu_1 < \\mu_2$"
+    )
 
-    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
-    test$ci     <-  paste0("(", round(test$conf.low, 2),
-                           " - ",
-                           round(test$conf.high, 2), ")")
-    CI_lab      <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
+    caption <- paste0("**", method, "** with alternative hypothesis: ", alternative)
+    test$ci <- paste0(
+      "(", round(test$conf.low, 2),
+      " - ",
+      round(test$conf.high, 2), ")"
+    )
+    CI_lab <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
 
     # Sort… again
-    test <- test[c(est_cols,"statistic", "se", "parameter", "ci",
-                   "p.value", "d", "power")]
+    test <- test[c(
+      est_cols, "statistic", "se", "parameter", "ci",
+      "p.value", "d", "power"
+    )]
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
-    output <- pixiedust::sprinkle_colnames(output,
-                                           estimate = "Diff",
-                                           estimate1 = paste("$\\mu_1$", groups[[1]]),
-                                           estimate2 = paste("$\\mu_2$", groups[[2]]),
-                                           statistic = "t",
-                                           p.value   = "p",
-                                           parameter = "df",
-                                           se        = "SE",
-                                           ci        = CI_lab,
-                                           d         = "Cohen\\'s d",
-                                           power     = "Power")
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      estimate = "Diff",
+      estimate1 = paste("$\\mu_1$", groups[[1]]),
+      estimate2 = paste("$\\mu_2$", groups[[2]]),
+      statistic = "t",
+      p.value = "p",
+      parameter = "df",
+      se = "SE",
+      ci = CI_lab,
+      d = "Cohen\\'s d",
+      power = "Power"
+    )
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
@@ -168,11 +186,10 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 #' tadaa_wilcoxon(df, x, y, paired = TRUE)
 tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
                            paired = FALSE, print = c("df", "console", "html", "markdown"), ...) {
-
   print <- match.arg(print)
 
   response <- deparse(substitute(response))
-  group    <- deparse(substitute(group))
+  group <- deparse(substitute(group))
 
   # Check the type of the group
   if (is.factor(data[[group]])) {
@@ -187,38 +204,45 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 
 
   # wilcox test
-  test <- broom::tidy(wilcox.test(x = x, y = y, alternative = direction,
-                                  paired = paired, ...))
+  test <- broom::tidy(wilcox.test(
+    x = x, y = y, alternative = direction,
+    paired = paired, ...
+  ))
 
   test$median1 <- median(x, na.rm = TRUE)
   test$median2 <- median(y, na.rm = TRUE)
-  test$diff    <- test$median1 - test$median2
+  test$diff <- test$median1 - test$median2
 
-  test <- test[c("diff", "median1", "median2", "statistic",
-                 "p.value", "method", "alternative")]
+  test <- test[c(
+    "diff", "median1", "median2", "statistic",
+    "p.value", "method", "alternative"
+  )]
 
   if (print == "df") {
     return(test)
   } else {
-    method      <- trimws(as.character(test$method))
+    method <- trimws(as.character(test$method))
     alternative <- switch(direction,
-                          "two.sided" = "$M_1 \\neq M_2$",
-                          "greater"   = "$M_1 > M_2$",
-                          "less"      = "$M_1 < M_2$")
+      "two.sided" = "$M_1 \\neq M_2$",
+      "greater" = "$M_1 > M_2$",
+      "less" = "$M_1 < M_2$"
+    )
 
-    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
+    caption <- paste0("**", method, "** with alternative hypothesis: ", alternative)
 
-    test$method      <- NULL
+    test$method <- NULL
     test$alternative <- NULL
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
-    output <- pixiedust::sprinkle_colnames(output,
-                                           diff      = "Difference",
-                                           statistic = "W",
-                                           p.value   = "p",
-                                           median1 = paste("$M_1$", groups[[1]]),
-                                           median2 = paste("$M_2$", groups[[2]]))
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      diff = "Difference",
+      statistic = "W",
+      p.value = "p",
+      median1 = paste("$M_1$", groups[[1]]),
+      median2 = paste("$M_2$", groups[[2]])
+    )
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)
     output <- pixiedust::sprinkle_print_method(output, print_method = print)

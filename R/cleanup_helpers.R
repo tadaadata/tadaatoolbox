@@ -18,7 +18,7 @@
 #' df %<>% delete_na
 #' }
 delete_na <- function(df, n = ncol(df) - 1) {
-  log      <- apply(df, 2, is.na)
+  log <- apply(df, 2, is.na)
   logindex <- apply(log, 1, function(x) sum(x) <= n)
 
   return(df[logindex, ])
@@ -48,15 +48,18 @@ drop_labels <- function(x) {
 #' pv <- c(.9, .2, .049, .009, .000003)
 #' pval_string(pv)
 pval_string <- function(pv) {
-
   if (any(pv < 0, na.rm = TRUE) | any(pv > 1, na.rm = TRUE)) {
     notProb <- which(pv < 0 | pv > 1)
-    stop(paste0("Element(s) ", paste(notProb, collapse = ", "),
-                " are not valid probabilities"))
+    stop(paste0(
+      "Element(s) ", paste(notProb, collapse = ", "),
+      " are not valid probabilities"
+    ))
   }
 
-  pvals <- sapply(pv, function(p){
-    if (is.na(p)) {return(NA)}
+  pvals <- sapply(pv, function(p) {
+    if (is.na(p)) {
+      return(NA)
+    }
     ps <- if (p > 0.99) {
       "> 0.99"
     } else if (p > 0.1) {

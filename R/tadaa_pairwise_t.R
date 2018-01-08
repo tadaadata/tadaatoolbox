@@ -42,12 +42,11 @@
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "console")
 #'
 tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
-                       p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
-                       alternative = "two.sided", print = "df") {
-
+                             p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
+                             alternative = "two.sided", print = "df") {
   response <- deparse(substitute(response))
-  group1   <- deparse(substitute(group1))
-  group2   <- deparse(substitute(group2))
+  group1 <- deparse(substitute(group1))
+  group2 <- deparse(substitute(group2))
 
   # This is a little bit of a workaround because of… variables.
   # Since p.adjust is passed to pairwise.t.test this is necessary since
@@ -68,13 +67,15 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   }
 
 
-  tests <- stats::pairwise.t.test(x = data[[response]],
-                                  g = data[[group1]],
-                                  p.adjust.method = p.adjust,
-                                  pool.sd = pool.sd,
-                                  paired = paired,
-                                  alternative = alternative)
-  tests      <- broom::tidy(tests)
+  tests <- stats::pairwise.t.test(
+    x = data[[response]],
+    g = data[[group1]],
+    p.adjust.method = p.adjust,
+    pool.sd = pool.sd,
+    paired = paired,
+    alternative = alternative
+  )
+  tests <- broom::tidy(tests)
   tests$term <- group1
 
   if (use_sidak) {
@@ -86,36 +87,44 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   if (group2 != "NULL") {
     data[["interaction"]] <- interaction(data[[group1]], data[[group2]], sep = " & ")
 
-    tests_int <- stats::pairwise.t.test(x = data[[response]],
-                                        g = data[["interaction"]],
-                                        p.adjust.method = p.adjust,
-                                        pool.sd = pool.sd,
-                                        paired = paired,
-                                        alternative = alternative)
+    tests_int <- stats::pairwise.t.test(
+      x = data[[response]],
+      g = data[["interaction"]],
+      p.adjust.method = p.adjust,
+      pool.sd = pool.sd,
+      paired = paired,
+      alternative = alternative
+    )
 
-    tests_int      <- broom::tidy(tests_int)
+    tests_int <- broom::tidy(tests_int)
     tests_int$term <- paste0(group1, ":", group2)
 
     if (use_sidak) {
-      tests_int$p.value <- 1 - pbinom(q = 0, size = nrow(tests_int),
-                                     prob = tests_int$p.value)
+      tests_int$p.value <- 1 - pbinom(
+        q = 0, size = nrow(tests_int),
+        prob = tests_int$p.value
+      )
     } else if (use_sidakSD) {
       tests_int$p.value <- sidak_sd(tests_int$p.value)
     }
 
-    tests_g2 <- stats::pairwise.t.test(x = data[[response]],
-                                       g = data[[group2]],
-                                       p.adjust.method = p.adjust,
-                                       pool.sd = pool.sd,
-                                       paired = paired,
-                                       alternative = alternative)
+    tests_g2 <- stats::pairwise.t.test(
+      x = data[[response]],
+      g = data[[group2]],
+      p.adjust.method = p.adjust,
+      pool.sd = pool.sd,
+      paired = paired,
+      alternative = alternative
+    )
 
-    tests_g2      <- broom::tidy(tests_g2)
+    tests_g2 <- broom::tidy(tests_g2)
     tests_g2$term <- group2
 
     if (use_sidak) {
-      tests_g2$p.value <- 1 - pbinom(q = 0, size = nrow(tests_g2),
-                                     prob = tests_g2$p.value)
+      tests_g2$p.value <- 1 - pbinom(
+        q = 0, size = nrow(tests_g2),
+        prob = tests_g2$p.value
+      )
     } else if (use_sidakSD) {
       tests_g2$p.value <- sidak_sd(tests_g2$p.value)
     }
@@ -123,9 +132,9 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     tests <- rbind(tests, tests_g2, tests_int)
   }
 
-  tests$comparison  <- paste0(tests$group1, " - ", tests$group2)
+  tests$comparison <- paste0(tests$group1, " - ", tests$group2)
   tests$adj.p.value <- tests$p.value
-  rownames(tests)   <- NULL
+  rownames(tests) <- NULL
 
   test <- tests[c("term", "comparison", "adj.p.value")]
 
@@ -135,7 +144,7 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
     output <- pixiedust::dust(test)
     output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output, adj.p.value = "p (adj.)")
-    #output <- pixiedust::sprinkle_table(output, cols = 1, caption = "", part = "head")
+    # output <- pixiedust::sprinkle_table(output, cols = 1, caption = "", part = "head")
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
@@ -149,15 +158,15 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
 #' @references https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88
 #' @keywords internal
 sidak_sd <- function(pvals) {
-  m       <- length(pvals)
-  m.good  <- sum(!is.na(pvals))
-  index   <- order(pvals)
+  m <- length(pvals)
+  m.good <- sum(!is.na(pvals))
+  index <- order(pvals)
   pvals_s <- pvals[index]
-  tmp     <- pvals_s
-  tmp[1]  <- 1 - (1 - pvals_s[1])^m.good
+  tmp <- pvals_s
+  tmp[1] <- 1 - (1 - pvals_s[1]) ^ m.good
 
-  for(i in 2:m) {
-    tmp[i] <- max(tmp[i - 1], 1 - (1 - pvals_s[i])^(m.good - i + 1))
+  for (i in 2:m) {
+    tmp[i] <- max(tmp[i - 1], 1 - (1 - pvals_s[i]) ^ (m.good - i + 1))
   }
 
   tmp[order(index)]

@@ -30,14 +30,13 @@
 tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.sided",
                              na.rm = FALSE, conf.level = 0.95,
                              print = c("df", "console", "html", "markdown")) {
-
   print <- match.arg(print)
 
   # If x is a numeric vector, just use that
   # Otherwise it's a column of 'data', so we'll need that
   if (!is.null(data)) {
     x_lab <- deparse(substitute(x))
-    x     <- data[[x_lab]]
+    x <- data[[x_lab]]
   } else if (!is.numeric(x)) {
     stop("Argument 'x' must be numeric or a bare column name of 'data'")
   }
@@ -49,22 +48,26 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     results <- broom::tidy(t.test(x = x, mu = mu, direction = direction))
 
     # Add SE because why not
-    results$se <- sd(x, na.rm = TRUE)/sqrt(length(x))
+    results$se <- sd(x, na.rm = TRUE) / sqrt(length(x))
 
     # Effect size
     results$d <- (mean_x - mu) / sd(x, na.rm = na.rm)
     # Power
-    results$power <- pwr::pwr.t.test(n = length(x), d = results$d,
-                                     type = "one.sample", alternative = direction,
-                                     sig.level = 1 - conf.level)$power
+    results$power <- pwr::pwr.t.test(
+      n = length(x), d = results$d,
+      type = "one.sample", alternative = direction,
+      sig.level = 1 - conf.level
+    )$power
     # Name statistic
     statistic_label <- "t"
   } else {
     # If sigma is known, do manual z-test stuff
-    sem     <- sigma/sqrt(length(x))
-    results <- data.frame(estimate  = mean_x,
-                          statistic = (mean_x - mu)/sem,
-                          se        = sem)
+    sem <- sigma / sqrt(length(x))
+    results <- data.frame(
+      estimate = mean_x,
+      statistic = (mean_x - mu) / sem,
+      se = sem
+    )
 
     if (direction == "two.sided") {
       p <- pnorm(mean_x, mean = mu, sd = sem)
@@ -76,17 +79,19 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
     } else {
       stop("'direction' must be one of: 'two.sided', 'less', 'greater'")
     }
-    results$p.value     <- p
-    results$conf.low    <- mean_x - confint_norm(x, alpha = 1 - conf.level)
-    results$conf.high   <- mean_x + confint_norm(x, alpha = 1 - conf.level)
-    results$method      <- "z-Test"
+    results$p.value <- p
+    results$conf.low <- mean_x - confint_norm(x, alpha = 1 - conf.level)
+    results$conf.high <- mean_x + confint_norm(x, alpha = 1 - conf.level)
+    results$method <- "z-Test"
     results$alternative <- direction
 
     # Effect size
     results$d <- (mean_x - mu) / sigma
     # Power
-    results$power <- pwr::pwr.norm.test(d = results$d, n = length(x),
-                                        alternative = direction)$power
+    results$power <- pwr::pwr.norm.test(
+      d = results$d, n = length(x),
+      alternative = direction
+    )$power
     # Name statistic
     statistic_label <- "z"
   }
@@ -95,40 +100,49 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
   if (print == "df") {
     return(results)
   } else {
-    method      <- trimws(as.character(results$method))
+    method <- trimws(as.character(results$method))
     alternative <- switch(direction,
-                          "two.sided" = paste0("$\\mu_1 \\neq$ ", mu),
-                          "greater"   = paste0("$\\mu_1 >$ ", mu),
-                          "less"      = paste0("$\\mu_1 <$ ", mu))
+      "two.sided" = paste0("$\\mu_1 \\neq$ ", mu),
+      "greater" = paste0("$\\mu_1 >$ ", mu),
+      "less" = paste0("$\\mu_1 <$ ", mu)
+    )
 
-    caption     <-  paste0("**", method, "** with alternative hypothesis: ", alternative)
+    caption <- paste0("**", method, "** with alternative hypothesis: ", alternative)
 
-    results$ci  <-  paste0("(", round(results$conf.low, 2),
-                           " - ", round(results$conf.high, 2), ")")
-    CI_lab      <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
+    results$ci <- paste0(
+      "(", round(results$conf.low, 2),
+      " - ", round(results$conf.high, 2), ")"
+    )
+    CI_lab <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
 
     if ("parameter" %in% names(results)) {
-      results <- results[c("estimate", "parameter", "se", "statistic",
-                           "ci", "p.value", "d", "power")]
+      results <- results[c(
+        "estimate", "parameter", "se", "statistic",
+        "ci", "p.value", "d", "power"
+      )]
     } else {
-      results <- results[c("estimate", "se", "statistic", "ci",
-                           "p.value", "d", "power")]
+      results <- results[c(
+        "estimate", "se", "statistic", "ci",
+        "p.value", "d", "power"
+      )]
     }
 
     output <- pixiedust::dust(results, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
-    output <- pixiedust::sprinkle_colnames(output,
-                                           estimate  = paste0("$\\mu_1$ ", x_lab),
-                                           statistic = statistic_label,
-                                           se        = "SE",
-                                           p.value   = "p",
-                                           ci        = CI_lab,
-                                           d         = "Cohen\\'s d",
-                                           power     = "Power")
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      estimate = paste0("$\\mu_1$ ", x_lab),
+      statistic = statistic_label,
+      se = "SE",
+      p.value = "p",
+      ci = CI_lab,
+      d = "Cohen\\'s d",
+      power = "Power"
+    )
     if ("parameter" %in% names(results)) {
       output <- pixiedust::sprinkle_colnames(output, parameter = "df")
     } else if ("se" %in% names(results)) {
-      output <- pixiedust::sprinkle_colnames(output, se        = "SE")
+      output <- pixiedust::sprinkle_colnames(output, se = "SE")
     }
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 2)

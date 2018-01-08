@@ -27,7 +27,6 @@
 #' tadaa_chisq(ngo, abschalt, jahrgang)
 tadaa_chisq <- function(data, x, y, correct = TRUE,
                         print = c("df", "console", "html", "markdown")) {
-
   print <- match.arg(print)
 
   x <- deparse(substitute(x))
@@ -40,7 +39,7 @@ tadaa_chisq <- function(data, x, y, correct = TRUE,
   )
 
   if (length(tbl) == 4) {
-    test$OR  <- (tbl[1] / tbl[3]) / (tbl[2] / tbl[4])
+    test$OR <- (tbl[1] / tbl[3]) / (tbl[2] / tbl[4])
     test$phi <- nom_phi(tbl)
   } else {
     test$cramers <- nom_v(tbl)
@@ -49,23 +48,29 @@ tadaa_chisq <- function(data, x, y, correct = TRUE,
   if (print == "df") {
     return(test)
   } else {
-    caption     <- paste0("**", test$method, "**")
+    caption <- paste0("**", test$method, "**")
     test$method <- NULL
 
     output <- pixiedust::dust(test, caption = caption)
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
-    output <- pixiedust::sprinkle_colnames(output,
-                                           statistic = paste("$\\chi^2$"),
-                                           p.value   = "p",
-                                           parameter = "df")
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      statistic = paste("$\\chi^2$"),
+      p.value = "p",
+      parameter = "df"
+    )
 
     if (is.null(test$cramers)) {
-      output <- pixiedust::sprinkle_colnames(output,
-                                             OR  = "Odds Ratio",
-                                             phi = "$\\phi$")
+      output <- pixiedust::sprinkle_colnames(
+        output,
+        OR = "Odds Ratio",
+        phi = "$\\phi$"
+      )
     } else {
-      output <- pixiedust::sprinkle_colnames(output,
-                                             cramers = "Cramer\\'s V")
+      output <- pixiedust::sprinkle_colnames(
+        output,
+        cramers = "Cramer\\'s V"
+      )
     }
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))

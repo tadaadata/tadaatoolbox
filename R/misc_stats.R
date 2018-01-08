@@ -18,8 +18,8 @@
 #' # Or for nominal data
 #' x <- structure(c(2L, 1L, 2L, 2L, 2L, 1L), .Label = c("Ja", "Nein"), class = "factor")
 #' modus(x)
-#'}
-modus <- function(x, as_character = TRUE, reduce = TRUE){
+#' }
+modus <- function(x, as_character = TRUE, reduce = TRUE) {
   mode <- names(table(x)[table(x) == max(table(x))])
 
   if (reduce & length(mode) > 1) {

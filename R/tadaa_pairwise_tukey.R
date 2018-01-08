@@ -19,10 +19,9 @@
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl)
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, print = "console")
 tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = "df", ...) {
-
   response <- deparse(substitute(response))
-  group1   <- deparse(substitute(group1))
-  group2   <- deparse(substitute(group2))
+  group1 <- deparse(substitute(group1))
+  group2 <- deparse(substitute(group2))
 
   if (group2 == "NULL") {
     formula <- as.formula(paste0(response, " ~ ", group1))
@@ -40,13 +39,15 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
     output <- pixiedust::dust(tukey)
     output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 3)
-    output <- pixiedust::sprinkle_colnames(output,
-                                           adj.p.value = "p (adj.)",
-                                           estimate    = "Diff",
-                                           term        = "Term",
-                                           comparison  = "Comparison",
-                                           conf.low    = "CI_low",
-                                           conf.high   = "CI_high")
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      adj.p.value = "p (adj.)",
+      estimate = "Diff",
+      term = "Term",
+      comparison = "Comparison",
+      conf.low = "CI_low",
+      conf.high = "CI_high"
+    )
   }
 
   if (!(print %in% c("df", "console", "html", "markdown"))) {
@@ -54,5 +55,4 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
   }
 
   pixiedust::sprinkle_print_method(output, print_method = print)
-
 }
