@@ -156,10 +156,10 @@ ord_pairs <- function(x, y = NULL) {
   }
 
   data.frame(
-    nc = tadaatoolbox:::concordant(x),
-    nd = tadaatoolbox:::discordant(x),
-    tr = tadaatoolbox:::ties.row(x),
-    tc = tadaatoolbox:::ties.col(x),
+    nc = concordant(x),
+    nd = discordant(x),
+    tr = ties.row(x),
+    tc = ties.col(x),
     total = (sum(x) * (sum(x) - 1))/2
   )
 }
