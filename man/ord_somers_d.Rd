@@ -13,7 +13,8 @@ ord_somers_d(x, y = NULL, symmetric = FALSE, reverse = FALSE)
 
 \item{symmetric}{If \code{TRUE}, symmetric D is returned. Default is \code{FALSE}.}
 
-\item{reverse}{If \code{TRUE}, row and column variable are switched.}
+\item{reverse}{If \code{TRUE}, row and column variable are switched. Default is \code{FALSE},
+meaning the row variable is considered dependant.}
 }
 \value{
 \code{numeric} value

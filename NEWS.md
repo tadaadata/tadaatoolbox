@@ -3,6 +3,7 @@
 ## Changes
 
 - Add `ord_pairs` to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from [this gist](https://gist.github.com/marcschwartz/3665743).
+- Fix `ord_somers_d` not returning the correct value for `symmetric = TRUE`
 
 ## Internals
 

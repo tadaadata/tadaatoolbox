@@ -27,7 +27,8 @@ ord_gamma <- function(x, y = NULL){
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #' @param symmetric If `TRUE`, symmetric D is returned. Default is `FALSE`.
-#' @param reverse If `TRUE`, row and column variable are switched.
+#' @param reverse If `TRUE`, row and column variable are switched. Default is `FALSE`,
+#' meaning the row variable is considered dependant.
 #' @return `numeric` value
 #' @export
 #' @importFrom DescTools SomersDelta
@@ -38,7 +39,8 @@ ord_somers_d <- function(x, y = NULL, symmetric = FALSE, reverse = FALSE){
     x <- table(x, y)
   }
   if (symmetric) {
-    DescTools::SomersDelta(x)
+    mean(c(DescTools::SomersDelta(x, direction = "row"),
+         DescTools::SomersDelta(x, direction = "column")))
   } else if (!reverse) {
     DescTools::SomersDelta(x, direction = "row")
   } else {
