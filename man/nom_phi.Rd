@@ -15,7 +15,7 @@ nom_phi(x, y = NULL)
 \code{numeric} value
 }
 \description{
-Very simple wrapper for \link[vcd:assocstats]{vcd::assocstats}.
+Very simple wrapper for \link[DescTools:Phi]{DescTools::Phi}.
 }
 \examples{
 nom_phi(ngo$abschalt, ngo$geschl)

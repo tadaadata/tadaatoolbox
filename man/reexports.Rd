@@ -9,8 +9,6 @@
 \alias{reexports}
 \alias{\%$\%}
 \alias{reexports}
-\alias{as_factor}
-\alias{reexports}
 \alias{get_label}
 \alias{reexports}
 \alias{get_labels}
@@ -18,8 +16,6 @@
 \alias{set_label}
 \alias{reexports}
 \alias{set_labels}
-\alias{reexports}
-\alias{word_wrap}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -27,12 +23,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{haven}{\code{\link[haven]{as_factor}}}
-
   \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}, \code{\link[magrittr]{\%$\%}}}
 
   \item{sjlabelled}{\code{\link[sjlabelled]{get_label}}, \code{\link[sjlabelled]{get_labels}}, \code{\link[sjlabelled]{set_label}}, \code{\link[sjlabelled]{set_labels}}}
-
-  \item{sjmisc}{\code{\link[sjmisc]{word_wrap}}}
 }}
 

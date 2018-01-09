@@ -21,56 +21,56 @@ nom_chisqu <- function(x, y = NULL, correct = FALSE) {
 
 #' Phi coefficient
 #'
-#' Very simple wrapper for [vcd::assocstats].
+#' Very simple wrapper for [DescTools::Phi].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
 #' @return `numeric` value
 #' @export
-#' @importFrom vcd assocstats
+#' @importFrom DescTools Phi
 #' @examples
 #' nom_phi(ngo$abschalt, ngo$geschl)
 nom_phi <- function(x, y = NULL) {
   if (!is.table(x)) {
     x <- table(x, y)
   }
-  vcd::assocstats(x)$phi
+  DescTools::Phi(x)
 }
 
 #' Cramer's V
 #'
-#' Very simple wrapper for [vcd::assocstats].
+#' Very simple wrapper for [DescTools::CramerV].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
 #' @return `numeric` value
 #' @export
-#' @importFrom vcd assocstats
+#' @importFrom DescTools CramerV
 #' @examples
 #' nom_v(ngo$abschalt, ngo$geschl)
 nom_v <- function(x, y = NULL) {
   if (!is.table(x)) {
     x <- table(x, y)
   }
-  vcd::assocstats(x)$cramer
+  DescTools::CramerV(x)
 }
 
 #' Contingency Coefficient C
 #'
-#' Very simple wrapper for [vcd::assocstats].
+#' Very simple wrapper for [DescTools::ContCoef].
 #' @param x Dependent variable. Alternatively a `table`.
 #' @param y Independent variable
 #'
 #' @return `numeric` value
 #' @export
-#' @importFrom vcd assocstats
+#' @importFrom DescTools ContCoef
 #' @examples
 #' nom_c(ngo$abschalt, ngo$geschl)
 nom_c <- function(x, y = NULL) {
   if (!is.table(x)) {
     x <- table(x, y)
   }
-  vcd::assocstats(x)$contingency
+  DescTools::ContCoef(x)
 }
 
 #' Lambda

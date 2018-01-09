@@ -15,7 +15,7 @@ nom_c(x, y = NULL)
 \code{numeric} value
 }
 \description{
-Very simple wrapper for \link[vcd:assocstats]{vcd::assocstats}.
+Very simple wrapper for \link[DescTools:ContCoef]{DescTools::ContCoef}.
 }
 \examples{
 nom_c(ngo$abschalt, ngo$geschl)
