@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get all the ordinal stats — tadaa_ord • tadaatoolbox</title>
+<title>Retrieve all type of pairs for ordinal statistics — ord_pairs • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,14 +79,14 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get all the ordinal stats</h1>
+    <h1>Retrieve all type of pairs for ordinal statistics</h1>
     </div>
 
     
-    <p>Collects all <code>ord_</code> statistics in neat output.</p>
+    <p>Retrieve all type of pairs for ordinal statistics</p>
     
 
-    <pre class="usage"><span class='fu'>tadaa_ord</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</pre>
+    <pre class="usage"><span class='fu'>ord_pairs</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -99,47 +99,30 @@
       <th>y</th>
       <td><p>Independent variable</p></td>
     </tr>
-    <tr>
-      <th>round</th>
-      <td><p>Ho many digits should be rounded. Default is 2.</p></td>
-    </tr>
-    <tr>
-      <th>print</th>
-      <td><p>Print method. Passed to <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> as of now.</p></td>
-    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>Internals for this function are copied from
+<a href = 'https://gist.github.com/marcschwartz/3665743'>this gist</a> by GitHub user Marc Schwartz.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>dust</code> object, depending on <code>print</code>.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
-  <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
-  <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
-  <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
-  <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>,
-  <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
-  <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
-  <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
-  <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p>
+    <p>A 1x5 <code>data.frame</code> with numeric values.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_ord</span>(<span class='no'>ngo</span>$<span class='no'>leistung</span>, <span class='no'>ngo</span>$<span class='no'>begabung</span>)</div><div class='output co'>#&gt;   Gamma D (x) D (y) D (xy) Tau A Tau B Tau C
-#&gt; 1  0.51   0.4   0.4    0.4   0.3   0.4  0.35
-#&gt; 
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ord_pairs</span>(<span class='no'>ngo</span>$<span class='no'>leistung</span>, <span class='no'>ngo</span>$<span class='no'>begabung</span>)</div><div class='output co'>#&gt;      nc   nd   tr   tc total
+#&gt; 1 13963 4498 5312 5196 31125</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#source">Source</a></li>
 
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#value">Value</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

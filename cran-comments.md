@@ -1,6 +1,7 @@
 ## Test environments
+
 * local OS X install, R 3.4.3
-* ubuntu 14.04 (on travis-ci), R 3.4.2
+* ubuntu 14.04 (on travis-ci) (devel and release)
 * win-builder (devel and release)
 
 ## Fixed issues from previous submission:
