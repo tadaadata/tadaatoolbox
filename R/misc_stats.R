@@ -5,8 +5,7 @@
 #' @param x A `vector` with numeric data.
 #' @param reduce Since `mode` can be of length > 1, this option pastes the result into a
 #' single character value.
-#' @param as_character Always return a character. `TRUE` by default, or [dplyr::summarize].
-#' will be very unpleased.
+#' @param as_character Always return a character. `TRUE` by default.
 #' @return A `vector` of length 1 of type `numeric` or `character`, depending
 #' on input.
 #' @export

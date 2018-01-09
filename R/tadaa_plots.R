@@ -193,7 +193,6 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 #' @return A [ggplot2] object.
 #' @export
 #' @import ggplot2
-#' @importFrom dplyr arrange
 #' @family Tadaa-plot functions
 #' @note The `alpha` of the error bars is set to `0.25` if the comparison
 #' is not significant, and `1` otherwise. That's neat.
@@ -202,17 +201,9 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 #' tadaa_plot_tukey(tests)
 tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
-  # Please R CMD check
-  comparison <- NULL
-  estimate <- NULL
-  conf.low <- NULL
-  conf.high <- NULL
-  term <- NULL
-  signif <- NULL
-
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
 
-  data <- dplyr::arrange(data, term, estimate)
+  data <- data[order(data$term, data$estimate), ]
   data$comparison <- factor(
     data$comparison,
     levels = rev(as.character(data$comparison)),
@@ -221,13 +212,13 @@ tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
   p <- ggplot(
     data = data,
-    aes(
-      x = comparison,
-      y = estimate,
-      ymin = conf.low,
-      ymax = conf.high,
-      color = term,
-      alpha = signif
+    aes_string(
+      x = "comparison",
+      y = "estimate",
+      ymin = "conf.low",
+      ymax = "conf.high",
+      color = "term",
+      alpha = "signif"
     )
   ) +
     geom_errorbar(width = .75, size = 1.25) +

@@ -13,7 +13,7 @@
     - `ord_somers_d`: Use `DescTools::SomersDelta`
     - The `DescTools` functions are very similar to what the wrappers do, so the wrappers might be removed in the future.
 - Eliminate `lazyeval` dependency in `tadaa_int` by being better at `ggplot2`.
-
+- Eliminate `dplyr` dependency by being better at R.
 # tadaatoolbox 0.15.0
 
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests

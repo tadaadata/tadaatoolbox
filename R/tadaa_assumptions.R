@@ -14,7 +14,6 @@
 #' @importFrom broom tidy
 #' @importFrom nortest ad.test
 #' @importFrom nortest pearson.test
-#' @importFrom dplyr bind_rows
 #' @family Tadaa-functions
 #' @export
 #' @examples
@@ -31,13 +30,6 @@
 tadaa_normtest <- function(data, method = "ad",
                            print = c("df", "console", "html", "markdown"), ...) {
   print <- match.arg(print)
-
-  if (print == "df" & length(method) > 1 & length(method) <= 3) {
-    res <- dplyr::bind_rows(lapply(method, function(x) {
-      tadaa_normtest(data, method = x)
-    }))
-    return(res)
-  }
 
   vars <- names(data)
   results <- lapply(data, function(x) {
@@ -56,9 +48,14 @@ tadaa_normtest <- function(data, method = "ad",
     res <- tidy(res)
     return(res)
   })
-  results <- dplyr::bind_rows(results)
-  results$variable <- as.character(vars)
-  results <- results[c(ncol(results), 1:(ncol(results) - 1))]
+
+  results <- data.frame(
+    variable = as.character(vars),
+    statistic = sapply(results, "[[", 1),
+    p.value = sapply(results, "[[", 2),
+    method = sapply(results, "[[", 3)
+  )
+  rownames(results) <- NULL
 
   if (print == "df") {
     return(results)
