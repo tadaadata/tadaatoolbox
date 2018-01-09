@@ -36,11 +36,6 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
     subtitle <- NULL
   }
 
-  sdots <- lazyeval::interp(~mean(variable, na.rm = T), variable = substitute(response))
-
-  data <- dplyr::group_by_(data, substitute(group1), substitute(group2))
-  data <- dplyr::summarize_(data, .dots = list(mw = sdots))
-
   title1 <- ifelse(!grid, paste0(
     "Interaction of ",
     substitute(group1), " & ", substitute(group2)
@@ -62,11 +57,13 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
   )
 
   p1 <- ggplot(data = data, aes_string(
-    x = substitute(group1), y = "mw",
+    x = substitute(group1), y = substitute(response),
     colour = substitute(group2)
   )) +
-    geom_line(aes_string(group = substitute(group2))) +
-    geom_point(shape = 23, fill = "white") +
+    stat_summary(aes_string(group = substitute(group2)),
+                 fun.y = mean, geom = "line") +
+    stat_summary(aes_string(group = substitute(group2)),
+                 fun.y = mean, geom = "point", shape = 23, fill = "white") +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
       title = title1, y = paste0("Mean ", substitute(response)),
@@ -75,11 +72,13 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
     theme(legend.position = "top")
 
   p2 <- ggplot(data = data, aes_string(
-    x = substitute(group2), y = "mw",
+    x = substitute(group2), y = substitute(response),
     colour = substitute(group1)
   )) +
-    geom_line(aes_string(group = substitute(group1))) +
-    geom_point(shape = 23, fill = "white") +
+    stat_summary(aes_string(group = substitute(group1)),
+                 fun.y = mean, geom = "line") +
+    stat_summary(aes_string(group = substitute(group1)),
+                 fun.y = mean, geom = "point", shape = 23, fill = "white") +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
       title = title2, y = paste0("Mean ", substitute(response)),

@@ -31,7 +31,6 @@ Imports:
     pixiedust,
     car,
     ggplot2,
-    lazyeval,
     sjlabelled,
     sjmisc,
     haven,
