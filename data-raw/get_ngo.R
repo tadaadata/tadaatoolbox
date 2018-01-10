@@ -5,7 +5,7 @@ ngo <- dplyr::select(ngo, -index, -zeng, -zdeutsch, -zmathe, -leist)
 
 ## factors
 ngo$geschl <- factor(ngo$geschl, labels = c("M\u00e4nnlich", "Weiblich"))
-ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
+ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = FALSE)
 ngo$hausauf <- ifelse(ngo$hausauf == 0, NA, ngo$hausauf)
 ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
 ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
