@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Means with Errorbars — tadaa_mean_ci • tadaatoolbox</title>
+<title>Just eta^2. — etasq • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,49 +79,37 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Means with Errorbars</h1>
+    <h1>Just eta^2.</h1>
     </div>
 
     
-    <p>Plot Means with Errorbars</p>
+    <p>Thin wrapper for <code><a href='http://www.rdocumentation.org/packages/DescTools/topics/EtaSq'>DescTools::EtaSq</a></code> to retrieve $eta^2$ for a simple use case
+without having to fit an <code>aov</code> model beforehand.
+Only use this for a simple one-way design, e.g. only one independent variable.</p>
     
 
-    <pre class="usage"><span class='fu'>tadaa_mean_ci</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>)</pre>
+    <pre class="usage"><span class='fu'>etasq</span>(<span class='no'>formula</span>, <span class='no'>data</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>formula</th>
+      <td><p>The model formula for <code><a href='http://www.rdocumentation.org/packages/stats/topics/aov'>stats::aov</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>data</th>
-      <td><p>A <code>data.frame</code></p></td>
-    </tr>
-    <tr>
-      <th>response</th>
-      <td><p>Response variable, numeric.</p></td>
-    </tr>
-    <tr>
-      <th>group</th>
-      <td><p>Grouping variable, ideally a <code>factor</code>.</p></td>
-    </tr>
-    <tr>
-      <th>brewer_palette</th>
-      <td><p>Optional: The name of the <code>RColorBrewer</code> palette to use,
-defaults to <code>Set1</code>. Use <code>NULL</code> for no brewer palette.</p></td>
+      <td><p>The <code>data.frame</code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A ggplot2 object.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p>Other Tadaa-plot functions: <code><a href='tadaa_balance.html'>tadaa_balance</a></code>,
-  <code><a href='tadaa_int.html'>tadaa_int</a></code>, <code><a href='tadaa_plot_tukey.html'>tadaa_plot_tukey</a></code></p>
+    <p>A single numeric value</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_mean_ci</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='kw'>brewer_palette</span> <span class='kw'>=</span> <span class='st'>"Set1"</span>)</div><img src='tadaa_mean_ci-2.png' alt='' width='540' height='400' /></pre>
+    <pre class="examples"><div class='input'><span class='fu'>etasq</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span>, <span class='no'>ngo</span>)</div><div class='output co'>#&gt; [1] 0.176547274164</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -129,8 +117,6 @@ defaults to <code>Set1</code>. Use <code>NULL</code> for no brewer palette.</p><
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
