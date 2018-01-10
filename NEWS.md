@@ -1,6 +1,6 @@
 # tadaatoolbox 0.15.9000
 
-## Changes
+## Fixes & Features
 
 - Add `ord_pairs` to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from [this gist](https://gist.github.com/marcschwartz/3665743).
 - Fix `ord_somers_d` not returning the correct value for `symmetric = TRUE`
@@ -18,7 +18,8 @@
 - Eliminate `dplyr` dependency by being better at R.
 - Eliminate `haven` dependency by not re-exporting `as_factor` anymore ¯\\\_(ツ)_/¯
 - Eliminate `sjmisc` depencency because why did we depend on that again?
-- Eliminate `sjlabelled` dependency (only used for re-exports)
+- Eliminate `sjlabelled` dependency (only used for re-exports).
+- Eliminate `lsr` dependency in favor of, you guessed it, `DescTools` for eta in `tadaa_aov`.
 
 # tadaatoolbox 0.15.0
 

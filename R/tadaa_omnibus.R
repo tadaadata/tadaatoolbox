@@ -11,7 +11,8 @@
 #' If `type = 3` and `check_contrasts = TRUE`, the `"contrasts"` of
 #' each non-ordered factor will be checked and set to `contr.sum` to ensure the function
 #' yields usable results. It is highly recommended to only use `check_contrasts = FALSE`
-#' for debugging or educational purposes.
+#' for debugging or educational purposes, or of you know what you're doing and using
+#' your own contrast matrix.
 #' @param formula Formula for model, passed to `aov`.
 #' @param data Data for model.
 #' @param show_effect_size If `TRUE` (default), effect sizes
@@ -31,7 +32,7 @@
 #' @import methods
 #' @import stats
 #' @import pixiedust
-#' @importFrom lsr etaSquared
+#' @importFrom DescTools  EtaSq
 #' @importFrom pwr pwr.f2.test
 #' @importFrom car Anova
 #' @importFrom broom tidy
@@ -83,7 +84,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 
   # Model fitting
   base_model <- stats::aov(formula = formula, data = data)
-  effects <- lsr::etaSquared(base_model, type = type)
+  effects    <- DescTools::EtaSq(base_model, type = type)
 
   if (type %in% c(2, 3)) {
     base_model <- car::Anova(base_model, type = type)

@@ -45,7 +45,8 @@ automatically converted if \code{factorize = TRUE} to ensure valid results.
 If \code{type = 3} and \code{check_contrasts = TRUE}, the \code{"contrasts"} of
 each non-ordered factor will be checked and set to \code{contr.sum} to ensure the function
 yields usable results. It is highly recommended to only use \code{check_contrasts = FALSE}
-for debugging or educational purposes.
+for debugging or educational purposes, or of you know what you're doing and using
+your own contrast matrix.
 }
 \examples{
 tadaa_aov(stunzahl ~ jahrgang, data = ngo)
