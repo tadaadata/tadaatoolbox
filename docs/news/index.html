@@ -94,6 +94,7 @@
 <li>Add <code>ord_pairs</code> to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from <a href="https://gist.github.com/marcschwartz/3665743">this gist</a>.</li>
 <li>Fix <code>ord_somers_d</code> not returning the correct value for <code>symmetric = TRUE</code>
 </li>
+<li>Removed <code>drop_labels</code> because <code>sjlabelled::zap_labels</code> is a thing</li>
 </ul>
 </div>
 <div id="internals" class="section level2">
@@ -113,8 +114,14 @@
 </li>
 </ul>
 </li>
+<li>Eliminate <code>vcd</code> dependency, also in favor of <code>DescTools</code>.</li>
+<li>(The <code>DescTools</code> functions are very similar to what the wrappers do, so the wrappers might be removed in the future.)</li>
+<li>Eliminate <code>lazyeval</code> dependency in <code>tadaa_int</code> by being better at <code>ggplot2</code>.</li>
+<li>Eliminate <code>dplyr</code> dependency by being better at R.</li>
+<li>Eliminate <code>haven</code> dependency by not re-exporting <code>as_factor</code> anymore ¯\_(ツ)_/¯</li>
+<li>Eliminate <code>sjmisc</code> depencency because why did we depend on that again?</li>
+<li>Eliminate <code>sjlabelled</code> dependency (only used for re-exports)</li>
 </ul>
-<p>The <code>DescTools</code> functions are very similar to what the wrappers do, so the wrappers might be removed in the future.</p>
 </div>
 </div>
     <div id="tadaatoolbox-0-15-0" class="section level1">

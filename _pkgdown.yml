@@ -28,7 +28,6 @@
     - title: Misc helpers
       contents:
       - delete_na
-      - drop_labels
       - generate_recodes
       - interval_labels
       - pval_string

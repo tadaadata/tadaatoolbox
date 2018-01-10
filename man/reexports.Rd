@@ -8,14 +8,6 @@
 \alias{\%<>\%}
 \alias{reexports}
 \alias{\%$\%}
-\alias{reexports}
-\alias{get_label}
-\alias{reexports}
-\alias{get_labels}
-\alias{reexports}
-\alias{set_label}
-\alias{reexports}
-\alias{set_labels}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -24,7 +16,5 @@ below to see their documentation.
 
 \describe{
   \item{magrittr}{\code{\link[magrittr]{\%>\%}}, \code{\link[magrittr]{\%<>\%}}, \code{\link[magrittr]{\%$\%}}}
-
-  \item{sjlabelled}{\code{\link[sjlabelled]{get_label}}, \code{\link[sjlabelled]{get_labels}}, \code{\link[sjlabelled]{set_label}}, \code{\link[sjlabelled]{set_labels}}}
 }}
 

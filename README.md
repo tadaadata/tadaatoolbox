@@ -102,8 +102,8 @@ Dependencies
 
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
--   **stats, methods, broom, magrittr, dplyr, pwr, pixiedust, car, ggplot2, lazyeval**
--   **sjlabelled, sjmisc, haven, vcd, nortest, lsr, viridis, DescTools**
+-   **stats, methods, broom, magrittr, pwr, pixiedust, car, ggplot2, nortest, lsr**
+-   **viridis, DescTools**
 
 Code of Conduct
 ===============
