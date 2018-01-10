@@ -21,12 +21,10 @@
 #' @family Tadaa-plot functions
 #' @import ggplot2
 #' @examples
-#' \dontrun{
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
 #'
 #' # As grid, if cowplot is installed
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
-#' }
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,
                       brewer_palette = "Set1", labels = c("A", "B"),
                       show_n = FALSE, print = TRUE) {
@@ -121,7 +119,6 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
 tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) {
   group1 <- deparse(substitute(group1))
   group2 <- deparse(substitute(group2))
-  # group3 <- deparse(substitute(group3))
 
   heat <- table(data[[group1]], data[[group2]])
   heat <- as.data.frame(heat)
@@ -135,7 +132,7 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
     anno <- NULL
   }
 
-  balance <- ggplot(heat, aes_string(x = "Var1", y = "Var2", fill = "Freq")) +
+  ggplot(heat, aes_string(x = "Var1", y = "Var2", fill = "Freq")) +
     geom_tile(color = "white", size = 0.75) +
     anno +
     labs(
@@ -149,16 +146,14 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
     viridis::scale_fill_viridis(option = palette) +
     coord_equal(ratio = .625) +
     theme(legend.position = "none")
-
-  balance
 }
 
-#' Means with Errorbars
+#' Plot Means with Errorbars
 #'
 #' @param data A `data.frame`
 #' @param response Response variable, numeric.
 #' @param group Grouping variable, ideally a `factor`.
-#' @param brewer_palette Optional: The name of the `RColorBrewer`` palette to use,
+#' @param brewer_palette Optional: The name of the `RColorBrewer` palette to use,
 #' defaults to `Set1`. Use `NULL` for no brewer palette.
 #' @return A ggplot2 object.
 #' @export

@@ -2,7 +2,7 @@
 % Please edit documentation in R/tadaa_plots.R
 \name{tadaa_mean_ci}
 \alias{tadaa_mean_ci}
-\title{Means with Errorbars}
+\title{Plot Means with Errorbars}
 \usage{
 tadaa_mean_ci(data, response, group, brewer_palette = "Set1")
 }
@@ -13,13 +13,14 @@ tadaa_mean_ci(data, response, group, brewer_palette = "Set1")
 
 \item{group}{Grouping variable, ideally a \code{factor}.}
 
-\item{brewer_palette}{Optional: The name of the \code{RColorBrewer`` palette to use, defaults to}Set1\code{. Use}NULL` for no brewer palette.}
+\item{brewer_palette}{Optional: The name of the \code{RColorBrewer} palette to use,
+defaults to \code{Set1}. Use \code{NULL} for no brewer palette.}
 }
 \value{
 A ggplot2 object.
 }
 \description{
-Means with Errorbars
+Plot Means with Errorbars
 }
 \examples{
 tadaa_mean_ci(ngo, deutsch, jahrgang, brewer_palette = "Set1")
