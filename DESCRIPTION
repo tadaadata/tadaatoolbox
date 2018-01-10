@@ -30,7 +30,6 @@ Imports:
     pixiedust,
     car,
     ggplot2,
-    sjlabelled,
     nortest,
     lsr,
     viridis,

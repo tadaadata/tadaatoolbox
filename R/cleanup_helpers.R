@@ -24,20 +24,6 @@ delete_na <- function(df, n = ncol(df) - 1) {
   return(df[logindex, ])
 }
 
-#' Re-label a vector after subsetting
-#'
-#' @param x A vector with now unused labels
-#' @return Identical vector with appropriate labels
-#' @export
-#' @importFrom sjlabelled set_labels get_labels
-#' @examples
-#' \dontrun{
-#' x <- drop_labels(x)
-#' }
-drop_labels <- function(x) {
-  sjlabelled::set_labels(x, labels = sjlabelled::get_labels(x)[unique(x)])
-}
-
 #' Easy p-value formatting
 #'
 #' @param pv A p-value in numeric form.

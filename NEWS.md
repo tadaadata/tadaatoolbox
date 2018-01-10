@@ -4,6 +4,7 @@
 
 - Add `ord_pairs` to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from [this gist](https://gist.github.com/marcschwartz/3665743).
 - Fix `ord_somers_d` not returning the correct value for `symmetric = TRUE`
+- Removed `drop_labels` because `sjlabelled::zap_labels` is a thing
 
 ## Internals
 
@@ -11,12 +12,13 @@
     - `nom_lambda`: Use `DescTools::Lambda`
     - `ord_gamma`: Use `DescTools::GoodmanKruskalGamma`
     - `ord_somers_d`: Use `DescTools::SomersDelta`
-    - The `DescTools` functions are very similar to what the wrappers do, so the wrappers might be removed in the future.
 - Eliminate `vcd` dependency, also in favor of `DescTools`.
+- (The `DescTools` functions are very similar to what the wrappers do, so the wrappers might be removed in the future.)
 - Eliminate `lazyeval` dependency in `tadaa_int` by being better at `ggplot2`.
 - Eliminate `dplyr` dependency by being better at R.
 - Eliminate `haven` dependency by not re-exporting `as_factor` anymore ¯\\\_(ツ)_/¯
-- Eliminare `sjmisc` depencency because why did we depend on that again?
+- Eliminate `sjmisc` depencency because why did we depend on that again?
+- Eliminate `sjlabelled` dependency (only used for re-exports)
 
 # tadaatoolbox 0.15.0
 
