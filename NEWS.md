@@ -3,6 +3,7 @@
 ## Fixes & Features
 
 - Add `ord_pairs` to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from [this gist](https://gist.github.com/marcschwartz/3665743).
+- Add `etasq` in case you want to show students what $eta^2$ is without having to explain ANOVA.
 - Fix `ord_somers_d` not returning the correct value for `symmetric = TRUE`
 - Removed `drop_labels` because `sjlabelled::zap_labels` is a thing
 

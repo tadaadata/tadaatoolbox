@@ -53,3 +53,23 @@ modus <- function(x, as_character = TRUE, reduce = TRUE) {
 z <- function(x) {
   (x - mean(x, na.rm = TRUE)) / stats::sd(x, na.rm = TRUE)
 }
+
+#' Just eta^2.
+#'
+#' Thin wrapper for [`DescTools::EtaSq`] to retrieve $eta^2$ for a simple use case
+#' without having to fit an `aov` model beforehand.
+#' Only use this for a simple one-way design, e.g. only one independent variable.
+#' @param formula The model formula for [`stats::aov`].
+#' @param data The `data.frame`.
+#'
+#' @return A single numeric value
+#' @export
+#' @importFrom DescTools EtaSq
+#'
+#' @examples
+#' etasq(stunzahl ~ jahrgang, ngo)
+etasq <- function(formula, data) {
+  model <- aov(formula = formula, data = data)
+  ret <- DescTools::EtaSq(model, type = 1)
+  ret[1]
+}
