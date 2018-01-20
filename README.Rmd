@@ -22,8 +22,9 @@ description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tada
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
-[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
+[![Rdoc](http://www.rdocumentation.org/badges/version/tadaatoolbox)](http://www.rdocumentation.org/packages/tadaatoolbox)
+
 
 This is **tadaatoolbox** version ``r description$Version`` ([semver](http://semver.org/)(ish)).<br />
 It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen. 

@@ -3,7 +3,7 @@
 tadaatoolbox
 ============
 
-[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
+[![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![Rdoc](http://www.rdocumentation.org/badges/version/tadaatoolbox)](http://www.rdocumentation.org/packages/tadaatoolbox)
 
 This is **tadaatoolbox** version `0.16.0` ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
 
