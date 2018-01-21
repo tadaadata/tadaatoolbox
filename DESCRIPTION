@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues
 Depends: 
-    R (>= 3.1)
+    R (>= 3.3)
 Imports: 
     broom,
     car,
