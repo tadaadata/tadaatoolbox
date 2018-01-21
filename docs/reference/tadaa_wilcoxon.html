@@ -143,13 +143,13 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;              diff        median1        median2 statistic       p.value
-#&gt; 1 -0.133507226827 0.463184096152 0.596691322979      1101 0.36483437774
+<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;          diff   median1    median2 statistic    p.value
+#&gt; 1 -0.13350723 0.4631841 0.59669132      1101 0.36483438
 #&gt;                                              method alternative
 #&gt; 1 Wilcoxon rank sum test with continuity correction   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;              diff        median1        median2 statistic        p.value
-#&gt; 1 0.0933601072757 0.447053559241 0.353693451965       676 0.713749864458
+<span class='fu'>tadaa_wilcoxon</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;          diff    median1    median2 statistic    p.value
+#&gt; 1 0.093360107 0.44705356 0.35369345       676 0.71374986
 #&gt;                                                 method alternative
 #&gt; 1 Wilcoxon signed rank test with continuity correction   two.sided</div></pre>
   </div>

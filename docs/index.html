@@ -75,10 +75,10 @@ Also, since this project is still in the <code>0.x.y</code> version, you should 
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>Install the current development version from GitHub (recommended):</p>
 <pre><code>if (!("devtools" %in% installed.packages())){
-  install.packages("devtools")
+  install.packages("remotes")
 }
 
-devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
+remotes::install_github("tadaadata/tadaatoolbox")</code></pre>
 <p>Or install the most recent stable version from CRAN:</p>
 <pre><code>install.packages("tadaatoolbox")</code></pre>
 </div>
@@ -97,7 +97,7 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">Lukas Burk</td>
-<td align="left">Author &amp; Creator</td>
+<td align="left">Author &amp; Maintainer</td>
 </tr>
 <tr class="even">
 <td align="left">Tobias Anton</td>
@@ -114,13 +114,15 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <div id="functionality" class="section level1">
 <h1 class="hasAnchor">
 <a href="#functionality" class="anchor"></a>Functionality</h1>
-<p>See the included vignette for a demonstration: <code>browseVignettes("tadaatoolbox")</code> or view <a href="http://tadaatoolbox.tadaa-data.de/">the <code>pkgdown</code>ed version of this repo</a>.</p>
-<div id="tidy-test-output" class="section level2">
+<p>See the included vignette for a demonstration: <code>browseVignettes("tadaatoolbox")</code> or view <a href="http://tadaatoolbox.tadaa-data.de/">the <code>pkgdown</code>ed version of this repo</a> for an overview and function index.<br>
+Here’s a few highlights:</p>
+<div id="tidy-as-in-pretty-test-output" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tidy-test-output" class="anchor"></a>Tidy test output</h2>
+<a href="#tidy-as-in-pretty-test-output" class="anchor"></a>Tidy (as in pretty) test output</h2>
+<p>See all of them in action <a href="http://tadaatoolbox.tadaa-data.de/articles/test_output.html">in this vignette</a></p>
 <ul>
 <li>
-<code>tadaa_aov</code>: For <code>aov</code> with included partial <span class="math inline">\(\eta^2\)</span> and Cohen’s f.</li>
+<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial <span class="math inline">\(\eta^2\)</span>, Cohen’s f and power.</li>
 <li>
 <code>tadaa_kruskal</code>: A wrapper for <code>kruskal.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
@@ -135,75 +137,9 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <code>tadaa_pairwise_t</code>, <code>tadaa_pairwise_gh</code> and <code>tadaa_pairwise_tukey</code> for various pairwise procedures.</li>
 </ul>
 </div>
-<div id="statistical-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#statistical-functions" class="anchor"></a>Statistical functions</h2>
-<ul>
-<li>
-<code>modus</code>: A simple function to extract the mode of a frequency table</li>
-<li>
-<code>nom_chisqu</code>: Simple wrapper for <code>chisq.test</code> that produces a single value.</li>
-<li>
-<code>nom_phi</code>: Simple wrapper for <code>vcd::assocstats</code> to extract phi.</li>
-<li>
-<code>nom_v</code>: Simple wrapper for <code>vcd::assocstats</code> to extract Cramer’s V.</li>
-<li>
-<code>nom_c</code>: Simple wrapper for <code>vcd::assocstats</code> to extract the contingency coefficient c.</li>
-<li>
-<code>nom_lambda</code>: Simple wrapper for <code>ryouready::nom.lambda</code> to extract appropriate lambda.</li>
-<li>
-<code>ord_gamma</code>: Simple wrapper for <code>ryouready::ord.gamma</code>.</li>
-<li>
-<code>ord_somers_d</code>: Simple wrapper for <code>ryouready::ord.somers.d</code>.</li>
-</ul>
-<div id="summaries" class="section level3">
-<h3 class="hasAnchor">
-<a href="#summaries" class="anchor"></a>Summaries</h3>
-<ul>
-<li>
-<code>tadaa_nom</code>: All the nominal stats in one table.</li>
-<li>
-<code>tadaa_ord</code>: All the ordinal stats in one table.</li>
-</ul>
-</div>
-</div>
-<div id="misc--helpers" class="section level2">
-<h2 class="hasAnchor">
-<a href="#misc--helpers" class="anchor"></a>Misc. helpers</h2>
-<ul>
-<li>
-<code>generate_recodes</code>: To produce recode assignments for <code>car::recode</code> for evenly sequenced clusters.</li>
-<li>
-<code>interval_labels</code>: To produce labels for clusters created by <code>cut</code>.</li>
-<li>
-<code>delete_na</code>: Customizable way to drop <code>NA</code> observations from a dataset.</li>
-<li>
-<code>pval_string</code>: Shamelessly adapted from <code>pixiedust::pvalString</code>, this will format a p-value as a character string in common <code>p &lt; 0.001</code> notation and so on. The difference from the <code>pixiedust</code> version is that this function will also print <code>p &lt; 0.05</code>.</li>
-</ul>
-</div>
 <div id="helpers-for-plots" class="section level2">
 <h2 class="hasAnchor">
 <a href="#helpers-for-plots" class="anchor"></a>Helpers for plots</h2>
-<div id="ci-calculators" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ci-calculators" class="anchor"></a>CI calculators</h3>
-<ul>
-<li>
-<code>mean_ci_t</code>: Returns a <code>data.frame</code> with <code>y</code> (<code>mean</code>), <code>ymin</code> and <code>ymax</code> for the CI bounds.
-<ul>
-<li>
-<code>confint_t</code>: For the underlying function to get the CI width. Returns a single value.</li>
-<li>
-<code>confint_norm</code>: Similar, but baes on normal distribution. Returns a single value.</li>
-</ul>
-</li>
-<li>
-<code>mean_ci_sem</code>: Standard error and CI, you guessed it, in one table.</li>
-</ul>
-</div>
-<div id="plotting-templates" class="section level3">
-<h3 class="hasAnchor">
-<a href="#plotting-templates" class="anchor"></a>Plotting templates</h3>
 <ul>
 <li>
 <code>tadaa_int</code>: Simple interaction plot template.</li>
@@ -216,14 +152,22 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 </ul>
 </div>
 </div>
-</div>
 <div id="dependencies" class="section level1">
 <h1 class="hasAnchor">
 <a href="#dependencies" class="anchor"></a>Dependencies</h1>
 <p>I rely on these awesome package for all the things this package does, so you might want to consider checking them out.</p>
 <ul>
-<li><strong>stats, methods, broom, magrittr, pwr, pixiedust, car, ggplot2, nortest, viridis</strong></li>
+<li><strong>broom</strong></li>
+<li><strong>car</strong></li>
 <li><strong>DescTools</strong></li>
+<li><strong>ggplot2</strong></li>
+<li><strong>magrittr</strong></li>
+<li><strong>methods</strong></li>
+<li><strong>nortest</strong></li>
+<li><strong>pixiedust</strong></li>
+<li><strong>pwr</strong></li>
+<li><strong>stats</strong></li>
+<li><strong>viridis</strong></li>
 </ul>
 </div>
 <div id="code-of-conduct" class="section level1">
@@ -256,8 +200,9 @@ devtools::install_github("tadaadata/tadaatoolbox")</code></pre>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a></li>
 <li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version/tadaatoolbox" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/grand-total/tadaatoolbox" alt="CRAN_Downloads_Badge"></a></li>
 <li><a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/tadaatoolbox" alt="CRAN_Downloads_Badge"></a></li>
+<li><a href="http://www.rdocumentation.org/packages/tadaatoolbox"><img src="http://www.rdocumentation.org/badges/version/tadaatoolbox" alt="Rdoc"></a></li>
+<li><a href="https://codecov.io/github/tadaadata/tadaatoolbox?branch=master"><img src="https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 </ul>
 </div>
 

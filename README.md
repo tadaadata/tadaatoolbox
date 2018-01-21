@@ -72,14 +72,16 @@ Dependencies
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
 -   **broom**
--   **magrittr**
--   **pwr**
--   **pixiedust**
 -   **car**
--   **ggplot2**
--   **nortest**
--   **viridis**
 -   **DescTools**
+-   **ggplot2**
+-   **magrittr**
+-   **methods**
+-   **nortest**
+-   **pixiedust**
+-   **pwr**
+-   **stats**
+-   **viridis**
 
 Code of Conduct
 ===============

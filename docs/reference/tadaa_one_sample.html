@@ -152,17 +152,15 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
 
-<span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;        estimate      statistic            se           p.value      conf.low
-#&gt; 1 100.191920019 -3.61384353566 0.22360679775 0.000301691163949 70.6154750036
-#&gt;       conf.high method alternative               d          power
-#&gt; 1 129.768365035 z-Test   two.sided -0.808079980577 0.950924018321</div><div class='input'>
+<span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;    estimate  statistic        se       p.value  conf.low conf.high method
+#&gt; 1 100.19192 -3.6138435 0.2236068 0.00030169116 70.615475 129.76837 z-Test
+#&gt;   alternative           d      power
+#&gt; 1   two.sided -0.80807998 0.95092402</div><div class='input'>
 <span class='co'># No data.frame, just a vector</span>
-<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;          estimate      statistic        p.value parameter        conf.low
-#&gt; 1 -0.270991796922 -1.09215325476 0.288421361906        19 -0.790325825392
-#&gt;        conf.high            method alternative             se              d
-#&gt; 1 0.248342231549 One Sample t-test   two.sided 0.248126163374 -0.24421289195
-#&gt;            power
-#&gt; 1 0.179526402124</div></pre>
+<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate  statistic    p.value parameter    conf.low  conf.high
+#&gt; 1 -0.2709918 -1.0921533 0.28842136        19 -0.79032583 0.24834223
+#&gt;              method alternative         se           d     power
+#&gt; 1 One Sample t-test   two.sided 0.24812616 -0.24421289 0.1795264</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
