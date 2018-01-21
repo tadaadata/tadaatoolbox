@@ -11,8 +11,14 @@ env:
     - NOT_CRAN=false
 
 r:
+- 3.1
+- 3.2
+- oldrel
 - release
 - devel
 
 r_packages:
 - cowplot
+
+after_success:
+  - Rscript -e 'covr::codecov()'

@@ -10,3 +10,4 @@ dev/*
 ^\.travis\.yml$
 ^\_pkgdown\.yml$
 ^data-raw$
+^codecov\.yml$
