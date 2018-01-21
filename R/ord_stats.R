@@ -106,8 +106,8 @@ tadaa_ord <- function(x, y = NULL, round = 2, print = "console") {
   gamma <- round(ord_gamma(x), round)
 
   somer_x <- round(ord_somers_d(x), round)
-  somer_y <- round(ord_somers_d(x, reverse = T), round)
-  somer_s <- round(ord_somers_d(x, symmetric = T), round)
+  somer_y <- round(ord_somers_d(x, reverse = TRUE), round)
+  somer_s <- round(ord_somers_d(x, symmetric = TRUE), round)
 
   tau_a <- round(ord_tau(x, tau = "a"), round)
   tau_b <- round(ord_tau(x, tau = "b"), round)

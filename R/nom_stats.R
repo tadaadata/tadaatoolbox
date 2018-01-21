@@ -119,8 +119,8 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console") {
   v <- round(nom_v(x), round)
   cc <- round(nom_c(x), round)
   lmbd_x <- round(nom_lambda(x), round)
-  lmbd_y <- round(nom_lambda(x, reverse = T), round)
-  lmbd_s <- round(nom_lambda(x, symmetric = T), round)
+  lmbd_y <- round(nom_lambda(x, reverse = TRUE), round)
+  lmbd_s <- round(nom_lambda(x, symmetric = TRUE), round)
 
   ret <- data.frame(
     "chisq" = chisq, "cv" = v,

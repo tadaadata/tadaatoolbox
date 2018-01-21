@@ -169,7 +169,7 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
     stat_summary(fun.data = "mean_ci_t", geom = "errorbar", width = 0.6, size = 1.5) +
     stat_summary(fun.y = "mean", geom = "point", size = 3, color = "black") +
     stat_summary(fun.y = "mean", geom = "point", size = 2, color = "white") +
-    guides(color = F)
+    guides(color = FALSE)
   if (!is.null(brewer_palette)) {
     p <- p + scale_color_brewer(palette = brewer_palette)
   }
@@ -220,7 +220,7 @@ tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
     geom_point(shape = 23, size = 1.5) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     coord_flip() +
-    scale_alpha_manual(values = c("no" = 0.25, "yes" = 1), guide = F) +
+    scale_alpha_manual(values = c("no" = 0.25, "yes" = 1), guide = FALSE) +
     labs(
       title = "Tukey HSD Results", subtitle = "Mean Difference with 95% CI",
       x = "Compared Groups", y = "Mean Difference", color = "Term (Factor)",
