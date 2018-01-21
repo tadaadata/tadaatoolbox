@@ -16,10 +16,10 @@ Installation
 Install the current development version from GitHub (recommended):
 
     if (!("devtools" %in% installed.packages())){
-      install.packages("devtools")
+      install.packages("remotes")
     }
 
-    devtools::install_github("tadaadata/tadaatoolbox")
+    remotes::install_github("tadaadata/tadaatoolbox")
 
 Or install the most recent stable version from CRAN:
 
@@ -33,21 +33,24 @@ Please do! I have no idea where I'm going with this. Feel free to [open issues](
 Contributers
 ------------
 
-| Contributer    | Role             |
-|:---------------|:-----------------|
-| Lukas Burk     | Author & Creator |
-| Tobias Anton   | Author           |
-| Daniel Lüdecke | Contributor      |
+| Contributer    | Role                |
+|:---------------|:--------------------|
+| Lukas Burk     | Author & Maintainer |
+| Tobias Anton   | Author              |
+| Daniel Lüdecke | Contributor         |
 
 Functionality
 =============
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](http://tadaatoolbox.tadaa-data.de/).
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](http://tadaatoolbox.tadaa-data.de/) for an overview and function index.
+Here's a few highlights:
 
-Tidy test output
-----------------
+Tidy (as in pretty) test output
+-------------------------------
 
--   `tadaa_aov`: For `aov` with included partial *η*<sup>2</sup> and Cohen's f.
+See all of them in action [in this vignette](http://tadaatoolbox.tadaa-data.de/articles/test_output.html)
+
+-   `tadaa_aov`: For 3 flavours of `aov` with included partial *η*<sup>2</sup>, Cohen's f and power.
 -   `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.
 -   `tadaa_t.test`: For `t.test` with automatic homogenity of variance detection, effect size and power.
 -   `tadaa_wilcoxon`: A wrapper for `wilcox.test` tidied and optionally `pixiedust`ed.
@@ -55,42 +58,8 @@ Tidy test output
 -   `tadaa_normtest` lets you do tests for normality (4 methods) over multiple variables.
 -   `tadaa_pairwise_t`, `tadaa_pairwise_gh` and `tadaa_pairwise_tukey` for various pairwise procedures.
 
-Statistical functions
----------------------
-
--   `modus`: A simple function to extract the mode of a frequency table
--   `nom_chisqu`: Simple wrapper for `chisq.test` that produces a single value.
--   `nom_phi`: Simple wrapper for `vcd::assocstats` to extract phi.
--   `nom_v`: Simple wrapper for `vcd::assocstats` to extract Cramer's V.
--   `nom_c`: Simple wrapper for `vcd::assocstats` to extract the contingency coefficient c.
--   `nom_lambda`: Simple wrapper for `ryouready::nom.lambda` to extract appropriate lambda.
--   `ord_gamma`: Simple wrapper for `ryouready::ord.gamma`.
--   `ord_somers_d`: Simple wrapper for `ryouready::ord.somers.d`.
-
-### Summaries
-
--   `tadaa_nom`: All the nominal stats in one table.
--   `tadaa_ord`: All the ordinal stats in one table.
-
-Misc. helpers
--------------
-
--   `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
--   `interval_labels`: To produce labels for clusters created by `cut`.
--   `delete_na`: Customizable way to drop `NA` observations from a dataset.
--   `pval_string`: Shamelessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
-
 Helpers for plots
 -----------------
-
-### CI calculators
-
--   `mean_ci_t`: Returns a `data.frame` with `y` (`mean`), `ymin` and `ymax` for the CI bounds.
-    -   `confint_t`: For the underlying function to get the CI width. Returns a single value.
-    -   `confint_norm`: Similar, but baes on normal distribution. Returns a single value.
--   `mean_ci_sem`: Standard error and CI, you guessed it, in one table.
-
-### Plotting templates
 
 -   `tadaa_int`: Simple interaction plot template.
 -   `tadaa_balance`: Check equality of group sizes.
@@ -102,7 +71,14 @@ Dependencies
 
 I rely on these awesome package for all the things this package does, so you might want to consider checking them out.
 
--   **stats, methods, broom, magrittr, pwr, pixiedust, car, ggplot2, nortest, viridis**
+-   **broom**
+-   **magrittr**
+-   **pwr**
+-   **pixiedust**
+-   **car**
+-   **ggplot2**
+-   **nortest**
+-   **viridis**
 -   **DescTools**
 
 Code of Conduct
