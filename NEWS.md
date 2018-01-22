@@ -1,3 +1,7 @@
+# tadaatoolbox 0.16.9000
+
+- More accurate R dependency (`R >= 2.10`) (i.e. _more_ inclusive)
+
 # tadaatoolbox 0.16.0
 
 ## Fixes & Features
