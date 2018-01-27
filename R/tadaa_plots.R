@@ -196,6 +196,10 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 #' tadaa_plot_tukey(tests)
 tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
+  data$term <- gsub(":", " \u2194 ", data$term)
+  data$comparison <- gsub(":", " & ", data$comparison)
+  data$comparison <- gsub("-", " \u2194 ", data$comparison)
+
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
 
   data <- data[order(data$term, data$estimate), ]
@@ -216,8 +220,8 @@ tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
       alpha = "signif"
     )
   ) +
-    geom_errorbar(width = .75, size = 1.25) +
-    geom_point(shape = 23, size = 1.5) +
+    geom_errorbar(width = .75, size = 1) +
+    geom_point(shape = 23, size = 1.5, fill = "white") +
     geom_hline(yintercept = 0, linetype = "dashed") +
     coord_flip() +
     scale_alpha_manual(values = c("no" = 0.25, "yes" = 1), guide = FALSE) +
