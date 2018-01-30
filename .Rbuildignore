@@ -11,3 +11,4 @@ dev/*
 ^\_pkgdown\.yml$
 ^data-raw$
 ^codecov\.yml$
+^build_all\.R$
