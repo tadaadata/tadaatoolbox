@@ -50,6 +50,8 @@ tadaa_pairwise_gh <- function(data, response, group1, group2 = NULL, print = "df
   if (print == "df") {
     return(tests)
   } else {
+    tests$term <- as.character(tests$term)
+    tests$comparison <- as.character(tests$comparison)
     output <- pixiedust::dust(tests)
     output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle_colnames(output, adj.p.value = "p (adj.)")
