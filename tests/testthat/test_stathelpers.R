@@ -1,4 +1,4 @@
-context("Stat helpers")
+context("Stat Helpers")
 
 df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 
