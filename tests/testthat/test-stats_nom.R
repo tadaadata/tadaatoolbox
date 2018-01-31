@@ -73,3 +73,12 @@ test_that("tadaa_nom returns dust object", {
   expect_is(tadaa_nom(sample(letters, 10), sample(letters, "10"), print = "html"), "dust")
 
 })
+
+# tadaa_chisq ----
+
+test_that("tadaa_chisq works", {
+  expect_is(tadaa_chisq(ngo, abschalt, jahrgang), "data.frame")
+  expect_is(tadaa_chisq(ngo, abschalt, jahrgang, correct = FALSE), "data.frame")
+  expect_is(tadaa_chisq(ngo, abschalt, jahrgang, correct = TRUE), "data.frame")
+  expect_is(tadaa_chisq(ngo, abschalt, jahrgang, print = "markdown"), "dust")
+})
