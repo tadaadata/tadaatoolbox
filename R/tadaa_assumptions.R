@@ -34,18 +34,18 @@ tadaa_normtest <- function(data, method = "ad",
   vars <- names(data)
   results <- lapply(data, function(x) {
     res <- if (method == "ad") {
-      res <- ad.test(x)
+      res <- nortest::ad.test(x)
     } else if (method == "shapiro") {
       res <- shapiro.test(x)
     } else if (method == "pearson") {
-      res <- pearson.test(x, ...)
+      res <- nortest::pearson.test(x, ...)
     } else if (method == "ks") {
       res <- ks.test(x, y = pnorm, mean = mean(x), sd = sd(x))
     } else {
       stop("Method must be one of: 'ad', 'shapiro', 'pearson', 'ks'")
     }
 
-    res <- tidy(res)
+    res <- broom::tidy(res)
     return(res)
   })
 
@@ -53,7 +53,8 @@ tadaa_normtest <- function(data, method = "ad",
     variable = as.character(vars),
     statistic = sapply(results, "[[", 1),
     p.value = sapply(results, "[[", 2),
-    method = sapply(results, "[[", 3)
+    method = as.character(sapply(results, "[[", 3)),
+    stringsAsFactors = FALSE
   )
   rownames(results) <- NULL
 
