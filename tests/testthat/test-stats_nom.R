@@ -68,6 +68,8 @@ test_that("nom_c returns single numeric value greater 0", {
 # tadaa_nom ----
 
 test_that("tadaa_nom returns dust object", {
-  ret <- tadaa_nom(sample(letters, 10), sample(letters, "10"), print = "markdown")
-  expect_is(ret, "dust")
+  expect_is(tadaa_nom(sample(letters, 10), sample(letters, "10"), print = "markdown"), "dust")
+  expect_is(tadaa_nom(sample(letters, 10), sample(letters, "10"), print = "console"), "dust")
+  expect_is(tadaa_nom(sample(letters, 10), sample(letters, "10"), print = "html"), "dust")
+
 })
