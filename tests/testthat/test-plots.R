@@ -27,6 +27,10 @@ test_that("tadaa_pairwise_tukey produces plot", {
   expect_is(tadaa_plot_tukey(tests), "gg")
 })
 
+if (file.exists("Rplots.pdf")) {
+  file.remove("Rplots.pdf")
+}
+
 # theme_tadaa ----
 
 test_that("Themes are themes", {
