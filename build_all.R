@@ -4,4 +4,5 @@
 devtools::build()
 rmarkdown::render("README.Rmd")
 file.remove("README.html")
+file.remove("tests/testthat/Rplots.pdf")
 pkgdown::build_site()
