@@ -36,6 +36,7 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
   if (print == "df") {
     return(tukey)
   } else {
+    tukey$term <- as.character(tukey$term)
     output <- pixiedust::dust(tukey)
     output <- pixiedust::sprinkle(output, cols = "adj.p.value", fn = quote(tadaatoolbox::pval_string(value)))
     output <- pixiedust::sprinkle(output, round = 3)
