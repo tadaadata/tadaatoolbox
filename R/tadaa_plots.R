@@ -58,10 +58,14 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
     x = substitute(group1), y = substitute(response),
     colour = substitute(group2)
   )) +
-    stat_summary(aes_string(group = substitute(group2)),
-                 fun.y = mean, geom = "line") +
-    stat_summary(aes_string(group = substitute(group2)),
-                 fun.y = mean, geom = "point", shape = 23, fill = "white") +
+    stat_summary(
+      aes_string(group = substitute(group2)),
+      fun.y = mean, geom = "line"
+    ) +
+    stat_summary(
+      aes_string(group = substitute(group2)),
+      fun.y = mean, geom = "point", shape = 23, fill = "white"
+    ) +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
       title = title1, y = paste0("Mean ", substitute(response)),
@@ -73,10 +77,14 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
     x = substitute(group2), y = substitute(response),
     colour = substitute(group1)
   )) +
-    stat_summary(aes_string(group = substitute(group1)),
-                 fun.y = mean, geom = "line") +
-    stat_summary(aes_string(group = substitute(group1)),
-                 fun.y = mean, geom = "point", shape = 23, fill = "white") +
+    stat_summary(
+      aes_string(group = substitute(group1)),
+      fun.y = mean, geom = "line"
+    ) +
+    stat_summary(
+      aes_string(group = substitute(group1)),
+      fun.y = mean, geom = "point", shape = 23, fill = "white"
+    ) +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
       title = title2, y = paste0("Mean ", substitute(response)),

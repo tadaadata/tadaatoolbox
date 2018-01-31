@@ -84,7 +84,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
 
   # Model fitting
   base_model <- stats::aov(formula = formula, data = data)
-  effects    <- DescTools::EtaSq(base_model, type = type)
+  effects <- DescTools::EtaSq(base_model, type = type)
 
   if (type %in% c(2, 3)) {
     base_model <- car::Anova(base_model, type = type)
