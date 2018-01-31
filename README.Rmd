@@ -36,7 +36,7 @@ Also, since this project is still in the `0.x.y` version, you should expect the 
 Install the current development version from GitHub (recommended):
 
 ```
-if (!("devtools" %in% installed.packages())){
+if (!("remotes" %in% installed.packages())){
   install.packages("remotes")
 }
 

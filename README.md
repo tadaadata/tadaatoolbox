@@ -5,7 +5,7 @@ tadaatoolbox
 
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox) [![Rdoc](http://www.rdocumentation.org/badges/version/tadaatoolbox)](http://www.rdocumentation.org/packages/tadaatoolbox) [![Coverage status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg)](https://codecov.io/github/tadaadata/tadaatoolbox?branch=master)
 
-This is **tadaatoolbox** version `0.16.0` ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
+This is **tadaatoolbox** version `0.16.9000` ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.
 
 Please consider this as a teaching project and be careful if you intend to use it for production use.<br /> To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).
 Also, since this project is still in the `0.x.y` version, you should expect the API to change at any time. Once we reach `1.0.0`, API changes will be rolled out more slowly and include depracation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or `devtools`.
@@ -15,7 +15,7 @@ Installation
 
 Install the current development version from GitHub (recommended):
 
-    if (!("devtools" %in% installed.packages())){
+    if (!("remotes" %in% installed.packages())){
       install.packages("remotes")
     }
 
