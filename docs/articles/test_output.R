@@ -18,6 +18,7 @@ tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 2, print = "markdown")
 tadaa_aov(deutsch ~ jahrgang * geschl, data = ngo, type = 3, print = "markdown")
 
 ## ----aov_order-----------------------------------------------------------
+set.seed(0)
 data.frame(A = rnorm(100, mean = c(25, 30, 45)),
            G = c(rep("a", 50), rep("b", 50)),
            R = sample(letters[3:6], size = 100, TRUE),
