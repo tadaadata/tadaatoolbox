@@ -196,9 +196,10 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 #' tadaa_plot_tukey(tests)
 tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
-  data$term <- gsub(":", " \u2194 ", data$term)
-  data$comparison <- gsub(":", " & ", data$comparison)
-  data$comparison <- gsub("-", " \u2194 ", data$comparison)
+  # Yields weird warnings when pkgdowning, needs more testing
+  # data$term <- gsub(":", " \u2194 ", data$term)
+  # data$comparison <- gsub(":", " & ", data$comparison)
+  # data$comparison <- gsub("-", " \u2194 ", data$comparison)
 
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
 
