@@ -26,3 +26,16 @@ test_that("tadaa_pairwise_tukey produces plot", {
   tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df")
   expect_is(tadaa_plot_tukey(tests), "gg")
 })
+
+# theme_tadaa ----
+
+test_that("Themes are themes", {
+  expect_is(theme_tadaa(), c("theme", "gg"))
+  expect_is(theme_tadaa(axis_emph = ""), c("theme", "gg"))
+  expect_is(theme_tadaa(axis_emph = "x"), c("theme", "gg"))
+  expect_is(theme_tadaa(axis_emph = "y"), c("theme", "gg"))
+  expect_is(theme_tadaa(axis_emph = "xy"), c("theme", "gg"))
+  expect_is(theme_readthedown(), c("theme", "gg"))
+
+  expect_warning(theme_tadaa(axis_emph = "wurst"))
+})
