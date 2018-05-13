@@ -34,9 +34,7 @@ tadaa_one_sample <- function(data = NULL, x, mu, sigma = NULL, direction = "two.
 
   # If x is a numeric vector, just use that
   # Otherwise it's a column of 'data', so we'll need that
-  if (is.null(data)) {
-    x_lab <- x
-  } else if (!is.null(data)) {
+  if (!is.null(data)) {
     x_lab <- deparse(substitute(x))
     x <- data[[x_lab]]
   } else if (!is.numeric(x)) {
