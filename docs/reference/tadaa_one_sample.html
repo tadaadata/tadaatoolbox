@@ -18,11 +18,27 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
+<meta property="og:title" content="Tadaa, one-sample tests! — tadaa_one_sample" />
+
+<meta property="og:description" content="If sigma is omitted, the function will just perform a one-sample stats::t.test,
+but if sigma is provided, a z-test is performed. It basically works the same way,
+except that we pretend we know the population sigma and use the normal distribution
+for comparison." />
+<meta name="twitter:card" content="summary" />
+
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -46,18 +62,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tadaatoolbox</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tadaatoolbox</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.16.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/overview.html">Function Overview</a>
+    </li>
+    <li>
+      <a href="../articles/test_output.html">Markdown Test Output</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -69,6 +107,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -76,24 +115,28 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Tadaa, one-sample tests!</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/R/tadaa_one_sample.R'><code>R/tadaa_one_sample.R</code></a></small>
+    <div class="hidden name"><code>tadaa_one_sample.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>If <code>sigma</code> is omitted, the function will just perform a one-sample <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>stats::t.test</a>,
 but if <code>sigma</code> is provided, a z-test is performed. It basically works the same way,
 except that we pretend we know the population sigma and use the normal distribution
 for comparison.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>tadaa_one_sample</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>x</span>, <span class='no'>mu</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
   <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -138,29 +181,29 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
+    <div class='dont-index'><p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
   <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
   <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
   <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
   <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
   <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
   <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
-  <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p>
+  <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1</span>))
 
-<span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;    estimate  statistic        se       p.value  conf.low conf.high method
-#&gt; 1 100.19192 -3.6138435 0.2236068 0.00030169116 70.615475 129.76837 z-Test
-#&gt;   alternative           d      power
-#&gt; 1   two.sided -0.80807998 0.95092402</div><div class='input'>
+<span class='fu'>tadaa_one_sample</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>101</span>, <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;   estimate statistic        se      p.value conf.low conf.high method
+#&gt; 1 100.1919 -3.613844 0.2236068 0.0003016912 70.61548  129.7684 z-Test
+#&gt;   alternative        d    power
+#&gt; 1   two.sided -0.80808 0.950924</div><div class='input'>
 <span class='co'># No data.frame, just a vector</span>
-<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate  statistic    p.value parameter    conf.low  conf.high
-#&gt; 1 -0.2709918 -1.0921533 0.28842136        19 -0.79032583 0.24834223
-#&gt;              method alternative         se           d     power
-#&gt; 1 One Sample t-test   two.sided 0.24812616 -0.24421289 0.1795264</div></pre>
+<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate statistic   p.value parameter   conf.low conf.high
+#&gt; 1 -0.2709918 -1.092153 0.2884214        19 -0.7903258 0.2483422
+#&gt;              method alternative        se          d     power
+#&gt; 1 One Sample t-test   two.sided 0.2481262 -0.2442129 0.1795264</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -183,11 +226,14 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

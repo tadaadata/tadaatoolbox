@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • tadaatoolbox</title>
+<title>Changelog • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,11 +18,21 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
+<meta property="og:title" content="Changelog" />
+
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -46,18 +56,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tadaatoolbox</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tadaatoolbox</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.16.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/overview.html">Function Overview</a>
+    </li>
+    <li>
+      <a href="../articles/test_output.html">Markdown Test Output</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -69,6 +101,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -76,25 +109,26 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="contents">
     <div id="tadaatoolbox-0-16-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-16-9000" class="anchor"></a>tadaatoolbox 0.16.9000</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-16-9000" class="anchor"></a>tadaatoolbox 0.16.9000<small> Unreleased </small>
+</h1>
 <ul>
 <li>More accurate R dependency (<code>R &gt;= 2.10</code>) (i.e. <em>more</em> inclusive)</li>
 <li>Add a bunch more tests</li>
 </ul>
 </div>
     <div id="tadaatoolbox-0-16-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-16-0" class="anchor"></a>tadaatoolbox 0.16.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-16-0" class="anchor"></a>tadaatoolbox 0.16.0<small> 2018-01-10 </small>
+</h1>
 <div id="fixes-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fixes-features" class="anchor"></a>Fixes &amp; Features</h2>
@@ -103,7 +137,7 @@
 <li>Add <code>etasq</code> in case you want to show students what $\eta^2$ is without having to explain ANOVA.</li>
 <li>Fix <code>ord_somers_d</code> not returning the correct value for <code>symmetric = TRUE</code>
 </li>
-<li>Removed <code>drop_labels</code> because <code>sjlabelled::zap_labels</code> is a thing</li>
+<li>Removed <code>drop_labels</code> because <code><a href="http://www.rdocumentation.org/packages/sjlabelled/topics/zap_labels">sjlabelled::zap_labels</a></code> is a thing</li>
 </ul>
 </div>
 <div id="internals" class="section level2">
@@ -113,13 +147,13 @@
 <li>Eliminate <code>ryouready</code> dependency, in favor of the more versatile <code>DescTools</code> package:
 <ul>
 <li>
-<code>nom_lambda</code>: Use <code>DescTools::Lambda</code>
+<code>nom_lambda</code>: Use <code><a href="http://www.rdocumentation.org/packages/DescTools/topics/Lambda">DescTools::Lambda</a></code>
 </li>
 <li>
-<code>ord_gamma</code>: Use <code>DescTools::GoodmanKruskalGamma</code>
+<code>ord_gamma</code>: Use <code><a href="http://www.rdocumentation.org/packages/DescTools/topics/GoodmanKruskalGamma">DescTools::GoodmanKruskalGamma</a></code>
 </li>
 <li>
-<code>ord_somers_d</code>: Use <code>DescTools::SomersDelta</code>
+<code>ord_somers_d</code>: Use <code><a href="http://www.rdocumentation.org/packages/DescTools/topics/SomersDelta">DescTools::SomersDelta</a></code>
 </li>
 </ul>
 </li>
@@ -135,11 +169,12 @@
 </div>
 </div>
     <div id="tadaatoolbox-0-15-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-15-0" class="anchor"></a>tadaatoolbox 0.15.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-15-0" class="anchor"></a>tadaatoolbox 0.15.0<small> 2017-12-15 </small>
+</h1>
 <ul>
 <li>Fix error in SEM calculation in <code>tadaa_one_sample</code> for t-tests</li>
-<li>Make sure <code>tadaa_</code>-test functions use <code>tadaatoolbox::pval_string</code> instead of the <code>pixiedust</code> version</li>
+<li>Make sure <code>tadaa_</code>-test functions use <code><a href="../reference/pval_string.html">tadaatoolbox::pval_string</a></code> instead of the <code>pixiedust</code> version</li>
 <li>Remove recoded <code>leist</code> var from <code>ngo</code>, as it should be computed from <code>leistung</code> by students.</li>
 <li>Move <code>cowplot</code> from <code>Imports</code> to <code>Suggests</code> because whe only need it in one function, <em>sometimes</em>.</li>
 <li>More compact table output in <code>tadaa_nom</code> and <code>tadaa_ord</code>.</li>
@@ -149,15 +184,16 @@
 <a href="#removals" class="anchor"></a>Removals</h2>
 <ul>
 <li>
-<code>[tadaa_]likertize</code> is removed. Use <code>sjmisc::split_var</code>.</li>
+<code>[tadaa_]likertize</code> is removed. Use <code><a href="http://www.rdocumentation.org/packages/sjmisc/topics/split_var">sjmisc::split_var</a></code>.</li>
 <li>
 <code>labels_to_factor</code> is removed because various <code>as_factor</code>s exist.</li>
 </ul>
 </div>
 </div>
     <div id="tadaatoolbox-0-14-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-14-0" class="anchor"></a>tadaatoolbox 0.14.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-14-0" class="anchor"></a>tadaatoolbox 0.14.0<small> 2017-11-05 </small>
+</h1>
 <ul>
 <li>Silence warnings in functions using <code>chisq.test</code>
 </li>
@@ -170,8 +206,9 @@
 </ul>
 </div>
     <div id="tadaatoolbox-0-13-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-13-0" class="anchor"></a>tadaatoolbox 0.13.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-13-0" class="anchor"></a>tadaatoolbox 0.13.0<small> 2017-07-12 </small>
+</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
@@ -183,21 +220,22 @@
 <h2 class="hasAnchor">
 <a href="#under-the-hood" class="anchor"></a>Under the Hood</h2>
 <ul>
-<li>Switched from <code>sjmisc</code> to the new <code>sjlabelled</code> (Thanks, @strengejacke!)</li>
+<li>Switched from <code>sjmisc</code> to the new <code>sjlabelled</code> (Thanks, <a href='http://github.com/strengejacke'>@strengejacke</a>!)</li>
 <li>Also re-export <code>magrittr::%$%</code> because it’s really handy <em>sometimes</em>.</li>
-<li>Fix #30: Undocumented arguments in <code>tadaa_one_sample</code>
+<li>Fix <a href='https://github.com/tadaadata/tadaatoolbox/issues/30'>#30</a>: Undocumented arguments in <code>tadaa_one_sample</code>
 </li>
 </ul>
 </div>
 </div>
     <div id="tadaatoolbox-0-12-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-12-0" class="anchor"></a>tadaatoolbox 0.12.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-12-0" class="anchor"></a>tadaatoolbox 0.12.0<small> 2017-06-02 </small>
+</h1>
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
-<li>Add <code>tadaa_pairwise_t</code> as an extension of <code>stats::pairwise.t.test</code> that works with two grouping factors and thereby can test interactions.
+<li>Add <code>tadaa_pairwise_t</code> as an extension of <code><a href="http://www.rdocumentation.org/packages/stats/topics/pairwise.t.test">stats::pairwise.t.test</a></code> that works with two grouping factors and thereby can test interactions.
 <ul>
 <li>Also knows the <em>Sidak</em> method for p-adjustment, both regular and step-down procedures.</li>
 <li>See <a href="https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni">this</a> and <a href="https://rdrr.io/rforge/mutoss/man/SidakSD.html">that</a>
@@ -211,7 +249,7 @@
 <li><a href="https://rpubs.com/aaronsc32/games-howell-test">Further reading</a></li>
 </ul>
 </li>
-<li>Add <code>tadaa_pairwise_tukey</code> while we’re at it. Just a thin wrapper for <code>stats::TukeyHSD</code> but with tidied output and usage consistent with the previous <code>tadaa_pairwise_*</code> functions.</li>
+<li>Add <code>tadaa_pairwise_tukey</code> while we’re at it. Just a thin wrapper for <code><a href="http://www.rdocumentation.org/packages/stats/topics/TukeyHSD">stats::TukeyHSD</a></code> but with tidied output and usage consistent with the previous <code>tadaa_pairwise_*</code> functions.</li>
 <li>Add <code>tadaa_plot_tukey</code> to plot Tukey HSD results as error bars because boy do I like error bars.</li>
 <li>Add <code>tadaa_balance</code> as a replacement for <code>tadaa_heatmap</code> to check equality of group sizes.</li>
 <li>Re-exports:
@@ -244,10 +282,10 @@
 <ul>
 <li>Default <code>type</code> is now <code>3</code>, for generally safer results and consistency with SPSS.</li>
 <li>Added <code>check_contrasts</code> option for <code>type = 3</code> sums of squares, which ensures each non-ordered factor has <code>contr.sum</code> contrasts</li>
-<li>Now auto-factorizes independent variables by default, fixes #24.</li>
+<li>Now auto-factorizes independent variables by default, fixes <a href='https://github.com/tadaadata/tadaatoolbox/issues/24'>#24</a>.</li>
 <li>Now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code>library(methods)</code> as a workaround.</li>
 <li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
-<li>Added <code>show_power</code> argument to calculate power via <code>pwr::pwr.f2.test</code>.
+<li>Added <code>show_power</code> argument to calculate power via <code><a href="http://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test">pwr::pwr.f2.test</a></code>.
 <ul>
 <li>Requires more testing against software like G*power to ensure accuracy.</li>
 </ul>
@@ -298,15 +336,16 @@
 <a href="#deprecations" class="anchor"></a>Deprecations</h2>
 <ul>
 <li>
-<code>labels_to_factor</code>: Was a wrapper around <code>haven::as_factor</code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
+<code>labels_to_factor</code>: Was a wrapper around <code><a href="http://www.rdocumentation.org/packages/haven/topics/as_factor">haven::as_factor</a></code> and is obsolete by now, as <code>as_factor</code> can do the same thing this function was built for.</li>
 <li>
-<code>tadaa_likertize</code> is renamed to <code>likertize</code>, deprecated since <code>sjmisc::split_var</code> is probably better anyway.</li>
+<code>tadaa_likertize</code> is renamed to <code>likertize</code>, deprecated since <code><a href="http://www.rdocumentation.org/packages/sjmisc/topics/split_var">sjmisc::split_var</a></code> is probably better anyway.</li>
 </ul>
 </div>
 </div>
     <div id="tadaatoolbox-0-11-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-11-0" class="anchor"></a>tadaatoolbox 0.11.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-11-0" class="anchor"></a>tadaatoolbox 0.11.0<small> 2017-05-15 </small>
+</h1>
 <div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features-2" class="anchor"></a>New Features</h2>
@@ -314,7 +353,7 @@
 <li>
 <code>tadaa_aov</code> now knows about types, uses type 1 by default and can do types 2 and 3.
 <ul>
-<li>Method for effect size calculation now uses <code>lsr::etaSquared</code>, which also takes a <code>type</code> argument.</li>
+<li>Method for effect size calculation now uses <code><a href="http://www.rdocumentation.org/packages/lsr/topics/etaSquared">lsr::etaSquared</a></code>, which also takes a <code>type</code> argument.</li>
 </ul>
 </li>
 <li>Add <code>tadaa_mean_ci</code>: Plots means with 95% confidence intervals as errorbars (thanks Christoph for the suggestion).</li>
@@ -352,8 +391,9 @@
 </div>
 </div>
     <div id="tadaatoolbox-0-10-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-10-0" class="anchor"></a>tadaatoolbox 0.10.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-10-0" class="anchor"></a>tadaatoolbox 0.10.0<small> 2016-08-18 </small>
+</h1>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h2>
@@ -361,7 +401,7 @@
 <li>New function: <code>tadaa_normtest</code> lets you do tests for normality (4 methods) over multiple variables.</li>
 <li>New function: <code>tadaa_heatmap</code> generates a heatmap. Mhhh, heatmaps.</li>
 <li>New function: <code>tadaa_sem</code> shows the standard error of the mean and it’s confidence interval</li>
-<li>New function: <code>pval_string</code> as a modification of <code>pixiedust::pvalString</code> that includes <code>p &lt; .05</code>.</li>
+<li>New function: <code>pval_string</code> as a modification of <code><a href="http://www.rdocumentation.org/packages/pixiedust/topics/pval_string">pixiedust::pvalString</a></code> that includes <code>p &lt; .05</code>.</li>
 <li>Added a ggplot2 theme for the <a href="https://github.com/juba/rmdformats/">rmdformats::readthedown</a> Rmd template.</li>
 <li>
 <code>tadaa_aov</code>, <code>tadaa_t.test</code> and the new <code>tadaa_normtest</code> now return a <code>data.frame</code> by default, allowing further shenanigans</li>
@@ -384,13 +424,14 @@
 <code>tadaa_aov</code> now also shows <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen.27s_.C6.922">Cohen’s f</a> for easier power calculations based on f (<code>pwr</code>, G*power)</li>
 <li>Add option <code>reduce</code> to <code>modus</code>, so multiple results will be concatenated to a character by default.</li>
 <li>Add additional option <code>as_character</code> to <code>modus</code> because guessing about return value classes is no joke.</li>
-<li>Fix issues with <code>generate_recodes</code> and <code>interval_labels</code> (#1).</li>
+<li>Fix issues with <code>generate_recodes</code> and <code>interval_labels</code> (<a href='https://github.com/tadaadata/tadaatoolbox/issues/1'>#1</a>).</li>
 </ul>
 </div>
 </div>
     <div id="tadaatoolbox-0-9-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-9-0" class="anchor"></a>tadaatoolbox 0.9.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-9-0" class="anchor"></a>tadaatoolbox 0.9.0<small> 2016-02-18 </small>
+</h1>
 <div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes-1" class="anchor"></a>Minor changes</h2>
@@ -412,8 +453,9 @@
 </div>
 </div>
     <div id="tadaatoolbox-0-8-1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-8-1" class="anchor"></a>tadaatoolbox 0.8.1</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-8-1" class="anchor"></a>tadaatoolbox 0.8.1<small> Unreleased </small>
+</h1>
 <ul>
 <li>Fix typo in <code>DESCRIPTION</code>, misspelling <code>pixiedust</code>. Sorry!</li>
 <li>Bump dependencies
@@ -431,8 +473,9 @@
 </ul>
 </div>
     <div id="tadaatoolbox-0-8-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#tadaatoolbox-0-8-0" class="anchor"></a>tadaatoolbox 0.8.0</h1>
+<h1 class="page-header">
+<a href="#tadaatoolbox-0-8-0" class="anchor"></a>tadaatoolbox 0.8.0<small> 2016-02-13 </small>
+</h1>
 <ul>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
 <li>Working on CRAN compatibility</li>
@@ -440,7 +483,6 @@
 <li>It’s on CRAN, yay!</li>
 </ul>
 </div>
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -470,11 +512,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

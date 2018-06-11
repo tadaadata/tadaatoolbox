@@ -18,11 +18,31 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
+<meta property="og:title" content="Tadaa, t-Test! — tadaa_t.test" />
+
+<meta property="og:description" content="An extension for stats::t.test with added boni and tidy and/or pretty output.
+Before a t-test is performed, car::leveneTest is consulted as to wether
+heteroskedasticity is present (using the default center = &quot;mean&quot; method for
+a more robust test), and sets var.equal accordingly.
+Afterwards, the effect size is calculated and pwr::pwr.t.test or
+pwr::pwr.t2n.test are used to calculate the test's power accordingly.
+The result is either returned as a broom::tidy data.frame or prettified using
+various pixiedust::sprinkle shenanigans." />
+<meta name="twitter:card" content="summary" />
+
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -46,18 +66,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">tadaatoolbox</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">tadaatoolbox</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.16.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/overview.html">Function Overview</a>
+    </li>
+    <li>
+      <a href="../articles/test_output.html">Markdown Test Output</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -69,6 +111,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -76,12 +119,15 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Tadaa, t-Test!</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/R/tadaa_two_sample.R'><code>R/tadaa_two_sample.R</code></a></small>
+    <div class="hidden name"><code>tadaa_t.test.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>An extension for <a href='http://www.rdocumentation.org/packages/stats/topics/t.test'>stats::t.test</a> with added boni and tidy and/or pretty output.
 Before a t-test is performed, <a href='http://www.rdocumentation.org/packages/car/topics/leveneTest'>car::leveneTest</a> is consulted as to wether
@@ -92,12 +138,13 @@ Afterwards, the effect size is calculated and <a href='http://www.rdocumentation
 The result is either returned as a <a href='http://www.rdocumentation.org/packages/broom/topics/tidy'>broom::tidy</a> <code>data.frame</code> or prettified using
 various <a href='http://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle</a> shenanigans.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>tadaa_t.test</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>var.equal</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>,
   <span class='st'>"markdown"</span>))</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -149,7 +196,7 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
+    <div class='dont-index'><p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
   <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
   <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
   <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
@@ -157,23 +204,21 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
   <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
   <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
   <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
-  <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p>
+  <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>set.seed</span>(<span class='fl'>42</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='fl'>100</span>, <span class='fl'>TRUE</span>))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;       estimate  estimate1  estimate2   statistic          se parameter
-#&gt; 1 -0.051246403 0.49578076 0.54702716 -0.84122271 0.060918948        98
-#&gt;      conf.low   conf.high    p.value           d      power             method
-#&gt; 1 -0.17213807 0.069645267 0.40227115 -0.16946915 0.13249042  Two Sample t-test
-#&gt;   alternative
-#&gt; 1   two.sided</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt;     estimate estimate1 estimate2  statistic         se parameter   conf.low
+#&gt; 1 -0.0512464 0.4957808 0.5470272 -0.8412227 0.06091895        98 -0.1721381
+#&gt;    conf.high   p.value          d     power             method alternative
+#&gt; 1 0.06964527 0.4022712 -0.1694691 0.1324904  Two Sample t-test   two.sided</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'>rep</span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
-<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      estimate estimate1  estimate2  statistic          se parameter    conf.low
-#&gt; 1 0.032568319 0.4570563 0.42448798 0.48526852 0.067114015        49 -0.10230234
-#&gt;    conf.high    p.value           d       power        method alternative
-#&gt; 1 0.16743898 0.62964856 0.068627332 0.076315664 Paired t-test   two.sided</div><div class='input'>
+<span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;     estimate estimate1 estimate2 statistic         se parameter   conf.low
+#&gt; 1 0.03256832 0.4570563  0.424488 0.4852685 0.06711402        49 -0.1023023
+#&gt;   conf.high   p.value          d      power        method alternative
+#&gt; 1  0.167439 0.6296486 0.06862733 0.07631566 Paired t-test   two.sided</div><div class='input'>
 <span class='fu'>tadaa_t.test</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>geschl</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 3: **Two Sample t-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
 #&gt; 
 #&gt;    Diff $\\mu_1$ Männlich $\\mu_2$ Weiblich     t   SE  df    $CI_{95\\%}$
@@ -206,11 +251,14 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
