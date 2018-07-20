@@ -3,8 +3,8 @@ Package: tadaatoolbox
 Title: Helpers for Data Analysis and Presentation Focused on Undergrad Psychology
 Version: 0.16.9000
 Date: 2018-01-22
-Authors@R: c(person("Lukas", "Burk", email = "lukas@quantenbrot.de", role = c("aut", "cre")),
-             person("Tobias", "Anton", email = "unsichtbarer@quantenbrot.de", role = "aut"),
+Authors@R: c(person("Lukas", "Burk", email = "lukas@tadaa-data.de", role = c("aut", "cre")),
+             person("Tobias", "Anton", email = "tobi@tadaa-data.de", role = "aut"),
              person("Daniel", "Lüdecke", email = "d.luedecke@uke.de", role = "ctb"))
 Description: Contains functions for the easy display of statistical tests as well as
     some convenience functions for data cleanup. It is meant to ease existing workflows
