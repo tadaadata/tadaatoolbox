@@ -21,7 +21,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Lukas Burk \email{lukas@tadaa-data.de}
+\strong{Maintainer}: Lukas Burk \email{lukas@tadaa-data.de} ( https://orcid.org/0000-0001-7528-3795)
 
 Authors:
 \itemize{
