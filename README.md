@@ -10,8 +10,9 @@ Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org
 [![Rdoc](http://www.rdocumentation.org/badges/version/tadaatoolbox)](http://www.rdocumentation.org/packages/tadaatoolbox)
 [![Coverage
 status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg)](https://codecov.io/github/tadaadata/tadaatoolbox?branch=master)
+[![DOI](https://zenodo.org/badge/48081989.svg)](https://zenodo.org/badge/latestdoi/48081989)
 
-This is **tadaatoolbox** version `0.16.0`
+This is **tadaatoolbox** version `0.16.9000`
 ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data
 analysis and presentation focused on undergrad psychology, the target
 audience being students at University of Bremen.
@@ -95,14 +96,16 @@ I rely on these awesome package for all the things this package does, so
 you might want to consider checking them out.
 
   - **broom**
-  - **magrittr**
-  - **pwr**
-  - **pixiedust**
   - **car**
-  - **ggplot2**
-  - **nortest**
-  - **viridis**
   - **DescTools**
+  - **ggplot2**
+  - **magrittr**
+  - **methods**
+  - **nortest**
+  - **pixiedust**
+  - **pwr**
+  - **stats**
+  - **viridis**
 
 # Code of Conduct
 
