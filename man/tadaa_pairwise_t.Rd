@@ -4,9 +4,9 @@
 \alias{tadaa_pairwise_t}
 \title{Extended Pairwise t-Tests}
 \usage{
-tadaa_pairwise_t(data, response, group1, group2 = NULL, p.adjust = "bonf",
-  paired = FALSE, pool.sd = !paired, alternative = "two.sided",
-  print = "df")
+tadaa_pairwise_t(data, response, group1, group2 = NULL,
+  p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
+  alternative = "two.sided", print = "df")
 }
 \arguments{
 \item{data}{A \code{data.frame} containing the variables.}
@@ -74,3 +74,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_pairwise_tukey}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}

@@ -55,3 +55,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
 \author{
 \code{gitub.com/aschleg}, Lukas Burk
 }
+\concept{Tadaa-functions}

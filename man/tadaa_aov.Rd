@@ -5,8 +5,9 @@
 \title{Tadaa, ANOVA!}
 \usage{
 tadaa_aov(formula, data = NULL, show_effect_size = TRUE,
-  show_power = TRUE, factorize = TRUE, type = 3, check_contrasts = TRUE,
-  print = c("df", "console", "html", "markdown"))
+  show_power = TRUE, factorize = TRUE, type = 3,
+  check_contrasts = TRUE, print = c("df", "console", "html",
+  "markdown"))
 }
 \arguments{
 \item{formula}{Formula for model, passed to \code{aov}.}
@@ -70,3 +71,4 @@ Other Tadaa-functions: \code{\link{tadaa_chisq}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}

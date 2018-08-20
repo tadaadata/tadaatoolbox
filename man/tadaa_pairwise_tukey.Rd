@@ -4,8 +4,8 @@
 \alias{tadaa_pairwise_tukey}
 \title{Tukey HSD pairwise comparisons}
 \usage{
-tadaa_pairwise_tukey(data, response, group1, group2 = NULL, print = "df",
-  ...)
+tadaa_pairwise_tukey(data, response, group1, group2 = NULL,
+  print = "df", ...)
 }
 \arguments{
 \item{data}{A \code{data.frame} containing the variables.}
@@ -47,3 +47,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}

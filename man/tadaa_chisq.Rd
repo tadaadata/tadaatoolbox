@@ -4,8 +4,8 @@
 \alias{tadaa_chisq}
 \title{Tadaa, Chi-Square Test!}
 \usage{
-tadaa_chisq(data, x, y, correct = TRUE, print = c("df", "console", "html",
-  "markdown"))
+tadaa_chisq(data, x, y, correct = TRUE, print = c("df", "console",
+  "html", "markdown"))
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -50,3 +50,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}

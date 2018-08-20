@@ -4,8 +4,8 @@
 \alias{tadaa_levene}
 \title{Levene's Test for Homoskedasticity}
 \usage{
-tadaa_levene(data, formula, center = "median", print = c("df", "console",
-  "html", "markdown"))
+tadaa_levene(data, formula, center = "median", print = c("df",
+  "console", "html", "markdown"))
 }
 \arguments{
 \item{data}{Data for the test}
@@ -41,3 +41,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}

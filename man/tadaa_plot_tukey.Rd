@@ -32,3 +32,4 @@ tadaa_plot_tukey(tests)
 Other Tadaa-plot functions: \code{\link{tadaa_balance}},
   \code{\link{tadaa_int}}, \code{\link{tadaa_mean_ci}}
 }
+\concept{Tadaa-plot functions}

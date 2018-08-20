@@ -4,9 +4,9 @@
 \alias{tadaa_t.test}
 \title{Tadaa, t-Test!}
 \usage{
-tadaa_t.test(data, response, group, direction = "two.sided", paired = FALSE,
-  var.equal = NULL, conf.level = 0.95, print = c("df", "console", "html",
-  "markdown"))
+tadaa_t.test(data, response, group, direction = "two.sided",
+  paired = FALSE, var.equal = NULL, conf.level = 0.95,
+  print = c("df", "console", "html", "markdown"))
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -67,3 +67,4 @@ Other Tadaa-functions: \code{\link{tadaa_aov}},
   \code{\link{tadaa_pairwise_t}},
   \code{\link{tadaa_wilcoxon}}
 }
+\concept{Tadaa-functions}
