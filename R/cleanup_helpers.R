@@ -47,17 +47,17 @@ pval_string <- function(pv) {
       return(NA)
     }
     ps <- if (p > 0.99) {
-      "> 0.99"
-    } else if (p > 0.1) {
-      format(round(p, 2), digits = 2)
+      "> .99"
+    # } else if (p > 0.1) {
+    #   format(round(p, 2), digits = 2)
     } else if (p >= 0.05) {
-      format(round(p, 3), digits = 3)
+      gsub("0\\.","\\.", format(round(p, 3), digits = 3))
     } else if (p > 0.01 & p < 0.05) {
-      "< 0.05"
+      "< .05"
     } else if (p > 0.001) {
-      "< 0.01"
+      "< .01"
     } else {
-      "< 0.001"
+      "< .001"
     }
     return(ps)
   })
