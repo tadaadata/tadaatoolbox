@@ -1,5 +1,6 @@
 # tadaatoolbox 0.16.9000
 
+- make `pval_string()` conform to APA guidelines (no more leading zeros)
 - More accurate R dependency (`R >= 2.10`) (i.e. _more_ inclusive)
 - Add a bunch more tests
 
