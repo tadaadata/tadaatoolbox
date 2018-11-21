@@ -1,4 +1,4 @@
-#' Polung für Testskalen
+#' Inverting scales
 #'
 #' @param x A vector of numric data.
 #' @param min the minimum value of the scale.
@@ -6,7 +6,7 @@
 
 
 
-pol <- function(x, min, max) {
+inv <- function(x, min, max) {
 
   range <- max + min
 
