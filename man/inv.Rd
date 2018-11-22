@@ -11,11 +11,13 @@ inv(x, min, max)
 
 \item{min}{The minimum value of the scale.}
 
-\item{max}{The maximum value of the scale.Assuming you have a Likert-scale from 1 to 9
-
-x <- c(4, 5, 2, 3, 7, 8, 3)
-inv(x, 1, 9)}
+\item{max}{The maximum value of the scale.}
 }
 \description{
 Inverting scales
+}
+\examples{
+# Assuming you have a Likert-scale from 1 to 9
+x <- c(4, 5, 2, 3, 7, 8, 3)
+inv(x, 1, 9)
 }
