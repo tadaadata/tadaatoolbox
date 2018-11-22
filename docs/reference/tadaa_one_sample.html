@@ -200,10 +200,11 @@ Otherwise passed to <a href='http://www.rdocumentation.org/packages/pixiedust/to
 #&gt;   alternative        d    power
 #&gt; 1   two.sided -0.80808 0.950924</div><div class='input'>
 <span class='co'># No data.frame, just a vector</span>
-<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     estimate statistic   p.value parameter   conf.low conf.high
-#&gt; 1 -0.2709918 -1.092153 0.2884214        19 -0.7903258 0.2483422
-#&gt;              method alternative        se          d     power
-#&gt; 1 One Sample t-test   two.sided 0.2481262 -0.2442129 0.1795264</div></pre>
+<span class='fu'>tadaa_one_sample</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rnorm</span>(<span class='fl'>20</span>), <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 11
+#&gt;   estimate statistic p.value parameter conf.low conf.high method alternative
+#&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      
+#&gt; 1   -0.271     -1.09   0.288        19   -0.790     0.248 One S… two.sided  
+#&gt; # ... with 3 more variables: se &lt;dbl&gt;, d &lt;dbl&gt;, power &lt;dbl&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

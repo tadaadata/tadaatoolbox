@@ -132,9 +132,9 @@ without confidence intervals or test statistic though.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='kw'>group2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>,
-  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pool.sd</span> <span class='kw'>=</span> !<span class='no'>paired</span>, <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>,
-  <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='kw'>group2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pool.sd</span> <span class='kw'>=</span> !<span class='no'>paired</span>,
+  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -217,67 +217,67 @@ over the Holm's (1979) step-down procedure.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
-#&gt; 1         jahrgang                       12 - 11     0.86
-#&gt; 2         jahrgang                       13 - 11  &lt; 0.001
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
-#&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
-#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich    0.055
-#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich   &lt; 0.05
-#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich   &lt; 0.05
-#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich     0.37
-#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich   &lt; 0.05
-#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich      0.6
-#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich  &lt; 0.001
-#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich     0.37
-#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich     0.64
-#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich   &lt; 0.01
-#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich    0.097
-#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich   &lt; 0.05
-#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich  &lt; 0.001
+#&gt; 1         jahrgang                       12 - 11      .86
+#&gt; 2         jahrgang                       13 - 11   &lt; .001
+#&gt; 3         jahrgang                       13 - 12    &lt; .01
+#&gt; 4           geschl           Weiblich - Männlich   &lt; .001
+#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     .055
+#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich    &lt; .05
+#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich    &lt; .05
+#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich     .372
+#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich    &lt; .05
+#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich     .603
+#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich   &lt; .001
+#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich     .372
+#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich      .64
+#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    &lt; .01
+#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich     .097
+#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich    &lt; .05
+#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich   &lt; .001
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
-#&gt; 1         jahrgang                       12 - 11   &gt; 0.99
-#&gt; 2         jahrgang                       13 - 11   &lt; 0.01
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
-#&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
-#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     0.82
-#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     0.21
-#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich     0.22
-#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich   &gt; 0.99
-#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich     0.44
-#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich   &gt; 0.99
-#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich  &lt; 0.001
-#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich   &gt; 0.99
-#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich   &gt; 0.99
-#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    0.052
-#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich   &gt; 0.99
-#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich     0.19
-#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich   &lt; 0.01
+#&gt; 1         jahrgang                       12 - 11    &gt; .99
+#&gt; 2         jahrgang                       13 - 11    &lt; .01
+#&gt; 3         jahrgang                       13 - 12    &lt; .01
+#&gt; 4           geschl           Weiblich - Männlich   &lt; .001
+#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     .824
+#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     .214
+#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich     .225
+#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich    &gt; .99
+#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich     .443
+#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich    &gt; .99
+#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich   &lt; .001
+#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich    &gt; .99
+#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich    &gt; .99
+#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich     .052
+#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich    &gt; .99
+#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich      .19
+#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich    &lt; .01
 #&gt; 
 #&gt; </div><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"sidak"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)
-#&gt; 1         jahrgang                       12 - 11   &gt; 0.99
-#&gt; 2         jahrgang                       13 - 11   &lt; 0.01
-#&gt; 3         jahrgang                       13 - 12   &lt; 0.01
-#&gt; 4           geschl           Weiblich - Männlich  &lt; 0.001
-#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     0.57
-#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     0.19
-#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich      0.2
-#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich  &lt; 0.001
-#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich   &gt; 0.99
-#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich     0.36
-#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich   &gt; 0.99
-#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich  &lt; 0.001
-#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich   &gt; 0.99
-#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich   &gt; 0.99
-#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich    0.051
-#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich     0.78
-#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich     0.17
-#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich   &lt; 0.01
+#&gt; 1         jahrgang                       12 - 11    &gt; .99
+#&gt; 2         jahrgang                       13 - 11    &lt; .01
+#&gt; 3         jahrgang                       13 - 12    &lt; .01
+#&gt; 4           geschl           Weiblich - Männlich   &lt; .001
+#&gt; 5  jahrgang:geschl 12 &amp; Männlich - 11 &amp; Männlich     .571
+#&gt; 6  jahrgang:geschl 13 &amp; Männlich - 11 &amp; Männlich     .194
+#&gt; 7  jahrgang:geschl 11 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 8  jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Männlich     .203
+#&gt; 9  jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Männlich   &lt; .001
+#&gt; 10 jahrgang:geschl 13 &amp; Männlich - 12 &amp; Männlich    &gt; .99
+#&gt; 11 jahrgang:geschl 11 &amp; Weiblich - 12 &amp; Männlich     .362
+#&gt; 12 jahrgang:geschl 12 &amp; Weiblich - 12 &amp; Männlich    &gt; .99
+#&gt; 13 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Männlich   &lt; .001
+#&gt; 14 jahrgang:geschl 11 &amp; Weiblich - 13 &amp; Männlich    &gt; .99
+#&gt; 15 jahrgang:geschl 12 &amp; Weiblich - 13 &amp; Männlich    &gt; .99
+#&gt; 16 jahrgang:geschl 13 &amp; Weiblich - 13 &amp; Männlich     .051
+#&gt; 17 jahrgang:geschl 12 &amp; Weiblich - 11 &amp; Weiblich     .782
+#&gt; 18 jahrgang:geschl 13 &amp; Weiblich - 11 &amp; Weiblich     .174
+#&gt; 19 jahrgang:geschl 13 &amp; Weiblich - 12 &amp; Weiblich    &lt; .01
 #&gt; 
 #&gt; </div><div class='input'>
 </div></pre>
