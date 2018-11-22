@@ -1,4 +1,4 @@
-# tadaatoolbox 0.16.9000
+# tadaatoolbox 0.16.1
 
 - Add `inv()` for inverting Likert-scales
 - Make `pval_string()` conform to APA guidelines (no more leading zeros)

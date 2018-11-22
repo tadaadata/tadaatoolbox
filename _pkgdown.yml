@@ -33,6 +33,7 @@
       - interval_labels
       - pval_string
       - z
+      - inv
     - title: Plotting Templates
       contents:
       - tadaa_mean_ci

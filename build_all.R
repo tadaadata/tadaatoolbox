@@ -1,6 +1,7 @@
 #! /usr/bin/env Rscript
 # Run this script before git pushes, so everything is neat and tidy
 
+devtools::document(roclets = c('rd', 'collate', 'namespace', 'vignette'))
 devtools::build()
 rmarkdown::render("README.Rmd")
 file.remove("README.html")
