@@ -22,7 +22,7 @@
 #' @import ggplot2
 #' @examples
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
-#'
+#' 
 #' # As grid, if cowplot is installed
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,
@@ -133,7 +133,8 @@ tadaa_balance <- function(data, group1, group2, palette = "D", annotate = TRUE) 
 
   if (annotate) {
     anno <- geom_label(
-      aes_string(label = "Freq"), stat = "identity",
+      aes_string(label = "Freq"),
+      stat = "identity",
       fill = "white", alpha = .5, size = 5
     )
   } else {

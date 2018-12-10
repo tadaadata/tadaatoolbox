@@ -17,7 +17,7 @@ A trivial scaling function. You might as well use \link[base:scale]{base::scale}
 arbitrary centers and scales, but returns a \code{matrix} by default.
 }
 \examples{
-x      <- rnorm(500, mean = 10, sd = 5)
+x <- rnorm(500, mean = 10, sd = 5)
 z_vals <- z(x)
 round(c(mean = mean(z_vals), sd = sd(z_vals)), 2)
 }

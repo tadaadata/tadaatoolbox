@@ -13,7 +13,7 @@
 #' \dontrun{
 #' x <- c(1, 2, 6, 2, 1, 5, 7, 8, 4, 3, 2, 2, 2)
 #' modus(x)
-#'
+#' 
 #' # Or for nominal data
 #' x <- structure(c(2L, 1L, 2L, 2L, 2L, 1L), .Label = c("Ja", "Nein"), class = "factor")
 #' modus(x)
@@ -47,7 +47,7 @@ modus <- function(x, as_character = TRUE, reduce = TRUE) {
 #' @importFrom stats sd
 #'
 #' @examples
-#' x      <- rnorm(500, mean = 10, sd = 5)
+#' x <- rnorm(500, mean = 10, sd = 5)
 #' z_vals <- z(x)
 #' round(c(mean = mean(z_vals), sd = sd(z_vals)), 2)
 z <- function(x) {

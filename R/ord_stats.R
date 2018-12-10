@@ -9,8 +9,10 @@
 #' @export
 #' @importFrom DescTools GoodmanKruskalGamma
 #' @examples
-#' df <- data.frame(rating = round(runif(50, 1, 5)),
-#'                  group  = sample(c("A", "B", "C"), 50, TRUE))
+#' df <- data.frame(
+#'   rating = round(runif(50, 1, 5)),
+#'   group = sample(c("A", "B", "C"), 50, TRUE)
+#' )
 #' tbl <- table(df)
 #' ord_gamma(tbl)
 ord_gamma <- function(x, y = NULL) {

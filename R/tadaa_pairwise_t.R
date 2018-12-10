@@ -40,7 +40,6 @@
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "bonf", print = "console")
 #' tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "console")
-#'
 tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
                              p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
                              alternative = "two.sided", print = "df") {
@@ -163,10 +162,10 @@ sidak_sd <- function(pvals) {
   index <- order(pvals)
   pvals_s <- pvals[index]
   tmp <- pvals_s
-  tmp[1] <- 1 - (1 - pvals_s[1]) ^ m.good
+  tmp[1] <- 1 - (1 - pvals_s[1])^m.good
 
   for (i in 2:m) {
-    tmp[i] <- max(tmp[i - 1], 1 - (1 - pvals_s[i]) ^ (m.good - i + 1))
+    tmp[i] <- max(tmp[i - 1], 1 - (1 - pvals_s[i])^(m.good - i + 1))
   }
 
   tmp[order(index)]

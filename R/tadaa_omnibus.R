@@ -39,13 +39,15 @@
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-#'
+#' 
 #' # Other types of sums and print options
 #' \dontrun{
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 1, print = "console")
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
-#' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo,
-#'           type = 3, check_contrasts = FALSE, print = "console")
+#' tadaa_aov(stunzahl ~ jahrgang * geschl,
+#'   data = ngo,
+#'   type = 3, check_contrasts = FALSE, print = "console"
+#' )
 #' }
 tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power = TRUE,
                       factorize = TRUE, type = 3, check_contrasts = TRUE,
@@ -133,7 +135,7 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
     model$power[fctr_rows] <- pwr::pwr.f2.test(
       u = model$df[fctr_rows],
       v = model$df[model$term == "Residuals"],
-      f2 = model$cohens.f[fctr_rows] ^ 2
+      f2 = model$cohens.f[fctr_rows]^2
     )$power
   }
 
@@ -213,7 +215,8 @@ tadaa_kruskal <- function(formula, data = NULL, print = c("df", "console", "html
     output <- suppressWarnings(pixiedust::dust(model, caption = method))
     output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
     output <- pixiedust::sprinkle_colnames(
-      output, statistic = "$\\chi^2$",
+      output,
+      statistic = "$\\chi^2$",
       p.value = "p", parameter = "df"
     )
     output <- pixiedust::sprinkle(output, col = "p.value", fn = quote(tadaatoolbox::pval_string(value)))

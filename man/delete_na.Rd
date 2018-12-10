@@ -22,9 +22,11 @@ Adapted from http://stackoverflow.com/a/30461945/409362.
 }
 \examples{
 \dontrun{
-df <- data.frame(x = sample(c(1:10, NA), 10),
-                 y = sample(c(1:10, NA), 10),
-                 z = sample(c(1:10, NA), 10))
+df <- data.frame(
+  x = sample(c(1:10, NA), 10),
+  y = sample(c(1:10, NA), 10),
+  z = sample(c(1:10, NA), 10)
+)
 
 df <- delete_na(df, 1)
 

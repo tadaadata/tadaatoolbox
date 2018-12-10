@@ -20,12 +20,12 @@
 #' \dontrun{
 #' library(dplyr)
 #' ngo %>%
-#' select(englisch, deutsch, mathe) %>%
-#' tadaa_normtest(method = "shapiro")
-#'
+#'   select(englisch, deutsch, mathe) %>%
+#'   tadaa_normtest(method = "shapiro")
+#' 
 #' ngo %>%
-#' select(englisch, deutsch, mathe) %>%
-#' tadaa_normtest(method = "pearson", print = "console")
+#'   select(englisch, deutsch, mathe) %>%
+#'   tadaa_normtest(method = "pearson", print = "console")
 #' }
 tadaa_normtest <- function(data, method = "ad",
                            print = c("df", "console", "html", "markdown"), ...) {

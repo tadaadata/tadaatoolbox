@@ -97,9 +97,9 @@ games_howell <- function(obs, grp) {
         (std[combs[2, x]] / n[combs[2, x]]))
 
     # Degrees of Freedom
-    df <- (std[combs[1, x]] / n[combs[1, x]] + std[combs[2, x]] / n[combs[2, x]]) ^ 2 / # num df
-      ((std[combs[1, x]] / n[combs[1, x]]) ^ 2 / (n[combs[1, x]] - 1) + # Part 1 of denom df
-        (std[combs[2, x]] / n[combs[2, x]]) ^ 2 / (n[combs[2, x]] - 1)) # Part 2 of denom df
+    df <- (std[combs[1, x]] / n[combs[1, x]] + std[combs[2, x]] / n[combs[2, x]])^2 / # num df
+      ((std[combs[1, x]] / n[combs[1, x]])^2 / (n[combs[1, x]] - 1) + # Part 1 of denom df
+        (std[combs[2, x]] / n[combs[2, x]])^2 / (n[combs[2, x]] - 1)) # Part 2 of denom df
 
     # p-values
     p <- ptukey(t * sqrt(2), groups, df, lower.tail = FALSE)

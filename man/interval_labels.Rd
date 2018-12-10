@@ -20,8 +20,8 @@ with \link[base:cut]{base::cut}.
 }
 \examples{
 \dontrun{
-x       <- round(runif(100, 0, 100), 0)
-labels  <- interval_labels(0, 100, 10)
+x <- round(runif(100, 0, 100), 0)
+labels <- interval_labels(0, 100, 10)
 
 cut(x, breaks = seq(0, 100, 10), labels = labels)
 }

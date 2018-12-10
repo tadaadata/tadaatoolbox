@@ -60,7 +60,7 @@ mean_ci_t <- function(x, alpha = 0.05, na.rm = TRUE) {
 #' @examples
 #' set.seed(42)
 #' iq <- rnorm(100, 100, 15)
-#'
+#' 
 #' mean_ci_sem(iq)
 mean_ci_sem <- function(x, conf.level = .95) {
   if (!is.numeric(x)) {

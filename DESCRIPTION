@@ -1,18 +1,34 @@
 Type: Package
 Package: tadaatoolbox
-Title: Helpers for Data Analysis and Presentation Focused on Undergrad Psychology
+Title: Helpers for Data Analysis and Presentation Focused on
+    Undergrad Psychology
 Version: 0.16.9000
 Date: 2018-11-22
-Authors@R: c(person("Lukas", "Burk", email = "lukas@tadaa-data.de", role = c("aut", "cre"), 
-                    comment = c(ORCID = "0000-0001-7528-3795")),
-             person("Tobias", "Anton", email = "tobi@tadaa-data.de", role = "aut"),
-             person("Daniel", "Lüdecke", email = "d.luedecke@uke.de", role = "ctb"),
-             person("Gesa", "Graf", email = "ggraf@uni-bremen.de", role = "ctb"))
-Description: Contains functions for the easy display of statistical tests as well as
-    some convenience functions for data cleanup. It is meant to ease existing workflows
-    with packages like 'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the functions
-    prefixed with 'tadaa_', which are built to work in an interactive environment, but also print
-    tidy markdown tables powered by 'pixiedust' for the creation of 'RMarkdown' reports.
+Authors@R: 
+    c(person(given = "Lukas",
+             family = "Burk",
+             role = c("aut", "cre"),
+             email = "lukas@tadaa-data.de",
+             comment = c(ORCID = "0000-0001-7528-3795")),
+      person(given = "Tobias",
+             family = "Anton",
+             role = "aut",
+             email = "tobi@tadaa-data.de"),
+      person(given = "Daniel",
+             family = "Lüdecke",
+             role = "ctb",
+             email = "d.luedecke@uke.de"),
+      person(given = "Gesa",
+             family = "Graf",
+             role = "ctb",
+             email = "ggraf@uni-bremen.de"))
+Description: Contains functions for the easy display of
+    statistical tests as well as some convenience functions for data
+    cleanup. It is meant to ease existing workflows with packages like
+    'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the
+    functions prefixed with 'tadaa_', which are built to work in an
+    interactive environment, but also print tidy markdown tables powered
+    by 'pixiedust' for the creation of 'RMarkdown' reports.
 License: MIT + file LICENSE
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues
@@ -31,12 +47,13 @@ Imports:
     stats,
     viridis
 Suggests: 
+    covr,
     cowplot,
     knitr,
     rmarkdown,
-    testthat,
-    covr
-VignetteBuilder: knitr
+    testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)

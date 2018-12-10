@@ -30,12 +30,12 @@ Tadaa, test for normality!
 \dontrun{
 library(dplyr)
 ngo \%>\%
-select(englisch, deutsch, mathe) \%>\%
-tadaa_normtest(method = "shapiro")
+  select(englisch, deutsch, mathe) \%>\%
+  tadaa_normtest(method = "shapiro")
 
 ngo \%>\%
-select(englisch, deutsch, mathe) \%>\%
-tadaa_normtest(method = "pearson", print = "console")
+  select(englisch, deutsch, mathe) \%>\%
+  tadaa_normtest(method = "pearson", print = "console")
 }
 }
 \seealso{

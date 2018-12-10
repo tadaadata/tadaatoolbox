@@ -9,7 +9,6 @@
 #' x <- c(4, 5, 2, 3, 7, 8, 3)
 #' inv(x, 1, 9)
 inv <- function(x, min, max) {
-
   range <- max + min
 
   value <- (x * -1) + range

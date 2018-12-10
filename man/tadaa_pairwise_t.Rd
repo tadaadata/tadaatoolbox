@@ -55,7 +55,6 @@ over the Holm's (1979) step-down procedure.
 tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "none", print = "console")
 tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "bonf", print = "console")
 tadaa_pairwise_t(ngo, deutsch, jahrgang, geschl, p.adjust = "sidak", print = "console")
-
 }
 \references{
 https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni

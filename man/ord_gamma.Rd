@@ -18,8 +18,10 @@ ord_gamma(x, y = NULL)
 Simple wrapper for \link[DescTools:GoodmanKruskalGamma]{DescTools::GoodmanKruskalGamma}.
 }
 \examples{
-df <- data.frame(rating = round(runif(50, 1, 5)),
-                 group  = sample(c("A", "B", "C"), 50, TRUE))
+df <- data.frame(
+  rating = round(runif(50, 1, 5)),
+  group = sample(c("A", "B", "C"), 50, TRUE)
+)
 tbl <- table(df)
 ord_gamma(tbl)
 }

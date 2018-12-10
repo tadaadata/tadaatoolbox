@@ -8,12 +8,14 @@
 #' @note Adapted from http://stackoverflow.com/a/30461945/409362.
 #' @examples
 #' \dontrun{
-#' df <- data.frame(x = sample(c(1:10, NA), 10),
-#'                  y = sample(c(1:10, NA), 10),
-#'                  z = sample(c(1:10, NA), 10))
-#'
+#' df <- data.frame(
+#'   x = sample(c(1:10, NA), 10),
+#'   y = sample(c(1:10, NA), 10),
+#'   z = sample(c(1:10, NA), 10)
+#' )
+#' 
 #' df <- delete_na(df, 1)
-#'
+#' 
 #' # Or with magrittr syntax sugar
 #' df %<>% delete_na
 #' }
@@ -48,10 +50,10 @@ pval_string <- function(pv) {
     }
     ps <- if (p > 0.99) {
       "> .99"
-    # } else if (p > 0.1) {
-    #   format(round(p, 2), digits = 2)
+      # } else if (p > 0.1) {
+      #   format(round(p, 2), digits = 2)
     } else if (p >= 0.05) {
-      gsub("0\\.","\\.", format(round(p, 3), digits = 3))
+      gsub("0\\.", "\\.", format(round(p, 3), digits = 3))
     } else if (p > 0.01 & p < 0.05) {
       "< .05"
     } else if (p > 0.001) {

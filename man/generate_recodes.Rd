@@ -20,7 +20,7 @@ with \link[car:recode]{car::recode}.
 }
 \examples{
 \dontrun{
-x       <- round(runif(100, 0, 100), 0)
+x <- round(runif(100, 0, 100), 0)
 recodes <- generate_recodes(0, 100, 10)
 
 library(car)

@@ -23,7 +23,7 @@
 #' @export
 #' @examples
 #' tadaa_chisq(ngo, abschalt, geschl)
-#'
+#' 
 #' tadaa_chisq(ngo, abschalt, jahrgang)
 tadaa_chisq <- function(data, x, y, correct = TRUE,
                         print = c("df", "console", "html", "markdown")) {

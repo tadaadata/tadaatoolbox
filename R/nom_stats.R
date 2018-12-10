@@ -130,7 +130,8 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console") {
 
   if (print == "markdown") {
     retprint <- pixiedust::sprinkle_colnames(
-      pixiedust::dust(ret), chisq = "$\\chi^2$",
+      pixiedust::dust(ret),
+      chisq = "$\\chi^2$",
       cv = "Cramer's V",
       lmbd_x = "$\\lambda_x$",
       lmbd_y = "$\\lambda_y$",
@@ -138,7 +139,8 @@ tadaa_nom <- function(x, y = NULL, round = 2, print = "console") {
     )
   } else {
     retprint <- pixiedust::sprinkle_colnames(
-      pixiedust::dust(ret), chisq = "Chi^2",
+      pixiedust::dust(ret),
+      chisq = "Chi^2",
       cv = "Cramer's V",
       lmbd_x = "Lambda (x dep.)",
       lmbd_y = "Lambda (y dep.)",

@@ -57,8 +57,10 @@ tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
 \dontrun{
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 1, print = "console")
 tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 3, print = "console")
-tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo,
-          type = 3, check_contrasts = FALSE, print = "console")
+tadaa_aov(stunzahl ~ jahrgang * geschl,
+  data = ngo,
+  type = 3, check_contrasts = FALSE, print = "console"
+)
 }
 }
 \seealso{
