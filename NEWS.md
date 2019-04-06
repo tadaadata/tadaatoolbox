@@ -1,3 +1,7 @@
+# tadaatoolbox (development version)
+
+- Add `z.test` to fill the niche in `stats`. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
+
 # tadaatoolbox 0.16.1
 
 - Add `inv()` for inverting Likert-scales

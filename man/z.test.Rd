@@ -3,6 +3,9 @@
 \name{z.test}
 \alias{z.test}
 \title{One- and Two-Sample z-Test}
+\source{
+t.test from the stats package.
+}
 \usage{
 z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
   mu = 0, sigma_x, sigma_y = NULL, paired = FALSE,

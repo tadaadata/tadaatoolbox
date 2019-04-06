@@ -15,7 +15,7 @@
 #'
 #' @return An object of class `htest``
 #' @export
-#'
+#' @source t.test from the stats package.
 #' @examples
 #' x <- rnorm(10, 5, 1)
 #' y <- 1:10 + rnorm(10, 3, 1.5)
