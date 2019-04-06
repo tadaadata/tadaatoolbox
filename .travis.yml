@@ -16,6 +16,30 @@ r:
   - release
   - devel
 
+r_binary_packages:
+  - testthat
+  - jsonlite
+  - git2r
+  - ps
+  - processx
+  - httr
+  - dplyr
+  - lubridate
+  - purrr
+  - stringr
+  - stringi
+  - ggplot2
+  - knitr
+  - rmarkdown
+  - commonmark
+  - highlight
+  - xml2
+  - roxygen2
+  - assertthat
+  - glue
+  - openssl
+  - rlang
+
 after_success:
   - Rscript -e 'covr::codecov()'
 
