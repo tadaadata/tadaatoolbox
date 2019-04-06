@@ -9,7 +9,7 @@ t.test from the stats package.
 \usage{
 z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
   mu = 0, sigma_x, sigma_y = NULL, paired = FALSE,
-  conf.level = 0.95, ...)
+  conf.level = 0.95)
 }
 \arguments{
 \item{x}{A (non-empty) numeric vector of data values}
@@ -26,8 +26,6 @@ one of "two.sided" (default), "greater" or "less". You can specify just the init
 \item{paired}{A logical indicating whether you want a paired t-test.}
 
 \item{conf.level}{Confidence level of the interval.}
-
-\item{...}{}
 }
 \value{
 An object of class `htest``

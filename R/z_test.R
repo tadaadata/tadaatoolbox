@@ -12,7 +12,6 @@
 #' @param mu A logical indicating whether you want a paired z-test.
 #' @param paired A logical indicating whether you want a paired t-test.
 #' @param conf.level Confidence level of the interval.
-#' @param ...
 #'
 #' @return An object of class `htest``
 #' @export
@@ -27,7 +26,7 @@
 #' # One sample
 #' z.test(x, sigma_x = 1, mu = 5)
 z.test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
-                   mu = 0, sigma_x, sigma_y = NULL, paired = FALSE, conf.level = 0.95, ...) {
+                   mu = 0, sigma_x, sigma_y = NULL, paired = FALSE, conf.level = 0.95) {
   alternative <- match.arg(alternative)
   if (!missing(mu) && (length(mu) != 1 || is.na(mu))) {
     stop("'mu' must be a single number")
