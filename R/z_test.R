@@ -1,3 +1,21 @@
+#' One- and Two-Sample z-Test
+#'
+#' @param x A (non-empty) numeric vector of data values
+#' @param y An optional (non-empty) numeric vector of data values.
+#' @param alternative A character string specifying the alternative hypothesis, must be
+#' one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.
+#' @param mu A logical indicating whether you want a paired z-test.
+#' @param paired A logical indicating whether you want a paired t-test.
+#' @param conf.level Confidence level of the interval.
+#' @param ...
+#'
+#' @return An object of class `htest``
+#' @export
+#'
+#' @examples
+#' x <- 1:10
+#' y <- 1:10 + rnorm(10, 3)
+#' z_test(x, y)
 z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
                    mu = 0, paired = FALSE, conf.level = 0.95,
                    ...) {
