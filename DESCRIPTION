@@ -2,7 +2,7 @@ Type: Package
 Package: tadaatoolbox
 Title: Helpers for Data Analysis and Presentation Focused on
     Undergrad Psychology
-Version: 0.16.9000
+Version: 0.16.0.9000
 Date: 2018-11-22
 Authors@R: 
     c(person(given = "Lukas",
