@@ -1,3 +1,4 @@
+url: https://tadaatoolbox.tadaa-data.de
 development:
   mode: auto
   destination: "."
