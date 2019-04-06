@@ -41,8 +41,8 @@ x <- rnorm(10, 5, 1)
 y <- 1:10 + rnorm(10, 3, 1.5)
 
 # Two sample
-z_test(x, y, sigma_x = 1, sigma_y = 1.5)
+z.test(x, y, sigma_x = 1, sigma_y = 1.5)
 
 # One sample
-z_test(x, sigma_x = 1, mu = 5)
+z.test(x, sigma_x = 1, mu = 5)
 }

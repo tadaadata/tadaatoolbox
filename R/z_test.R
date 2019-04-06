@@ -21,10 +21,10 @@
 #' y <- 1:10 + rnorm(10, 3, 1.5)
 #'
 #' # Two sample
-#' z_test(x, y, sigma_x = 1, sigma_y = 1.5)
+#' z.test(x, y, sigma_x = 1, sigma_y = 1.5)
 #'
 #' # One sample
-#' z_test(x, sigma_x = 1, mu = 5)
+#' z.test(x, sigma_x = 1, mu = 5)
 z.test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
                    mu = 0, sigma_x, sigma_y = NULL, paired = FALSE, conf.level = 0.95, ...) {
   alternative <- match.arg(alternative)
