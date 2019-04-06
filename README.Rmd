@@ -36,7 +36,7 @@ Also, since this project is still in the `0.x.y` version, you should expect the 
 
 Install the current development version from GitHub (recommended):
 
-```
+```r
 if (!("remotes" %in% installed.packages())){
   install.packages("remotes")
 }
@@ -46,7 +46,7 @@ remotes::install_github("tadaadata/tadaatoolbox")
 
 Or install the most recent stable version from CRAN:
 
-```
+```r
 install.packages("tadaatoolbox")
 ```
 
@@ -75,12 +75,12 @@ knitr::kable(data.frame(Contributer = names, Role = roles))
 
 # Functionality
 
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](http://tadaatoolbox.tadaa-data.de/) for an overview and function index.  
+See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](https://tadaatoolbox.tadaa-data.de) for an overview and function index.  
 Here's a few highlights:
 
 ## Tidy (as in pretty) test output
 
-See all of them in action [in this vignette](http://tadaatoolbox.tadaa-data.de/articles/test_output.html)
+See all of them in action [in this vignette](https://tadaatoolbox.tadaa-data.de/articles/test_output.html)
 
 * `tadaa_aov`: For 3 flavours of `aov` with included partial $\eta^2$, Cohen's f and power.
 * `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.

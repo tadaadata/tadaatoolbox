@@ -12,7 +12,7 @@ Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org
 status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg)](https://codecov.io/github/tadaadata/tadaatoolbox?branch=master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg)](https://doi.org/10.5281/zenodo.1494965)
 
-This is **tadaatoolbox** version `0.16.9000`
+This is **tadaatoolbox** version `0.16.0.9000`
 ([semver](http://semver.org/)(ish)).<br /> It contains helpers for data
 analysis and presentation focused on undergrad psychology, the target
 audience being students at University of Bremen.
@@ -31,15 +31,19 @@ because its target audience is likely not familiar with GitHub or
 
 Install the current development version from GitHub (recommended):
 
-    if (!("remotes" %in% installed.packages())){
-      install.packages("remotes")
-    }
-    
-    remotes::install_github("tadaadata/tadaatoolbox")
+``` r
+if (!("remotes" %in% installed.packages())){
+  install.packages("remotes")
+}
+
+remotes::install_github("tadaadata/tadaatoolbox")
+```
 
 Or install the most recent stable version from CRAN:
 
-    install.packages("tadaatoolbox")
+``` r
+install.packages("tadaatoolbox")
+```
 
 # Contribution
 
@@ -59,14 +63,14 @@ issues](https://github.com/tadaadata/tadaatoolbox/issues).
 
 See the included vignette for a demonstration:
 `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of
-this repo](http://tadaatoolbox.tadaa-data.de/) for an overview and
+this repo](https://tadaatoolbox.tadaa-data.de) for an overview and
 function index.  
 Here’s a few highlights:
 
 ## Tidy (as in pretty) test output
 
 See all of them in action [in this
-vignette](http://tadaatoolbox.tadaa-data.de/articles/test_output.html)
+vignette](https://tadaatoolbox.tadaa-data.de/articles/test_output.html)
 
   - `tadaa_aov`: For 3 flavours of `aov` with included partial
     \(\eta^2\), Cohen’s f and power.
