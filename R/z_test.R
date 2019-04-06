@@ -14,8 +14,8 @@
 #' @param paired A logical indicating whether you want a paired t-test.
 #' @param conf.level Confidence level of the interval.
 #'
-#' @return An object of class `htest``
-#' @export
+#' @return An object of class `htest`, see [stats::t.test]
+##' @export
 #' @source t.test from the stats package.
 #' @examples
 #' x <- rnorm(10, 5, 1)

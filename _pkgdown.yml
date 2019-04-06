@@ -28,6 +28,7 @@
       - effect_size_t
     - title: Misc helpers
       contents:
+      - z.test
       - delete_na
       - generate_recodes
       - interval_labels

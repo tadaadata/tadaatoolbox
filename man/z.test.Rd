@@ -29,7 +29,7 @@ you are performing a two sample test).}
 \item{conf.level}{Confidence level of the interval.}
 }
 \value{
-An object of class `htest``
+An object of class \code{htest}, see \link[stats:t.test]{stats::t.test}
 }
 \description{
 Since the "standard" z-test is not available in R as in most real-world scenarios you're
