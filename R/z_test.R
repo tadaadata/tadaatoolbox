@@ -1,5 +1,9 @@
 #' One- and Two-Sample z-Test
 #'
+#' Since the "standard" z-test is not available in R as in most real-world scenarios you're
+#' only ever going to use a t-test, this function fills that gap for teaching purposes.
+#' The function is basically a carbon-copy of [stats::t.test], but with user-supplied
+#' variances for x and y and p-value and related calculations use a standard normal distribution.
 #' @param x A (non-empty) numeric vector of data values
 #' @param y An optional (non-empty) numeric vector of data values.
 #' @param alternative A character string specifying the alternative hypothesis, must be
@@ -13,12 +17,16 @@
 #' @export
 #'
 #' @examples
-#' x <- 1:10
-#' y <- 1:10 + rnorm(10, 3)
-#' z_test(x, y)
+#' x <- rnorm(10, 5, 1)
+#' y <- 1:10 + rnorm(10, 3, 1.5)
+#'
+#' # Two sample
+#' z_test(x, y, sigma_x = 1, sigma_y = 1.5)
+#'
+#' # One sample
+#' z_test(x, sigma_x = 1, mu = 5)
 z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
-                   mu = 0, paired = FALSE, conf.level = 0.95,
-                   ...) {
+                   mu = 0, sigma_x, sigma_y = NULL, paired = FALSE, conf.level = 0.95, ...) {
   alternative <- match.arg(alternative)
   if (!missing(mu) && (length(mu) != 1 || is.na(mu))) {
     stop("'mu' must be a single number")
@@ -52,7 +60,7 @@ z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
   }
   nx <- length(x)
   mx <- mean(x)
-  vx <- var(x)
+  vx <- sigma_x
   if (is.null(y)) {
     if (nx < 2) {
       stop("not enough 'x' observations")
@@ -64,9 +72,9 @@ z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
     }
     tstat <- (mx - mu) / stderr
     method <- if (paired) {
-      "Paired t-test"
+      "Paired z-test"
     } else {
-      "One Sample t-test"
+      "One Sample z-test"
     }
     estimate <- setNames(mx, if (paired) {
       "mean of the differences"
@@ -86,7 +94,7 @@ z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
       stop("not enough observations")
     }
     my <- mean(y)
-    vy <- var(y)
+    vy <- sigma_y
     method <- "Two Sample z-test"
     estimate <- c(mx, my)
     names(estimate) <- c("mean of x", "mean of y")
@@ -111,21 +119,21 @@ z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
     tstat <- (mx - my - mu) / stderr
   }
   if (alternative == "less") {
-    pval <- pt(tstat, df)
-    cint <- c(-Inf, tstat + qt(conf.level, df))
+    pval <- pnorm(tstat)
+    cint <- c(-Inf, tstat + qnorm(conf.level))
   }
   else if (alternative == "greater") {
-    pval <- pt(tstat, df, lower.tail = FALSE)
-    cint <- c(tstat - qt(conf.level, df), Inf)
+    pval <- pnorm(tstat, lower.tail = FALSE)
+    cint <- c(tstat - qnorm(conf.level), Inf)
   }
   else {
-    pval <- 2 * pt(-abs(tstat), df)
+    pval <- 2 * pnorm(-abs(tstat))
     alpha <- 1 - conf.level
-    cint <- qt(1 - alpha / 2, df)
+    cint <- qnorm(1 - alpha / 2)
     cint <- tstat + c(-cint, cint)
   }
   cint <- mu + cint * stderr
-  names(tstat) <- "t"
+  names(tstat) <- "z"
   names(df) <- "df"
   names(mu) <- if (paired || !is.null(y)) {
     "difference in means"
