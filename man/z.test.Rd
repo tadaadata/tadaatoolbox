@@ -21,6 +21,8 @@ one of "two.sided" (default), "greater" or "less". You can specify just the init
 
 \item{mu}{A logical indicating whether you want a paired z-test.}
 
+\item{sigma_x, sigma_y}{The assumed known variance of \code{x} and \code{y}. Must be numeric.}
+
 \item{paired}{A logical indicating whether you want a paired t-test.}
 
 \item{conf.level}{Confidence level of the interval.}

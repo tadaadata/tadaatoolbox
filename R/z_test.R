@@ -6,6 +6,7 @@
 #' variances for x and y and p-value and related calculations use a standard normal distribution.
 #' @param x A (non-empty) numeric vector of data values
 #' @param y An optional (non-empty) numeric vector of data values.
+#' @param sigma_x,sigma_y The assumed known variance of `x` and `y`. Must be numeric.
 #' @param alternative A character string specifying the alternative hypothesis, must be
 #' one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.
 #' @param mu A logical indicating whether you want a paired z-test.
