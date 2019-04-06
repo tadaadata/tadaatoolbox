@@ -1,21 +1,32 @@
-language: r
-sudo: false
+language: R
+sudo: true
 cache: packages
+dist: xenial
+
+addons:
+  apt:
+    packages:
+      - libgit2-dev
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
 
-env:
-  global:
-    - _R_CHECK_CRAN_INCOMING_=true
-    - NOT_CRAN=false
-
 r:
-- release
-- devel
-
-r_packages:
-- cowplot
+  - oldrel
+  - release
+  - devel
 
 after_success:
   - Rscript -e 'covr::codecov()'
+
+after_success:
+  - test $TRAVIS_R_VERSION_STRING = "release" && Rscript -e 'covr::codecov()'
+
+before_deploy: Rscript -e 'remotes::install_github("r-lib/pkgdown")'
+deploy:
+  provider: script
+  script: Rscript -e 'pkgdown::deploy_site_github(run_dont_run = FALSE)'
+  skip_cleanup: true
+  on:
+    branch: master
+    condition: "$TRAVIS_R_VERSION_STRING = release"

@@ -1,52 +1,61 @@
-  reference:
-    - title: Tidy Test Output
-      desc:  High-level functions with prettified output
-      contents:
-      - starts_with("tadaa_")
-      - -ends_with("_nom")
-      - -ends_with("_ord")
-      - -tadaa_mean_ci
-      - -tadaa_plot_tukey
-      - -tadaa_balance
-      - -tadaa_int
-    - title: Descriptive Statistics
-      desc: For, you know, descriptive statistics
-      contents:
-      - modus
-      - starts_with("nom_")
-      - starts_with("ord_")
-      - ends_with("_nom")
-      - ends_with("_ord")
-      - etasq
-    - title: CIs
-      desc: Conficence intervals and helpers
-      contents:
-      - starts_with("mean_ci")
-      - starts_with("confint")
-    - title: Effect Sizes
-      contents:
-      - effect_size_t
-    - title: Misc helpers
-      contents:
-      - z.test
-      - delete_na
-      - generate_recodes
-      - interval_labels
-      - pval_string
-      - z
-      - inv
-    - title: Plotting Templates
-      contents:
-      - tadaa_mean_ci
-      - tadaa_plot_tukey
-      - tadaa_balance
-      - tadaa_int
-    - title: ggplot2 Themes
-      contents:
-      - starts_with("theme_")
-    - title: Data
-      contents:
-      - ngo
-    - title: This package
-      contents:
-      - tadaatoolbox
+development:
+  mode: auto
+  destination: "."
+template:
+  params:
+    bootswatch: cosmo
+    matomo_siteid: 21
+    matomo_site: "https://analytics.tadaa-data.de"
+
+reference:
+  - title: Tidy Test Output
+    desc:  High-level functions with prettified output
+    contents:
+    - starts_with("tadaa_")
+    - -ends_with("_nom")
+    - -ends_with("_ord")
+    - -tadaa_mean_ci
+    - -tadaa_plot_tukey
+    - -tadaa_balance
+    - -tadaa_int
+  - title: Descriptive Statistics
+    desc: For, you know, descriptive statistics
+    contents:
+    - modus
+    - starts_with("nom_")
+    - starts_with("ord_")
+    - ends_with("_nom")
+    - ends_with("_ord")
+    - etasq
+  - title: CIs
+    desc: Conficence intervals and helpers
+    contents:
+    - starts_with("mean_ci")
+    - starts_with("confint")
+  - title: Effect Sizes
+    contents:
+    - effect_size_t
+  - title: Misc helpers
+    contents:
+    - z.test
+    - delete_na
+    - generate_recodes
+    - interval_labels
+    - pval_string
+    - z
+    - inv
+  - title: Plotting Templates
+    contents:
+    - tadaa_mean_ci
+    - tadaa_plot_tukey
+    - tadaa_balance
+    - tadaa_int
+  - title: ggplot2 Themes
+    contents:
+    - starts_with("theme_")
+  - title: Data
+    contents:
+    - ngo
+  - title: This package
+    contents:
+    - tadaatoolbox
