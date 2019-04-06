@@ -12,7 +12,7 @@ notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
 
 r:
-  - oldrel
+  #- oldrel # can't install mvtnorm
   - release
   - devel
 
