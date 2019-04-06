@@ -25,7 +25,7 @@
 #'
 #' # One sample
 #' z_test(x, sigma_x = 1, mu = 5)
-z_test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
+z.test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),
                    mu = 0, sigma_x, sigma_y = NULL, paired = FALSE, conf.level = 0.95, ...) {
   alternative <- match.arg(alternative)
   if (!missing(mu) && (length(mu) != 1 || is.na(mu))) {
