@@ -1,8 +1,15 @@
 url: https://tadaatoolbox.tadaa-data.de
+
+authors:
+  Lukas Burk:
+    href: https://jemu.name
+
 development:
   mode: auto
   destination: "."
+
 template:
+  path: pkgdown/templates
   params:
     bootswatch: cosmo
     matomo_siteid: 21
