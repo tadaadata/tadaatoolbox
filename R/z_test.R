@@ -9,7 +9,8 @@
 #' @param sigma_x,sigma_y The assumed known variance of `x` and `y`. Must be numeric.
 #' @param alternative A character string specifying the alternative hypothesis, must be
 #' one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.
-#' @param mu A logical indicating whether you want a paired z-test.
+#' @param mu A number indicating the true value of the mean (or difference in means if
+#' you are performing a two sample test).
 #' @param paired A logical indicating whether you want a paired t-test.
 #' @param conf.level Confidence level of the interval.
 #'

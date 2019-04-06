@@ -19,7 +19,8 @@ z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
 \item{alternative}{A character string specifying the alternative hypothesis, must be
 one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.}
 
-\item{mu}{A logical indicating whether you want a paired z-test.}
+\item{mu}{A number indicating the true value of the mean (or difference in means if
+you are performing a two sample test).}
 
 \item{sigma_x, sigma_y}{The assumed known variance of \code{x} and \code{y}. Must be numeric.}
 
