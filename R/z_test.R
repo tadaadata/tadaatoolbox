@@ -5,7 +5,8 @@
 #' The function is basically a carbon-copy of [stats::t.test], but with user-supplied
 #' variances for x and y and p-value and related calculations use a standard normal distribution.
 #' @param x A (non-empty) numeric vector of data values
-#' @param y An optional (non-empty) numeric vector of data values.
+#' @param y An optional (non-empty) numeric vector of data values. If omitted, a one-sample
+#' test is conducted.
 #' @param sigma_x,sigma_y The assumed known variance of `x` and `y`. Must be numeric.
 #' @param alternative A character string specifying the alternative hypothesis, must be
 #' one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.
@@ -15,15 +16,15 @@
 #' @param conf.level Confidence level of the interval.
 #'
 #' @return An object of class `htest`, see [stats::t.test]
-##' @export
-#' @source t.test from the stats package.
+#' @export
+#' @source [stats::t.test]
 #' @examples
 #' x <- rnorm(10, 5, 1)
 #' y <- 1:10 + rnorm(10, 3, 1.5)
-#' 
+#'
 #' # Two sample
 #' z.test(x, y, sigma_x = 1, sigma_y = 1.5)
-#' 
+#'
 #' # One sample
 #' z.test(x, sigma_x = 1, mu = 5)
 z.test <- function(x, y = NULL, alternative = c("two.sided", "less", "greater"),

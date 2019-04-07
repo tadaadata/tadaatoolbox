@@ -8,5 +8,6 @@ usethis::use_tidy_description()
 devtools::document(roclets = c('rd', 'collate', 'namespace'))
 devtools::build_vignettes(clean = TRUE)
 devtools::build()
-devtools::check(cran = TRUE)
+devtools::check()
+# devtools::check(cran = TRUE, remote = TRUE) # Runs additional tests for CRAN
 rmarkdown::render("README.Rmd"); file.remove("README.html")

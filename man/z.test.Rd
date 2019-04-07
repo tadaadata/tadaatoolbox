@@ -4,7 +4,7 @@
 \alias{z.test}
 \title{One- and Two-Sample z-Test}
 \source{
-t.test from the stats package.
+\link[stats:t.test]{stats::t.test}
 }
 \usage{
 z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
@@ -14,7 +14,8 @@ z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
 \arguments{
 \item{x}{A (non-empty) numeric vector of data values}
 
-\item{y}{An optional (non-empty) numeric vector of data values.}
+\item{y}{An optional (non-empty) numeric vector of data values. If omitted, a one-sample
+test is conducted.}
 
 \item{alternative}{A character string specifying the alternative hypothesis, must be
 one of "two.sided" (default), "greater" or "less". You can specify just the initial letter.}
