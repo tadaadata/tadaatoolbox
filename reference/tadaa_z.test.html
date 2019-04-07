@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The ngo dataset — ngo • tadaatoolbox</title>
+<title>Tadaa, z-test! No seriously. — tadaa_z.test • tadaatoolbox</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -31,9 +31,10 @@
 
 
 
-<meta property="og:title" content="The ngo dataset — ngo" />
+<meta property="og:title" content="Tadaa, z-test! No seriously. — tadaa_z.test" />
 
-<meta property="og:description" content="Sample data for teaching purposes used by Kähler (2008)" />
+<meta property="og:description" content="This is a wrapper around z.test, which in itself is a weird thing to use, but
+why not." />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -140,44 +141,83 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The ngo dataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>ngo.Rd</code></div>
+    <h1>Tadaa, z-test! No seriously.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/R/tadaa_two_sample.R'><code>R/tadaa_two_sample.R</code></a></small>
+    <div class="hidden name"><code>tadaa_z.test.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Sample data for teaching purposes used by Kähler (2008)</p>
+    <p>This is a wrapper around <a href='z.test.html'>z.test</a>, which in itself is a weird thing to use, but
+why not.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>ngo</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A <code>data.frame</code> containing numerical and factor data.</p>
+    <pre class="usage"><span class='fu'>tadaa_z.test</span>(<span class='no'>data</span>, <span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>sigma_x</span>, <span class='no'>sigma_y</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>,
+  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>,
+  <span class='st'>"html"</span>, <span class='st'>"markdown"</span>))</pre>
     
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p><code>ryouready::d.ngo</code> is the source of this data, but with some recoding done.</p>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A <code>data.frame</code> containing variables.</p></td>
+    </tr>
+    <tr>
+      <th>x, y</th>
+      <td><p>A bare name of a numeric variable in <code>data</code>.`</p></td>
+    </tr>
+    <tr>
+      <th>sigma_x, sigma_y</th>
+      <td><p>Numeric. Known variances of <code>x</code> and <code>y</code>.</p></td>
+    </tr>
+    <tr>
+      <th>direction</th>
+      <td><p>Test direction, like <code>alternative</code> in <a href='https://www.rdocumentation.org/packages/stats/topics/t.test'>t.test</a>.</p></td>
+    </tr>
+    <tr>
+      <th>paired</th>
+      <td><p>If <code>TRUE</code>, a paired test is performed, defaults to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>conf.level</th>
+      <td><p>Confidence level used for power and CI, default is <code>0.95</code>.</p></td>
+    </tr>
+    <tr>
+      <th>print</th>
+      <td><p>Print method, default <code>df</code>: A regular <code>data.frame</code>.
+Otherwise passed to <a href='https://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> for fancyness.</p></td>
+    </tr>
+    </table>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Kähler, W.-M. (2008). <em>Statistische Datenanalyse: Verfahren verstehen
-und mit SPSS gekonnt einsetzen</em>. Wiesbaden: Vieweg.</p>
+    <p>A <a href='https://www.rdocumentation.org/packages/pixiedust/topics/dust'>pixiedust::dust</a> object or <code>data.frame</code>.`</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>192</span>)
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>lefties</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>),
+                 <span class='kw'>righties</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>5.5</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2.5</span>))
+<span class='fu'>tadaa_z.test</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>lefties</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>righties</span>, <span class='kw'>sigma_x</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sigma_y</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt; Table 4: **Two Sample z-test** with alternative hypothesis: $\mu_1 \neq \mu_2$
+#&gt; 
+#&gt;    Diff $\\mu_1$ lefties $\\mu_2$ righties     z   SE df   $CI_{95\\%}$     p
+#&gt; 1 -1.51             4.88               6.4 -2.26 0.67 18 (-2.83 - -0.2) &lt; .05
+#&gt;   Cohen\\'s d
+#&gt; 1       -1.01
+#&gt; 
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#references">References</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
