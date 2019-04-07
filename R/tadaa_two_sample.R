@@ -32,10 +32,10 @@
 #' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_t.test(df, x, y)
-#' 
+#'
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_t.test(df, x, y, paired = TRUE)
-#' 
+#'
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
                          paired = FALSE, var.equal = NULL,
@@ -181,7 +181,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
 #' set.seed(42)
 #' df <- data.frame(x = runif(100), y = sample(c("A", "B"), 100, TRUE))
 #' tadaa_wilcoxon(df, x, y)
-#' 
+#'
 #' df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 #' tadaa_wilcoxon(df, x, y, paired = TRUE)
 tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
@@ -248,5 +248,137 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
     output <- pixiedust::sprinkle_print_method(output, print_method = print)
 
     output
+  }
+}
+
+
+#' Tadaa, z-test! No seriously.
+#'
+#' This is a wrapper around [z.test], which in itself is a weird thing to use, but
+#' why not.
+#'
+#' @param data A `data.frame` containing variables.
+#' @param x,y A bare name of a numeric variable in `data`.`
+#' @param sigma_x,sigma_y Numeric. Known variances of `x` and `y`.
+#' @inheritParams tadaa_t.test
+#'
+#' @return A [pixiedust::dust] object or `data.frame`.`
+#' @export
+#'
+#' @examples
+#' set.seed(192)
+#' df <- data.frame(lefties = rnorm(10, mean = 5, sd = 2),
+#'                  righties = rnorm(10, mean = 5.5, sd = 2.5))
+#' tadaa_z.test(data = df, x = lefties, y = righties, sigma_x = 2, sigma_y = 2.5, print = "console")
+tadaa_z.test <- function(data, x, y, sigma_x, sigma_y, direction = "two.sided",
+                         paired = FALSE,
+                         conf.level = 0.95, print = c("df", "console", "html", "markdown")) {
+  print <- match.arg(print)
+
+  x_name <- deparse(substitute(x))
+  x <- data[[x_name]]
+  y_name <- deparse(substitute(y))
+  y <- data[[y_name]]
+
+  # Get n for each group
+  n1 <- length(x)
+  n2 <- length(y)
+
+  # z.test
+  test <- broom::tidy(z.test(
+    x = x, y = y, alternative = direction,
+    sigma_x = sigma_x, sigma_y = sigma_y,
+    paired = paired,
+    conf.level = conf.level
+  ))
+
+  # Additions
+  if (paired) {
+    s <- sd(x - y)
+  } else {
+    s <- sqrt(sum((n1 - 1) * sigma_x, (n2 - 1) * sigma_y) / ((n1 + n2) - 2))
+  }
+  m_d <- mean(x, na.rm = TRUE) - mean(y, na.rm = TRUE)
+  test$d <- m_d / s
+
+  # if (paired) {
+  #   test$power <- pwr::pwr.t.test(
+  #     n = n1, d = test$d, sig.level = 1 - conf.level,
+  #     alternative = direction, type = "paired"
+  #   )$power
+  # } else {
+  #   test$power <- pwr::pwr.t2n.test(
+  #     n1 = n1, n2 = n2, d = test$d,
+  #     sig.level = 1 - conf.level,
+  #     alternative = direction
+  #   )$power
+  # }
+
+  # For paired tests, wie still want both means, probably
+  if (paired || !(all(c("estimate1", "estimate2") %in% names(test)))) {
+    test$estimate1 <- mean(x, na.rm = TRUE)
+    test$estimate2 <- mean(y, na.rm = TRUE)
+  }
+
+  # For non-welch-tests, we still want the difference I guess
+  if (!("estimate" %in% names(test))) {
+    test$estimate <- test$estimate1 - test$estimate2
+  }
+
+  # Add SE because why not
+  test$se <- test$estimate / test$statistic
+
+  # Sort estimates (and columns... it's hard)
+  est_cols <- c("estimate", "estimate1", "estimate2")
+  # test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
+  test <- test[c(
+    est_cols, "statistic", "se", "parameter", "conf.low", "conf.high",
+    "p.value", "d", "method", "alternative"
+  )]
+
+  if (print == "df") {
+    return(test)
+  } else {
+    method <- trimws(as.character(test$method))
+    alternative <- switch(direction,
+                          "two.sided" = "$\\mu_1 \\neq \\mu_2$",
+                          "greater" = "$\\mu_1 > \\mu_2$",
+                          "less" = "$\\mu_1 < \\mu_2$"
+    )
+
+    caption <- paste0("**", method, "** with alternative hypothesis: ", alternative)
+    test$ci <- paste0(
+      "(", round(test$conf.low, 2),
+      " - ",
+      round(test$conf.high, 2), ")"
+    )
+    CI_lab <- paste0("$CI_{", round(100 * conf.level, 2), "\\%}$")
+
+    # Sort… again
+    test <- test[c(
+      est_cols, "statistic", "se", "parameter", "ci",
+      "p.value", "d"
+    )]
+
+    output <- pixiedust::dust(test, caption = caption)
+    output <- pixiedust::sprinkle_table(output, halign = "center", part = "head")
+    output <- pixiedust::sprinkle_colnames(
+      output,
+      estimate = "Diff",
+      estimate1 = paste("$\\mu_1$", x_name),
+      estimate2 = paste("$\\mu_2$", y_name),
+      statistic = "z",
+      p.value = "p",
+      parameter = "df",
+      se = "SE",
+      ci = CI_lab,
+      d = "Cohen\\'s d"
+    )
+
+    output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
+    output <- pixiedust::sprinkle(output, round = 2)
+    output <- pixiedust::sprinkle_print_method(output, print_method = print)
+
+    return(output)
   }
 }

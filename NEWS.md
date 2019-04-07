@@ -1,6 +1,7 @@
 # tadaatoolbox (development version)
 
 - Add `z.test` to fill the niche in `stats`. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
+- Add `tadaa_z.test` while we're at it. Needs power calculation though.
 
 # tadaatoolbox 0.16.1
 
