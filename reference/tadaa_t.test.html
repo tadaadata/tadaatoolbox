@@ -238,7 +238,7 @@ decide whether to use a Welch test, set <code>var.equal</code> as you would with
 <span class='fu'>tadaa_t.test</span>(<span class='no'>df</span>, <span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 13
 #&gt;   estimate estimate1 estimate2 statistic     se parameter conf.low conf.high
 #&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1  -0.0512     0.496     0.547    -0.841 0.0609        98   -0.172    0.0696
+#&gt; 1  -0.0349     0.505     0.540    -0.573 0.0609        98   -0.156    0.0860
 #&gt; # … with 5 more variables: p.value &lt;dbl&gt;, d &lt;dbl&gt;, power &lt;dbl&gt;, method &lt;chr&gt;,
 #&gt; #   alternative &lt;chr&gt;</div><div class='input'>
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>100</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>"A"</span>, <span class='fl'>50</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>"B"</span>, <span class='fl'>50</span>)))
