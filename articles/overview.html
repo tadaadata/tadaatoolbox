@@ -103,7 +103,7 @@
       <h1>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2019-06-02 UTC</h4>
+            <h4 class="date">2019-07-02 UTC</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/vignettes/overview.Rmd"><code>vignettes/overview.Rmd</code></a></small>
       <div class="hidden name"><code>overview.Rmd</code></div>
@@ -550,8 +550,8 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(<span class="dt">data =</span> ngo, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> jahrgang, <span class="dt">y =</span> deutsch)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/stat_summary">stat_summary</a></span>(<span class="dt">fun.data =</span> <span class="st">"mean_ci_t"</span>, <span class="dt">geom =</span> <span class="st">"errorbar"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> ngo, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> jahrgang, <span class="dt">y =</span> deutsch)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(<span class="dt">fun.data =</span> <span class="st">"mean_ci_t"</span>, <span class="dt">geom =</span> <span class="st">"errorbar"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</a></code></pre></div>
 <p><img src="overview_files/figure-html/confint-1.png" width="700"></p>
 <p>As a convenience, we added <code>tadaa_mean_ci</code> to quickly plot means with errorbars to get a quick glance at your data.</p>
