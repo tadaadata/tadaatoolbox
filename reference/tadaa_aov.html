@@ -8,10 +8,12 @@
 
 <title>Tadaa, ANOVA! — tadaa_aov • tadaatoolbox</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -31,12 +33,13 @@
 
 
 
-<meta property="og:title" content="Tadaa, ANOVA! — tadaa_aov" />
 
+<meta property="og:title" content="Tadaa, ANOVA! — tadaa_aov" />
 <meta property="og:description" content="Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 optionally displays effect sizes ((partial) \(\eta^2\), Cohen's f) and
 power (calculated via pwr::pwr.f2.test to work with unbalanced designs)." />
 <meta name="twitter:card" content="summary" />
+
 
 <meta name="robots" content="noindex">
 
@@ -122,7 +125,6 @@ power (calculated via pwr::pwr.f2.test to work with unbalanced designs)." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/tadaadata/tadaatoolbox">
@@ -148,18 +150,16 @@ power (calculated via pwr::pwr.f2.test to work with unbalanced designs)." />
     </div>
 
     <div class="ref-description">
-    
     <p>Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
 optionally displays effect sizes ((partial) \(\eta^2\), Cohen's f) and
 power (calculated via <a href='https://www.rdocumentation.org/packages/pwr/topics/pwr.f2.test'>pwr::pwr.f2.test</a> to work with unbalanced designs).</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>tadaa_aov</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>show_effect_size</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>show_power</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>factorize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>check_contrasts</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"df"</span>, <span class='st'>"console"</span>, <span class='st'>"html"</span>,
   <span class='st'>"markdown"</span>))</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -201,11 +201,10 @@ the <code>contrasts</code> of each non-ordered <code>factor</code> are set to <c
 Otherwise passed to <a href='https://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a> for fancyness.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>data.frame</code> by default, otherwise <code>dust</code> object, depending on <code>print</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>If a specified independent variable is not properly encoded as a <code>factor</code>, it is
@@ -215,7 +214,6 @@ each non-ordered factor will be checked and set to <code>contr.sum</code> to ens
 yields usable results. It is highly recommended to only use <code>check_contrasts = FALSE</code>
 for debugging or educational purposes, or of you know what you're doing and using
 your own contrast matrix.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other Tadaa-functions: <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>,
@@ -226,7 +224,6 @@ your own contrast matrix.</p>
   <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
   <code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t</a></code>,
   <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>tadaa_aov</span>(<span class='no'>stunzahl</span> ~ <span class='no'>jahrgang</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>)</div><div class='output co'>#&gt;        term  df   sumsq   meansq statistic      p.value eta.sq.part  cohens.f
@@ -262,13 +259,9 @@ your own contrast matrix.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
