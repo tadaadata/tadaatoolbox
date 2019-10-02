@@ -76,6 +76,7 @@ without confidence intervals or test statistic though." />
 <noscript><p><img src="https://analytics.tadaa-data.de/matomo.php?idsite=21&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
 
+
   </head>
 
   <body>
@@ -100,7 +101,7 @@ without confidence intervals or test statistic though." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -129,7 +130,7 @@ without confidence intervals or test statistic though." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/tadaadata/tadaatoolbox">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,6 +141,7 @@ without confidence intervals or test statistic though." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -151,9 +153,9 @@ without confidence intervals or test statistic though." />
     </div>
 
     <div class="ref-description">
-    <p>This is an extension of <a href='https://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a> that's meant to deal with
+    <p>This is an extension of <a href='https://rdrr.io/r/stats/pairwise.t.test.html'>stats::pairwise.t.test</a> that's meant to deal with
 interactions our of the box, while also performing pairwise tests for the primary terms.
-The output of the function is modeled after <a href='https://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a>, unfortunately
+The output of the function is modeled after <a href='https://rdrr.io/r/stats/TukeyHSD.html'>stats::TukeyHSD</a>, unfortunately
 without confidence intervals or test statistic though.</p>
     </div>
 
@@ -182,28 +184,28 @@ without confidence intervals or test statistic though.</p>
     </tr>
     <tr>
       <th>p.adjust</th>
-      <td><p>The p-adjustment method, see <a href='https://www.rdocumentation.org/packages/stats/topics/p.adjust'>stats::p.adjust.methods</a>, passed
-to <a href='https://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>. Additionally, <code>sidak</code> is supported as a
-method, which is not the case with <a href='https://www.rdocumentation.org/packages/stats/topics/p.adjust'>stats::p.adjust</a>, as is <code>sidakSD</code> for the
+      <td><p>The p-adjustment method, see <a href='https://rdrr.io/r/stats/p.adjust.html'>stats::p.adjust.methods</a>, passed
+to <a href='https://rdrr.io/r/stats/pairwise.t.test.html'>stats::pairwise.t.test</a>. Additionally, <code>sidak</code> is supported as a
+method, which is not the case with <a href='https://rdrr.io/r/stats/p.adjust.html'>stats::p.adjust</a>, as is <code>sidakSD</code> for the
 Sidak step-down procedure.</p></td>
     </tr>
     <tr>
       <th>paired</th>
-      <td><p>Defaults to <code>FALSE</code>, also passed to <a href='https://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
+      <td><p>Defaults to <code>FALSE</code>, also passed to <a href='https://rdrr.io/r/stats/pairwise.t.test.html'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>pool.sd</th>
       <td><p>Defaults to the inverse of <code>paired</code>, passed
-to <a href='https://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
+to <a href='https://rdrr.io/r/stats/pairwise.t.test.html'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>alternative</th>
-      <td><p>Defaults to <code>two.sided</code>, also passed to <a href='https://www.rdocumentation.org/packages/stats/topics/pairwise.t.test'>stats::pairwise.t.test</a>.</p></td>
+      <td><p>Defaults to <code>two.sided</code>, also passed to <a href='https://rdrr.io/r/stats/pairwise.t.test.html'>stats::pairwise.t.test</a>.</p></td>
     </tr>
     <tr>
       <th>print</th>
       <td><p>Print method, defaults to <code>df</code> for <code>data.frame</code> output, otherwise
-passed to <a href='https://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a>.</p></td>
+passed to <a href='https://rdrr.io/pkg/pixiedust/man/sprinkle.html'>pixiedust::sprinkle_print_method</a>.</p></td>
     </tr>
     </table>
 
@@ -316,19 +318,23 @@ over the Holm's (1979) step-down procedure.</p>
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by <a href='https://jemu.name'>Lukas Burk</a>, Tobias Anton.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

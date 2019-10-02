@@ -77,6 +77,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
 <noscript><p><img src="https://analytics.tadaa-data.de/matomo.php?idsite=21&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
 
+
   </head>
 
   <body>
@@ -101,7 +102,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -130,7 +131,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/tadaadata/tadaatoolbox">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -141,6 +142,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -152,8 +154,8 @@ enable a consistent usage between the tadaa_pairwise-functions." />
     </div>
 
     <div class="ref-description">
-    <p>This function is merely a thin wrapper around <a href='https://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a> with tidying done
-by <a href='https://www.rdocumentation.org/packages/broom/topics/reexports'>broom::tidy</a> and optional formatting via <a href='https://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle</a>.
+    <p>This function is merely a thin wrapper around <a href='https://rdrr.io/r/stats/TukeyHSD.html'>stats::TukeyHSD</a> with tidying done
+by <a href='https://rdrr.io/pkg/broom/man/reexports.html'>broom::tidy</a> and optional formatting via <a href='https://rdrr.io/pkg/pixiedust/man/sprinkle.html'>pixiedust::sprinkle</a>.
 Its input is not a <code>aov</code> model like in the original function, but instead the
 <code>aov</code> model is fit internally based on the arguments given. This is meant to
 enable a consistent usage between the <code>tadaa_pairwise</code>-functions.</p>
@@ -184,17 +186,17 @@ enable a consistent usage between the <code>tadaa_pairwise</code>-functions.</p>
     <tr>
       <th>print</th>
       <td><p>Print method, defaults to <code>df</code> for <code>data.frame</code> output, otherwise
-passed to <a href='https://www.rdocumentation.org/packages/pixiedust/topics/sprinkle'>pixiedust::sprinkle_print_method</a>.</p></td>
+passed to <a href='https://rdrr.io/pkg/pixiedust/man/sprinkle.html'>pixiedust::sprinkle_print_method</a>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Further arguments passed to <a href='https://www.rdocumentation.org/packages/stats/topics/TukeyHSD'>stats::TukeyHSD</a></p></td>
+      <td><p>Further arguments passed to <a href='https://rdrr.io/r/stats/TukeyHSD.html'>stats::TukeyHSD</a></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>data.frame</code> or <a href='https://www.rdocumentation.org/packages/pixiedust/topics/dust'>pixiedust::dust</a> object depending on <code>print</code>.</p>
+    <p>A <code>data.frame</code> or <a href='https://rdrr.io/pkg/pixiedust/man/dust.html'>pixiedust::dust</a> object depending on <code>print</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='tadaa_pairwise_t.html'>tadaa_pairwise_t()</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh()</a></code></p>
@@ -248,19 +250,23 @@ passed to <a href='https://www.rdocumentation.org/packages/pixiedust/topics/spri
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by <a href='https://jemu.name'>Lukas Burk</a>, Tobias Anton.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

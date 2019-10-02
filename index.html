@@ -16,10 +16,10 @@
 <meta property="og:description" content="Contains functions for the easy display of
     statistical tests as well as some convenience functions for data
     cleanup. It is meant to ease existing workflows with packages like
-    'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the
-    functions prefixed with 'tadaa_', which are built to work in an
+    sjPlot, dplyr, and ggplot2. The primary components are the
+    functions prefixed with tadaa_, which are built to work in an
     interactive environment, but also print tidy markdown tables powered
-    by 'pixiedust' for the creation of 'RMarkdown' reports.">
+    by pixiedust for the creation of RMarkdown reports.">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -43,7 +43,7 @@
 <!-- End Matomo Code -->
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -63,7 +63,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/tadaadata/tadaatoolbox">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -105,13 +105,10 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+      </header><div class="row">
+  <div class="contents col-md-9">
+
 <div id="tadaatoolbox" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tadaatoolbox" class="anchor"></a>tadaatoolbox</h1></div>
@@ -124,13 +121,13 @@ Also, since this project is still in the <code>0.x.y</code> version, you should 
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>Install the current development version from GitHub (recommended):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span>(<span class="st">"remotes"</span> <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/installed.packages">installed.packages</a></span>())){</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"remotes"</span>)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span>(<span class="st">"remotes"</span> <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())){</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">}</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"tadaadata/tadaatoolbox"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"tadaadata/tadaatoolbox"</span>)</a></code></pre></div>
 <p>Or install the most recent stable version from CRAN:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"tadaatoolbox"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tadaatoolbox"</span>)</a></code></pre></div>
 </div>
 <div id="contribution" class="section level1">
 <h1 class="hasAnchor">
@@ -139,7 +136,7 @@ Also, since this project is still in the <code>0.x.y</code> version, you should 
 <div id="contributers" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contributers" class="anchor"></a>Contributers</h2>
-<table class="table table">
+<table class="table">
 <thead><tr class="header">
 <th align="left">Contributer</th>
 <th align="left">Role</th>
@@ -168,7 +165,7 @@ Also, since this project is still in the <code>0.x.y</code> version, you should 
 <div id="functionality" class="section level1">
 <h1 class="hasAnchor">
 <a href="#functionality" class="anchor"></a>Functionality</h1>
-<p>See the included vignette for a demonstration: <code><a href="https://www.rdocumentation.org/packages/utils/topics/browseVignettes">browseVignettes("tadaatoolbox")</a></code> or view <a href="https://tadaatoolbox.tadaa-data.de">the <code>pkgdown</code>ed version of this repo</a> for an overview and function index.<br>
+<p>See the included vignette for a demonstration: <code><a href="https://rdrr.io/r/utils/browseVignettes.html">browseVignettes("tadaatoolbox")</a></code> or view <a href="https://tadaatoolbox.tadaa-data.de">the <code>pkgdown</code>ed version of this repo</a> for an overview and function index.<br>
 Here’s a few highlights:</p>
 <div id="tidy-as-in-pretty-test-output" class="section level2">
 <h2 class="hasAnchor">
@@ -176,7 +173,7 @@ Here’s a few highlights:</p>
 <p>See all of them in action <a href="https://tadaatoolbox.tadaa-data.de/articles/test_output.html">in this vignette</a></p>
 <ul>
 <li>
-<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial <span class="math inline">\(\eta^2\)</span>, Cohen’s f and power.</li>
+<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial (\eta^2), Cohen’s f and power.</li>
 <li>
 <code>tadaa_kruskal</code>: A wrapper for <code>kruskal.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
@@ -184,7 +181,7 @@ Here’s a few highlights:</p>
 <li>
 <code>tadaa_wilcoxon</code>: A wrapper for <code>wilcox.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
-<code>tadaa_levene</code>: Wrapper for <code><a href="https://www.rdocumentation.org/packages/car/topics/leveneTest">car::leveneTest</a></code> tidied and optionally <code>pixiedust</code>ed.</li>
+<code>tadaa_levene</code>: Wrapper for <code><a href="https://rdrr.io/pkg/car/man/leveneTest.html">car::leveneTest</a></code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
 <code>tadaa_normtest</code> lets you do tests for normality (4 methods) over multiple variables.</li>
 <li>
@@ -229,6 +226,7 @@ Here’s a few highlights:</p>
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h1>
 <p>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -255,15 +253,13 @@ Here’s a few highlights:</p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://jemu.name">Lukas Burk</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7528-3795" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<a href="https://jemu.name">Lukas Burk</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7528-3795" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
 <li>Tobias Anton <br><small class="roles"> Author </small>  </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
 
-
-      </div>
-
+  </div>
 </div>
 
 
@@ -272,12 +268,14 @@ Here’s a few highlights:</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
