@@ -7,7 +7,7 @@
 \title{tadaatoolbox: Helpers for Data Analysis and Presentation Focused on
     Undergrad Psychology}
 \description{
-Contains functions for the easy display of
+A teaching project that contains functions for the display of
     statistical tests as well as some convenience functions for data
     cleanup. It is meant to ease existing workflows with packages like
     'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the

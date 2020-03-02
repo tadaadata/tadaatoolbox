@@ -33,7 +33,7 @@ The point of these function is to combine routine steps into one function, so le
 
 ## t-Tests: `tadaa_t.test`
 
-On of the first implemented functions, `tadaa_t.test`, automagically checks for homogenity of variance via `car::leveneTest`, and if the resulting p-value is below .1, homogenity of variance is assumed in the following call to `stats::t.test`. Afterwards the effect size $d$ is is calculated with pooled/weighted variances to ensure accuracy, and the power of the test is calculated via the `pwr` package (also keeping in mind whether the test is `paired` or not). It then formats the output according to `broom::tidy`, sprinkles it with `pixiedust` and prints either to console, markdown or whatever printing method is passed via the `print` argument to `pixiedust::sprinkle_print_method`.
+The effect size $d$ is calculated with pooled/weighted variances to ensure accuracy. It then formats the output according to `broom::tidy`, sprinkles it with `pixiedust` and prints either to console, markdown or whatever printing method is passed via the `print` argument to `pixiedust::sprinkle_print_method`.
 
 ```{r t-test}
 tadaa_t.test(ngo, stunzahl, geschl, print = "markdown")

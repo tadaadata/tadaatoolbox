@@ -1,7 +1,16 @@
 # tadaatoolbox (development version)
 
-- Add `z.test` to fill the niche in `stats`. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
-- Add `tadaa_z.test` while we're at it. Needs power calculation though.
+- Update infrastructure using `usethis::use_tidy_ci()`, bumps R dependency to `>= 3.2`.
+- Add `z.test()` to fill the niche in `stats`. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
+- Add `tadaa_z.test()` while we're at it.
+
+## Fixing mistakes
+
+- Remove internal Levene-test from `tadaa_t.test()`, defaulting to `var.equal = FALSE` as `stats::t.test()` does. Turns out this was a pretty bad idea due to the multiplicity problem, and the Welch-test is *good enough*.
+- Remove the post-hoc / empirical `power` from 
+  - `tadaa_t.test()`
+  - `tadaa_aov()`
+  - `tadaa_one_sample()`
 
 # tadaatoolbox 0.16.1
 

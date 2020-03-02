@@ -4,8 +4,6 @@
 #' Before a t-test is performed, [car::leveneTest] is consulted as to wether
 #' heteroskedasticity is present (using the default `center = "mean"` method for
 #' a more robust test), and sets `var.equal` accordingly.
-#' Afterwards, the effect size is calculated and [pwr::pwr.t.test] or
-#' [pwr::pwr.t2n.test] are used to calculate the test's power accordingly.
 #' The result is either returned as a [broom::tidy] `data.frame` or prettified using
 #' various [pixiedust::sprinkle] shenanigans.
 #'
@@ -15,7 +13,8 @@
 #' @param direction Test direction, like `alternative` in [t.test].
 #' @param paired If `TRUE`, a paired test is performed, defaults to `FALSE`.
 #' @param var.equal If set, passed to [stats::t.test] to decide whether to use a
-#' Welch-correction. Default is `NULL` to automatically determine heteroskedasticity.
+#' Welch-correction. Default is `FALSE` to automatically use a Welch-test, which is
+#' in general the safest option.
 #' @param conf.level Confidence level used for power and CI, default is `0.95`.
 #' @inheritParams tadaa_aov
 #' @return A `data.frame` by default, otherwise `dust` object,
@@ -24,9 +23,6 @@
 #' @import stats
 #' @importFrom car leveneTest
 #' @family Tadaa-functions
-#' @note The cutoff for the interal Levene's test to decided whether or not to perform
-#' a Welch-corrected t-test is set to `0.05` by default. To override the internal tests and
-#' decide whether to use a Welch test, set `var.equal` as you would with [stats::t.test].
 #' @export
 #' @examples
 #' set.seed(42)
@@ -38,7 +34,7 @@
 #'
 #' tadaa_t.test(ngo, deutsch, geschl, print = "console")
 tadaa_t.test <- function(data, response, group, direction = "two.sided",
-                         paired = FALSE, var.equal = NULL,
+                         paired = FALSE, var.equal = FALSE,
                          conf.level = 0.95, print = c("df", "console", "html", "markdown")) {
   print <- match.arg(print)
 
@@ -61,17 +57,6 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   n1 <- length(x)
   n2 <- length(y)
 
-  # levene
-  if (is.null(var.equal)) {
-    levene <- broom::tidy(car::leveneTest(
-      data[[response]],
-      data[[group]],
-      center = "median"
-    ))
-
-    var.equal <- (levene$p.value[[1]] >= .05)
-  }
-
   # t.test
   test <- broom::tidy(t.test(
     x = x, y = y, alternative = direction,
@@ -84,18 +69,6 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     data = data, response = response,
     group = group, paired = paired, na.rm = TRUE
   )
-  if (paired) {
-    test$power <- pwr::pwr.t.test(
-      n = n1, d = test$d, sig.level = 1 - conf.level,
-      alternative = direction, type = "paired"
-    )$power
-  } else {
-    test$power <- pwr::pwr.t2n.test(
-      n1 = n1, n2 = n2, d = test$d,
-      sig.level = 1 - conf.level,
-      alternative = direction
-    )$power
-  }
 
   # For paired tests, wie still want both means, probably
   if (paired || !(all(c("estimate1", "estimate2") %in% names(test)))) {
@@ -116,7 +89,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
   # test     <- test[c(est_cols, names(test)[!(names(test) %in% est_cols)])]
   test <- test[c(
     est_cols, "statistic", "se", "parameter", "conf.low", "conf.high",
-    "p.value", "d", "power", "method", "alternative"
+    "p.value", "d", "method", "alternative"
   )]
 
   if (print == "df") {
@@ -140,7 +113,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
     # Sort… again
     test <- test[c(
       est_cols, "statistic", "se", "parameter", "ci",
-      "p.value", "d", "power"
+      "p.value", "d"
     )]
 
     output <- pixiedust::dust(test, caption = caption)
@@ -155,8 +128,7 @@ tadaa_t.test <- function(data, response, group, direction = "two.sided",
       parameter = "df",
       se = "SE",
       ci = CI_lab,
-      d = "Cohen\\'s d",
-      power = "Power"
+      d = "Cohen\\'s d"
     )
 
     output <- pixiedust::sprinkle(output, cols = "p.value", fn = quote(tadaatoolbox::pval_string(value)))
@@ -300,19 +272,6 @@ tadaa_z.test <- function(data, x, y, sigma_x, sigma_y, direction = "two.sided",
   }
   m_d <- mean(x, na.rm = TRUE) - mean(y, na.rm = TRUE)
   test$d <- m_d / s
-
-  # if (paired) {
-  #   test$power <- pwr::pwr.t.test(
-  #     n = n1, d = test$d, sig.level = 1 - conf.level,
-  #     alternative = direction, type = "paired"
-  #   )$power
-  # } else {
-  #   test$power <- pwr::pwr.t2n.test(
-  #     n1 = n1, n2 = n2, d = test$d,
-  #     sig.level = 1 - conf.level,
-  #     alternative = direction
-  #   )$power
-  # }
 
   # For paired tests, wie still want both means, probably
   if (paired || !(all(c("estimate1", "estimate2") %in% names(test)))) {

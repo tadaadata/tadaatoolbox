@@ -1,8 +1,7 @@
 #' Tadaa, ANOVA!
 #'
 #' Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
-#' optionally displays effect sizes ((partial) \eqn{\eta^2}, Cohen's f) and
-#' power (calculated via [pwr::pwr.f2.test] to work with unbalanced designs).
+#' optionally displays effect sizes ((partial) \eqn{\eta^2} and Cohen's f).
 #'
 #' @details
 #' If a specified independent variable is not properly encoded as a `factor`, it is
@@ -17,8 +16,6 @@
 #' @param data Data for model.
 #' @param show_effect_size If `TRUE` (default), effect sizes
 #' partial eta^2 and Cohen's f are appended as columns.
-#' @param show_power (Experimental) If `TRUE` (default), power is calculated
-#' via [pwr::pwr.f2.test] and appended as a column.
 #' @param factorize If `TRUE` (default), non-`factor` independent variables
 #' will automatically converted via `as.factor`, so beware of your inputs.
 #' @param type Which type of SS to use. Default is `3`, can also be `1` or `2`.
@@ -33,13 +30,12 @@
 #' @import stats
 #' @import pixiedust
 #' @importFrom DescTools  EtaSq
-#' @importFrom pwr pwr.f2.test
 #' @importFrom car Anova
 #' @importFrom broom tidy
 #' @examples
 #' tadaa_aov(stunzahl ~ jahrgang, data = ngo)
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo)
-#' 
+#'
 #' # Other types of sums and print options
 #' \dontrun{
 #' tadaa_aov(stunzahl ~ jahrgang * geschl, data = ngo, type = 1, print = "console")
@@ -49,7 +45,7 @@
 #'   type = 3, check_contrasts = FALSE, print = "console"
 #' )
 #' }
-tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power = TRUE,
+tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE,
                       factorize = TRUE, type = 3, check_contrasts = TRUE,
                       print = c("df", "console", "html", "markdown")) {
   print <- match.arg(print)
@@ -129,15 +125,6 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
     # Merge with test output
     model <- merge(model, effects, by = "term", all = T)
   }
-  if (show_power) {
-    fctr_rows <- !(model$term %in% c("Residuals", "Total"))
-
-    model$power[fctr_rows] <- pwr::pwr.f2.test(
-      u = model$df[fctr_rows],
-      v = model$df[model$term == "Residuals"],
-      f2 = model$cohens.f[fctr_rows]^2
-    )$power
-  }
 
   if (print == "df") {
     return(model)
@@ -179,9 +166,6 @@ tadaa_aov <- function(formula, data = NULL, show_effect_size = TRUE, show_power 
         eta.sq.part = eta_label,
         cohens.f = "Cohen's f"
       )
-    }
-    if (show_power) {
-      output <- pixiedust::sprinkle_colnames(output, power = "Power")
     }
     output <- pixiedust::sprinkle_table(output, round = 2, na_string = "", part = "table")
   }

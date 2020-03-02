@@ -8,7 +8,6 @@ tadaa_aov(
   formula,
   data = NULL,
   show_effect_size = TRUE,
-  show_power = TRUE,
   factorize = TRUE,
   type = 3,
   check_contrasts = TRUE,
@@ -22,9 +21,6 @@ tadaa_aov(
 
 \item{show_effect_size}{If \code{TRUE} (default), effect sizes
 partial eta^2 and Cohen's f are appended as columns.}
-
-\item{show_power}{(Experimental) If \code{TRUE} (default), power is calculated
-via \link[pwr:pwr.f2.test]{pwr::pwr.f2.test} and appended as a column.}
 
 \item{factorize}{If \code{TRUE} (default), non-\code{factor} independent variables
 will automatically converted via \code{as.factor}, so beware of your inputs.}
@@ -42,8 +38,7 @@ A \code{data.frame} by default, otherwise \code{dust} object, depending on \code
 }
 \description{
 Performs one-, two-way or factorial ANOVA with adjustable sums of squares method and
-optionally displays effect sizes ((partial) \eqn{\eta^2}, Cohen's f) and
-power (calculated via \link[pwr:pwr.f2.test]{pwr::pwr.f2.test} to work with unbalanced designs).
+optionally displays effect sizes ((partial) \eqn{\eta^2} and Cohen's f).
 }
 \details{
 If a specified independent variable is not properly encoded as a \code{factor}, it is
