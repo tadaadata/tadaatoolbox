@@ -10,7 +10,6 @@ r_binary_packages:
  - ggplot2
  - testthat
  - cowplot
- - pkgdown
  - covr
 
 matrix:
