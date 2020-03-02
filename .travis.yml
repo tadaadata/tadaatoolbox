@@ -14,10 +14,10 @@ matrix:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github(run_dont_run = FALSE)'
       skip_cleanup: true
-  - r: oldrel
-  - r: 3.4
-  - r: 3.3
-  - r: 3.2
+#  - r: oldrel
+#  - r: 3.4
+#  - r: 3.3
+#  - r: 3.2
 
 notifications:
   slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
