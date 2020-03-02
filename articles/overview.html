@@ -104,7 +104,7 @@
       <h1>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2020-02-02 UTC</h4>
+            <h4 class="date">2020-03-02 UTC</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/vignettes/overview.Rmd"><code>vignettes/overview.Rmd</code></a></small>
       <div class="hidden name"><code>overview.Rmd</code></div>
@@ -145,9 +145,9 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <h2 class="hasAnchor">
 <a href="#t-tests-tadaa_t-test" class="anchor"></a>t-Tests: <code>tadaa_t.test</code>
 </h2>
-<p>On of the first implemented functions, <code>tadaa_t.test</code>, automagically checks for homogenity of variance via <code><a href="https://rdrr.io/pkg/car/man/leveneTest.html">car::leveneTest</a></code>, and if the resulting p-value is below .1, homogenity of variance is assumed in the following call to <code><a href="https://rdrr.io/r/stats/t.test.html">stats::t.test</a></code>. Afterwards the effect size <span class="math inline">\(d\)</span> is is calculated with pooled/weighted variances to ensure accuracy, and the power of the test is calculated via the <code>pwr</code> package (also keeping in mind whether the test is <code>paired</code> or not). It then formats the output according to <code><a href="https://rdrr.io/pkg/broom/man/reexports.html">broom::tidy</a></code>, sprinkles it with <code>pixiedust</code> and prints either to console, markdown or whatever printing method is passed via the <code>print</code> argument to <code><a href="https://rdrr.io/pkg/pixiedust/man/sprinkle.html">pixiedust::sprinkle_print_method</a></code>.</p>
+<p>The effect size <span class="math inline">\(d\)</span> is calculated with pooled/weighted variances to ensure accuracy. It then formats the output according to <code><a href="https://rdrr.io/pkg/broom/man/reexports.html">broom::tidy</a></code>, sprinkles it with <code>pixiedust</code> and prints either to console, markdown or whatever printing method is passed via the <code>print</code> argument to <code><a href="https://rdrr.io/pkg/pixiedust/man/sprinkle.html">pixiedust::sprinkle_print_method</a></code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_t.test.html">tadaa_t.test</a></span>(ngo, stunzahl, geschl, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
-<p>Table 1: <strong>Two Sample t-test</strong> with alternative hypothesis: <span class="math inline">\(\mu_1 \neq \mu_2\)</span></p>
+<p>Table 1: <strong>Welch Two Sample t-test</strong> with alternative hypothesis: <span class="math inline">\(\mu_1 \neq \mu_2\)</span></p>
 <table class="table">
 <thead><tr class="header">
 <th align="center">Diff</th>
@@ -161,7 +161,6 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <th align="center"><span class="math inline">\(CI_{95\%}\)</span></th>
 <th align="center">p</th>
 <th align="center">Cohen's d</th>
-<th align="center">Power</th>
 </tr></thead>
 <tbody><tr class="odd">
 <td align="center">-0.05</td>
@@ -169,11 +168,10 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <td align="center">33.66</td>
 <td align="center">-0.11</td>
 <td align="center">0.44</td>
-<td align="center">248</td>
+<td align="center">242.1</td>
 <td align="center">(-0.92 - 0.82)</td>
 <td align="center">.914</td>
 <td align="center">-0.01</td>
-<td align="center">0.05</td>
 </tr></tbody>
 </table>
 <p><br></p>
@@ -219,7 +217,6 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <th align="center">p</th>
 <th align="center"><span class="math inline">\(\eta_\text{part}^2\)</span></th>
 <th align="center">Cohen’s f</th>
-<th align="center">Power</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -231,7 +228,6 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <td align="center">.391</td>
 <td align="center">0</td>
 <td align="center">0.06</td>
-<td align="center">0.14</td>
 </tr>
 <tr class="even">
 <td align="center">jahrgang</td>
@@ -242,7 +238,6 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <td align="center">&lt; .001</td>
 <td align="center">0.18</td>
 <td align="center">0.47</td>
-<td align="center">1</td>
 </tr>
 <tr class="odd">
 <td align="center">jahrgang:geschl</td>
@@ -253,7 +248,6 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <td align="center">&lt; .01</td>
 <td align="center">0.04</td>
 <td align="center">0.2</td>
-<td align="center">0.8</td>
 </tr>
 <tr class="even">
 <td align="center">Residuals</td>
@@ -264,14 +258,12 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
-<td align="center"></td>
 </tr>
 <tr class="odd">
 <td align="center">Total</td>
 <td align="center">249</td>
 <td align="center">3044.75</td>
 <td align="center">333.32</td>
-<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>

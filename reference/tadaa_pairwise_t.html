@@ -159,9 +159,17 @@ The output of the function is modeled after <a href='https://rdrr.io/r/stats/Tuk
 without confidence intervals or test statistic though.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>data</span>, <span class='no'>response</span>, <span class='no'>group1</span>, <span class='kw'>group2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pool.sd</span> <span class='kw'>=</span> !<span class='no'>paired</span>,
-  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>)</pre>
+    <pre class="usage"><span class='fu'>tadaa_pairwise_t</span>(
+  <span class='no'>data</span>,
+  <span class='no'>response</span>,
+  <span class='no'>group1</span>,
+  <span class='kw'>group2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"bonf"</span>,
+  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>pool.sd</span> <span class='kw'>=</span> !<span class='no'>paired</span>,
+  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='st'>"two.sided"</span>,
+  <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"df"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -229,14 +237,19 @@ over the Holm's (1979) step-down procedure.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey()</a></code>, <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh()</a></code></p>
-<p>Other Tadaa-functions: <code><a href='tadaa_aov.html'>tadaa_aov</a></code>,
-  <code><a href='tadaa_chisq.html'>tadaa_chisq</a></code>, <code><a href='tadaa_kruskal.html'>tadaa_kruskal</a></code>,
-  <code><a href='tadaa_levene.html'>tadaa_levene</a></code>, <code><a href='tadaa_nom.html'>tadaa_nom</a></code>,
-  <code><a href='tadaa_normtest.html'>tadaa_normtest</a></code>,
-  <code><a href='tadaa_one_sample.html'>tadaa_one_sample</a></code>, <code><a href='tadaa_ord.html'>tadaa_ord</a></code>,
-  <code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a></code>,
-  <code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a></code>,
-  <code><a href='tadaa_t.test.html'>tadaa_t.test</a></code>, <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a></code></p></div>
+<p>Other Tadaa-functions: 
+<code><a href='tadaa_aov.html'>tadaa_aov</a>()</code>,
+<code><a href='tadaa_chisq.html'>tadaa_chisq</a>()</code>,
+<code><a href='tadaa_kruskal.html'>tadaa_kruskal</a>()</code>,
+<code><a href='tadaa_levene.html'>tadaa_levene</a>()</code>,
+<code><a href='tadaa_nom.html'>tadaa_nom</a>()</code>,
+<code><a href='tadaa_normtest.html'>tadaa_normtest</a>()</code>,
+<code><a href='tadaa_one_sample.html'>tadaa_one_sample</a>()</code>,
+<code><a href='tadaa_ord.html'>tadaa_ord</a>()</code>,
+<code><a href='tadaa_pairwise_gh.html'>tadaa_pairwise_gh</a>()</code>,
+<code><a href='tadaa_pairwise_tukey.html'>tadaa_pairwise_tukey</a>()</code>,
+<code><a href='tadaa_t.test.html'>tadaa_t.test</a>()</code>,
+<code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_t</span>(<span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>, <span class='kw'>p.adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;               term                    comparison p (adj.)

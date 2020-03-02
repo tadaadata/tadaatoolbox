@@ -151,9 +151,24 @@
 <a href="#tadaatoolbox-development-version" class="anchor"></a>tadaatoolbox (development version)<small> Unreleased </small>
 </h1>
 <ul>
-<li>Add <code>z.test</code> to fill the niche in <code>stats</code>. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.</li>
-<li>Add <code>tadaa_z.test</code> while we’re at it. Needs power calculation though.</li>
+<li>Update infrastructure using <code>usethis::use_tidy_ci()</code>, bumps R dependency to <code>&gt;= 3.2</code>.</li>
+<li>Add <code><a href="../reference/z.test.html">z.test()</a></code> to fill the niche in <code>stats</code>. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.</li>
+<li>Add <code><a href="../reference/tadaa_z.test.html">tadaa_z.test()</a></code> while we’re at it.</li>
 </ul>
+<div id="fixing-mistakes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixing-mistakes" class="anchor"></a>Fixing mistakes</h2>
+<ul>
+<li>Remove internal Levene-test from <code><a href="../reference/tadaa_t.test.html">tadaa_t.test()</a></code>, defaulting to <code>var.equal = FALSE</code> as <code><a href="https://rdrr.io/r/stats/t.test.html">stats::t.test()</a></code> does. Turns out this was a pretty bad idea due to the multiplicity problem, and the Welch-test is <em>good enough</em>.</li>
+<li>Remove the post-hoc / empirical <code>power</code> from
+<ul>
+<li><code><a href="../reference/tadaa_t.test.html">tadaa_t.test()</a></code></li>
+<li><code><a href="../reference/tadaa_aov.html">tadaa_aov()</a></code></li>
+<li><code><a href="../reference/tadaa_one_sample.html">tadaa_one_sample()</a></code></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
     <div id="tadaatoolbox-0-16-1" class="section level1">
 <h1 class="page-header">

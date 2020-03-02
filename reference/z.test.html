@@ -159,9 +159,16 @@ The function is basically a carbon-copy of <a href='https://rdrr.io/r/stats/t.te
 variances for x and y and p-value and related calculations use a standard normal distribution.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>z.test</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>),
-  <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>sigma_x</span>, <span class='kw'>sigma_y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</pre>
+    <pre class="usage"><span class='fu'>z.test</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>alternative</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"two.sided"</span>, <span class='st'>"less"</span>, <span class='st'>"greater"</span>),
+  <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='no'>sigma_x</span>,
+  <span class='kw'>sigma_y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>paired</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>conf.level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,7 +179,8 @@ variances for x and y and p-value and related calculations use a standard normal
     </tr>
     <tr>
       <th>y</th>
-      <td><p>An optional (non-empty) numeric vector of data values.</p></td>
+      <td><p>An optional (non-empty) numeric vector of data values. If omitted, a one-sample
+test is conducted.</p></td>
     </tr>
     <tr>
       <th>alternative</th>
@@ -200,7 +208,7 @@ you are performing a two sample test).</p></td>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>t.test from the stats package.</p>
+    <p><a href='https://rdrr.io/r/stats/t.test.html'>stats::t.test</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An object of class <code>htest</code>, see <a href='https://rdrr.io/r/stats/t.test.html'>stats::t.test</a></p>
