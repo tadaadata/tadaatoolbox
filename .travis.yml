@@ -1,8 +1,5 @@
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 language: R
 cache: packages
-
 matrix:
   include:
   - r: devel
@@ -14,10 +11,8 @@ matrix:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github(run_dont_run = FALSE)'
       skip_cleanup: true
-#  - r: oldrel
-#  - r: 3.4
-#  - r: 3.3
-#  - r: 3.2
 
 notifications:
-  slack: tadaadata:I5XxVZ1gO6B1s0xTjPDQVw0t
+  slack:
+    rooms:
+      secure: KnMlpStbScWQMt/HBCLo3T9G5rwtOjWLpti9kqdY5umF66prD2gdcr6VgOT656FbiRB9tcHbLhKLnYhoyb5b1DMr8I7F1TA8OqTYC3DbVvSP1IMxq7infKmjE/bSxdjFvwZ+vz6/oLci90Xj6a9E3bTgY49cUOZ9e7ah99Nt09F4cgQGWlP5xLi6HdNTmMGwzG1R/fbxSmqBE5PHk8nXHdOU3B3Aa962hEVzg8UEXKHgyuvWmAPe54iqAuTPndbsiyI5L7LmrAeNXsCBBfdZ2h9d+dBx3Y7Cgn2YCmKCoZczrxP/x4BX6v2nuPkvU5r5fnQ10lrROsPCF3k1opjgx72Xr1a38FFkgoqNeWlmV0p3ipqBscn6Nb1O2dRMTpPiRCuM9w/7e74oQuzRxxEqJG/fAvlMyw/TTlmaymiz5mdHp0S1R7a0vbXi4dhrew8KKvpVL4qaodxbZ2entGMyaaHoszqPPDfnk6N68aBO/WoMgQxMOYDqmtzGMzkTy/Sh5AoQI7u1AWQCObJUKKGZgXavWVGHIVBbOuDGW3qPdC9IvtrFlg2hAboxc5dfUa114OM2ssG3KF/R3WZNSxjeOXcLnzq73MHvhawX6VGUDK8Kd27oR+KKyuDvy3bfxY6gKRSI9sgoUfvh/PcaRW/IQK6GD1RzayoqE4IOasmHQ+Q=
