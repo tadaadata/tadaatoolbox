@@ -13,7 +13,7 @@
 #' \dontrun{
 #' x <- c(1, 2, 6, 2, 1, 5, 7, 8, 4, 3, 2, 2, 2)
 #' modus(x)
-#' 
+#'
 #' # Or for nominal data
 #' x <- structure(c(2L, 1L, 2L, 2L, 2L, 1L), .Label = c("Ja", "Nein"), class = "factor")
 #' modus(x)

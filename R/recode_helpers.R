@@ -12,7 +12,7 @@
 #' \dontrun{
 #' x <- round(runif(100, 0, 100), 0)
 #' recodes <- generate_recodes(0, 100, 10)
-#' 
+#'
 #' library(car)
 #' recode(x, recodes = recodes)
 #' }
@@ -38,7 +38,7 @@ generate_recodes <- function(from, to, width = 5) {
 #' \dontrun{
 #' x <- round(runif(100, 0, 100), 0)
 #' labels <- interval_labels(0, 100, 10)
-#' 
+#'
 #' cut(x, breaks = seq(0, 100, 10), labels = labels)
 #' }
 interval_labels <- function(from, to, width = 5) {

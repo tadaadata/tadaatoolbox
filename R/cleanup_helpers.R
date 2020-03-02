@@ -13,9 +13,9 @@
 #'   y = sample(c(1:10, NA), 10),
 #'   z = sample(c(1:10, NA), 10)
 #' )
-#' 
+#'
 #' df <- delete_na(df, 1)
-#' 
+#'
 #' # Or with magrittr syntax sugar
 #' df %<>% delete_na
 #' }

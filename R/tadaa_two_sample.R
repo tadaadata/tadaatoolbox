@@ -236,8 +236,10 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 #'
 #' @examples
 #' set.seed(192)
-#' df <- data.frame(lefties = rnorm(10, mean = 5, sd = 2),
-#'                  righties = rnorm(10, mean = 5.5, sd = 2.5))
+#' df <- data.frame(
+#'   lefties = rnorm(10, mean = 5, sd = 2),
+#'   righties = rnorm(10, mean = 5.5, sd = 2.5)
+#' )
 #' tadaa_z.test(data = df, x = lefties, y = righties, sigma_x = 2, sigma_y = 2.5, print = "console")
 tadaa_z.test <- function(data, x, y, sigma_x, sigma_y, direction = "two.sided",
                          paired = FALSE,
@@ -297,9 +299,9 @@ tadaa_z.test <- function(data, x, y, sigma_x, sigma_y, direction = "two.sided",
   } else {
     method <- trimws(as.character(test$method))
     alternative <- switch(direction,
-                          "two.sided" = "$\\mu_1 \\neq \\mu_2$",
-                          "greater" = "$\\mu_1 > \\mu_2$",
-                          "less" = "$\\mu_1 < \\mu_2$"
+      "two.sided" = "$\\mu_1 \\neq \\mu_2$",
+      "greater" = "$\\mu_1 > \\mu_2$",
+      "less" = "$\\mu_1 < \\mu_2$"
     )
 
     caption <- paste0("**", method, "** with alternative hypothesis: ", alternative)

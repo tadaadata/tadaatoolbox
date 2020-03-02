@@ -41,7 +41,9 @@ why not.
 }
 \examples{
 set.seed(192)
-df <- data.frame(lefties = rnorm(10, mean = 5, sd = 2),
-                 righties = rnorm(10, mean = 5.5, sd = 2.5))
+df <- data.frame(
+  lefties = rnorm(10, mean = 5, sd = 2),
+  righties = rnorm(10, mean = 5.5, sd = 2.5)
+)
 tadaa_z.test(data = df, x = lefties, y = righties, sigma_x = 2, sigma_y = 2.5, print = "console")
 }

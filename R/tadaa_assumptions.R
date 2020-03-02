@@ -22,7 +22,7 @@
 #' ngo %>%
 #'   select(englisch, deutsch, mathe) %>%
 #'   tadaa_normtest(method = "shapiro")
-#' 
+#'
 #' ngo %>%
 #'   select(englisch, deutsch, mathe) %>%
 #'   tadaa_normtest(method = "pearson", print = "console")

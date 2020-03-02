@@ -22,7 +22,7 @@
 #' @import ggplot2
 #' @examples
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl)
-#' 
+#'
 #' # As grid, if cowplot is installed
 #' tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 tadaa_int <- function(data, response, group1, group2, grid = FALSE,

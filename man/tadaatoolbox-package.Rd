@@ -7,10 +7,10 @@
 \title{tadaatoolbox: Helpers for Data Analysis and Presentation Focused on
     Undergrad Psychology}
 \description{
-A teaching project that contains functions for the display of
-    statistical tests as well as some convenience functions for data
-    cleanup. It is meant to ease existing workflows with packages like
-    'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the
+A teaching project that contains functions for the
+    display of statistical tests as well as some convenience functions for
+    data cleanup. It is meant to ease existing workflows with packages
+    like 'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the
     functions prefixed with 'tadaa_', which are built to work in an
     interactive environment, but also print tidy markdown tables powered
     by 'pixiedust' for the creation of 'RMarkdown' reports.
