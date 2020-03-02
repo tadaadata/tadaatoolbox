@@ -114,8 +114,9 @@
 <a href="#tadaatoolbox" class="anchor"></a>tadaatoolbox</h1></div>
 <p><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version-ago/tadaatoolbox" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/tadaatoolbox" alt="CRAN_Downloads_Badge"></a> <a href="https://codecov.io/github/tadaadata/tadaatoolbox?branch=master"><img src="https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://doi.org/10.5281/zenodo.1494965"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg" alt="DOI"></a></p>
 <p><code>tadaatoolbox</code> contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.</p>
-<p>Please consider this as a teaching project and be careful if you intend to use it for production use.<br> To see what’s new, see <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md">NEWS.md</a>.<br>
-Also, since this project is still in the <code>0.x.y</code> version, you should expect the API to change at any time. Once we reach <code>1.0.0</code>, API changes will be rolled out more slowly and include deprecation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or <code>devtools</code>.</p>
+<p>Please consider this as a teaching project and be careful if you intend to use it for production use.<br>
+To see what’s new, see <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md">NEWS.md</a>.<br>
+Also, since this project is still in the <code>0.x.y</code> version, you should expect the API to change at any time. Once we reach <code>1.0.0</code>, API changes will be rolled out more slowly and include deprecation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or <code>remotes</code>.</p>
 </div>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
@@ -173,17 +174,15 @@ Here’s a few highlights:</p>
 <p>See all of them in action <a href="https://tadaatoolbox.tadaa-data.de/articles/test_output.html">in this vignette</a></p>
 <ul>
 <li>
-<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial (\eta^2), Cohen’s f and power.</li>
+<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial (\eta^2) and Cohen’s f.</li>
 <li>
 <code>tadaa_kruskal</code>: A wrapper for <code>kruskal.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
-<code>tadaa_t.test</code>: For <code>t.test</code> with automatic homogenity of variance detection, effect size and power.</li>
+<code>tadaa_t.test</code>: For <code>t.test</code> with automatic effect size.</li>
 <li>
 <code>tadaa_wilcoxon</code>: A wrapper for <code>wilcox.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
 <li>
 <code>tadaa_levene</code>: Wrapper for <code><a href="https://rdrr.io/pkg/car/man/leveneTest.html">car::leveneTest</a></code> tidied and optionally <code>pixiedust</code>ed.</li>
-<li>
-<code>tadaa_normtest</code> lets you do tests for normality (4 methods) over multiple variables.</li>
 <li>
 <code>tadaa_pairwise_t</code>, <code>tadaa_pairwise_gh</code> and <code>tadaa_pairwise_tukey</code> for various pairwise procedures.</li>
 </ul>
@@ -202,24 +201,6 @@ Here’s a few highlights:</p>
 <code>tadaa_plot_tukey</code>: For pretty <code>TukeyHSD</code> visualization.</li>
 </ul>
 </div>
-</div>
-<div id="dependencies" class="section level1">
-<h1 class="hasAnchor">
-<a href="#dependencies" class="anchor"></a>Dependencies</h1>
-<p>I rely on these awesome package for all the things this package does, so you might want to consider checking them out.</p>
-<ul>
-<li><strong>broom</strong></li>
-<li><strong>car</strong></li>
-<li><strong>DescTools</strong></li>
-<li><strong>ggplot2</strong></li>
-<li><strong>magrittr</strong></li>
-<li><strong>methods</strong></li>
-<li><strong>nortest</strong></li>
-<li><strong>pixiedust</strong></li>
-<li><strong>pwr</strong></li>
-<li><strong>stats</strong></li>
-<li><strong>viridis</strong></li>
-</ul>
 </div>
 <div id="code-of-conduct" class="section level1">
 <h1 class="hasAnchor">
