@@ -41,9 +41,6 @@ depending on \code{print}.
 }
 \description{
 An extension for \link[stats:t.test]{stats::t.test} with added boni and tidy and/or pretty output.
-Before a t-test is performed, \link[car:leveneTest]{car::leveneTest} is consulted as to wether
-heteroskedasticity is present (using the default \code{center = "mean"} method for
-a more robust test), and sets \code{var.equal} accordingly.
 The result is either returned as a \link[broom:tidy]{broom::tidy} \code{data.frame} or prettified using
 various \link[pixiedust:sprinkle]{pixiedust::sprinkle} shenanigans.
 }

@@ -1,5 +1,16 @@
 language: R
 cache: packages
+
+r_binary_packages
+ - broom
+ - car
+ - DescTools
+ - viridis
+ - rmarkdown
+ - ggplot2
+ - testthat
+ - cowplot
+
 matrix:
   include:
   - r: devel

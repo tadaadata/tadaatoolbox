@@ -1,9 +1,6 @@
 #' Tadaa, t-Test!
 #'
 #' An extension for [stats::t.test] with added boni and tidy and/or pretty output.
-#' Before a t-test is performed, [car::leveneTest] is consulted as to wether
-#' heteroskedasticity is present (using the default `center = "mean"` method for
-#' a more robust test), and sets `var.equal` accordingly.
 #' The result is either returned as a [broom::tidy] `data.frame` or prettified using
 #' various [pixiedust::sprinkle] shenanigans.
 #'
