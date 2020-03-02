@@ -4,9 +4,17 @@
 \alias{tadaa_int}
 \title{Interaction plots}
 \usage{
-tadaa_int(data, response, group1, group2, grid = FALSE,
-  brewer_palette = "Set1", labels = c("A", "B"), show_n = FALSE,
-  print = TRUE)
+tadaa_int(
+  data,
+  response,
+  group1,
+  group2,
+  grid = FALSE,
+  brewer_palette = "Set1",
+  labels = c("A", "B"),
+  show_n = FALSE,
+  print = TRUE
+)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -46,8 +54,9 @@ tadaa_int(ngo, stunzahl, jahrgang, geschl)
 tadaa_int(ngo, stunzahl, jahrgang, geschl, grid = TRUE)
 }
 \seealso{
-Other Tadaa-plot functions: \code{\link{tadaa_balance}},
-  \code{\link{tadaa_mean_ci}},
-  \code{\link{tadaa_plot_tukey}}
+Other Tadaa-plot functions: 
+\code{\link{tadaa_balance}()},
+\code{\link{tadaa_mean_ci}()},
+\code{\link{tadaa_plot_tukey}()}
 }
 \concept{Tadaa-plot functions}

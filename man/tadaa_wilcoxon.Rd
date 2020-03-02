@@ -4,8 +4,15 @@
 \alias{tadaa_wilcoxon}
 \title{Tadaa, Wilcoxon!}
 \usage{
-tadaa_wilcoxon(data, response, group, direction = "two.sided",
-  paired = FALSE, print = c("df", "console", "html", "markdown"), ...)
+tadaa_wilcoxon(
+  data,
+  response,
+  group,
+  direction = "two.sided",
+  paired = FALSE,
+  print = c("df", "console", "html", "markdown"),
+  ...
+)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -38,14 +45,18 @@ df <- data.frame(x = runif(100), y = c(rep("A", 50), rep("B", 50)))
 tadaa_wilcoxon(df, x, y, paired = TRUE)
 }
 \seealso{
-Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},
-  \code{\link{tadaa_levene}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}},
-  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
-  \code{\link{tadaa_pairwise_tukey}},
-  \code{\link{tadaa_pairwise_t}},
-  \code{\link{tadaa_t.test}}
+Other Tadaa-functions: 
+\code{\link{tadaa_aov}()},
+\code{\link{tadaa_chisq}()},
+\code{\link{tadaa_kruskal}()},
+\code{\link{tadaa_levene}()},
+\code{\link{tadaa_nom}()},
+\code{\link{tadaa_normtest}()},
+\code{\link{tadaa_one_sample}()},
+\code{\link{tadaa_ord}()},
+\code{\link{tadaa_pairwise_gh}()},
+\code{\link{tadaa_pairwise_tukey}()},
+\code{\link{tadaa_pairwise_t}()},
+\code{\link{tadaa_t.test}()}
 }
 \concept{Tadaa-functions}

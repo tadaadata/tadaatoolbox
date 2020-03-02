@@ -4,9 +4,17 @@
 \alias{tadaa_pairwise_t}
 \title{Extended Pairwise t-Tests}
 \usage{
-tadaa_pairwise_t(data, response, group1, group2 = NULL,
-  p.adjust = "bonf", paired = FALSE, pool.sd = !paired,
-  alternative = "two.sided", print = "df")
+tadaa_pairwise_t(
+  data,
+  response,
+  group1,
+  group2 = NULL,
+  p.adjust = "bonf",
+  paired = FALSE,
+  pool.sd = !paired,
+  alternative = "two.sided",
+  print = "df"
+)
 }
 \arguments{
 \item{data}{A \code{data.frame} containing the variables.}
@@ -64,13 +72,18 @@ https://rdrr.io/rforge/mutoss/man/SidakSD.html
 \seealso{
 \code{\link[=tadaa_pairwise_tukey]{tadaa_pairwise_tukey()}}, \code{\link[=tadaa_pairwise_gh]{tadaa_pairwise_gh()}}
 
-Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},
-  \code{\link{tadaa_levene}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}},
-  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
-  \code{\link{tadaa_pairwise_tukey}},
-  \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
+Other Tadaa-functions: 
+\code{\link{tadaa_aov}()},
+\code{\link{tadaa_chisq}()},
+\code{\link{tadaa_kruskal}()},
+\code{\link{tadaa_levene}()},
+\code{\link{tadaa_nom}()},
+\code{\link{tadaa_normtest}()},
+\code{\link{tadaa_one_sample}()},
+\code{\link{tadaa_ord}()},
+\code{\link{tadaa_pairwise_gh}()},
+\code{\link{tadaa_pairwise_tukey}()},
+\code{\link{tadaa_t.test}()},
+\code{\link{tadaa_wilcoxon}()}
 }
 \concept{Tadaa-functions}

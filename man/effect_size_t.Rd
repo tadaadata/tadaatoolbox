@@ -4,8 +4,14 @@
 \alias{effect_size_t}
 \title{Simple Effect Size Calculation for t-Tests}
 \usage{
-effect_size_t(data, response, group, absolute = FALSE, paired = FALSE,
-  na.rm = TRUE)
+effect_size_t(
+  data,
+  response,
+  group,
+  absolute = FALSE,
+  paired = FALSE,
+  na.rm = TRUE
+)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}

@@ -22,7 +22,7 @@ Authors@R:
              family = "Graf",
              role = "ctb",
              email = "ggraf@uni-bremen.de"))
-Description: Contains functions for the easy display of
+Description: A teaching project that contains functions for the display of
     statistical tests as well as some convenience functions for data
     cleanup. It is meant to ease existing workflows with packages like
     'sjPlot', 'dplyr', and 'ggplot2'. The primary components are the
@@ -33,7 +33,7 @@ License: MIT + file LICENSE
 URL: https://github.com/tadaadata/tadaatoolbox
 BugReports: https://github.com/tadaadata/tadaatoolbox/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.2)
 Imports: 
     broom,
     car,
@@ -57,4 +57,4 @@ VignetteBuilder:
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

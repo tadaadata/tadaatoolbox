@@ -28,8 +28,9 @@ Easily generate heatmaps to show how well balanced groups are designed, e.g. for
 tadaa_balance(ngo, jahrgang, geschl)
 }
 \seealso{
-Other Tadaa-plot functions: \code{\link{tadaa_int}},
-  \code{\link{tadaa_mean_ci}},
-  \code{\link{tadaa_plot_tukey}}
+Other Tadaa-plot functions: 
+\code{\link{tadaa_int}()},
+\code{\link{tadaa_mean_ci}()},
+\code{\link{tadaa_plot_tukey}()}
 }
 \concept{Tadaa-plot functions}

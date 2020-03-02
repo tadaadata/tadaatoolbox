@@ -4,9 +4,17 @@
 \alias{tadaa_z.test}
 \title{Tadaa, z-test! No seriously.}
 \usage{
-tadaa_z.test(data, x, y, sigma_x, sigma_y, direction = "two.sided",
-  paired = FALSE, conf.level = 0.95, print = c("df", "console",
-  "html", "markdown"))
+tadaa_z.test(
+  data,
+  x,
+  y,
+  sigma_x,
+  sigma_y,
+  direction = "two.sided",
+  paired = FALSE,
+  conf.level = 0.95,
+  print = c("df", "console", "html", "markdown")
+)
 }
 \arguments{
 \item{data}{A \code{data.frame} containing variables.}

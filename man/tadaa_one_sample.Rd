@@ -4,9 +4,16 @@
 \alias{tadaa_one_sample}
 \title{Tadaa, one-sample tests!}
 \usage{
-tadaa_one_sample(data = NULL, x, mu, sigma = NULL,
-  direction = "two.sided", na.rm = FALSE, conf.level = 0.95,
-  print = c("df", "console", "html", "markdown"))
+tadaa_one_sample(
+  data = NULL,
+  x,
+  mu,
+  sigma = NULL,
+  direction = "two.sided",
+  na.rm = FALSE,
+  conf.level = 0.95,
+  print = c("df", "console", "html", "markdown")
+)
 }
 \arguments{
 \item{data}{A \code{data.frame} (optional).}
@@ -46,13 +53,18 @@ tadaa_one_sample(df, x, mu = 101, sigma = 1)
 tadaa_one_sample(x = rnorm(20), mu = 0)
 }
 \seealso{
-Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_chisq}}, \code{\link{tadaa_kruskal}},
-  \code{\link{tadaa_levene}}, \code{\link{tadaa_nom}},
-  \code{\link{tadaa_normtest}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
-  \code{\link{tadaa_pairwise_tukey}},
-  \code{\link{tadaa_pairwise_t}},
-  \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
+Other Tadaa-functions: 
+\code{\link{tadaa_aov}()},
+\code{\link{tadaa_chisq}()},
+\code{\link{tadaa_kruskal}()},
+\code{\link{tadaa_levene}()},
+\code{\link{tadaa_nom}()},
+\code{\link{tadaa_normtest}()},
+\code{\link{tadaa_ord}()},
+\code{\link{tadaa_pairwise_gh}()},
+\code{\link{tadaa_pairwise_tukey}()},
+\code{\link{tadaa_pairwise_t}()},
+\code{\link{tadaa_t.test}()},
+\code{\link{tadaa_wilcoxon}()}
 }
 \concept{Tadaa-functions}

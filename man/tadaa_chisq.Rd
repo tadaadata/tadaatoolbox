@@ -4,8 +4,13 @@
 \alias{tadaa_chisq}
 \title{Tadaa, Chi-Square Test!}
 \usage{
-tadaa_chisq(data, x, y, correct = TRUE, print = c("df", "console",
-  "html", "markdown"))
+tadaa_chisq(
+  data,
+  x,
+  y,
+  correct = TRUE,
+  print = c("df", "console", "html", "markdown")
+)
 }
 \arguments{
 \item{data}{A \code{data.frame}.}
@@ -41,13 +46,18 @@ tadaa_chisq(ngo, abschalt, geschl)
 tadaa_chisq(ngo, abschalt, jahrgang)
 }
 \seealso{
-Other Tadaa-functions: \code{\link{tadaa_aov}},
-  \code{\link{tadaa_kruskal}}, \code{\link{tadaa_levene}},
-  \code{\link{tadaa_nom}}, \code{\link{tadaa_normtest}},
-  \code{\link{tadaa_one_sample}}, \code{\link{tadaa_ord}},
-  \code{\link{tadaa_pairwise_gh}},
-  \code{\link{tadaa_pairwise_tukey}},
-  \code{\link{tadaa_pairwise_t}},
-  \code{\link{tadaa_t.test}}, \code{\link{tadaa_wilcoxon}}
+Other Tadaa-functions: 
+\code{\link{tadaa_aov}()},
+\code{\link{tadaa_kruskal}()},
+\code{\link{tadaa_levene}()},
+\code{\link{tadaa_nom}()},
+\code{\link{tadaa_normtest}()},
+\code{\link{tadaa_one_sample}()},
+\code{\link{tadaa_ord}()},
+\code{\link{tadaa_pairwise_gh}()},
+\code{\link{tadaa_pairwise_tukey}()},
+\code{\link{tadaa_pairwise_t}()},
+\code{\link{tadaa_t.test}()},
+\code{\link{tadaa_wilcoxon}()}
 }
 \concept{Tadaa-functions}

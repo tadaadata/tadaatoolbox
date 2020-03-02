@@ -26,7 +26,9 @@ Plot Means with Errorbars
 tadaa_mean_ci(ngo, deutsch, jahrgang, brewer_palette = "Set1")
 }
 \seealso{
-Other Tadaa-plot functions: \code{\link{tadaa_balance}},
-  \code{\link{tadaa_int}}, \code{\link{tadaa_plot_tukey}}
+Other Tadaa-plot functions: 
+\code{\link{tadaa_balance}()},
+\code{\link{tadaa_int}()},
+\code{\link{tadaa_plot_tukey}()}
 }
 \concept{Tadaa-plot functions}

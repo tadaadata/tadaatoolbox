@@ -16,3 +16,4 @@ dev/*
 ^data-raw$
 ^codecov\.yml$
 ^build_all\.R$
+^\.covrignore$

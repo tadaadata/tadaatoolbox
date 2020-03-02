@@ -7,9 +7,16 @@
 \link[stats:t.test]{stats::t.test}
 }
 \usage{
-z.test(x, y = NULL, alternative = c("two.sided", "less", "greater"),
-  mu = 0, sigma_x, sigma_y = NULL, paired = FALSE,
-  conf.level = 0.95)
+z.test(
+  x,
+  y = NULL,
+  alternative = c("two.sided", "less", "greater"),
+  mu = 0,
+  sigma_x,
+  sigma_y = NULL,
+  paired = FALSE,
+  conf.level = 0.95
+)
 }
 \arguments{
 \item{x}{A (non-empty) numeric vector of data values}
