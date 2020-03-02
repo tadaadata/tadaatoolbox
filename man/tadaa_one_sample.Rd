@@ -59,7 +59,6 @@ Other Tadaa-functions:
 \code{\link{tadaa_kruskal}()},
 \code{\link{tadaa_levene}()},
 \code{\link{tadaa_nom}()},
-\code{\link{tadaa_normtest}()},
 \code{\link{tadaa_ord}()},
 \code{\link{tadaa_pairwise_gh}()},
 \code{\link{tadaa_pairwise_tukey}()},

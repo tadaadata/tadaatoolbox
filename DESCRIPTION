@@ -40,7 +40,6 @@ Imports:
     ggplot2,
     magrittr,
     methods,
-    nortest,
     pixiedust,
     stats,
     viridis

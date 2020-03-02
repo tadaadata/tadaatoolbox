@@ -33,7 +33,6 @@ Other Tadaa-functions:
 \code{\link{tadaa_chisq}()},
 \code{\link{tadaa_levene}()},
 \code{\link{tadaa_nom}()},
-\code{\link{tadaa_normtest}()},
 \code{\link{tadaa_one_sample}()},
 \code{\link{tadaa_ord}()},
 \code{\link{tadaa_pairwise_gh}()},

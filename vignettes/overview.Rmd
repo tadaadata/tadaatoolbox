@@ -76,28 +76,6 @@ tadaa_pairwise_t(ngo, response = deutsch, group1 = jahrgang, group2 = geschl, p.
 ```
 
 
-## Tests for normality: `tadaa_normtest`
-
-Supported methods:
-    - `ad`: Anderson-Darling
-    - `shapiro`: Shapiro-Wilk
-    - `pearson`: Pearson's chi-square test
-    - `ks`: Kolmogorov-Smirnov
-    
-```{r normtest, eval=FALSE}
-library(dplyr)
-print("test")
-cols <- ngo[c("deutsch", "englisch", "mathe")]
-
-tadaa_normtest(data = cols, method = "shapiro", print = "markdown")
-```
-
-|variable | statistic|   p.value|method                      |
-|:--------|---------:|---------:|:---------------------------|
-|deutsch  | 0.9792137| 0.0010092|Shapiro-Wilk normality test |
-|englisch | 0.9752944| 0.0002421|Shapiro-Wilk normality test |
-|mathe    | 0.9746956| 0.0001962|Shapiro-Wilk normality test |
-
 # Statistics Wrappers
 
 These are pretty self-explanatory. The goal is to provide simple functions for commonly used statistics that look and behave the same, and also only return a single numerical value to play nice with `dplyr::summarize`.
@@ -123,7 +101,7 @@ These are pretty self-explanatory. The goal is to provide simple functions for c
 * `generate_recodes`: To produce recode assignments for `car::recode` for evenly sequenced clusters.
 * `interval_labels`: To produce labels for clusters created by `cut`.
 * `delete_na`: Customizable way to drop `NA` observations from a dataset.
-* `pval_string`: Shamalessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
+* `pval_string`: Shamelessly adapted from `pixiedust::pvalString`, this will format a p-value as a character string in common `p < 0.001` notation and so on. The difference from the `pixiedust` version is that this function will also print `p < 0.05`.
 
 ## Plotting helpers
 

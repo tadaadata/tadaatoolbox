@@ -11,6 +11,7 @@
   - `tadaa_t.test()`
   - `tadaa_aov()`
   - `tadaa_one_sample()`
+- Remove `tadaa_normtest()`. It never should have been a thing in the first place.
 
 # tadaatoolbox 0.16.1
 
