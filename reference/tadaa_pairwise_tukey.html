@@ -81,7 +81,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -131,7 +131,7 @@ enable a consistent usage between the tadaa_pairwise-functions." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/tadaadata/tadaatoolbox">
+  <a href="https://github.com/tadaadata/tadaatoolbox/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -214,43 +214,38 @@ passed to <a href='https://rdrr.io/pkg/pixiedust/man/sprinkle.html'>pixiedust::s
 <code><a href='tadaa_wilcoxon.html'>tadaa_wilcoxon</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><div class='output co'>#&gt; # A tibble: 19 x 6
+    <pre class="examples"><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='no'>geschl</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 19 x 6</span><span>
 #&gt;    term            comparison            estimate conf.low conf.high adj.p.value
-#&gt;    &lt;chr&gt;           &lt;chr&gt;                    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-#&gt;  1 jahrgang        12-11                   0.0500  -0.590      0.690 0.981      
-#&gt;  2 jahrgang        13-11                   1.17     0.387      1.95  0.00148    
-#&gt;  3 jahrgang        13-12                   1.12     0.337      1.90  0.00250    
-#&gt;  4 geschl          Weiblich-Männlich       1.03     0.554      1.51  0.0000300  
-#&gt;  5 jahrgang:geschl 12:Männlich-11:Männl…   0.740   -0.362      1.84  0.387      
-#&gt;  6 jahrgang:geschl 13:Männlich-11:Männl…   1.16    -0.190      2.51  0.138      
-#&gt;  7 jahrgang:geschl 11:Weiblich-11:Männl…   1.58     0.478      2.68  0.000736   
-#&gt;  8 jahrgang:geschl 12:Weiblich-11:Männl…   0.940   -0.162      2.04  0.143      
-#&gt;  9 jahrgang:geschl 13:Weiblich-11:Männl…   2.76     1.41       4.11  0.000000207
-#&gt; 10 jahrgang:geschl 13:Männlich-12:Männl…   0.420   -0.930      1.77  0.948      
-#&gt; 11 jahrgang:geschl 11:Weiblich-12:Männl…   0.840   -0.262      1.94  0.246      
-#&gt; 12 jahrgang:geschl 12:Weiblich-12:Männl…   0.200   -0.902      1.30  0.995      
-#&gt; 13 jahrgang:geschl 13:Weiblich-12:Männl…   2.02     0.670      3.37  0.000354   
-#&gt; 14 jahrgang:geschl 11:Weiblich-13:Männl…   0.420   -0.930      1.77  0.948      
-#&gt; 15 jahrgang:geschl 12:Weiblich-13:Männl…  -0.220   -1.57       1.13  0.997      
-#&gt; 16 jahrgang:geschl 13:Weiblich-13:Männl…   1.60     0.0415     3.16  0.0404     
-#&gt; 17 jahrgang:geschl 12:Weiblich-11:Weibl…  -0.640   -1.74       0.462 0.554      
-#&gt; 18 jahrgang:geschl 13:Weiblich-11:Weibl…   1.18    -0.170      2.53  0.125      
-#&gt; 19 jahrgang:geschl 13:Weiblich-12:Weibl…   1.82     0.470      3.17  0.00190    </div><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;       Term Comparison Diff CI_low CI_high p (adj.)
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> jahrgang        12-11                   0.050</span><span style='text-decoration: underline;'>0</span><span>  -</span><span style='color: #BB0000;'>0.590</span><span>      0.690 0.981      
+#&gt; </span><span style='color: #555555;'> 2</span><span> jahrgang        13-11                   1.17     0.387      1.95  0.001</span><span style='text-decoration: underline;'>48</span><span>    
+#&gt; </span><span style='color: #555555;'> 3</span><span> jahrgang        13-12                   1.12     0.337      1.90  0.002</span><span style='text-decoration: underline;'>50</span><span>    
+#&gt; </span><span style='color: #555555;'> 4</span><span> geschl          Weiblich-Männlich       1.03     0.554      1.51  0.000</span><span style='text-decoration: underline;'>030</span><span>0  
+#&gt; </span><span style='color: #555555;'> 5</span><span> jahrgang:geschl 12:Männlich-11:Männl…   0.740   -</span><span style='color: #BB0000;'>0.362</span><span>      1.84  0.387      
+#&gt; </span><span style='color: #555555;'> 6</span><span> jahrgang:geschl 13:Männlich-11:Männl…   1.16    -</span><span style='color: #BB0000;'>0.190</span><span>      2.51  0.138      
+#&gt; </span><span style='color: #555555;'> 7</span><span> jahrgang:geschl 11:Weiblich-11:Männl…   1.58     0.478      2.68  0.000</span><span style='text-decoration: underline;'>736</span><span>   
+#&gt; </span><span style='color: #555555;'> 8</span><span> jahrgang:geschl 12:Weiblich-11:Männl…   0.940   -</span><span style='color: #BB0000;'>0.162</span><span>      2.04  0.143      
+#&gt; </span><span style='color: #555555;'> 9</span><span> jahrgang:geschl 13:Weiblich-11:Männl…   2.76     1.41       4.11  0.000</span><span style='text-decoration: underline;'>000</span><span>207
+#&gt; </span><span style='color: #555555;'>10</span><span> jahrgang:geschl 13:Männlich-12:Männl…   0.420   -</span><span style='color: #BB0000;'>0.930</span><span>      1.77  0.948      
+#&gt; </span><span style='color: #555555;'>11</span><span> jahrgang:geschl 11:Weiblich-12:Männl…   0.840   -</span><span style='color: #BB0000;'>0.262</span><span>      1.94  0.246      
+#&gt; </span><span style='color: #555555;'>12</span><span> jahrgang:geschl 12:Weiblich-12:Männl…   0.200   -</span><span style='color: #BB0000;'>0.902</span><span>      1.30  0.995      
+#&gt; </span><span style='color: #555555;'>13</span><span> jahrgang:geschl 13:Weiblich-12:Männl…   2.02     0.670      3.37  0.000</span><span style='text-decoration: underline;'>354</span><span>   
+#&gt; </span><span style='color: #555555;'>14</span><span> jahrgang:geschl 11:Weiblich-13:Männl…   0.420   -</span><span style='color: #BB0000;'>0.930</span><span>      1.77  0.948      
+#&gt; </span><span style='color: #555555;'>15</span><span> jahrgang:geschl 12:Weiblich-13:Männl…  -</span><span style='color: #BB0000;'>0.220</span><span>   -</span><span style='color: #BB0000;'>1.57</span><span>       1.13  0.997      
+#&gt; </span><span style='color: #555555;'>16</span><span> jahrgang:geschl 13:Weiblich-13:Männl…   1.60     0.041</span><span style='text-decoration: underline;'>5</span><span>     3.16  0.040</span><span style='text-decoration: underline;'>4</span><span>     
+#&gt; </span><span style='color: #555555;'>17</span><span> jahrgang:geschl 12:Weiblich-11:Weibl…  -</span><span style='color: #BB0000;'>0.640</span><span>   -</span><span style='color: #BB0000;'>1.74</span><span>       0.462 0.554      
+#&gt; </span><span style='color: #555555;'>18</span><span> jahrgang:geschl 13:Weiblich-11:Weibl…   1.18    -</span><span style='color: #BB0000;'>0.170</span><span>      2.53  0.125      
+#&gt; </span><span style='color: #555555;'>19</span><span> jahrgang:geschl 13:Weiblich-12:Weibl…   1.82     0.470      3.17  0.001</span><span style='text-decoration: underline;'>90</span><span>    </div><div class='input'><span class='fu'>tadaa_pairwise_tukey</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ngo</span>, <span class='no'>deutsch</span>, <span class='no'>jahrgang</span>, <span class='kw'>print</span> <span class='kw'>=</span> <span class='st'>"console"</span>)</div><div class='output co'>#&gt;       Term Comparison Diff CI_low CI_high p (adj.)
 #&gt; 1 jahrgang      12-11 0.05 -0.619   0.719     .983
 #&gt; 2 jahrgang      13-11 1.17  0.351   1.989    &lt; .01
 #&gt; 3 jahrgang      13-12 1.12  0.301   1.939    &lt; .01
 #&gt; 
-#&gt; </div></pre>
+#&gt; </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -261,7 +256,7 @@ passed to <a href='https://rdrr.io/pkg/pixiedust/man/sprinkle.html'>pixiedust::s
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

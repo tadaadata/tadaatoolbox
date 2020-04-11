@@ -75,7 +75,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -125,7 +125,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/tadaadata/tadaatoolbox">
+  <a href="https://github.com/tadaadata/tadaatoolbox/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -143,12 +143,12 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="tadaatoolbox-development-version" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="development version">
 <a href="#tadaatoolbox-development-version" class="anchor"></a>tadaatoolbox (development version)<small> Unreleased </small>
 </h1>
 <ul>
@@ -172,27 +172,27 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-16-1" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-16-1" class="anchor"></a>tadaatoolbox 0.16.1<small> 2018-11-23 </small>
+    <div id="tadaatoolbox-0161" class="section level1">
+<h1 class="page-header" data-toc-text="0.16.1">
+<a href="#tadaatoolbox-0161" class="anchor"></a>tadaatoolbox 0.16.1<small> 2018-11-23 </small>
 </h1>
 <ul>
 <li>Add <code><a href="../reference/inv.html">inv()</a></code> for inverting Likert-scales</li>
 <li>Make <code><a href="../reference/pval_string.html">pval_string()</a></code> conform to APA guidelines (no more leading zeros)</li>
-<li>More accurate R dependency (<code>R &gt;= 2.10</code>) (i.e. <em>more</em> inclusive)</li>
+<li>More accurate R dependency (<code>R &gt;= 2.10</code>) (i.e. <em>more</em> inclusive)</li>
 <li>Add a bunch more tests</li>
 </ul>
 </div>
-    <div id="tadaatoolbox-0-16-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-16-0" class="anchor"></a>tadaatoolbox 0.16.0<small> 2018-01-10 </small>
+    <div id="tadaatoolbox-0160" class="section level1">
+<h1 class="page-header" data-toc-text="0.16.0">
+<a href="#tadaatoolbox-0160" class="anchor"></a>tadaatoolbox 0.16.0<small> 2018-01-10 </small>
 </h1>
-<div id="fixes-features" class="section level2">
+<div id="fixes--features" class="section level2">
 <h2 class="hasAnchor">
-<a href="#fixes-features" class="anchor"></a>Fixes &amp; Features</h2>
+<a href="#fixes--features" class="anchor"></a>Fixes &amp; Features</h2>
 <ul>
-<li>Add <code>ord_pairs</code> to retrieve $N_c$, $N_d$, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from <a href="https://gist.github.com/marcschwartz/3665743">this gist</a>.</li>
-<li>Add <code>etasq</code> in case you want to show students what $\eta^2$ is without having to explain ANOVA.</li>
+<li>Add <code>ord_pairs</code> to retrieve <span class="math inline"><em>N</em><sub><em>c</em></sub></span>, <span class="math inline"><em>N</em><sub><em>d</em></sub></span>, ties and total number of pairs for contingency tables. Internals for this function are straight up copied from <a href="https://gist.github.com/marcschwartz/3665743">this gist</a>.</li>
+<li>Add <code>etasq</code> in case you want to show students what <span class="math inline"><em>η</em><sup>2</sup></span> is without having to explain ANOVA.</li>
 <li>Fix <code>ord_somers_d</code> not returning the correct value for <code>symmetric = TRUE</code>
 </li>
 <li>Removed <code>drop_labels</code> because <code>sjlabelled::zap_labels</code> is a thing</li>
@@ -226,9 +226,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-15-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-15-0" class="anchor"></a>tadaatoolbox 0.15.0<small> 2017-12-15 </small>
+    <div id="tadaatoolbox-0150" class="section level1">
+<h1 class="page-header" data-toc-text="0.15.0">
+<a href="#tadaatoolbox-0150" class="anchor"></a>tadaatoolbox 0.15.0<small> 2017-12-15 </small>
 </h1>
 <ul>
 <li>Fix error in SEM calculation in <code>tadaa_one_sample</code> for t-tests</li>
@@ -248,9 +248,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-14-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-14-0" class="anchor"></a>tadaatoolbox 0.14.0<small> 2017-11-05 </small>
+    <div id="tadaatoolbox-0140" class="section level1">
+<h1 class="page-header" data-toc-text="0.14.0">
+<a href="#tadaatoolbox-0140" class="anchor"></a>tadaatoolbox 0.14.0<small> 2017-11-05 </small>
 </h1>
 <ul>
 <li>Silence warnings in functions using <code>chisq.test</code>
@@ -263,15 +263,15 @@
 </li>
 </ul>
 </div>
-    <div id="tadaatoolbox-0-13-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-13-0" class="anchor"></a>tadaatoolbox 0.13.0<small> 2017-07-12 </small>
+    <div id="tadaatoolbox-0130" class="section level1">
+<h1 class="page-header" data-toc-text="0.13.0">
+<a href="#tadaatoolbox-0130" class="anchor"></a>tadaatoolbox 0.13.0<small> 2017-07-12 </small>
 </h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
 <ul>
-<li>Add <code>tadaa_chisq</code> for a $\chi^2$-Test with OR and effect size.</li>
+<li>Add <code>tadaa_chisq</code> for a <span class="math inline"><em>χ</em><sup>2</sup></span>-Test with OR and effect size.</li>
 </ul>
 </div>
 <div id="under-the-hood" class="section level2">
@@ -285,9 +285,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-12-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-12-0" class="anchor"></a>tadaatoolbox 0.12.0<small> 2017-06-02 </small>
+    <div id="tadaatoolbox-0120" class="section level1">
+<h1 class="page-header" data-toc-text="0.12.0">
+<a href="#tadaatoolbox-0120" class="anchor"></a>tadaatoolbox 0.12.0<small> 2017-06-02 </small>
 </h1>
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
@@ -324,9 +324,9 @@
 </li>
 </ul>
 </div>
-<div id="tweaks-patches-bug-fixes" class="section level2">
+<div id="tweaks-patches--bug-fixes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tweaks-patches-bug-fixes" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
+<a href="#tweaks-patches--bug-fixes" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
 <ul>
 <li>
 <code>theme_tadaa</code>:
@@ -341,9 +341,9 @@
 <li>Default <code>type</code> is now <code>3</code>, for generally safer results and consistency with SPSS.</li>
 <li>Added <code>check_contrasts</code> option for <code>type = 3</code> sums of squares, which ensures each non-ordered factor has <code>contr.sum</code> contrasts</li>
 <li>Now auto-factorizes independent variables by default, fixes <a href='https://github.com/tadaadata/tadaatoolbox/issues/24'>#24</a>.</li>
-<li>Now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code><a href="https://rdrr.io/r/base/library.html">library(methods)</a></code> as a workaround.</li>
+<li>Now imports <code>methods</code>, which should fix an issue during <code>knitr</code> or <code>rmarkdown</code> processing where the function <code>is</code> couldn’t be found. If not, manually <code><a href="https://rdrr.io/r/methods">library(methods)</a></code> as a workaround.</li>
 <li>Fix wrong <code>sprinkle</code> labelling causing <code>eta.sq</code> to be formatted like a p-value.</li>
-<li>Added <code>show_power</code> argument to calculate power via <code><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr::pwr.f2.test</a></code>.
+<li>Added <code>show_power</code> argument to calculate power via <code>pwr::pwr.f2.test</code>.
 <ul>
 <li>Requires more testing against software like G*power to ensure accuracy.</li>
 </ul>
@@ -355,7 +355,7 @@
 <ul>
 <li>Internal Levene test now uses <code>center = "median"</code> for more robust results, as it should.
 <ul>
-<li>Now also uses $\alpha = 0.05$ instead of $\alpha = 0.1$.</li>
+<li>Now also uses <span class="math inline"><em>α</em> = 0.05</span> instead of <span class="math inline"><em>α</em> = 0.1</span>.</li>
 <li>Use new argument <code>var.equal</code> to override internal Levene test.</li>
 </ul>
 </li>
@@ -386,7 +386,7 @@
 <code>tadaa_one_sample</code>: Should make sense now.</li>
 <li>Remove <code>na.rm</code> argument from <code>tadaa_t.test</code> and <code>tadaa_wilcoxon</code> because it’s problematic, and in case of <code>paired = TRUE</code> it would have produced flat out wrong results.</li>
 <li>Documentation improvements</li>
-<li>Improved <code>print = markdown</code> output of <code>tadaa_aov</code>, <code>tadaa_t.test</code>, <code>tadaa_wilcoxon</code>, <code>tadaa_one_sample</code>, <code>tadaa_kruskal</code>. Unfortunately <code>print = "console"</code> now has headers with unparsed $\LaTeX$-expressions, but who uses that anyway.</li>
+<li>Improved <code>print = markdown</code> output of <code>tadaa_aov</code>, <code>tadaa_t.test</code>, <code>tadaa_wilcoxon</code>, <code>tadaa_one_sample</code>, <code>tadaa_kruskal</code>. Unfortunately <code>print = "console"</code> now has headers with unparsed <span class="math inline">$\LaTeX$</span>-expressions, but who uses that anyway.</li>
 </ul>
 </div>
 <div id="deprecations" class="section level2">
@@ -400,9 +400,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-11-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-11-0" class="anchor"></a>tadaatoolbox 0.11.0<small> 2017-05-15 </small>
+    <div id="tadaatoolbox-0110" class="section level1">
+<h1 class="page-header" data-toc-text="0.11.0">
+<a href="#tadaatoolbox-0110" class="anchor"></a>tadaatoolbox 0.11.0<small> 2017-05-15 </small>
 </h1>
 <div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
@@ -431,9 +431,9 @@
 <li>Add <code>show_n</code> option to <code>tadaa_int</code>: Optionally display N in subtitle.</li>
 </ul>
 </div>
-<div id="tweaks-patches-bug-fixes-1" class="section level2">
+<div id="tweaks-patches--bug-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tweaks-patches-bug-fixes-1" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
+<a href="#tweaks-patches--bug-fixes-1" class="anchor"></a>Tweaks, Patches &amp; Bug Fixes</h2>
 <ul>
 <li>Fix documentation inconsistencies.</li>
 <li>Turns out <code><a href="../reference/pval_string.html">pval_string(0.05)</a></code> returned <code>&lt; 0.05</code>. Well. That was embarrassing.</li>
@@ -448,9 +448,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-10-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-10-0" class="anchor"></a>tadaatoolbox 0.10.0<small> 2016-08-18 </small>
+    <div id="tadaatoolbox-0100" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.0">
+<a href="#tadaatoolbox-0100" class="anchor"></a>tadaatoolbox 0.10.0<small> 2016-08-18 </small>
 </h1>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
@@ -486,9 +486,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-9-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-9-0" class="anchor"></a>tadaatoolbox 0.9.0<small> 2016-02-18 </small>
+    <div id="tadaatoolbox-090" class="section level1">
+<h1 class="page-header" data-toc-text="0.9.0">
+<a href="#tadaatoolbox-090" class="anchor"></a>tadaatoolbox 0.9.0<small> 2016-02-18 </small>
 </h1>
 <div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
@@ -510,9 +510,9 @@
 </ul>
 </div>
 </div>
-    <div id="tadaatoolbox-0-8-1" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-8-1" class="anchor"></a>tadaatoolbox 0.8.1<small> Unreleased </small>
+    <div id="tadaatoolbox-081" class="section level1">
+<h1 class="page-header" data-toc-text="0.8.1">
+<a href="#tadaatoolbox-081" class="anchor"></a>tadaatoolbox 0.8.1<small> Unreleased </small>
 </h1>
 <ul>
 <li>Fix typo in <code>DESCRIPTION</code>, misspelling <code>pixiedust</code>. Sorry!</li>
@@ -530,9 +530,9 @@
 </li>
 </ul>
 </div>
-    <div id="tadaatoolbox-0-8-0" class="section level1">
-<h1 class="page-header">
-<a href="#tadaatoolbox-0-8-0" class="anchor"></a>tadaatoolbox 0.8.0<small> 2016-02-13 </small>
+    <div id="tadaatoolbox-080" class="section level1">
+<h1 class="page-header" data-toc-text="0.8.0">
+<a href="#tadaatoolbox-080" class="anchor"></a>tadaatoolbox 0.8.0<small> 2016-02-13 </small>
 </h1>
 <ul>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
@@ -543,24 +543,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#tadaatoolbox-development-version">development version</a></li>
-        <li><a href="#tadaatoolbox-0-16-1">0.16.1</a></li>
-        <li><a href="#tadaatoolbox-0-16-0">0.16.0</a></li>
-        <li><a href="#tadaatoolbox-0-15-0">0.15.0</a></li>
-        <li><a href="#tadaatoolbox-0-14-0">0.14.0</a></li>
-        <li><a href="#tadaatoolbox-0-13-0">0.13.0</a></li>
-        <li><a href="#tadaatoolbox-0-12-0">0.12.0</a></li>
-        <li><a href="#tadaatoolbox-0-11-0">0.11.0</a></li>
-        <li><a href="#tadaatoolbox-0-10-0">0.10.0</a></li>
-        <li><a href="#tadaatoolbox-0-9-0">0.9.0</a></li>
-        <li><a href="#tadaatoolbox-0-8-1">0.8.1</a></li>
-        <li><a href="#tadaatoolbox-0-8-0">0.8.0</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -572,7 +558,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

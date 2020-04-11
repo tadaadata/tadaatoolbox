@@ -1,9 +1,10 @@
-pandoc: '2.2'
-pkgdown: 1.4.1
-pkgdown_sha: ~
+pandoc: 2.7.3
+pkgdown: 1.5.1.9000
+pkgdown_sha: cb74ce08c4b25adda98256ea46196b1182f4e0ea
 articles:
   overview: overview.html
   test_output: test_output.html
+last_built: 2020-04-11T23:49Z
 urls:
   reference: https://tadaatoolbox.tadaa-data.de/reference
   article: https://tadaatoolbox.tadaa-data.de/articles

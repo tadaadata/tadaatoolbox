@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Function Overview">
-<meta property="og:description" content="">
+<meta property="og:description" content="tadaatoolbox">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -34,7 +34,7 @@
 </script><noscript><p><img src="https://analytics.tadaa-data.de/matomo.php?idsite=21&amp;rec=1" style="border:0;" alt=""></p></noscript>
 <!-- End Matomo Code -->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -83,7 +83,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/tadaadata/tadaatoolbox">
+  <a href="https://github.com/tadaadata/tadaatoolbox/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -101,10 +101,10 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Function Overview</h1>
+      <h1 data-toc-skip>Function Overview</h1>
                         <h4 class="author">Lukas Burk</h4>
             
-            <h4 class="date">2020-03-07 UTC</h4>
+            <h4 class="date">2020-04-11 UTC</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/vignettes/overview.Rmd"><code>vignettes/overview.Rmd</code></a></small>
       <div class="hidden name"><code>overview.Rmd</code></div>
@@ -145,7 +145,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#t-tests-tadaa_t-test" class="anchor"></a>t-Tests: <code>tadaa_t.test</code>
 </h2>
 <p>The effect size <span class="math inline">\(d\)</span> is calculated with pooled/weighted variances to ensure accuracy. It then formats the output according to <code><a href="https://rdrr.io/pkg/broom/man/reexports.html">broom::tidy</a></code>, sprinkles it with <code>pixiedust</code> and prints either to console, markdown or whatever printing method is passed via the <code>print</code> argument to <code><a href="https://rdrr.io/pkg/pixiedust/man/sprinkle.html">pixiedust::sprinkle_print_method</a></code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_t.test.html">tadaa_t.test</a></span>(ngo, stunzahl, geschl, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_t.test.html">tadaa_t.test</a></span>(<span class="no">ngo</span>, <span class="no">stunzahl</span>, <span class="no">geschl</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <p>Table 1: <strong>Welch Two Sample t-test</strong> with alternative hypothesis: <span class="math inline">\(\mu_1 \neq \mu_2\)</span></p>
 <table class="table">
 <thead><tr class="header">
@@ -176,7 +176,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <p><br></p>
 <p><br></p>
 <p>Or, if you’re having a non-parametric day, try this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_wilcoxon.html">tadaa_wilcoxon</a></span>(ngo, stunzahl, geschl, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_wilcoxon.html">tadaa_wilcoxon</a></span>(<span class="no">ngo</span>, <span class="no">stunzahl</span>, <span class="no">geschl</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <p>Table 2: <strong>Wilcoxon rank sum test with continuity correction</strong> with alternative hypothesis: <span class="math inline">\(M_1 \neq M_2\)</span></p>
 <table class="table">
 <thead><tr class="header">
@@ -204,7 +204,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#anova-tadaa_aov" class="anchor"></a>ANOVA: <code>tadaa_aov</code>
 </h2>
 <p>The function knows 3 types of sums of squares, adjustable via the <code>type</code> argument and defaulting to type 3 sums of squares. Additionally for type 3, the function also automatically checks the contrasts associated with the factor variables (only for unordered factors), and if <code>check_names = TRUE</code>, the contrasts are set to <code>contr.sum</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>jahrgang <span class="op">*</span><span class="st"> </span>geschl, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_aov.html">tadaa_aov</a></span>(<span class="no">stunzahl</span> ~ <span class="no">jahrgang</span> * <span class="no">geschl</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">ngo</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <p>Table 3: <strong>Two-Way ANOVA</strong>: Using Type III Sum of Squares</p>
 <table class="table">
 <thead><tr class="header">
@@ -273,7 +273,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <p><br></p>
 <p><br></p>
 <p>Or, if you’re still unsure about the parametricity of your day:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_kruskal.html">tadaa_kruskal</a></span>(stunzahl <span class="op">~</span><span class="st"> </span>jahrgang, <span class="dt">data =</span> ngo, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_kruskal.html">tadaa_kruskal</a></span>(<span class="no">stunzahl</span> ~ <span class="no">jahrgang</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">ngo</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <p>Table 4: <strong>Kruskal-Wallis Rank Sum Test</strong></p>
 <table class="table">
 <thead><tr class="header">
@@ -298,7 +298,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#pairwise-t-tests" class="anchor"></a>Pairwise t-tests</h3>
 <p>Since we found <code><a href="https://rdrr.io/r/stats/pairwise.t.test.html">stats::pairwise.t.test</a></code> insuffucient in cases of two-way ANOVAs, we wrapped the function to also enable the testing of interactions. The adjusted p-values are only adjusted within each term, so it is like performing <code><a href="https://rdrr.io/r/stats/pairwise.t.test.html">stats::pairwise.t.test</a></code> 3 times with each factor and additionally the interaction of the two factors (which is what the function does internally).</p>
 <p>As a bonus, this functions knows the two additional p-adjustment methods <code>sidak</code> and <code>sidakSD</code> for the Sidak adjustement and the Sidak-like step-down procedure respectively.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(ngo, <span class="dt">response =</span> deutsch, <span class="dt">group1 =</span> jahrgang, <span class="dt">p.adjust =</span> <span class="st">"bonf"</span>, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(<span class="no">ngo</span>, <span class="kw">response</span> <span class="kw">=</span> <span class="no">deutsch</span>, <span class="kw">group1</span> <span class="kw">=</span> <span class="no">jahrgang</span>, <span class="kw">p.adjust</span> <span class="kw">=</span> <span class="st">"bonf"</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">term</th>
@@ -325,7 +325,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </table>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(ngo, <span class="dt">response =</span> deutsch, <span class="dt">group1 =</span> jahrgang, <span class="dt">group2 =</span> geschl, <span class="dt">p.adjust =</span> <span class="st">"sidakSD"</span>, <span class="dt">print =</span> <span class="st">"markdown"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_pairwise_t.html">tadaa_pairwise_t</a></span>(<span class="no">ngo</span>, <span class="kw">response</span> <span class="kw">=</span> <span class="no">deutsch</span>, <span class="kw">group1</span> <span class="kw">=</span> <span class="no">jahrgang</span>, <span class="kw">group2</span> <span class="kw">=</span> <span class="no">geschl</span>, <span class="kw">p.adjust</span> <span class="kw">=</span> <span class="st">"sidakSD"</span>, <span class="kw">print</span> <span class="kw">=</span> <span class="st">"markdown"</span>)</pre></body></html></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">term</th>
@@ -501,15 +501,15 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <li>
 <code>mean_ci_sem</code>: Standard error and CI, you guessed it, in one table.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> ngo, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> jahrgang, <span class="dt">y =</span> deutsch)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(<span class="dt">fun.data =</span> <span class="st">"mean_ci_t"</span>, <span class="dt">geom =</span> <span class="st">"errorbar"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">ngo</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">jahrgang</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">deutsch</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span>(<span class="kw">fun.data</span> <span class="kw">=</span> <span class="st">"mean_ci_t"</span>, <span class="kw">geom</span> <span class="kw">=</span> <span class="st">"errorbar"</span>) +
+  <span class="fu"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</pre></body></html></div>
 <p><img src="overview_files/figure-html/confint-1.png" width="700"></p>
 <p>As a convenience, we added <code>tadaa_mean_ci</code> to quickly plot means with errorbars to get a quick glance at your data.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/tadaa_mean_ci.html">tadaa_mean_ci</a></span>(<span class="dt">data =</span> ngo, <span class="dt">response =</span> deutsch, <span class="dt">group =</span> jahrgang) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/tadaa_mean_ci.html">tadaa_mean_ci</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">ngo</span>, <span class="kw">response</span> <span class="kw">=</span> <span class="no">deutsch</span>, <span class="kw">group</span> <span class="kw">=</span> <span class="no">jahrgang</span>) +
+  <span class="fu"><a href="../reference/theme_readthedown.html">theme_tadaa</a></span>()</pre></body></html></div>
 <p><img src="overview_files/figure-html/mean_ci_plot-1.png" width="700"></p>
 <div id="prebuilt-plotting-functions" class="section level3">
 <h3 class="hasAnchor">
@@ -518,10 +518,10 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <li>
 <code>tadaa_int</code>: Simple interaction plot template.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span>(<span class="st">"cowplot"</span> <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"cowplot"</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw"><a href="../reference/tadaa_int.html">tadaa_int</a></span>(<span class="dt">data =</span> ngo, <span class="dt">response =</span> stunzahl, <span class="dt">group1 =</span> jahrgang, <span class="dt">group2 =</span> geschl, <span class="dt">grid =</span> T, <span class="dt">brewer_palette =</span> <span class="st">"Set1"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+<span class="kw">if</span> (!(<span class="st">"cowplot"</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())) <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"cowplot"</span>)
+
+<span class="fu"><a href="../reference/tadaa_int.html">tadaa_int</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">ngo</span>, <span class="kw">response</span> <span class="kw">=</span> <span class="no">stunzahl</span>, <span class="kw">group1</span> <span class="kw">=</span> <span class="no">jahrgang</span>, <span class="kw">group2</span> <span class="kw">=</span> <span class="no">geschl</span>, <span class="kw">grid</span> <span class="kw">=</span> <span class="no">T</span>, <span class="kw">brewer_palette</span> <span class="kw">=</span> <span class="st">"Set1"</span>)</pre></body></html></div>
 <p><img src="overview_files/figure-html/tadaa_int-1.png" width="576"></p>
 </div>
 </div>
@@ -531,63 +531,40 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 <a href="#data" class="anchor"></a>Data</h1>
 <p>The infamous <em>ngo</em> dataset is included for teaching purposes as well. It differs from <a href="https://github.com/markheckmann/ryouready">ryouready</a>’s provided version with regards to classes and labels. The code below was used to generate the provided version of the dataset:</p>
 <p>(Note that <code>\u00e4</code> is a unicode encoded Umlaut for compatibility reasons)</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ngo &lt;-<span class="st"> </span>ryouready<span class="op">::</span>d.ngo</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">## sjPlot value labels</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>geschl,   <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>abschalt, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>jahrgang, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>))</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_labels</span>(ngo<span class="op">$</span>hausauf,  <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gar nicht"</span>, <span class="st">"weniger als halbe Stunde"</span>,</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">                                                   <span class="st">"halbe Stunde bis Stunde"</span>, <span class="st">"1 bis 2 Stunden"</span>,</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">                                                   <span class="st">"2 bis 3 Stunden"</span>, <span class="st">"3 bis 4 Stunden"</span>,</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">                                                   <span class="st">"mehr als 4 Stunden"</span>))</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">## factors</a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(ngo<span class="op">$</span>geschl,   <span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(ngo<span class="op">$</span>jahrgang, <span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15">ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>car<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/car/man/recode.html">recode</a></span>(ngo<span class="op">$</span>hausauf,  <span class="st">"0 = NA"</span>)</a>
-<a class="sourceLine" id="cb10-16" data-line-number="16">ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>car<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/car/man/recode.html">recode</a></span>(ngo<span class="op">$</span>abschalt, <span class="st">"0 = NA"</span>)</a>
-<a class="sourceLine" id="cb10-17" data-line-number="17">ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(ngo<span class="op">$</span>abschalt, <span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))</a>
-<a class="sourceLine" id="cb10-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb10-19" data-line-number="19">## Variable labels</a>
-<a class="sourceLine" id="cb10-20" data-line-number="20">ngo<span class="op">$</span>geschl   &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>geschl, <span class="st">"Geschlecht"</span>)</a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">ngo<span class="op">$</span>abschalt &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>abschalt, <span class="st">"Abschalten"</span>)</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">ngo<span class="op">$</span>jahrgang &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>jahrgang, <span class="st">"Jahrgang"</span>)</a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">ngo<span class="op">$</span>hausauf  &lt;-<span class="st"> </span>sjmisc<span class="op">::</span><span class="kw">set_label</span>(ngo<span class="op">$</span>hausauf, <span class="st">"Hausaufgaben"</span>)</a>
-<a class="sourceLine" id="cb10-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb10-25" data-line-number="25">## Saving</a>
-<a class="sourceLine" id="cb10-26" data-line-number="26">ngo &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/tbl_df.html">tbl_df</a></span>(ngo)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">ngo</span> <span class="kw">&lt;-</span> <span class="kw pkg">ryouready</span><span class="kw ns">::</span><span class="no">d.ngo</span>
+
+<span class="co">## sjPlot value labels</span>
+<span class="no">ngo</span>$<span class="no">geschl</span>   <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_labels</span>(<span class="no">ngo</span>$<span class="no">geschl</span>,   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))
+<span class="no">ngo</span>$<span class="no">abschalt</span> <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_labels</span>(<span class="no">ngo</span>$<span class="no">abschalt</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))
+<span class="no">ngo</span>$<span class="no">jahrgang</span> <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_labels</span>(<span class="no">ngo</span>$<span class="no">jahrgang</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>))
+<span class="no">ngo</span>$<span class="no">hausauf</span>  <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_labels</span>(<span class="no">ngo</span>$<span class="no">hausauf</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gar nicht"</span>, <span class="st">"weniger als halbe Stunde"</span>,
+                                                   <span class="st">"halbe Stunde bis Stunde"</span>, <span class="st">"1 bis 2 Stunden"</span>,
+                                                   <span class="st">"2 bis 3 Stunden"</span>, <span class="st">"3 bis 4 Stunden"</span>,
+                                                   <span class="st">"mehr als 4 Stunden"</span>))
+
+<span class="co">## factors</span>
+<span class="no">ngo</span>$<span class="no">geschl</span>   <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">ngo</span>$<span class="no">geschl</span>,   <span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"M\u00e4nnlich"</span>, <span class="st">"Weiblich"</span>))
+<span class="no">ngo</span>$<span class="no">jahrgang</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">ngo</span>$<span class="no">jahrgang</span>, <span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>), <span class="kw">ordered</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="no">ngo</span>$<span class="no">hausauf</span>  <span class="kw">&lt;-</span> <span class="kw pkg">car</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/car/man/recode.html">recode</a></span>(<span class="no">ngo</span>$<span class="no">hausauf</span>,  <span class="st">"0 = NA"</span>)
+<span class="no">ngo</span>$<span class="no">abschalt</span> <span class="kw">&lt;-</span> <span class="kw pkg">car</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/car/man/recode.html">recode</a></span>(<span class="no">ngo</span>$<span class="no">abschalt</span>, <span class="st">"0 = NA"</span>)
+<span class="no">ngo</span>$<span class="no">abschalt</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">ngo</span>$<span class="no">abschalt</span>, <span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ja"</span>, <span class="st">"Nein"</span>))
+
+<span class="co">## Variable labels</span>
+<span class="no">ngo</span>$<span class="no">geschl</span>   <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_label</span>(<span class="no">ngo</span>$<span class="no">geschl</span>, <span class="st">"Geschlecht"</span>)
+<span class="no">ngo</span>$<span class="no">abschalt</span> <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_label</span>(<span class="no">ngo</span>$<span class="no">abschalt</span>, <span class="st">"Abschalten"</span>)
+<span class="no">ngo</span>$<span class="no">jahrgang</span> <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_label</span>(<span class="no">ngo</span>$<span class="no">jahrgang</span>, <span class="st">"Jahrgang"</span>)
+<span class="no">ngo</span>$<span class="no">hausauf</span>  <span class="kw">&lt;-</span> <span class="kw pkg">sjmisc</span><span class="kw ns">::</span><span class="fu">set_label</span>(<span class="no">ngo</span>$<span class="no">hausauf</span>, <span class="st">"Hausaufgaben"</span>)
+
+<span class="co">## Saving</span>
+<span class="no">ngo</span> <span class="kw">&lt;-</span> <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tbl_df.html">tbl_df</a></span>(<span class="no">ngo</span>)</pre></body></html></div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#high-level-functions">High Level Functions</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#t-tests-tadaa_t-test">t-Tests: <code>tadaa_t.test</code></a></li>
-      <li><a href="#anova-tadaa_aov">ANOVA: <code>tadaa_aov</code></a></li>
-      <li><a href="#pairwise-tests">Pairwise tests</a></li>
-      </ul>
-</li>
-      <li>
-<a href="#statistics-wrappers">Statistics Wrappers</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#summaries">Summaries</a></li>
-      </ul>
-</li>
-      <li>
-<a href="#general-helper-functions">General Helper Functions</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#intervals-and-recoding">Intervals and recoding</a></li>
-      <li><a href="#plotting-helpers">Plotting helpers</a></li>
-      </ul>
-</li>
-      <li><a href="#data">Data</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -598,7 +575,7 @@ Besides that, it also contains some neat helper functions for tasks or problems 
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
