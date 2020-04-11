@@ -3,13 +3,18 @@
 
 # tadaatoolbox
 
+<!-- badges: start -->
+
 [![Build
 Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
+[![R build
+status](https://github.com/tadaadata/tadaatoolbox/workflows/R-CMD-check/badge.svg)](https://github.com/tadaadata/tadaatoolbox/actions)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![Coverage
 status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg)](https://codecov.io/github/tadaadata/tadaatoolbox?branch=master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg)](https://doi.org/10.5281/zenodo.1494965)
+<!-- badges: end -->
 
 `tadaatoolbox` contains helpers for data analysis and presentation
 focused on undergrad psychology, the target audience being students at
