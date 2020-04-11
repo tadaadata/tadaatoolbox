@@ -17,3 +17,4 @@ dev/*
 ^codecov\.yml$
 ^build_all\.R$
 ^\.covrignore$
+^\.github$
