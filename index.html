@@ -113,11 +113,13 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tadaatoolbox" class="anchor"></a>tadaatoolbox</h1></div>
 <!-- badges: start -->
-<p><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a> <a href="https://github.com/tadaadata/tadaatoolbox/actions"><img src="https://github.com/tadaadata/tadaatoolbox/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version-ago/tadaatoolbox" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://cranlogs.r-pkg.org/badges/tadaatoolbox" alt="CRAN_Downloads_Badge"></a> <a href="https://codecov.io/github/tadaadata/tadaatoolbox?branch=master"><img src="https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://doi.org/10.5281/zenodo.1494965"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg" alt="DOI"></a> <!-- badges: end --></p>
+<p><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a> <a href="https://github.com/tadaadata/tadaatoolbox/actions"><img src="https://github.com/tadaadata/tadaatoolbox/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version-ago/tadaatoolbox" alt="CRAN_Status_Badge"></a> <a href="https://codecov.io/github/tadaadata/tadaatoolbox?branch=master"><img src="https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://doi.org/10.5281/zenodo.1494965"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg" alt="DOI"></a> <!-- badges: end --></p>
 <p><code>tadaatoolbox</code> contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.</p>
-<p>Please consider this as a teaching project and be careful if you intend to use it for production use.<br>
-To see what’s new, see <a href="https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md">NEWS.md</a>.<br>
-Also, since this project is still in the <code>0.x.y</code> version, you should expect the API to change at any time. Once we reach <code>1.0.0</code>, API changes will be rolled out more slowly and include deprecation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or <code>remotes</code>.</p>
+<p>This is/was a teaching project with the primary goal being to assist undergrad students and tutors in a course that has since changed hands and moved on.</p>
+<p>Some of the choices made in this package were motivated by didactics and demonstration, but are unfit for methodologically sound use. One example was the automated caclulcation of post-hoc power in t-tests and ANOVA, which is generally frowned upon. Also, the automated test for heteroskedasticity in <code>tadaa_t.test</code> is a source of multiplicity, leading to uncontrolled type I errors.<br>
+Both mechanisms have since been removed in the GitHub version.</p>
+<p>There are many other packages available that do a better job at cleaning/presenting statistical test output, notably in the <a href="https://github.com/easystats">easystats</a> ecosystem, so I suggest you look there rather than using this package.</p>
+<p>For ANOVA &amp; others, try the <a href="https://github.com/singmann/afex">afex package</a>.</p>
 </div>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
@@ -130,78 +132,6 @@ Also, since this project is still in the <code>0.x.y</code> version, you should 
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"tadaadata/tadaatoolbox"</span>)</pre></div>
 <p>Or install the most recent stable version from CRAN:</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tadaatoolbox"</span>)</pre></div>
-</div>
-<div id="contribution" class="section level1">
-<h1 class="hasAnchor">
-<a href="#contribution" class="anchor"></a>Contribution</h1>
-<p>Please do! I have no idea where I’m going with this. Feel free to <a href="https://github.com/tadaadata/tadaatoolbox/issues">open issues</a>.</p>
-<div id="contributers" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributers" class="anchor"></a>Contributers</h2>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Contributer</th>
-<th align="left">Role</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">Lukas Burk</td>
-<td align="left">Author &amp; Maintainer</td>
-</tr>
-<tr class="even">
-<td align="left">Tobias Anton</td>
-<td align="left">Author</td>
-</tr>
-<tr class="odd">
-<td align="left">Daniel Lüdecke</td>
-<td align="left">Contributor</td>
-</tr>
-<tr class="even">
-<td align="left">Gesa Graf</td>
-<td align="left">Contributor</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="functionality" class="section level1">
-<h1 class="hasAnchor">
-<a href="#functionality" class="anchor"></a>Functionality</h1>
-<p>See the included vignette for a demonstration: <code><a href="https://rdrr.io/r/utils/browseVignettes.html">browseVignettes("tadaatoolbox")</a></code> or view <a href="https://tadaatoolbox.tadaa-data.de">the <code>pkgdown</code>ed version of this repo</a> for an overview and function index.<br>
-Here’s a few highlights:</p>
-<div id="tidy-as-in-pretty-test-output" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tidy-as-in-pretty-test-output" class="anchor"></a>Tidy (as in pretty) test output</h2>
-<p>See all of them in action <a href="https://tadaatoolbox.tadaa-data.de/articles/test_output.html">in this vignette</a></p>
-<ul>
-<li>
-<code>tadaa_aov</code>: For 3 flavours of <code>aov</code> with included partial <span class="math inline"><em>η</em><sup>2</sup></span> and Cohen’s f.</li>
-<li>
-<code>tadaa_kruskal</code>: A wrapper for <code>kruskal.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
-<li>
-<code>tadaa_t.test</code>: For <code>t.test</code> with automatic effect size.</li>
-<li>
-<code>tadaa_wilcoxon</code>: A wrapper for <code>wilcox.test</code> tidied and optionally <code>pixiedust</code>ed.</li>
-<li>
-<code>tadaa_levene</code>: Wrapper for <code><a href="https://rdrr.io/pkg/car/man/leveneTest.html">car::leveneTest</a></code> tidied and optionally <code>pixiedust</code>ed.</li>
-<li>
-<code>tadaa_pairwise_t</code>, <code>tadaa_pairwise_gh</code> and <code>tadaa_pairwise_tukey</code> for various pairwise procedures.</li>
-</ul>
-</div>
-<div id="helpers-for-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#helpers-for-plots" class="anchor"></a>Helpers for plots</h2>
-<ul>
-<li>
-<code>tadaa_int</code>: Simple interaction plot template.</li>
-<li>
-<code>tadaa_balance</code>: Check equality of group sizes.</li>
-<li>
-<code>tadaa_mean_ci</code>: Plots means with 95% confidence intervals as errorbars.</li>
-<li>
-<code>tadaa_plot_tukey</code>: For pretty <code>TukeyHSD</code> visualization.</li>
-</ul>
-</div>
 </div>
 <div id="code-of-conduct" class="section level1">
 <h1 class="hasAnchor">
@@ -250,7 +180,7 @@ Here’s a few highlights:</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
