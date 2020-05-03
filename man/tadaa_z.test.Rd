@@ -19,7 +19,7 @@ tadaa_z.test(
 \arguments{
 \item{data}{A \code{data.frame} containing variables.}
 
-\item{x, y}{A bare name of a numeric variable in \code{data}.`}
+\item{x, y}{A bare name of a numeric variable in \code{data}.}
 
 \item{sigma_x, sigma_y}{Numeric. Known variances of \code{x} and \code{y}.}
 
@@ -33,7 +33,7 @@ tadaa_z.test(
 Otherwise passed to \link[pixiedust:sprinkle_print_method]{pixiedust::sprinkle_print_method} for fancyness.}
 }
 \value{
-A \link[pixiedust:dust]{pixiedust::dust} object or \code{data.frame}.`
+A \link[pixiedust:dust]{pixiedust::dust} object or \code{data.frame}.
 }
 \description{
 This is a wrapper around \link{z.test}, which in itself is a weird thing to use, but

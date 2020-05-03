@@ -1,7 +1,8 @@
 # tadaatoolbox (development version)
 
+- Remove `tadaa_pairwise_gh`.
 - Update infrastructure using `usethis::use_tidy_ci()`, bumps R dependency to `>= 3.2`.
-- Add `z.test()` to fill the niche in `stats`. Useful to verfiy hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
+- Add `z.test()` to fill the niche in `stats`. Useful to verify hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.
 - Add `tadaa_z.test()` while we're at it.
 
 ## Fixing mistakes

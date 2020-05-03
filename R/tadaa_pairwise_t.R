@@ -24,7 +24,7 @@
 #' @return A `data.frame` with columns `term`, `comparison` and `adj.p.value`.
 #' @export
 #' @family Tadaa-functions
-#' @seealso [tadaa_pairwise_tukey()], [tadaa_pairwise_gh()]
+#' @seealso [tadaa_pairwise_tukey()]
 #' @note The adjustment method is applied within each `term`, meaning that the number of
 #' pairwise t-tests counted for the adjustment is only equal to the number of rows
 #' per `term` of the output.

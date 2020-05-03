@@ -16,11 +16,12 @@
 #' @examples
 #' \dontrun{
 #' library(ggplot2)
-#' p <- qplot(1:10, 1:10, geom = "point")
+#' p <- ggplot(ngo, aes(x = stunzahl)) +
+#'   geom_bar()
 #'
 #' p + theme_readthedown()
 #' p + theme_readthedown(base_family = "Lato")
-#' p + theme_readthedown(base_family = "Roboto Slab", axis_emph = "x")
+#' p + theme_readthedown(base_family = "Roboto Condensed", axis_emph = "x")
 #' }
 theme_readthedown <- function(base_size = 12, base_family = "", bg = "#fcfcfc", axis_emph = "xy", ...) {
   template_background <- ggplot2::element_rect(fill = bg, color = bg)

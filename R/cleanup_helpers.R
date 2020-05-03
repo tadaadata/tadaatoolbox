@@ -7,18 +7,17 @@
 #' @export
 #' @note Adapted from http://stackoverflow.com/a/30461945/409362.
 #' @examples
-#' \dontrun{
-#' df <- data.frame(
-#'   x = sample(c(1:10, NA), 10),
-#'   y = sample(c(1:10, NA), 10),
-#'   z = sample(c(1:10, NA), 10)
+#' set.seed(1445)
+#' dat <- data.frame(
+#'   x = sample(c(1:15, NA, NA), 15),
+#'   y = sample(c(1:15, NA, NA), 15),
+#'   z = sample(c(1:15, NA, NA), 15)
 #' )
-#'
-#' df <- delete_na(df, 1)
-#'
-#' # Or with magrittr syntax sugar
-#' df %<>% delete_na
-#' }
+#' dat
+#' # No NsA per row allowed
+#' delete_na(dat, 0)
+#' # One NA per row allowed
+#' delete_na(dat, 1)
 delete_na <- function(df, n = ncol(df) - 1) {
   log <- apply(df, 2, is.na)
   logindex <- apply(log, 1, function(x) sum(x) <= n)
@@ -31,10 +30,11 @@ delete_na <- function(df, n = ncol(df) - 1) {
 #' @param pv A p-value in numeric form.
 #' @return A formatted `character` representation of the input value.
 #' @export
-#' @note Simplified version of [pixiedust::pvalString] which considers `< 0.05`.
+#' @note Simplified version of [`pixiedust::pvalString`] which considers `< 0.05`.
 #' @examples
 #' pv <- c(.9, .2, .049, .009, .000003)
-#' pval_string(pv)
+#' names(pv) <- pval_string(pv)
+#' pv
 pval_string <- function(pv) {
   if (any(pv < 0, na.rm = TRUE) | any(pv > 1, na.rm = TRUE)) {
     notProb <- which(pv < 0 | pv > 1)

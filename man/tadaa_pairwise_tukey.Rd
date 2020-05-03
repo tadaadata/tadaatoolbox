@@ -35,7 +35,7 @@ tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl)
 tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, print = "console")
 }
 \seealso{
-\code{\link[=tadaa_pairwise_t]{tadaa_pairwise_t()}}, \code{\link[=tadaa_pairwise_gh]{tadaa_pairwise_gh()}}
+\code{\link[=tadaa_pairwise_t]{tadaa_pairwise_t()}}
 
 Other Tadaa-functions: 
 \code{\link{tadaa_aov}()},
@@ -45,7 +45,6 @@ Other Tadaa-functions:
 \code{\link{tadaa_nom}()},
 \code{\link{tadaa_one_sample}()},
 \code{\link{tadaa_ord}()},
-\code{\link{tadaa_pairwise_gh}()},
 \code{\link{tadaa_pairwise_t}()},
 \code{\link{tadaa_t.test}()},
 \code{\link{tadaa_wilcoxon}()}

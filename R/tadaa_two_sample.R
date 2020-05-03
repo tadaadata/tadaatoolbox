@@ -227,11 +227,11 @@ tadaa_wilcoxon <- function(data, response, group, direction = "two.sided",
 #' why not.
 #'
 #' @param data A `data.frame` containing variables.
-#' @param x,y A bare name of a numeric variable in `data`.`
+#' @param x,y A bare name of a numeric variable in `data`.
 #' @param sigma_x,sigma_y Numeric. Known variances of `x` and `y`.
 #' @inheritParams tadaa_t.test
 #'
-#' @return A [pixiedust::dust] object or `data.frame`.`
+#' @return A [pixiedust::dust] object or `data.frame`.
 #' @export
 #'
 #' @examples

@@ -70,7 +70,7 @@ https://stats.stackexchange.com/questions/20825/sidak-or-bonferroni
 https://rdrr.io/rforge/mutoss/man/SidakSD.html
 }
 \seealso{
-\code{\link[=tadaa_pairwise_tukey]{tadaa_pairwise_tukey()}}, \code{\link[=tadaa_pairwise_gh]{tadaa_pairwise_gh()}}
+\code{\link[=tadaa_pairwise_tukey]{tadaa_pairwise_tukey()}}
 
 Other Tadaa-functions: 
 \code{\link{tadaa_aov}()},
@@ -80,7 +80,6 @@ Other Tadaa-functions:
 \code{\link{tadaa_nom}()},
 \code{\link{tadaa_one_sample}()},
 \code{\link{tadaa_ord}()},
-\code{\link{tadaa_pairwise_gh}()},
 \code{\link{tadaa_pairwise_tukey}()},
 \code{\link{tadaa_t.test}()},
 \code{\link{tadaa_wilcoxon}()}

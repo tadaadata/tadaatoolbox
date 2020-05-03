@@ -16,9 +16,10 @@ A formatted \code{character} representation of the input value.
 Easy p-value formatting
 }
 \note{
-Simplified version of \link[pixiedust:pvalString]{pixiedust::pvalString} which considers \verb{< 0.05}.
+Simplified version of \code{\link[pixiedust:pvalString]{pixiedust::pvalString}} which considers \verb{< 0.05}.
 }
 \examples{
 pv <- c(.9, .2, .049, .009, .000003)
-pval_string(pv)
+names(pv) <- pval_string(pv)
+pv
 }

@@ -21,16 +21,15 @@ Delete cases with set amount of missing values
 Adapted from http://stackoverflow.com/a/30461945/409362.
 }
 \examples{
-\dontrun{
-df <- data.frame(
-  x = sample(c(1:10, NA), 10),
-  y = sample(c(1:10, NA), 10),
-  z = sample(c(1:10, NA), 10)
+set.seed(1445)
+dat <- data.frame(
+  x = sample(c(1:15, NA, NA), 15),
+  y = sample(c(1:15, NA, NA), 15),
+  z = sample(c(1:15, NA, NA), 15)
 )
-
-df <- delete_na(df, 1)
-
-# Or with magrittr syntax sugar
-df \%<>\% delete_na
-}
+dat
+# No NsA per row allowed
+delete_na(dat, 0)
+# One NA per row allowed
+delete_na(dat, 1)
 }

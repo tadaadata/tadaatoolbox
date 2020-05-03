@@ -14,7 +14,7 @@
 #' @importFrom broom tidy
 #' @import pixiedust
 #' @family Tadaa-functions
-#' @seealso [tadaa_pairwise_t()], [tadaa_pairwise_gh()]
+#' @seealso [tadaa_pairwise_t()]
 #' @examples
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl)
 #' tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, print = "console")
