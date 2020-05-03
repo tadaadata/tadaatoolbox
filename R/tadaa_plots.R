@@ -60,11 +60,11 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
   )) +
     stat_summary(
       aes_string(group = substitute(group2)),
-      fun.y = mean, geom = "line"
+      fun = mean, geom = "line"
     ) +
     stat_summary(
       aes_string(group = substitute(group2)),
-      fun.y = mean, geom = "point", shape = 23, fill = "white"
+      fun = mean, geom = "point", shape = 23, fill = "white"
     ) +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
@@ -79,11 +79,11 @@ tadaa_int <- function(data, response, group1, group2, grid = FALSE,
   )) +
     stat_summary(
       aes_string(group = substitute(group1)),
-      fun.y = mean, geom = "line"
+      fun = mean, geom = "line"
     ) +
     stat_summary(
       aes_string(group = substitute(group1)),
-      fun.y = mean, geom = "point", shape = 23, fill = "white"
+      fun = mean, geom = "point", shape = 23, fill = "white"
     ) +
     scale_colour_brewer(palette = brewer_palette) +
     labs(
@@ -176,8 +176,8 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 
   p <- ggplot(data = data, aes_string(x = x, y = y, color = x)) +
     stat_summary(fun.data = "mean_ci_t", geom = "errorbar", width = 0.6, size = 1.5) +
-    stat_summary(fun.y = "mean", geom = "point", size = 3, color = "black") +
-    stat_summary(fun.y = "mean", geom = "point", size = 2, color = "white") +
+    stat_summary(fun = "mean", geom = "point", size = 3, color = "black") +
+    stat_summary(fun = "mean", geom = "point", size = 2, color = "white") +
     guides(color = FALSE)
   if (!is.null(brewer_palette)) {
     p <- p + scale_color_brewer(palette = brewer_palette)
