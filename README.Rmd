@@ -11,8 +11,6 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "examples/README-"
 )
-
-description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tadaatoolbox")), stringsAsFactors = F)
 ```
 
 # tadaatoolbox   
@@ -21,17 +19,20 @@ description <- as.data.frame(read.dcf(system.file("DESCRIPTION", package = "tada
 [![Build Status](https://travis-ci.org/tadaadata/tadaatoolbox.svg)](https://travis-ci.org/tadaadata/tadaatoolbox)
 [![R build status](https://github.com/tadaadata/tadaatoolbox/workflows/R-CMD-check/badge.svg)](https://github.com/tadaadata/tadaatoolbox/actions)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-ago/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
-[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/tadaatoolbox)](https://cran.r-project.org/package=tadaatoolbox)
 [![Coverage status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg)](https://codecov.io/github/tadaadata/tadaatoolbox?branch=master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg)](https://doi.org/10.5281/zenodo.1494965)
 <!-- badges: end -->
 
-
 `tadaatoolbox` contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen. 
 
-Please consider this as a teaching project and be careful if you intend to use it for production use.  
-To see what's new, see [NEWS.md](https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md).  
-Also, since this project is still in the `0.x.y` version, you should expect the API to change at any time. Once we reach `1.0.0`, API changes will be rolled out more slowly and include deprecation warnings. In the meantime, the package is available on CRAN primarily for convenience, because its target audience is likely not familiar with GitHub or `remotes`.
+This is/was a teaching project with the primary goal being to assist undergrad students and tutors in a course that has since changed hands and moved on.  
+
+Some of the choices made in this package were motivated by didactics and demonstration, but are unfit for methodologically sound use. One example was the automated caclulcation of post-hoc power in t-tests and ANOVA, which is generally frowned upon. Also, the automated test for heteroskedasticity in `tadaa_t.test` is a source of multiplicity, leading to uncontrolled type I errors.  
+Both mechanisms have since been removed in the GitHub version. 
+
+There are many other packages available that do a better job at cleaning/presenting statistical test output, notably in the [easystats](https://github.com/easystats) ecosystem, so I suggest you look there rather than using this package. 
+
+For ANOVA & others, try the [afex package](https://github.com/singmann/afex).
 
 # Installation
 
@@ -50,52 +51,6 @@ Or install the most recent stable version from CRAN:
 ```r
 install.packages("tadaatoolbox")
 ```
-
-# Contribution
-
-Please do! I have no idea where I'm going with this. Feel free to [open issues](https://github.com/tadaadata/tadaatoolbox/issues).
-
-## Contributers
-
-```{r contrib, echo = F}
-contrib <- eval(parse(text = description$`Authors@R`))
-
-names <- sapply(contrib, function(x){
-              paste(x[[1]]$given, x[[1]]$family)
-            }) 
-roles <- sapply(contrib, function(x){
-              roles <- paste(x[[1]]$role, collapse = " & ")
-              roles <- sub("aut", "Author", roles)
-              roles <- sub("ctb", "Contributor", roles)
-              roles <- sub("cre", "Maintainer", roles)
-              return(roles)
-            }) 
-
-knitr::kable(data.frame(Contributer = names, Role = roles))
-```
-
-# Functionality
-
-See the included vignette for a demonstration: `browseVignettes("tadaatoolbox")` or view [the `pkgdown`ed version of this repo](https://tadaatoolbox.tadaa-data.de) for an overview and function index.  
-Here's a few highlights:
-
-## Tidy (as in pretty) test output
-
-See all of them in action [in this vignette](https://tadaatoolbox.tadaa-data.de/articles/test_output.html)
-
-* `tadaa_aov`: For 3 flavours of `aov` with included partial $\eta^2$ and Cohen's f.
-* `tadaa_kruskal`: A wrapper for `kruskal.test` tidied and optionally `pixiedust`ed.
-* `tadaa_t.test`: For `t.test` with automatic effect size.
-* `tadaa_wilcoxon`: A wrapper for `wilcox.test` tidied and optionally `pixiedust`ed.
-* `tadaa_levene`: Wrapper for `car::leveneTest` tidied and optionally `pixiedust`ed.
-* `tadaa_pairwise_t`, `tadaa_pairwise_gh` and `tadaa_pairwise_tukey` for various pairwise procedures.
-
-## Helpers for plots
-
-* `tadaa_int`: Simple interaction plot template.
-* `tadaa_balance`: Check equality of group sizes.
-* `tadaa_mean_ci`: Plots means with 95% confidence intervals as errorbars.
-* `tadaa_plot_tukey`: For pretty `TukeyHSD` visualization.
 
 # Code of Conduct
 
