@@ -4,7 +4,9 @@
 \name{ngo}
 \alias{ngo}
 \title{The ngo dataset}
-\format{A \code{data.frame} containing numerical and factor data.}
+\format{
+A \code{data.frame} containing numerical and factor data.
+}
 \usage{
 ngo
 }

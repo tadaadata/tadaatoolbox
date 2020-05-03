@@ -1,15 +1,9 @@
 ## Test environments
 
-* local: darwin15.6.0-3.6.2
-* travis: 3.1, 3.2, 3.3, oldrel, release, devel
-* r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
-* win-builder: windows-x86_64-devel
+* local R installation, R 4.0.0
+* ubuntu 16.04 (on travis-ci), R 4.0.0
+* win-builder (devel)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
-
-## Reverse dependencies
-
-There are no reverse dependencies.
-
