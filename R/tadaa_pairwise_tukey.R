@@ -45,7 +45,8 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
       adj.p.value = "p (adj.)",
       estimate = "Diff",
       term = "Term",
-      comparison = "Comparison",
+      # comparison = "Comparison", # old broom
+      contrast = "Comparison", # new broom
       conf.low = "CI_low",
       conf.high = "CI_high"
     )

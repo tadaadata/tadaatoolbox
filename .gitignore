@@ -8,3 +8,4 @@ dev/*html
 dev/*R
 inst/doc/*
 tests/testthat/Rplots.pdf
+.vscode/
