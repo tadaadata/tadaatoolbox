@@ -23,7 +23,7 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
   group1 <- deparse(substitute(group1))
   group2 <- deparse(substitute(group2))
 
-  if (group2 == "NULL") {
+  if (is.null(group2)) {
     formula <- as.formula(paste0(response, " ~ ", group1))
   } else {
     formula <- as.formula(paste0(response, " ~ ", group1, " * ", group2))
@@ -32,6 +32,10 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
   model <- stats::aov(formula, data = data)
   tukey <- stats::TukeyHSD(model, ...)
   tukey <- broom::tidy(tukey)
+  if (hasName(tukey, "comparison")) {
+    tukey$contrast <- tukey$comparison
+    tukey$comparison <- NULL
+  }
 
   if (print == "df") {
     return(tukey)

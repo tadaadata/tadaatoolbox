@@ -207,6 +207,11 @@ tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
 
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
 
+  if (hasName(data, "comparison")) {
+    data$contrast <- tukey$comparison
+    data$comparison <- NULL
+  }
+
   data <- data[order(data$term, data$estimate), ]
   data$contrast <- factor(
     data$contrast,
