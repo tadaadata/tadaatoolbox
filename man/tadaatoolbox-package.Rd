@@ -7,12 +7,12 @@
 \title{tadaatoolbox: Helpers for Data Analysis and Presentation Focused on
     Undergrad Psychology}
 \description{
-A teaching project that contains functions for the
-    display of statistical tests as well as some convenience functions for
-    data cleanup. The primary components are the
-    functions prefixed with 'tadaa_', which are built to work in an
-    interactive environment, but also print markdown tables powered
-    by 'pixiedust' for the creation of 'RMarkdown' reports.
+A teaching project for the display of statistical
+    tests as well as some convenience functions for data cleanup. The
+    primary components are the functions prefixed with 'tadaa_', which are
+    built to work in an interactive environment, but also print markdown
+    tables powered by 'pixiedust' for the creation of 'RMarkdown' reports.
+    This package is no longer actively developed.
 }
 \seealso{
 Useful links:

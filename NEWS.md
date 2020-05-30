@@ -51,7 +51,7 @@
 - Fix error in SEM calculation in `tadaa_one_sample` for t-tests
 - Make sure `tadaa_`-test functions use `tadaatoolbox::pval_string` instead of the `pixiedust` version
 - Remove recoded `leist` var from `ngo`, as it should be computed from `leistung` by students.
-- Move `cowplot` from `Imports` to `Suggests` because whe only need it in one function, *sometimes*.
+- Move `cowplot` from `Imports` to `Suggests` because we only need it in one function, *sometimes*.
 - More compact table output in `tadaa_nom` and `tadaa_ord`.
 
 ## Removals
@@ -171,7 +171,7 @@
 ## Patch changes
 
 * New options in `tadaa_int`: 
-    - Set `grid = TRUE` for the two interaction plots to be printen in a grid via
+    - Set `grid = TRUE` for the two interaction plots to be printed in a grid via
 [cowplot::plot_grid](https://CRAN.R-project.org/package=cowplot).  
     - Choose the plot labels via the `labels` argument.
 * `tadaa_int` plot output now also is a little tidier and optimized for smaller widths.

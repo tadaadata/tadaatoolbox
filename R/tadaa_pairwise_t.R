@@ -153,7 +153,7 @@ tadaa_pairwise_t <- function(data, response, group1, group2 = NULL,
   return(pixiedust::sprinkle_print_method(output, print_method = print))
 }
 
-#' Sidak setp-down procedure
+#' Sidak step-down procedure
 #' @references https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88
 #' @keywords internal
 sidak_sd <- function(pvals) {

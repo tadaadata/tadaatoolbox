@@ -65,7 +65,7 @@ tadaa_kruskal(stunzahl ~ jahrgang, data = ngo, print = "markdown")
 
 ### Pairwise t-tests
 
-Since we found `stats::pairwise.t.test` insuffucient in cases of two-way ANOVAs, we wrapped the function to also enable the testing of interactions. The adjusted p-values are only adjusted within each term, so it is like performing `stats::pairwise.t.test` 3 times with each factor and additionally the interaction of the two factors (which is what the function does internally).
+Since we found `stats::pairwise.t.test` insufficient in cases of two-way ANOVAs, we wrapped the function to also enable the testing of interactions. The adjusted p-values are only adjusted within each term, so it is like performing `stats::pairwise.t.test` 3 times with each factor and additionally the interaction of the two factors (which is what the function does internally).
 
 As a bonus, this functions knows the two additional p-adjustment methods `sidak` and `sidakSD` for the Sidak adjustement and the Sidak-like step-down procedure respectively.
 

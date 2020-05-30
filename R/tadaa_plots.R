@@ -14,7 +14,7 @@
 #' defaults to `c("A", "B")`.
 #' @param show_n If `TRUE`, displays N in plot subtitle.
 #' @param print Default is `TRUE`, set `FALSE` to suppress automatic printing.
-#' Useful if you intend to further modify the outpur plots.
+#' Useful if you intend to further modify the output plots.
 #' @return Invisible: A list with two ggplot2 objects named `p1` and `p2`.
 #' If `print = TRUE`: Printed: The one or two ggplot2 objects, depending on `grid`.
 #' @export

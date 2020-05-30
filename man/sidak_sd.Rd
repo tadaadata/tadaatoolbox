@@ -2,12 +2,12 @@
 % Please edit documentation in R/tadaa_pairwise_t.R
 \name{sidak_sd}
 \alias{sidak_sd}
-\title{Sidak setp-down procedure}
+\title{Sidak step-down procedure}
 \usage{
 sidak_sd(pvals)
 }
 \description{
-Sidak setp-down procedure
+Sidak step-down procedure
 }
 \references{
 https://github.com/Bioconductor-mirror/multtest/blob/master/R/mt.basic.R#L81-L88
