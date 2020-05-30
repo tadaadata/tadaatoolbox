@@ -38,7 +38,7 @@
 <meta property="og:title" content="Changelog" />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -89,7 +89,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tadaatoolbox</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.16.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
       </span>
     </div>
 
@@ -147,11 +147,12 @@
       <small>Source: <a href='https://github.com/tadaadata/tadaatoolbox/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="tadaatoolbox-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#tadaatoolbox-development-version" class="anchor"></a>tadaatoolbox (development version)<small> Unreleased </small>
+    <div id="tadaatoolbox-0170" class="section level1">
+<h1 class="page-header" data-toc-text="0.17.0">
+<a href="#tadaatoolbox-0170" class="anchor"></a>tadaatoolbox 0.17.0<small> Unreleased </small>
 </h1>
 <ul>
+<li>Ensure compatibility with broom 0.7.0 (<a href='https://github.com/tadaadata/tadaatoolbox/issues/32'>#32</a>)</li>
 <li>Remove <code>tadaa_pairwise_gh</code>.</li>
 <li>Update infrastructure using <code>usethis::use_tidy_ci()</code>, bumps R dependency to <code>&gt;= 3.2</code>.</li>
 <li>Add <code><a href="../reference/z.test.html">z.test()</a></code> to fill the niche in <code>stats</code>. Useful to verify hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.</li>

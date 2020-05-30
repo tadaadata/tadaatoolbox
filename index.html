@@ -13,14 +13,13 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Helpers for Data Analysis and Presentation Focused on
     Undergrad Psychology">
-<meta property="og:description" content="A teaching project that contains functions for the
-    display of statistical tests as well as some convenience functions for
-    data cleanup. The primary components are the
-    functions prefixed with tadaa_, which are built to work in an
-    interactive environment, but also print markdown tables powered
-    by pixiedust for the creation of RMarkdown reports.">
+<meta property="og:description" content="A teaching project for the display of statistical
+    tests as well as some convenience functions for data cleanup. The
+    primary components are the functions prefixed with tadaa_, which are
+    built to work in an interactive environment, but also print markdown
+    tables powered by pixiedust for the creation of RMarkdown reports.
+    This package is no longer actively developed.">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -54,7 +53,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">tadaatoolbox</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.16.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.17.0</span>
       </span>
     </div>
 
@@ -114,8 +113,8 @@
 <!-- badges: start -->
 <p><a href="https://travis-ci.org/tadaadata/tadaatoolbox"><img src="https://travis-ci.org/tadaadata/tadaatoolbox.svg" alt="Build Status"></a> <a href="https://github.com/tadaadata/tadaatoolbox/actions"><img src="https://github.com/tadaadata/tadaatoolbox/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://cran.r-project.org/package=tadaatoolbox"><img src="https://www.r-pkg.org/badges/version-ago/tadaatoolbox" alt="CRAN_Status_Badge"></a> <a href="https://codecov.io/github/tadaadata/tadaatoolbox?branch=master"><img src="https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://doi.org/10.5281/zenodo.1494965"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1494965.svg" alt="DOI"></a> <!-- badges: end --></p>
 <p><code>tadaatoolbox</code> contains helpers for data analysis and presentation focused on undergrad psychology, the target audience being students at University of Bremen.</p>
-<p>This is/was a teaching project with the primary goal being to assist undergrad students and tutors in a course that has since changed hands and moved on.</p>
-<p>Some of the choices made in this package were motivated by didactics and demonstration, but are unfit for methodologically sound use. One example was the automated caclulcation of post-hoc power in t-tests and ANOVA, which is generally frowned upon. Also, the automated test for heteroskedasticity in <code>tadaa_t.test</code> is a source of multiplicity, leading to uncontrolled type I errors.<br>
+<p>This was a teaching project with the primary goal being to assist undergrad students and tutors in a course that has since changed hands and moved on.</p>
+<p>Some of the choices made in this package were motivated by didactics and demonstration, but are unfit for methodologically sound use. One example was the automated calculation of post-hoc power in t-tests and ANOVA, which is generally frowned upon. Also, the automated test for heteroskedasticity in <code>tadaa_t.test</code> is a source of multiplicity, leading to uncontrolled type I errors.<br>
 Both mechanisms have since been removed in the GitHub version.</p>
 <p>There are many other packages available that do a better job at cleaning/presenting statistical test output, notably in the <a href="https://github.com/easystats">easystats</a> ecosystem, so I suggest you look there rather than using this package.</p>
 <p>For ANOVA &amp; others, try the <a href="https://github.com/singmann/afex">afex package</a>.</p>
@@ -131,11 +130,11 @@ Both mechanisms have since been removed in the GitHub version.</p>
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"tadaadata/tadaatoolbox"</span>)</pre></div>
 <p>Or install the most recent stable version from CRAN:</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tadaatoolbox"</span>)</pre></div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the tadaatoolbox project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="code-of-conduct" class="section level1">
-<h1 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h1>
-<p>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
 
   </div>
@@ -158,6 +157,12 @@ Both mechanisms have since been removed in the GitHub version.</p>
 <li>
 <a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="developers">
