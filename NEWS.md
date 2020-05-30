@@ -1,5 +1,6 @@
-# tadaatoolbox (development version)
+# tadaatoolbox 0.17.0
 
+- Ensure compatibility with broom 0.7.0 (#32)
 - Remove `tadaa_pairwise_gh`.
 - Update infrastructure using `usethis::use_tidy_ci()`, bumps R dependency to `>= 3.2`.
 - Add `z.test()` to fill the niche in `stats`. Useful to verify hand-made calculations done in educational contexts, as I assume nobody else will ever need a z-test function.

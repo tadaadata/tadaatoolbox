@@ -204,10 +204,9 @@ tadaa_mean_ci <- function(data, response, group, brewer_palette = "Set1") {
 #' tests <- tadaa_pairwise_tukey(data = ngo, deutsch, jahrgang, geschl, print = "df")
 #' tadaa_plot_tukey(tests)
 tadaa_plot_tukey <- function(data, brewer_palette = "Set1") {
-
   data$signif <- ifelse(data$conf.high > 0 & data$conf.low < 0, "no", "yes")
 
-  if (hasName(data, "comparison")) {
+  if (utils::hasName(data, "comparison")) {
     data$contrast <- tukey$comparison
     data$comparison <- NULL
   }

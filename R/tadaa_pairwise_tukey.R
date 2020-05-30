@@ -32,7 +32,8 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
   model <- stats::aov(formula, data = data)
   tukey <- stats::TukeyHSD(model, ...)
   tukey <- broom::tidy(tukey)
-  if (hasName(tukey, "comparison")) {
+
+  if (utils::hasName(tukey, "comparison")) {
     tukey$contrast <- tukey$comparison
     tukey$comparison <- NULL
   }
@@ -62,3 +63,5 @@ tadaa_pairwise_tukey <- function(data, response, group1, group2 = NULL, print = 
 
   pixiedust::sprinkle_print_method(output, print_method = print)
 }
+
+globalVariables("tukey") # but why though

@@ -21,3 +21,4 @@ dev/*
 ^\.covrignore$
 ^\.github$
 ^\.vscode$
+^CODE_OF_CONDUCT\.md$

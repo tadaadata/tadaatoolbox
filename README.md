@@ -19,13 +19,13 @@ status](https://codecov.io/gh/tadaadata/tadaatoolbox/branch/master/graph/badge.s
 focused on undergrad psychology, the target audience being students at
 University of Bremen.
 
-This is/was a teaching project with the primary goal being to assist
+This was a teaching project with the primary goal being to assist
 undergrad students and tutors in a course that has since changed hands
 and moved on.
 
 Some of the choices made in this package were motivated by didactics and
 demonstration, but are unfit for methodologically sound use. One example
-was the automated caclulcation of post-hoc power in t-tests and ANOVA,
+was the automated calculation of post-hoc power in t-tests and ANOVA,
 which is generally frowned upon. Also, the automated test for
 heteroskedasticity in `tadaa_t.test` is a source of multiplicity,
 leading to uncontrolled type I errors.  
@@ -57,8 +57,8 @@ Or install the most recent stable version from CRAN:
 install.packages("tadaatoolbox")
 ```
 
-# Code of Conduct
+## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of
-Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+Please note that the tadaatoolbox project is released with a
+[Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By
+contributing to this project, you agree to abide by its terms.
